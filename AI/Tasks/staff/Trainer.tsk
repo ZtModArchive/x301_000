@@ -1,0 +1,76 @@
+<BFAITaskTemplateList>
+  <BFAITaskTemplate Name="TrainerIdle" UniqueID="Trainer:TrainerIdle">
+    <BFAICreateData>
+      <Subjects>
+        <Trainer/>
+        <Qualifiers inWater_OR_onLand="true"/>
+      </Subjects>
+      <Targets>
+        <fromToken/>
+      </Targets>
+      <Objects>
+        <t_TrainerIdle/>
+      </Objects>
+    </BFAICreateData>
+    <BFAIEvalData>
+      <BFAIAttributeFloatMap work="-50"/>
+    </BFAIEvalData>
+    <BFBehExecTask>
+       <BFBehPlaySet behSet="Idle"/>
+       <BFBehSendToken>
+          <BFAITokenList>
+             <BFAIToken Name="t_GenericSlap" Payload="subject" GiveTo="target" Timeout="5" Reconsider="true"/>
+          </BFAITokenList>
+       </BFBehSendToken>
+    </BFBehExecTask>
+    <BFAICompletionData/>
+    <BFAIFailureData/>
+  </BFAITaskTemplate>
+  <BFAITaskTemplate Name="TrainAnimal" Priority="80" useFromTokenQualifiers="true" UniqueID="Trainer:TrainAnimal">
+    <BFAIValidationData>
+       <Subjects/>
+       <Targets>
+          <Qualifiers_AND inWater_OR_onLand="true" isInShow="false" f_needPointsGood="G 0" hunger="L 80" rest="L 80" health="L 40"/>
+       </Targets>
+    </BFAIValidationData>
+    <BFAICreateData>
+      <Subjects>
+        <Trainer/>
+        <Qualifiers inWater_OR_onLand="true"/>
+      </Subjects>
+      <Targets>
+        <fromToken/>
+        <Qualifiers_AND inWater_OR_onLand="true" isInShow="false" f_needPointsGood="G 0" hunger="L 80" rest="L 80" health="L 40"/>
+      </Targets>
+      <Objects>
+        <t_TrainAnimal/>
+      </Objects>
+    </BFAICreateData>
+    <BFAIEvalData>
+      <BFAIAttributeFloatMap work="-50"/>
+    </BFAIEvalData>
+    <BFBehExecTask>
+      <ZTBehFeedback>
+        <ZTFeedbackData>
+          <ZTActionInfo locID="staffactions:GoTrain" useTargetName="true"/>
+        </ZTFeedbackData>
+      </ZTBehFeedback>
+      <ZTBehStaffTrainAnimal 
+        IncrementAmt="11.0" 
+        SummonAnimalTimeout="60" 
+        AnimalDoesTrickTimeout="60" 
+        GoToPlatformPrimaryBeh="DockPlatform" 
+        PreTrainingPrimaryBeh="" 
+        SummonAnimalPrimaryBeh="" 
+        SummonAnimalLoopingBeh="Idle_Bored" 
+        TrainAnimalPrimaryBeh="TrainAnimal" 
+        AnimalDoesTrickPrimaryBeh="Point" 
+        AnimalDoesTrickLoopingBeh="Idle_Bored" 
+        RewardAnimalPrimaryBeh="GiveTreat" 
+        CleanupPrimaryBeh="Cleanup" 
+      />
+    </BFBehExecTask>
+    <BFAICompletionData/>
+    <BFAIFailureData/>
+  </BFAITaskTemplate>
+</BFAITaskTemplateList>

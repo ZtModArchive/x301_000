@@ -1,0 +1,19 @@
+<BFScenarioGroup name="antipodalrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="antipodalphoto" state="0" sticky="true" optional="true">
+			<info type="photo">
+				<neutral locid="PhotoChallengetext:PHAntipodalWildlifeShort" overview="PhotoChallengetext:PHAntipodalWildlife" />
+				<success locid="PhotoChallengetext:PHAntipodalWildlifeSuccessShort" overview="PhotoChallengetext:PHAntipodalWildlifeSuccess" />
+			</info>
+			<evaluate>
+			 	<BFScenarioScriptAction script="scenario/scripts/challenge/antipodal.lua" entry="evalantipodal" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/antipodal.lua" entry="completeantipodal" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/antipodal.lua" entry="failantipodal" />
+			</failure>	
+		</BFScenarioRule>		
+	 </children>
+</BFScenarioGroup>

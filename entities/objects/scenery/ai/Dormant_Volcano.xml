@@ -1,0 +1,110 @@
+﻿<BFTypedBinder binderType="Dormant_Volcano">
+	<types>
+		<entity>
+			<scenery>
+				<TourObject>
+					<Dormant_Volcano />
+				</TourObject>
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="erupt" rottype="use" postype="use" attachnode="Link_Smoke" />
+				<parentObj parent="mainObj" child="smoke" rottype="use" postype="use" attachnode="Link_Smoke" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\scenery\Dormant_Volcano\Dormant_Volcano_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:Dormant_Volcano" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Dormant_Volcano" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData icon3Dscale="0.12" icon3Doffset="0 0 0.5" terrainFlatten="true" dockArrowStyle="standard" dockArrowSize="0.75" minimumHeadroom="6.0" />
+		<BFAIEntityDataShared b_ReceiveUpdates="true" s_uisort="td" s_Zoopedia="zoopedia:zoopedia_dormant_volcano:entry" f_FameReq="80" />
+		<ZTTourData>
+			<OnRandomAnimation tourValue="70">
+				<ZTFeedbackData>
+					<ZTThoughtInfo locID="guestthoughts:VolcanoAnimationCool" priority="2" timeout="60" global="false" useTargetTarget="true" useTargetName="true" />
+				</ZTFeedbackData>
+			</OnRandomAnimation>
+			<tour value="9" />
+			<cool value="7" />
+		</ZTTourData>
+		<ZTTriggeredEventsComponent>
+			<DormantVolcano_sparks>
+				<nonbroadcast>
+					<event msg="BFSND_PLAY_FROM_ENTITY" data="BFString" string="Dormant_Volcano_sparks" />
+					<event msg="BFSND_PLAY_FROM_ENTITY" data="BFString" string="Dormant_Volcano_steam" />
+				</nonbroadcast>
+			</DormantVolcano_sparks>
+		</ZTTriggeredEventsComponent>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="ShadowNode_01" width="12" length="14" intensity="0.4" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent modelfile="entities/objects/scenery/Dormant_Volcano/Dormant_Volcano.nif" switch="0 15 30" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="erupt" required="0">
+			<instance>
+				<BFPhysObj drawLast="true">
+					<BFSimpleLODComponent modelfile="entities/objects/scenery/Dormant_Volcano/dormant_volcano_sparks.nif" scale="1.0" />
+					<BFForceUpdateWhenVisibleComponent />
+					<BFHasParticleComponent />
+					<BFAnimatedObjectControllerComponent autoStart="true" duration="5.8" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="smoke" required="0">
+			<instance>
+				<BFPhysObj drawLast="true">
+					<BFSimpleLODComponent modelfile="entities/objects/scenery/Dormant_Volcano/dormant_volcano_smoke.nif" scale="1.0" />
+					<BFForceUpdateWhenVisibleComponent />
+					<BFHasParticleComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<BFGPhysAnimController overrideSettings="true">
+					<stateList>
+						<erupt parent="mainObj" child="erupt" rottype="ignore" postype="use" attachnode="Link_Smoke" minPeriod="60" maxPeriod="70" eventTrigger="DormantVolcano_sparks" />
+					</stateList>
+				</BFGPhysAnimController>
+			</instance>
+		</BFBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="1750">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+		<BFBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent initialTextKey="snd &quot;Dormant_Volcano_gurgle&quot; looping" />
+				</BFPhysObj>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

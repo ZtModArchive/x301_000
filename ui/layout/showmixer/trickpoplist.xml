@@ -1,0 +1,35 @@
+<UILayout name="Horizontal Layout">
+   <UIRegion x="300" y="0" w="220" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect locid="">
+      <default image="" sound="">
+         <BFRect x="0" y="0" w="512" h="512"/>
+         <BFColor r="255" g="255" b="255" a="255"/>
+      </default>
+      <normal/>
+   </UIAspect>
+   <children>
+      <UILayout name="secondary background" template="blankna">
+         <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState visible="hidden"/>
+         <UIAspect>
+            <default image="">
+               <BFRect x="0" y="0" w="-1" h="-1"/>
+            </default>
+         </UIAspect>
+         <UIShowHideAnim time=".2f">
+            <start x="50" y="0" w="0" h="72"/>
+            <end x="50" y="0" w="172" h="72"/>
+         </UIShowHideAnim>
+      </UILayout>
+      <UIListBox name="horizontal listbox" template="panel_thin" rows="1" columns="-1" xspacer="5">
+         <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState visible="hidden"/>
+         <UIShowHideAnim time=".2f">
+            <start x="55" y="5" w="0" h="60"/>
+            <end x="55" y="5" w="160" h="60"/>
+         </UIShowHideAnim>
+         <children/>
+      </UIListBox>
+   </children>
+</UILayout>

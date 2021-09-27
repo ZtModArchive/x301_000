@@ -1,0 +1,73 @@
+<BFTypedBinder binderType="CrocodileNile_Egg">
+   <types>
+      <entity>
+         <egg>
+            <CrocodileNile_Egg/>
+         </egg>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.3" icon3Dscale="5.0"/>
+      <UIToggleButton template="adopt">
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:CrocodileNile_Egg"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="CrocodileNile_Egg"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Species="CrocodileNile" s_Zoopedia="zoopedia:zoopedia_croc:entry" s_Endangerment="LowRisk"/>
+      <BFGBiomeData location="wetland_africa" locationSensitivity="10">
+         <alpine sensitivity="-5"/>
+         <borealforest sensitivity="0"/>
+         <desert sensitivity="0"/>
+         <grassland sensitivity="0"/>
+         <temperateforest sensitivity="2"/>
+         <tropicalrainforest sensitivity="-5"/>
+         <tundra sensitivity="-10"/>
+         <savannah sensitivity="2"/>
+         <scrub sensitivity="2"/>
+         <wetlands sensitivity="10" primary="true"/>
+      </BFGBiomeData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFCollisionComponent grid="Bip01"/>
+               <BFActorComponent actorfile="entities/objects/eggs/CrocodileNile_Egg/CrocodileNile_Egg.bfm" activeSequenceName="Stand_Idle" activeSequenceAccumulate="false" scale="1.0"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFGridCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+	<BFBinder required="1">
+		<instance>
+			<BFAICognitiveMgr>
+				<Sensors>
+					<ZTAISensor />
+					<BFAISensorSelf />
+				</Sensors>
+				<StateThinkers>
+					<ZTAIStateThinker>
+						<BFAIStateVar Name="incubation" Value="" ValueMin=".0075" ValueMax="" CessationThreshold="0" DisplayThreshold="0" PressingThreshold="3.48" TriggerThreshold="3.48" CriticalThreshold="3.48" Advanced="true" />
+					</ZTAIStateThinker>
+				</StateThinkers>
+				<TaskThinkers>
+					<ZTAITaskThinker />
+				</TaskThinkers>
+			</BFAICognitiveMgr>
+		</instance>
+		<shared>
+			<BFAICogShared>
+				<BFAINoPerceive>
+					<fence />
+					<path />
+					<entrance />
+				</BFAINoPerceive>
+			</BFAICogShared>
+		</shared>
+	</BFBinder>
+   </binder>
+</BFTypedBinder>

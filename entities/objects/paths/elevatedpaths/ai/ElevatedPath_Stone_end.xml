@@ -1,0 +1,44 @@
+<BFTypedBinder binderType="ElevatedPath_Stone_end">
+   <types>
+      <entity>
+         <path>
+            <elevatedpath>
+               <ElevatedPath_Stone_end/>
+            </elevatedpath>
+         </path>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared s_mainObjName="main_physobj" s_supportType="PathSupport_Stone_end" s_curveSupportType="PathSupport_Stone_curved_end" s_Zoopedia="zoopedia:zoopedia_elevatedpath:entry" f_FameReq="60"/>
+   		<ZTTourData>
+  				<cool value="6"/>
+		</ZTTourData>      
+      <UIToggleButton template="elevatedpathplacement">
+         <UIAspect>
+            <default image="entities\objects\paths\elevatedpaths\ElevatedPath_Stone_end\ElevatedPath_Stone_end_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:ElevatedPath_Stone"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ElevatedPath_Stone_end"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData/>
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTPathElevated curb="Curb_Stone_end" textureName="shared\ElevatedPath_Stone_end_path.dds" oriented="false" mosaic="true"/>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="5" mergeKey="name">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

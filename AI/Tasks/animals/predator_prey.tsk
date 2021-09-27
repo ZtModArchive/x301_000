@@ -1,0 +1,1825 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="ChasePrey_XLarge" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:ChasePrey_XLarge">
+         <BFAIValidationData>
+            <Subjects/>
+            <Targets>
+               <Qualifiers isSwimming="false"/>
+            </Targets>
+         </BFAIValidationData>
+         <BFAICreateData>
+            <Subjects>
+               <b_XLargePredator/>
+               <Qualifiers hunger="GE 70"/>
+            </Subjects>
+            <Targets>
+               <b_XLargePrey/>
+               <b_LargePrey/>
+               <b_MediumPrey/>
+               <b_SmallPrey/>
+               <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+            </Targets>
+            <Objects/>
+         </BFAICreateData>
+         <BFAIEvalData>
+            <BFAIAttributeFloatMap hunger="-40"/>
+         </BFAIEvalData>
+         <BFBehExecTask>
+            <BFBehFaceTarget/>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+            <ZTBehViewEvent viewKey="Pos_3">
+               <ZTFeedbackData>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehViewEvent>
+            <BFBehPlaySet behSet="ChasePrey"/>
+         </BFBehExecTask>
+         <BFAICompletionData>
+            <BFBehExecTask>
+               <BFBehSendToken>
+    	        <BFAITokenList>
+     	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+     	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+    	        </BFAITokenList>
+               </BFBehSendToken>
+            </BFBehExecTask>
+         </BFAICompletionData>
+         <BFAIFailureData>
+            <BFAIAttributeFloatMap/>
+            <BFBehExecTask>
+               <BFBehPlaySet behSet="FailureSet"/>
+            </BFBehExecTask>
+         </BFAIFailureData>
+   </BFAITaskTemplate>  
+   <BFAITaskTemplate Name="ChasePrey_Large" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:ChasePrey_Large">
+      <BFAIValidationData>
+         <Subjects/>
+         <Targets>
+            <Qualifiers isSwimming="false"/>
+         </Targets>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_LargePredator/>
+            <Qualifiers hunger="GE 70"/>
+         </Subjects>
+         <Targets>
+            <b_LargePrey/>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehSendToken>
+ 	        <BFAITokenList>
+  	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+  	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+ 	        </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="ChasePrey_Medium" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:ChasePrey_Medium">
+      <BFAIValidationData>
+         <Subjects/>
+         <Targets>
+            <Qualifiers isSwimming="false"/>
+         </Targets>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_MediumPredator/>
+            <Qualifiers hunger="GE 70"/>
+         </Subjects>
+         <Targets>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehSendToken>
+ 	        <BFAITokenList>
+  	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+  	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+ 	        </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="ChasePrey_Small" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:ChasePrey_Small">
+      <BFAIValidationData>
+         <Subjects/>
+         <Targets>
+            <Qualifiers isSwimming="false"/>
+         </Targets>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_SmallPredator/>
+            <Qualifiers hunger="GE 70"/>
+         </Subjects>
+         <Targets>
+            <b_SmallPrey/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehSendToken>
+ 	        <BFAITokenList>
+  	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+  	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+ 	        </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="ChasePredator_XLarge" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:ChasePredator_XLarge">
+         <BFAIValidationData>
+            <Subjects/>
+            <Targets>
+               <Qualifiers isSwimming="false"/>
+            </Targets>
+         </BFAIValidationData>
+         <BFAICreateData>
+            <Subjects>
+               <b_XLargePredator/>
+               <Qualifiers hunger="GE 70"/>
+            </Subjects>
+            <Targets>
+               <b_LargePredator/>
+               <b_MediumPredator/>
+               <b_SmallPredator/>
+               <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+            </Targets>
+            <Objects/>
+         </BFAICreateData>
+         <BFAIEvalData>
+            <BFAIAttributeFloatMap hunger="-35"/>
+         </BFAIEvalData>
+         <BFBehExecTask>
+            <BFBehFaceTarget/>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+            <ZTBehViewEvent viewKey="Pos_3">
+               <ZTFeedbackData>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehViewEvent>
+            <BFBehPlaySet behSet="ChasePrey"/>
+         </BFBehExecTask>
+         <BFAICompletionData>
+            <BFBehExecTask>
+               <BFBehSendToken>
+    	        <BFAITokenList>
+     	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+     	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+    	        </BFAITokenList>
+               </BFBehSendToken>
+            </BFBehExecTask>
+         </BFAICompletionData>
+         <BFAIFailureData>
+            <BFAIAttributeFloatMap/>
+            <BFBehExecTask>
+               <BFBehPlaySet behSet="FailureSet"/>
+            </BFBehExecTask>
+         </BFAIFailureData>
+   </BFAITaskTemplate>  
+   <BFAITaskTemplate Name="ChasePredator_Large" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:ChasePredator_Large">
+      <BFAIValidationData>
+         <Subjects/>
+         <Targets>
+            <Qualifiers isSwimming="false"/>
+         </Targets>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_LargePredator/>
+            <Qualifiers hunger="GE 70"/>
+         </Subjects>
+         <Targets>
+            <b_MediumPredator/>
+            <b_SmallPredator/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-35"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehSendToken>
+ 	        <BFAITokenList>
+  	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+  	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+ 	        </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="ChasePredator_Medium" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:ChasePredator_Medium">
+      <BFAIValidationData>
+         <Subjects/>
+         <Targets>
+            <Qualifiers isSwimming="false"/>
+         </Targets>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_MediumPredator/>
+            <Qualifiers hunger="GE 70"/>
+         </Subjects>
+         <Targets>
+            <b_SmallPredator/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-35"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehSendToken>
+ 	        <BFAITokenList>
+  	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+  	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+ 	        </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="AttackPrey" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:AttackPrey">
+      <BFAICreateData>
+         <Subjects>
+            <b_XLargePredator/>
+            <b_LargePredator/>
+	    <b_MediumPredator/>
+	    <b_SmallPredator/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+            <t_HuntPrey/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ChasingAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="3" pursuitRadius="15" locoSpeed="evade"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTActionInfo locID="animalactions:AttackingAnimal" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+            <BFBehHeadLook/>
+            <BFBehSyncSet subjectBehSet="WaitAttack" targetBehSet="DockAttacked"/>
+            <BFBehHeadLook disengage="true"/>
+            <ZTBehViewEvent viewKey="Neg_10">
+               <ZTFeedbackData>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalAttackingBad" priority="-1" timeout="60" global="false" useTargetTarget="true" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehViewEvent>
+            <BFBehSyncSet subjectBehSet="AttackPrey" targetBehSet="Attacked"/>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTMessageInfo locID="zoomessages:AnimalAttacked" priority="-1" timeout="60" global="true" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StalkMissPrey_XLarge" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:StalkMissPrey_XLarge">
+      <BFAIValidationData>
+         <Subjects/>
+         <Targets>
+            <Qualifiers isSwimming="false"/>
+         </Targets>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_XLargePredator/>
+         </Subjects>
+         <Targets>
+            <b_XLargePrey/>
+            <b_LargePrey/>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <b_LargePredator/>
+            <b_MediumPredator/>
+            <b_SmallPredator/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap social="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:StalkingAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAITokenList>
+            <BFAIToken Name="t_MissPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+            <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+         </BFAITokenList>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StalkMissPrey_Large" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:StalkMissPrey_Large">
+      <BFAIValidationData>
+         <Subjects/>
+         <Targets>
+            <Qualifiers isSwimming="false" sameSpecies="false"/>
+         </Targets>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_LargePredator/>
+         </Subjects>
+         <Targets>
+            <b_LargePrey/>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <b_MediumPredator/>
+            <b_SmallPredator/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap social="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:StalkingAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAITokenList>
+            <BFAIToken Name="t_MissPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+            <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+         </BFAITokenList>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StalkMissPrey_Medium" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:StalkMissPrey_Medium">
+      <BFAIValidationData>
+         <Subjects/>
+         <Targets>
+            <Qualifiers isSwimming="false" sameSpecies="false"/>
+         </Targets>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_MediumPredator/>
+         </Subjects>
+         <Targets>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <b_SmallPredator/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap social="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:StalkingAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAITokenList>
+            <BFAIToken Name="t_MissPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+            <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+         </BFAITokenList>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StalkMissPrey_Small" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:StalkMissPrey_Small">
+      <BFAIValidationData>
+         <Subjects/>
+         <Targets>
+            <Qualifiers isSwimming="false" sameSpecies="false"/>
+         </Targets>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_SmallPredator/>
+         </Subjects>
+         <Targets>
+            <b_SmallPrey/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap social="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:StalkingAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAITokenList>
+            <BFAIToken Name="t_MissPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+            <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+         </BFAITokenList>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StalkMissPreyAngry" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:StalkMissPreyAngry">
+      <BFAICreateData>
+         <Subjects>
+	    <b_XLargePrey/>
+            <b_LargePrey/>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <b_LargePredator/>
+            <b_MediumPredator/>
+            <b_SmallPredator/>
+            <Qualifiers isSwimming="false"/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+            <t_MissPrey/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehViewEvent viewKey="Pos_4">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalPredatorPreyGood" priority="1" timeout="60" global="false" useTargetTarget="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="MissPrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap social="-20"/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAnimalSocialGood"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="AttackPredator_XLarge" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:AttackPredator_XLarge">
+      <BFAICreateData>
+         <Subjects>
+            <b_XLargePredator/>
+            <Qualifiers isSwimming="false"/>
+         </Subjects>
+         <Targets>
+            <b_XLargePredator/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsBad="40">
+         <BFAIAttributeFloatMap stimulation="-70"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_FightPredator" GiveTo="target" Payload="subject" Timeout="30" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ChallengeOther" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Roar"/>
+         <BFBehPursuit hitRadius="5" pursuitRadius="15" locoSpeed="evade"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="AttackPredator_Large" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:AttackPredator_Large">
+      <BFAICreateData>
+         <Subjects>
+            <b_LargePredator/>
+            <Qualifiers isSwimming="false"/>
+         </Subjects>
+         <Targets>
+            <b_LargePredator/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsBad="40">
+         <BFAIAttributeFloatMap stimulation="-70"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_FightPredator" GiveTo="target" Payload="subject" Timeout="30" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ChallengeOther" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Roar"/>
+         <BFBehPursuit hitRadius="5" pursuitRadius="15" locoSpeed="evade"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="AttackPredator_Medium" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:AttackPredator_Medium">
+      <BFAICreateData>
+         <Subjects>
+            <b_MediumPredator/>
+            <Qualifiers isSwimming="false"/>
+         </Subjects>
+         <Targets>
+            <b_MediumPredator/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsBad="40">
+         <BFAIAttributeFloatMap stimulation="-70"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_FightPredator" GiveTo="target" Payload="subject" Timeout="30" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ChallengeOther" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Roar"/>
+         <BFBehPursuit hitRadius="5" pursuitRadius="15" locoSpeed="evade"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+      <BFAITaskTemplate Name="AttackPredator_Small" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:AttackPredator_Small">
+      <BFAICreateData>
+         <Subjects>
+            <b_SmallPredator/>
+            <Qualifiers isSwimming="false"/>
+         </Subjects>
+         <Targets>
+            <b_SmallPredator/>
+            <Qualifiers_AND inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsBad="40">
+         <BFAIAttributeFloatMap stimulation="-70"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_FightPredator" GiveTo="target" Payload="subject" Timeout="30" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ChallengeOther" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Roar"/>
+         <BFBehPursuit hitRadius="5" pursuitRadius="15" locoSpeed="evade"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="RespondFightPredator" reserveTag="General" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:RespondFightPredator">
+      <BFAICreateData>
+         <Subjects>
+	    <b_XLargePrey/>
+            <b_LargePrey/>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <b_LargePredator/>
+            <b_MediumPredator/>
+            <b_SmallPredator/>
+            <Qualifiers isSwimming="false"/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+            <Qualifiers sameSpecies="false"/>
+         </Targets>
+         <Objects>
+            <t_FightPredator/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:RoarAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Roar"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehHeadLook/>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTActionInfo locID="animalactions:GoingToFight" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+            <BFBehSyncSet subjectBehSet="WaitFight" targetBehSet="DockFight"/>
+            <BFBehHeadLook disengage="true"/>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTActionInfo locID="animalactions:Fighting" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+            <ZTBehViewEvent viewKey="Neg_6">
+               <ZTFeedbackData>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalFightBad" priority="-1" timeout="60" global="false" useTargetTarget="true" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehViewEvent>
+            <BFBehSyncSet subjectBehSet="SwipeMed" targetBehSet="HitMediumEqual" resetPhase="true"/>
+            <BFBehSyncSet subjectBehSet="BitMediumEqual" targetBehSet="BiteMed" resetPhase="true"/>
+            <BFBehSyncSet subjectBehSet="SwipeMed" targetBehSet="HitMediumEqual" resetPhase="true"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="RespondAmbush" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:RespondAmbush">
+      <BFAICreateData>
+         <Subjects>
+            <animal/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+            <Qualifiers inWater_OR_onLand="true"/>
+         </Targets>
+         <Objects>
+            <t_Ambush/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="100"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Wandering"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="10" pursuitRadius="15" locoSpeed="slow"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehWander playTime="5" locoSpeed="slow" avoidWater="true">
+               <avoidEntityTypes>
+                  <b_XLargePredator/>
+                  <b_LargePredator/>
+                  <b_MediumPredator/>
+                  <b_SmallPredator/>
+               </avoidEntityTypes>
+            </BFBehWander>
+            <BFBehSendToken>
+               <BFAITokenList>
+                  <BFAIToken Name="t_HuntPrey" GiveTo="target" Payload="subject" Timeout="30" Reconsider="true"/>
+      	          <BFAIToken Name="t_Flee" GiveTo="subject" Chance="50" Payload="target" Timeout="30" Reconsider="true"/>
+               </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>   
+   <BFAITaskTemplate Name="MarineChasePrey_XLarge" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineChasePrey_XLarge">
+         <BFAICreateData>
+            <Subjects>
+               <b_XLargePredator/>
+               <Qualifiers_AND inWater="true" hunger="GE 70"/>
+            </Subjects>
+            <Targets>
+               <b_XLargePrey/>
+               <b_LargePrey/>
+               <b_MediumPrey/>
+               <b_SmallPrey/>
+               <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+            </Targets>
+            <Objects/>
+         </BFAICreateData>
+         <BFAIEvalData>
+            <BFAIAttributeFloatMap hunger="-40"/>
+         </BFAIEvalData>
+         <BFBehExecTask>
+            <BFBehFaceTarget/>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+            <ZTBehViewEvent viewKey="Pos_3">
+               <ZTFeedbackData>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehViewEvent>
+            <BFBehPlaySet behSet="ChasePrey"/>
+         </BFBehExecTask>
+         <BFAICompletionData>
+            <BFBehExecTask>
+               <BFBehSendToken>
+    	        <BFAITokenList>
+     	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+     	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+    	        </BFAITokenList>
+               </BFBehSendToken>
+            </BFBehExecTask>
+         </BFAICompletionData>
+         <BFAIFailureData>
+            <BFAIAttributeFloatMap/>
+            <BFBehExecTask>
+               <BFBehPlaySet behSet="FailureSet"/>
+            </BFBehExecTask>
+         </BFAIFailureData>
+   </BFAITaskTemplate>  
+   <BFAITaskTemplate Name="MarineChasePrey_Large" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineChasePrey_Large">
+      <BFAICreateData>
+         <Subjects>
+            <b_LargePredator/>
+            <Qualifiers_AND inWater="true" hunger="GE 70"/>
+         </Subjects>
+         <Targets>
+            <b_LargePrey/>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehSendToken>
+ 	        <BFAITokenList>
+  	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+  	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+ 	        </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineChasePrey_Medium" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineChasePrey_Medium">
+      <BFAICreateData>
+         <Subjects>
+            <b_MediumPredator/>
+            <Qualifiers_AND inWater="true" hunger="GE 70"/>
+         </Subjects>
+         <Targets>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehSendToken>
+ 	        <BFAITokenList>
+  	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+  	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+ 	        </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineChasePrey_Small" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineChasePrey_Small">
+      <BFAICreateData>
+         <Subjects>
+            <b_SmallPredator/>
+            <Qualifiers_AND inWater="true" hunger="GE 70"/>
+         </Subjects>
+         <Targets>
+            <b_SmallPrey/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehSendToken>
+ 	        <BFAITokenList>
+  	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+  	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+ 	        </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineChasePredator_XLarge" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineChasePredator_XLarge">
+         <BFAICreateData>
+            <Subjects>
+               <b_XLargePredator/>
+               <Qualifiers_AND inWater="true" hunger="GE 70"/>
+            </Subjects>
+            <Targets>
+               <b_LargePredator/>
+               <b_MediumPredator/>
+               <b_SmallPredator/>
+               <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+            </Targets>
+            <Objects/>
+         </BFAICreateData>
+         <BFAIEvalData>
+            <BFAIAttributeFloatMap hunger="-35"/>
+         </BFAIEvalData>
+         <BFBehExecTask>
+            <BFBehFaceTarget/>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+            <ZTBehViewEvent viewKey="Pos_3">
+               <ZTFeedbackData>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehViewEvent>
+            <BFBehPlaySet behSet="ChasePrey"/>
+         </BFBehExecTask>
+         <BFAICompletionData>
+            <BFBehExecTask>
+               <BFBehSendToken>
+    	        <BFAITokenList>
+     	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+     	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+    	        </BFAITokenList>
+               </BFBehSendToken>
+            </BFBehExecTask>
+         </BFAICompletionData>
+         <BFAIFailureData>
+            <BFAIAttributeFloatMap/>
+            <BFBehExecTask>
+               <BFBehPlaySet behSet="FailureSet"/>
+            </BFBehExecTask>
+         </BFAIFailureData>
+   </BFAITaskTemplate>  
+   <BFAITaskTemplate Name="MarineChasePredator_Large" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineChasePredator_Large">
+      <BFAICreateData>
+         <Subjects>
+            <b_LargePredator/>
+            <Qualifiers_AND inWater="true" hunger="GE 70"/>
+         </Subjects>
+         <Targets>
+            <b_MediumPredator/>
+            <b_SmallPredator/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-35"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehSendToken>
+ 	        <BFAITokenList>
+  	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+  	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+ 	        </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineChasePredator_Medium" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineChasePredator_Medium">
+      <BFAICreateData>
+         <Subjects>
+            <b_MediumPredator/>
+            <Qualifiers_AND inWater="true" hunger="GE 70"/>
+         </Subjects>
+         <Targets>
+            <b_SmallPredator/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-35"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:HuntingPrey" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehSendToken>
+ 	        <BFAITokenList>
+  	          <BFAIToken Name="t_HuntPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+  	          <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+ 	        </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineAttackPrey" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineAttackPrey">
+      <BFAICreateData>
+         <Subjects>
+            <b_XLargePredator/>
+            <b_LargePredator/>
+	    <b_MediumPredator/>
+	    <b_SmallPredator/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+            <Qualifiers inWater="true"/>
+         </Targets>
+         <Objects>
+            <t_HuntPrey/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ChasingAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="3" pursuitRadius="15" locoSpeed="evade"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTActionInfo locID="animalactions:AttackingAnimal" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+            <BFBehHeadLook/>
+            <BFBehSyncSet subjectBehSet="WaitAttack" targetBehSet="DockAttacked"/>
+            <BFBehHeadLook disengage="true"/>
+            <ZTBehViewEvent viewKey="Neg_10">
+               <ZTFeedbackData>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalAttackingBad" priority="-1" timeout="60" global="false" useTargetTarget="true" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehViewEvent>
+            <BFBehSyncSet subjectBehSet="AttackPrey" targetBehSet="Attacked"/>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTMessageInfo locID="zoomessages:AnimalAttacked" priority="-1" timeout="60" global="true" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineStalkMissPrey_XLarge" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineStalkMissPrey_XLarge">
+      <BFAICreateData>
+         <Subjects>
+            <b_XLargePredator/>
+         </Subjects>
+         <Targets>
+            <b_XLargePrey/>
+            <b_LargePrey/>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <b_LargePredator/>
+            <b_MediumPredator/>
+            <b_SmallPredator/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap social="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:StalkingAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAITokenList>
+            <BFAIToken Name="t_MissPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+            <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+         </BFAITokenList>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineStalkMissPrey_Large" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineStalkMissPrey_Large">
+      <BFAICreateData>
+         <Subjects>
+            <b_LargePredator/>
+         </Subjects>
+         <Targets>
+            <b_LargePrey/>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <b_MediumPredator/>
+            <b_SmallPredator/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap social="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:StalkingAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAITokenList>
+            <BFAIToken Name="t_MissPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+            <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+         </BFAITokenList>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineStalkMissPrey_Medium" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineStalkMissPrey_Medium">
+      <BFAICreateData>
+         <Subjects>
+            <b_MediumPredator/>
+         </Subjects>
+         <Targets>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <b_SmallPredator/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap social="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:StalkingAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAITokenList>
+            <BFAIToken Name="t_MissPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+            <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+         </BFAITokenList>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineStalkMissPrey_Small" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineStalkMissPrey_Small">
+      <BFAICreateData>
+         <Subjects>
+            <b_SmallPredator/>
+         </Subjects>
+         <Targets>
+            <b_SmallPrey/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap social="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:StalkingAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalStalkGood" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="ChasePrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAITokenList>
+            <BFAIToken Name="t_MissPrey" GiveTo="subject" Payload="target" Timeout="20"/>
+            <BFAIToken Name="t_Attack" GiveTo="target" Payload="subject" Radius="30" Timeout="15" Reconsider="true"/>
+         </BFAITokenList>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineStalkMissPreyAngry" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineStalkMissPreyAngry">
+      <BFAICreateData>
+         <Subjects>
+	    <b_XLargePrey/>
+            <b_LargePrey/>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <b_LargePredator/>
+            <b_MediumPredator/>
+            <b_SmallPredator/>
+            <Qualifiers_AND inWater="true" isSwimming="true"/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+            <Qualifiers inWater="true"/>
+         </Targets>
+         <Objects>
+            <t_MissPrey/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehViewEvent viewKey="Pos_4">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalPredatorPreyGood" priority="1" timeout="60" global="false" useTargetTarget="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="MissPrey"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap social="-20"/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAnimalSocialGood"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineAttackPredator_XLarge" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineAttackPredator_XLarge">
+      <BFAICreateData>
+         <Subjects>
+            <b_XLargePredator/>
+            <Qualifiers_AND inWater="true" isSwimming="true"/>
+         </Subjects>
+         <Targets>
+            <b_XLargePredator/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsBad="40">
+         <BFAIAttributeFloatMap stimulation="-70"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_FightPredator" GiveTo="target" Payload="subject" Timeout="30" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ChallengeOther" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Roar"/>
+         <BFBehPursuit hitRadius="5" pursuitRadius="15" locoSpeed="evade"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineAttackPredator_Large" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineAttackPredator_Large">
+      <BFAICreateData>
+         <Subjects>
+            <b_LargePredator/>
+            <Qualifiers_AND inWater="true" isSwimming="true"/>
+         </Subjects>
+         <Targets>
+            <b_LargePredator/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsBad="40">
+         <BFAIAttributeFloatMap stimulation="-70"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_FightPredator" GiveTo="target" Payload="subject" Timeout="30" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ChallengeOther" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Roar"/>
+         <BFBehPursuit hitRadius="5" pursuitRadius="15" locoSpeed="evade"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineAttackPredator_Medium" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineAttackPredator_Medium">
+      <BFAICreateData>
+         <Subjects>
+            <b_MediumPredator/>
+            <Qualifiers_AND inWater="true" isSwimming="true"/>
+         </Subjects>
+         <Targets>
+            <b_MediumPredator/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsBad="40">
+         <BFAIAttributeFloatMap stimulation="-70"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_FightPredator" GiveTo="target" Payload="subject" Timeout="30" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ChallengeOther" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Roar"/>
+         <BFBehPursuit hitRadius="5" pursuitRadius="15" locoSpeed="evade"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+      <BFAITaskTemplate Name="MarineAttackPredator_Small" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineAttackPredator_Small">
+      <BFAICreateData>
+         <Subjects>
+            <b_SmallPredator/>
+            <Qualifiers_AND inWater="true" isSwimming="true"/>
+         </Subjects>
+         <Targets>
+            <b_SmallPredator/>
+            <Qualifiers_AND inWater="true" inSight="25" inHabitat="true" sameSpecies="false"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsBad="40">
+         <BFAIAttributeFloatMap stimulation="-70"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_FightPredator" GiveTo="target" Payload="subject" Timeout="30" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ChallengeOther" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Roar"/>
+         <BFBehPursuit hitRadius="5" pursuitRadius="15" locoSpeed="evade"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="MarineRespondFightPredator" reserveTag="General" TaskDelayMin="30" TaskDelayMax="60" UniqueID="predator_prey:MarineRespondFightPredator">
+      <BFAICreateData>
+         <Subjects>
+	    <b_XLargePrey/>
+            <b_LargePrey/>
+            <b_MediumPrey/>
+            <b_SmallPrey/>
+            <b_LargePredator/>
+            <b_MediumPredator/>
+            <b_SmallPredator/>
+            <Qualifiers_AND inWater="true" isSwimming="true"/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+            <Qualifiers_AND inWater="true" sameSpecies="false"/>
+         </Targets>
+         <Objects>
+            <t_FightPredator/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ChallengeOther" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Roar"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTActionInfo locID="animalactions:GoingToFight" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+            <BFBehSyncSet subjectBehSet="WaitFight" targetBehSet="DockFight"/>
+            <BFBehHeadLook disengage="true"/>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTActionInfo locID="animalactions:Fighting" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+            <ZTBehViewEvent viewKey="Neg_6">
+               <ZTFeedbackData>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalFightBad" priority="-1" timeout="60" global="false" useTargetTarget="true" useTargetName="true"/>
+               </ZTFeedbackData>
+            </ZTBehViewEvent>
+            <BFBehSyncSet subjectBehSet="SwipeMed" targetBehSet="HitMediumEqual" resetPhase="true"/>
+            <BFBehSyncSet subjectBehSet="BitMediumEqual" targetBehSet="BiteMed" resetPhase="true"/>
+            <BFBehSyncSet subjectBehSet="SwipeMed" targetBehSet="HitMediumEqual" resetPhase="true"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFAIAttributeFloatMap/>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

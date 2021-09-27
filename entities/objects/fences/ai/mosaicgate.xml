@@ -1,0 +1,67 @@
+<BFTypedBinder binderType="mosaicgate">
+   <types>
+      <entity>
+         <fence>
+            <gate>
+               <mosaicgate/>
+            </gate>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="fence">
+         <UIAspect>
+            <default image="entities\objects\fences\staffgate_df\staffgate_icon.dds"/>
+         </UIAspect>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Product="EndangeredSpecies" s_Theme="endangered" s_ProfileLock="endangeredlock" s_uisort="tb" f_FenceStrength="8" s_Broken="mosaic_broken"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="start_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\mosaic_end\mosaic_end_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fence90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\mosaicgate_end\mosaicgate_end_vert"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fence45">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\mosaicgate_end\mosaicgate_end_diag"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="end_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\mosaic_end\mosaic_end_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="gate_animation">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities\objects\fences\mosaicgate_end\mosaicgate_end_anim.bfm" updateWhenNotVisible="true"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="160">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

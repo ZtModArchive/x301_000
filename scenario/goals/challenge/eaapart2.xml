@@ -1,0 +1,19 @@
+<BFScenarioGroup name="eaapart2rules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="eaapart2photo" state="0" sticky="true" optional="true">
+			<info type="photo">
+				<neutral locid="PhotoChallengetext:PHEAAPart2Short" overview="PhotoChallengetext:PHEAAPart2" />
+				<success locid="PhotoChallengetext:PHEAAPart2SuccessShort" overview="PhotoChallengetext:PHEAAPart2Success" />
+			</info>
+			<evaluate>
+			 	<BFScenarioScriptAction script="scenario/scripts/challenge/eaapart2.lua" entry="evaleaapart2" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/eaapart2.lua" entry="completeeaapart2" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/eaapart2.lua" entry="faileaapart2" />
+			</failure>	
+		</BFScenarioRule>		
+	 </children>
+</BFScenarioGroup>

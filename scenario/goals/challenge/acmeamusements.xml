@@ -1,0 +1,20 @@
+<BFScenarioGroup name="acmeamusementsrules" state="0" chain="true" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="acmeamusements" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHAcmeAmusementsShort" overview="Challengetext:CHAcmeAmusements" />
+				<success locid="Challengetext:CHAcmeAmusementsSuccessShort" overview="Challengetext:CHAcmeAmusementsSuccess" />
+				<failure locid="Challengetext:CHAcmeAmusementsFailureShort" overview="Challengetext:CHAcmeAmusementsFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/acmeamusements.lua" entry="evalacmeamusements" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/acmeamusements.lua" entry="completeacmeamusements" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/acmeamusements.lua" entry="failacmeamusements" />
+			</failure>			
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

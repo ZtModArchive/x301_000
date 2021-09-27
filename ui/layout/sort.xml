@@ -1,0 +1,1007 @@
+<UILayout name="Sort Layout">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect string="">
+      <default image="" sound="">
+         <BFRect x="0" y="0" w="0" h="0"/>
+         <BFColor r="0" g="0" b="0" a="0"/>
+      </default>
+   </UIAspect>
+   <children>
+      <UILayout name="Sort Panel">
+         <UIRegion x="673" y="220" w="351" h="306" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect string="">
+            <default image="" sound="">
+               <BFRect x="0" y="0" w="0" h="0"/>
+               <BFColor r="0" g="0" b="0" a="0"/>
+            </default>
+         </UIAspect>
+         <children>
+            <UILayout name="keeperbody  no hand">
+               <UIRegion x="0" y="0" w="125" h="185" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui\fx\decor\staff_keeper.dds">
+                     <BFRect x="0" y="0" w="172" h="256"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="panel " template="blank">
+               <UIRegion x="60" y="5" w="291" h="301" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect/>
+            </UILayout>
+            <UIDrag bounded="true">
+               <UIRegion x="60" y="0" w="291" h="306"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFRect x="0" y="0" w="1" h="1"/>
+                     <BFColor r="255" g="225" b="255" a="0"/>
+                  </default>
+                  <standard>
+                     <activated>
+                        <BFColor r="134" g="201" b="139" a="64"/>
+                     </activated>
+                  </standard>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_POS"/>
+               </drag>
+            </UIDrag>
+            <UILayout name="panel " template="panelwell">
+               <UIRegion x="68" y="137" w="275" h="150" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect/>
+            </UILayout>
+            <UILayout name="icon preview well" template="3d_displayfield">
+               <UIRegion x="72" y="39" w="90" h="72" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect/>
+            </UILayout>
+            <UILayout name="panel header" template="header">
+               <UIRegion x="60" y="5" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect/>
+            </UILayout>
+            <UIDrag name="drag" bounded="true" cursor="movebox.cur">
+               <UIRegion x="62" y="7" w="-32" h="27" walign="max"/>
+               <UIAspect string="" alwayshit="true">
+                  <default sound="" image="ui/shared/white1x1.dds">
+                     <BFRect x="0" y="0" w="1" h="1"/>
+                     <BFColor r="255" g="225" b="255" a="0"/>
+                  </default>
+                  <standard>
+                     <highlighted>
+                        <BFColor r="134" g="201" b="139" a="128"/>
+                     </highlighted>
+                     <activated>
+                        <BFColor r="134" g="201" b="139" a="128"/>
+                     </activated>
+                  </standard>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_POS"/>
+               </drag>
+               <doubleclick>
+                  <event msg="UI_SET_POS" data="BFPoint" x="673" y="220"/>
+               </doubleclick>
+            </UIDrag>
+            <UIText name="Sort Name Label">
+               <UIRegion x="87" y="12" w="270" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect locid="sort:entity_name_format" alwayshit="never">
+                  <default image="" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFFont>
+                        <BFColor r="255" g="255" b="255" a="255"/>
+                     </BFFont>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal/>
+                  </standard>
+               </UIAspect>
+               <text format="sort:entity_name_format"/>
+            </UIText>
+            <UILayout name="move icon">
+               <UIRegion x="62" y="8" w="25" h="27" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui\shared\moveable.dds">
+                     <BFRect x="0" y="0" w="31" h="32"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="2nd panel header" template="header">
+               <UIRegion x="67" y="115" w="277" h="23" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default image="ui/maingame/mainback_info_keeprec.dds" sound="">
+                     <BFRect x="0" y="212" w="291" h="301"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UIButton name="close">
+               <UIRegion x="310" y="-2" w="48" h="46" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="entityinfo:close_button"/>
+               <UIAspect string="">
+                  <default image="ui\shared\button_close.dds" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="0" w="64" h="64"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="64" w="64" h="64"/>
+                     </highlighted>
+                     <activated sound="">
+                        <BFRect x="64" y="0" w="64" h="64"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="64" y="64" w="64" h="64"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <UIHotKeys/>
+               <activate>
+                  <event msg="UI_CHILD" data="UIChildData" name="sort button">
+                     <child msg="UI_ACTIVATE_OFF"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="in game sort button">
+                     <child msg="UI_ACTIVATE_OFF"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="crate in game sort button">
+                     <child msg="UI_ACTIVATE_OFF"/>
+                  </event>
+                  <event msg="UI_CLOSE"/>
+               </activate>
+            </UIButton>
+            <UIButton name="Sort Image Display">
+               <UIRegion x="83" y="40" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="region">
+                  <standard>
+                     <normal>
+                        <BFRect x="3" y="5" w="57" h="48"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="3" y="69" w="57" h="48"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="67" y="5" w="57" h="48"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="67" y="69" w="57" h="48"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="67" y="5" w="57" h="48"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="67" y="5" w="57" h="48"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="67" y="5" w="57" h="48"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="67" y="69" w="57" h="48"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <activate>
+                  <event msg="UI_CHILD" data="UIChildData" name="Food Typelist Rec">
+                     <child msg="ZT_FIND_ANIMAL_ON_PANEL"/>
+                  </event>
+               </activate>
+            </UIButton>
+            <UIButton name="Dummy Sort Image Display">
+               <UIRegion x="83" y="40" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect alwayshit="region">
+                  <standard>
+                     <normal>
+                        <BFRect x="3" y="5" w="57" h="48"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="3" y="69" w="57" h="48"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="67" y="5" w="57" h="48"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="67" y="69" w="57" h="48"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="67" y="5" w="57" h="48"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="67" y="5" w="57" h="48"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="67" y="5" w="57" h="48"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="67" y="69" w="57" h="48"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <activate>
+                  <event msg="UI_CHILD" data="UIChildData" name="animals">
+                     <child msg="UI_ACTIVATE_ON"/>
+                  </event>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_placement"/>
+                  <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="RayManta_Adult_F"/>
+                  <event msg="ZT_SETSINGLEOBJECTPLACEMENT"/>
+               </activate>
+            </UIButton>
+            <UILayout name="Buy Area Filter Container">
+               <UIRegion x="60" y="5" w="291" h="283" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <children>
+                  <UILayout name="Buy Area filter">
+                     <UIRegion x="0" y="0" w="291" h="283" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect string="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="0" h="0"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                     </UIAspect>
+                     <children>
+                        <UILayout name="Animal Tabs">
+                           <UIRegion x="0" y="0" w="291" h="283" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <children>
+                              <UIToggleSet name="Animal ToggleSet">
+                                 <UIRegion x="20" y="35" w="291" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <children>
+                                    <UIToggleButton name="Fence Tab" toggle="1" sticky="1">
+                                       <UIRegion x="78" y="-8" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIHelpInfo name="" short="shell:construction_fence_tab_stt" long="shell:construction_fence_tab_ltt" help=""/>
+                                       <UIAspect string="">
+                                          <default image="ui/infopan/button_keeper_fence.dds" sound="">
+                                             <BFRect x="0" y="0" w="-1" h="-1"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                          <standard>
+                                             <normal>
+                                                <BFRect x="0" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="0" y="64" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated sound="uitab">
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </standard>
+                                          <alternate>
+                                             <normal>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </alternate>
+                                       </UIAspect>
+                                       <on>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Fence Panel Rec">
+                                             <child msg="UI_SHOW"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Fence Typelist Rec">
+                                             <child msg="UI_ACTIVATE_ON"/>
+                                          </event>
+                                       </on>
+                                       <off>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Fence Panel Rec">
+                                             <child msg="UI_HIDE"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Fence Typelist Rec">
+                                             <child msg="UI_ACTIVATE_OFF"/>
+                                          </event>
+                                       </off>
+                                    </UIToggleButton>
+                                    <UIToggleButton name="Animal Food Tab Rec" toggle="0" sticky="1">
+                                       <UIRegion x="110" y="-8" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIHelpInfo name="" short="shell:animal_food_tab_stt" long="shell:animal_food_tab_ltt" help=""/>
+                                       <UIAspect string="">
+                                          <default image="ui/infopan/button_keeper_food.dds" sound="">
+                                             <BFRect x="0" y="0" w="-1" h="-1"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                          <standard>
+                                             <normal>
+                                                <BFRect x="0" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="0" y="64" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated sound="uitab">
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </standard>
+                                          <alternate>
+                                             <normal>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </alternate>
+                                       </UIAspect>
+                                       <UIHotKeys/>
+                                       <on>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Animal Food Panel Rec">
+                                             <child msg="UI_SHOW"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Food Typelist Rec">
+                                             <child msg="UI_ACTIVATE_ON"/>
+                                          </event>
+                                       </on>
+                                       <off>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Animal Food Panel Rec">
+                                             <child msg="UI_HIDE"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Food Typelist Rec">
+                                             <child msg="UI_ACTIVATE_OFF"/>
+                                          </event>
+                                       </off>
+                                    </UIToggleButton>
+                                    <UIToggleButton name="Animal Enrichment Tab Rec" toggle="0" sticky="1">
+                                       <UIRegion x="142" y="-8" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIHelpInfo name="" short="shell:animal_enrichment_tab_stt" long="shell:animal_enrichment_tab_ltt" help=""/>
+                                       <UIAspect string="">
+                                          <default image="ui/infopan/button_keeper_enrich.dds" sound="">
+                                             <BFRect x="0" y="0" w="-1" h="-1"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                          <standard>
+                                             <normal>
+                                                <BFRect x="0" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="0" y="64" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated sound="uitab">
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </standard>
+                                          <alternate>
+                                             <normal>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </alternate>
+                                       </UIAspect>
+                                       <UIHotKeys/>
+                                       <on>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Animal Enrichment Panel Rec">
+                                             <child msg="UI_SHOW"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Enrichment Typelist Rec">
+                                             <child msg="UI_ACTIVATE_ON"/>
+                                          </event>
+                                       </on>
+                                       <off>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Animal Enrichment Panel Rec">
+                                             <child msg="UI_HIDE"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Enrichment Typelist Rec">
+                                             <child msg="UI_ACTIVATE_OFF"/>
+                                          </event>
+                                       </off>
+                                    </UIToggleButton>
+                                    <UIToggleButton name="Animal Shelter Tab Rec" toggle="0" sticky="1">
+                                       <UIRegion x="174" y="-8" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIState active="normal" visible="normal"/>
+                                       <UIHelpInfo name="" short="" long="" help="" ids="shell:animal_shelter_tab"/>
+                                       <UIAspect string="">
+                                          <default image="ui/infopan/button_keeper_shelter.dds" sound="">
+                                             <BFRect x="0" y="0" w="-1" h="-1"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                          <standard>
+                                             <normal>
+                                                <BFRect x="0" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="0" y="64" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated sound="uitab">
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </standard>
+                                          <alternate>
+                                             <normal>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </alternate>
+                                       </UIAspect>
+                                       <UIHotKeys/>
+                                       <on>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Animal Shelter Panel Rec">
+                                             <child msg="UI_SHOW"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Shelters Typelist Rec">
+                                             <child msg="UI_ACTIVATE_ON"/>
+                                          </event>
+                                       </on>
+                                       <off>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Animal Shelter Panel Rec">
+                                             <child msg="UI_HIDE"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Shelters Typelist Rec">
+                                             <child msg="UI_ACTIVATE_OFF"/>
+                                          </event>
+                                       </off>
+                                    </UIToggleButton>
+                                    <UIToggleButton name="Animal Tank Tab Rec" toggle="0" sticky="1" xPack="2">
+                                       <UIRegion x="206" y="-8" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIState active="normal" visible="normal"/>
+                                       <UIHelpInfo name="" short="" long="" help="" ids="shell:terrain_tank_tab"/>
+                                       <UIAspect string="">
+                                          <default image="ui/infopan/button_keeper_tanks.dds" sound="">
+                                             <BFRect x="0" y="0" w="-1" h="-1"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                          <standard>
+                                             <normal>
+                                                <BFRect x="0" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="0" y="64" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated sound="uitab">
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </standard>
+                                          <alternate>
+                                             <normal>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </alternate>
+                                       </UIAspect>
+                                       <UIHotKeys/>
+                                       <on>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Tank Panel Rec">
+                                             <child msg="UI_SHOW"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Tank Typelist Rec">
+                                             <child msg="UI_ACTIVATE_ON"/>
+                                          </event>
+                                       </on>
+                                       <off>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Tank Panel Rec">
+                                             <child msg="UI_HIDE"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Tank Typelist Rec">
+                                             <child msg="UI_ACTIVATE_OFF"/>
+                                          </event>
+                                       </off>
+                                    </UIToggleButton>
+                                    <UIToggleButton name="Tree Tab Rec" toggle="0" sticky="1">
+                                       <UIRegion x="78" y="32" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIHelpInfo name="" short="shell:terrain_tree_tab_stt" long="shell:terrain_tree_tab_ltt" help=""/>
+                                       <UIAspect string="">
+                                          <default image="ui/infopan/button_keeper_trees.dds" sound="">
+                                             <BFRect x="0" y="0" w="-1" h="-1"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                          <standard>
+                                             <normal>
+                                                <BFRect x="0" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="0" y="64" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated sound="uitab">
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </standard>
+                                          <alternate>
+                                             <normal>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </alternate>
+                                       </UIAspect>
+                                       <on>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Tree Panel Rec">
+                                             <child msg="UI_SHOW"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Tree Typelist Rec">
+                                             <child msg="UI_ACTIVATE_ON"/>
+                                          </event>
+                                       </on>
+                                       <off>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Tree Panel Rec">
+                                             <child msg="UI_HIDE"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Tree Typelist Rec">
+                                             <child msg="UI_ACTIVATE_OFF"/>
+                                          </event>
+                                       </off>
+                                    </UIToggleButton>
+                                    <UIToggleButton name="Plant Tab Rec" toggle="0" sticky="1">
+                                       <UIRegion x="110" y="32" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIHelpInfo name="" short="shell:terrain_plant_tab_stt" long="shell:terrain_plant_tab_ltt" help=""/>
+                                       <UIAspect string="">
+                                          <default image="ui/infopan/button_keeper_plant.dds" sound="">
+                                             <BFRect x="0" y="0" w="-1" h="-1"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                          <standard>
+                                             <normal>
+                                                <BFRect x="0" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="0" y="64" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated sound="uitab">
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </standard>
+                                          <alternate>
+                                             <normal>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </alternate>
+                                       </UIAspect>
+                                       <on>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Plant Panel Rec">
+                                             <child msg="UI_SHOW"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Plant Typelist Rec">
+                                             <child msg="UI_ACTIVATE_ON"/>
+                                          </event>
+                                       </on>
+                                       <off>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Plant Panel Rec">
+                                             <child msg="UI_HIDE"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Plant Typelist Rec">
+                                             <child msg="UI_ACTIVATE_OFF"/>
+                                          </event>
+                                       </off>
+                                    </UIToggleButton>
+                                    <UIToggleButton name="Rock Tab Rec" toggle="0" sticky="1">
+                                       <UIRegion x="142" y="32" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIHelpInfo name="" short="shell:terrain_rock_tab_stt" long="shell:terrain_rock_tab_ltt" help=""/>
+                                       <UIAspect string="">
+                                          <default image="ui/infopan/button_keeper_rock.dds" sound="">
+                                             <BFRect x="0" y="0" w="-1" h="-1"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                          <standard>
+                                             <normal>
+                                                <BFRect x="0" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="0" y="64" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated sound="uitab">
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </standard>
+                                          <alternate>
+                                             <normal>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </normal>
+                                             <highlighted>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </highlighted>
+                                             <activated>
+                                                <BFRect x="64" y="0" w="64" h="64"/>
+                                             </activated>
+                                             <disabled>
+                                                <BFRect x="64" y="64" w="64" h="64"/>
+                                             </disabled>
+                                          </alternate>
+                                       </UIAspect>
+                                       <on>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Rock Panel Rec">
+                                             <child msg="UI_SHOW"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Rock Typelist Rec">
+                                             <child msg="UI_ACTIVATE_ON"/>
+                                          </event>
+                                       </on>
+                                       <off>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Rock Panel Rec">
+                                             <child msg="UI_HIDE"/>
+                                          </event>
+                                          <event msg="UI_CHILD" data="UIChildData" name="Rock Typelist Rec">
+                                             <child msg="UI_ACTIVATE_OFF"/>
+                                          </event>
+                                       </off>
+                                    </UIToggleButton>
+                                 </children>
+                              </UIToggleSet>
+                              <UIButton name="Biome Tab Rec" toggle="0" sticky="1">
+                                 <UIRegion x="194" y="67" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="shell:terrain_biome_tab_stt" long="shell:terrain_biome_tab_ltt" help=""/>
+                                 <UIAspect string="">
+                                    <default image="ui/infopan/button_keeper_biome.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <activate>
+                                    <event msg="UI_CHILD" data="UIChildData" name="Food Typelist Rec">
+                                       <child msg="ZT_SET_BIOME"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="terraform">
+                                       <child msg="UI_ACTIVATE_ON"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="biome">
+                                       <child msg="UI_ACTIVATE_ON"/>
+                                    </event>
+                                 </activate>
+                              </UIButton>
+                              <UILayout name="Tank Panel Rec" xPack="2">
+                                 <UIRegion x="0" y="25" w="291" h="283" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="hidden"/>
+                                 <children>
+                                    <ZTUIContextList name="Tank Typelist Rec" template="panel" columns="4">
+                                       <UIRegion x="15" y="110" w="265" h="141" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <kinds>
+                                          <tankuigate/>
+                                          <tankwallsegment/>
+                                       </kinds>
+                                       <nonRememberedKinds>
+                                          <tankuigate/>
+                                          <tankuiportal/>
+                                       </nonRememberedKinds>
+                                    </ZTUIContextList>
+                                    <UIStatic name="Text Label and Background">
+                                       <UIRegion x="14" y="89" w="138" h="15" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIState active="normal" visible="normal"/>
+                                       <UIAspect locid="shell:terrain_tank_area_label">
+                                          <default image="" sound="">
+                                             <BFFont>
+                                                <BFColor r="59" g="83" b="66" a="255"/>
+                                             </BFFont>
+                                             <BFRect x="0" y="0" w="138" h="15"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                       </UIAspect>
+                                    </UIStatic>
+                                 </children>
+                              </UILayout>
+                              <UILayout name="Fence Panel Rec">
+                                 <UIRegion x="0" y="25" w="291" h="283" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <children>
+                                    <ZTUIContextList name="Fence Typelist Rec" template="panel" columns="4">
+                                       <UIRegion x="15" y="110" w="265" h="141" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <kinds>
+                                          <gate/>
+                                          <fence/>
+                                       </kinds>
+                                       <nonRememberedKinds>
+                                          <gate/>
+                                       </nonRememberedKinds>
+                                       <kindsExclude>
+                                          <curb/>
+                                          <vehiclegate/>
+                                          <tankuigate/>
+                                          <tankwallsegment/>
+                                       </kindsExclude>
+                                    </ZTUIContextList>
+                                    <UIStatic name="Text Label and Background">
+                                       <UIRegion x="14" y="89" w="138" h="15" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIState active="normal" visible="normal"/>
+                                       <UIAspect locid="shell:construction_fence_buy_area_label">
+                                          <default image="" sound="">
+                                             <BFFont>
+                                                <BFColor r="59" g="83" b="66" a="255"/>
+                                             </BFFont>
+                                             <BFRect x="0" y="0" w="138" h="15"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                       </UIAspect>
+                                    </UIStatic>
+                                 </children>
+                              </UILayout>
+                              <UILayout name="Animal Food Panel Rec">
+                                 <UIRegion x="0" y="25" w="291" h="283" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="hidden"/>
+                                 <children>
+                                    <ZTUIContextList name="Food Typelist Rec" template="panel" kind="food" columns="4">
+                                       <UIRegion x="15" y="110" w="265" h="141" xalign="min" yalign="min" walign="len" halign="len"/>
+                                    </ZTUIContextList>
+                                    <UIStatic name="Text Label and Background">
+                                       <UIRegion x="14" y="89" w="138" h="15" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIAspect locid="shell:animal_food_buy_area_label">
+                                          <default image="" sound="">
+                                             <BFFont>
+                                                <BFColor r="59" g="83" b="66" a="255"/>
+                                             </BFFont>
+                                             <BFRect x="0" y="0" w="138" h="15"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                       </UIAspect>
+                                       <UIHotKeys/>
+                                    </UIStatic>
+                                 </children>
+                              </UILayout>
+                              <UILayout name="Animal Enrichment Panel Rec">
+                                 <UIRegion x="0" y="25" w="291" h="283" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="hidden"/>
+                                 <children>
+                                    <ZTUIContextList name="Enrichment Typelist Rec" template="panel" kind="enrichment" columns="4">
+                                       <UIRegion x="15" y="110" w="265" h="141" xalign="min" yalign="min" walign="len" halign="len"/>
+                                    </ZTUIContextList>
+                                    <UIStatic name="Text Label and Background">
+                                       <UIRegion x="14" y="89" w="138" h="15" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIAspect locid="shell:animal_enrichment_buy_area_label">
+                                          <default image="" sound="">
+                                             <BFFont>
+                                                <BFColor r="59" g="83" b="66" a="255"/>
+                                             </BFFont>
+                                             <BFRect x="0" y="0" w="138" h="15"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                       </UIAspect>
+                                       <UIHotKeys/>
+                                    </UIStatic>
+                                 </children>
+                              </UILayout>
+                              <UILayout name="Animal Shelter Panel Rec">
+                                 <UIRegion x="0" y="25" w="291" h="283" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="hidden"/>
+                                 <children>
+                                    <ZTUIContextList name="Shelters Typelist Rec" template="panel" kind="shelters" columns="4">
+                                       <UIRegion x="15" y="110" w="265" h="141" xalign="min" yalign="min" walign="len" halign="len"/>
+                                    </ZTUIContextList>
+                                    <UIStatic name="Text Label and Background">
+                                       <UIRegion x="14" y="89" w="138" h="15" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIAspect locid="shell:animal_shelter_buy_area_label">
+                                          <default image="" sound="">
+                                             <BFFont>
+                                                <BFColor r="59" g="83" b="66" a="255"/>
+                                             </BFFont>
+                                             <BFRect x="0" y="0" w="138" h="15"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                       </UIAspect>
+                                       <UIHotKeys/>
+                                    </UIStatic>
+                                 </children>
+                              </UILayout>
+                              <UILayout name="Rock Panel Rec">
+                                 <UIRegion x="0" y="25" w="291" h="283" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="hidden"/>
+                                 <children>
+                                    <ZTUIContextList name="Rock Typelist Rec" template="panel" kind="rock" columns="4">
+                                       <UIRegion x="15" y="110" w="265" h="141" xalign="min" yalign="min" walign="len" halign="len"/>
+                                    </ZTUIContextList>
+                                    <UIStatic name="Text Label and Background">
+                                       <UIRegion x="14" y="89" w="138" h="15" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIState active="normal" visible="normal"/>
+                                       <UIAspect locid="shell:terrain_rock_buy_area_label">
+                                          <default image="" sound="">
+                                             <BFFont>
+                                                <BFColor r="59" g="83" b="66" a="255"/>
+                                             </BFFont>
+                                             <BFRect x="0" y="0" w="138" h="15"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                       </UIAspect>
+                                    </UIStatic>
+                                 </children>
+                              </UILayout>
+                              <UILayout name="Plant Panel Rec">
+                                 <UIRegion x="0" y="25" w="291" h="283" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="hidden"/>
+                                 <children>
+                                    <ZTUIContextList name="Plant Typelist Rec" template="panel" columns="4">
+                                    	<kinds>
+                                    		<plant/>
+                                    		<marineplant/>
+                                    	</kinds>
+                                       <UIRegion x="15" y="110" w="265" h="141" xalign="min" yalign="min" walign="len" halign="len"/>
+                                    </ZTUIContextList>
+                                    <UIStatic name="Text Label and Background">
+                                       <UIRegion x="14" y="89" w="138" h="15" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIState active="normal" visible="normal"/>
+                                       <UIAspect locid="shell:terrain_plant_buy_area_label">
+                                          <default image="" sound="">
+                                             <BFFont>
+                                                <BFColor r="59" g="83" b="66" a="255"/>
+                                             </BFFont>
+                                             <BFRect x="0" y="0" w="138" h="15"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                       </UIAspect>
+                                    </UIStatic>
+                                 </children>
+                              </UILayout>
+                              <UILayout name="Tree Panel Rec">
+                                 <UIRegion x="0" y="25" w="291" h="283" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="hidden"/>
+                                 <children>
+                                    <ZTUIContextList name="Tree Typelist Rec" template="panel" kind="tree" columns="4">
+                                       <UIRegion x="15" y="110" w="265" h="141" xalign="min" yalign="min" walign="len" halign="len"/>
+                                    </ZTUIContextList>
+                                    <UIStatic name="Text Label and Background">
+                                       <UIRegion x="14" y="89" w="138" h="15" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIState active="normal" visible="normal"/>
+                                       <UIAspect locid="shell:terrain_tree_buy_area_label">
+                                          <default image="" sound="">
+                                             <BFFont>
+                                                <BFColor r="59" g="83" b="66" a="255"/>
+                                             </BFFont>
+                                             <BFRect x="0" y="0" w="138" h="15"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                       </UIAspect>
+                                    </UIStatic>
+                                 </children>
+                              </UILayout>
+                              <UILayout name="Biome Sort Panel Rec">
+                                 <UIRegion x="0" y="0" w="438" h="320" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="hidden"/>
+                                 <children>
+                                    <UIStatic name="deepwatersort">
+                                       <UIRegion x="35" y="150" w="88" h="60" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIState active="normal" visible="normal"/>
+                                       <UIAspect locid="">
+                                          <default image="ui/biome/biome_alpine.dds" sound="">
+                                             <BFRect x="0" y="516" w="88" h="60"/>
+                                          </default>
+                                       </UIAspect>
+                                    </UIStatic>
+                                    <UIStatic name="shallowwatesort">
+                                       <UIRegion x="58" y="150" w="144" h="60" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIState active="normal" visible="normal"/>
+                                       <UIAspect locid="">
+                                          <default image="ui/biome/biome_alpine.dds" sound="">
+                                             <BFRect x="0" y="455" w="144" h="60"/>
+                                          </default>
+                                       </UIAspect>
+                                    </UIStatic>
+                                    <UIStatic name="fullbiomesort">
+                                       <UIRegion x="138" y="120" w="122" h="90" xalign="min" yalign="min" walign="len" halign="len"/>
+                                       <UIState active="normal" visible="normal"/>
+                                       <UIAspect locid="">
+                                          <default image="ui/biome/biome_alpine.dds" sound="">
+                                             <BFRect x="0" y="0" w="122" h="90"/>
+                                          </default>
+                                       </UIAspect>
+                                    </UIStatic>
+                                 </children>
+                              </UILayout>
+                           </children>
+                        </UILayout>
+                     </children>
+                     <UIHotKeys/>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="keeper hand">
+               <UIRegion x="60" y="3" w="15" h="3" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui\fx\decor\staff_keeper.dds">
+                     <BFRect x="231" y="0" w="25" h="13"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

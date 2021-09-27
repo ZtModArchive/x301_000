@@ -1,0 +1,554 @@
+<UILayout>
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <children>
+      <UILayout alwayshit="true" name="goals layout" modal="1" canBeCachedWhenCalledFromLua="true">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIHotKeys>
+            <file name="UI/hotkeys/hotkeys.xml" node="escclose"/>
+         </UIHotKeys>
+         <show>
+            <event msg="UI_CHILD" data="UIChildData" name="pause">
+                <child msg="UI_ACTIVATE_ON"/>
+            </event>
+         </show>
+         <hide>
+            <event msg="UI_CHILD" data="UIChildData" name="pause">
+                <child msg="UI_ACTIVATE_OFF"/>
+            </event>
+            <event msg="UI_NEXT_CACHED_MSG"/>
+         </hide>
+         <children>
+            <UILayout name="dither">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="goals info" template="blank">
+               <UIRegion x="192" y="80" w="640" h="475" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default>
+                     <BFRect x="0" y="0" w="512" h="475"/>
+                  </default>
+               </UIAspect>
+               <children>
+                  <UILayout name="goals header info" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIAspect>
+                        <default>
+                           <BFRect x="0" y="0" w="512" h="475"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UIText name="goals_label">
+                     <UIRegion x="20" y="3" w="512" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="scenario:goals_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UILayout name="well" template="panelwell">
+                     <UIRegion x="5" y="103" w="630" h="365" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect>
+                        <default>
+                           <BFRect x="0" y="0" w="512" h="475"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UILayout name="tabs header" template="header">
+                     <UIRegion x="0" y="64" w="0" h="40" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIAspect>
+                        <default>
+                           <BFRect x="0" y="0" w="512" h="475"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UIToggleSet name="goal toggle set" rows="1" column="-1">
+                     <UIRegion x="220" y="20" w="400" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <children>
+                        <UIToggleButton name="Introduction tab" toggle="1" sticky="1">
+                           <UIRegion x="0" y="0" w="48" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="scenario:introduction_tab"/>
+                           <UIAspect string="">
+                              <default image="ui/shared/tabinfo.dds" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="8" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="8" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated sound="uitab">
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="UI_CHILD" data="UIChildData" name="goals tab toggle set">
+                                 <child msg="UI_HIDE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="tab_label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="scenario:introduction_tab_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="goalpanel">
+                                 <child msg="ZT_SET_TYPE_FILTER" data="BFString" string="overview"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="goalpanel">
+                                 <child msg="ZT_SET_STATUS_FILTER" data="BFString" string="all"/>
+                              </event>
+                           </on>
+                        </UIToggleButton>
+                        <UIToggleButton name="primary goals tab" toggle="0" sticky="1">
+                           <UIRegion x="0" y="0" w="48" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="scenario:primary_goals_tab"/>
+                           <UIAspect string="">
+                              <default image="ui/shared/tabchal1.dds" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="8" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="8" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated sound="uitab">
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="UI_CHILD" data="UIChildData" name="tab_label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="scenario:primary_tab_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="goalpanel">
+                                 <child msg="ZT_SET_TYPE_FILTER" data="BFString" string="primary"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="goals tab toggle set">
+                                 <child msg="UI_SHOW"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="goals tab toggle set">
+                                 <child msg="UI_REPRESS"/>
+                              </event>
+                           </on>
+                        </UIToggleButton>
+                        <UIToggleButton name="photo challenges tab" toggle="0" sticky="1">
+                           <UIRegion x="0" y="0" w="48" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="hidden"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="scenario:photo_goals_tab"/>
+                           <UIAspect string="">
+                              <default image="ui/shared/tabchalphoto.dds" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="8" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="8" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated sound="uitab">
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="UI_CHILD" data="UIChildData" name="goals tab toggle set">
+                                 <child msg="UI_SHOW"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="tab_label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="scenario:photo_tab_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="goalpanel">
+                                 <child msg="ZT_SET_TYPE_FILTER" data="BFString" string="photo"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="goals tab toggle set">
+                                 <child msg="UI_REPRESS"/>
+                              </event>
+                           </on>
+                        </UIToggleButton>
+                     </children>
+                  </UIToggleSet>
+                  <UILayout name="primary goals layout">
+                     <UIRegion x="20" y="68" w="640" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIText name="tab_label">
+                           <UIRegion x="10" y="5" w="350" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="scenario:primary_tab_label">
+                              <default image="" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFFont align="left">
+                                    <BFColor r="255" g="197" b="78" a="255"/>
+                                 </BFFont>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <ZTGoalPanel name="goalpanel" template="listbox" rows="-1">
+                           <UIRegion x="0" y="40" w="612" h="355" halign="len" walign="len"/>
+                           <overview>
+                              <UIListBox rows="-1" autosize="true">
+                                 <UIRegion walign="max"/>
+                                 <children>
+                                    <UIText name="label" autosize="true">
+                                       <UIRegion x="15" walign="max"/>
+                                       <UIAspect>
+                                          <alternate>
+                                             <normal>
+                                                <BFFont>
+                                                   <BFColor r="230" g="230" b="230" a="225"/>
+                                                </BFFont>
+                                             </normal>
+                                             <highlighted>
+                                                <BFFont>
+                                                   <BFColor r="225" g="225" b="225" a="225"/>
+                                                </BFFont>
+                                             </highlighted>
+                                          </alternate>
+                                       </UIAspect>
+                                       <text format="scenario:intro_text_format" type="multi"/>
+                                    </UIText>
+                                    <UIStatic name="spacer">
+                                       <UIRegion h="20"/>
+                                    </UIStatic>
+                                 </children>
+                              </UIListBox>
+                           </overview>
+                           <group>
+                              <UIListBox rows="-1" autosize="true">
+                                 <UIRegion x="10" w="-20" walign="max"/>
+                              </UIListBox>
+                           </group>
+                           <neutral>
+                              <UIListBox rows="0" columns="2" autosize="true">
+                                 <UIRegion walign="max"/>
+                                 <children>
+                                    <UIStatic>
+                                       <UIRegion w="32" h="32" y="-2"/>
+                                       <UIAspect string="">
+                                          <default image="ui\scenario\button_clock.dds" sound="">
+                                             <BFRect x="0" y="0" w="64" h="64"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                       </UIAspect>
+                                    </UIStatic>
+                                    <UIText name="label" autosize="true">
+                                       <UIRegion x="30" walign="max"/>
+                                       <text format="scenario:neutral_label" type="multi"/>
+                                    </UIText>
+                                 </children>
+                              </UIListBox>
+                           </neutral>
+                           <success>
+                              <UIListBox rows="0" columns="2" autosize="true">
+                                 <UIRegion walign="max"/>
+                                 <children>
+                                    <UIStatic>
+                                       <UIRegion w="32" h="32" y="-2"/>
+                                       <UIAspect string="">
+                                          <default image="ui\shared\button_ok.dds" sound="">
+                                             <BFRect x="0" y="0" w="64" h="64"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                       </UIAspect>
+                                    </UIStatic>
+                                    <UIText name="label" autosize="true">
+                                       <UIRegion x="30" walign="max"/>
+                                       <text format="scenario:success_label" type="multi"/>
+                                    </UIText>
+                                 </children>
+                              </UIListBox>
+                           </success>
+                           <failure>
+                              <UIListBox rows="0" columns="2" autosize="true">
+                                 <UIRegion walign="max"/>
+                                 <children>
+                                    <UIStatic>
+                                       <UIRegion w="32" h="32" y="-2"/>
+                                       <UIAspect string="">
+                                          <default image="ui\scenario\button_fail.dds" sound="">
+                                             <BFRect x="0" y="0" w="64" h="64"/>
+                                             <BFColor r="255" g="255" b="255" a="255"/>
+                                          </default>
+                                       </UIAspect>
+                                    </UIStatic>
+                                    <UIText name="label" autosize="true">
+                                       <UIRegion x="30" walign="max"/>
+                                       <text format="scenario:failure_label" type="multi"/>
+                                    </UIText>
+                                 </children>
+                              </UIListBox>
+                           </failure>
+                        </ZTGoalPanel>
+                        <UIToggleSet name="goals tab toggle set">
+                           <UIRegion x="400" y="-15" w="200" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <children>
+                              <UIToggleButton name="show all goals" toggle="0" sticky="1">
+                                 <UIRegion x="0" y="0" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="scenario:primary_show_all_goals_button"/>
+                                 <UIAspect string="">
+                                    <default image="UI/scenario/button_show_all.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="goalpanel">
+                                       <child msg="ZT_SET_STATUS_FILTER" data="BFString" string="all"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="completed_goals_button" toggle="0" sticky="1">
+                                 <UIRegion x="49" y="0" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="scenario:primary_show_all_completed_goals_button"/>
+                                 <UIAspect string="">
+                                    <default image="UI/scenario/button_show_complete.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="goalpanel">
+                                       <child msg="ZT_SET_STATUS_FILTER" data="BFString" string="success"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="uncompleted_goals_button" toggle="0" sticky="1">
+                                 <UIRegion x="98" y="0" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="scenario:primary_show_all_uncompleted_goals_button"/>
+                                 <UIAspect string="">
+                                    <default image="UI/scenario/button_show_locked.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="goalpanel">
+                                       <child msg="ZT_SET_STATUS_FILTER" data="BFString" string="neutral"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                           </children>
+                        </UIToggleSet>
+                     </children>
+                  </UILayout>
+                  <UIButton name="close">
+                     <UIRegion x="600" y="-4" w="39" h="39" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="zoostatus:close"/>
+                     <UIAspect string="">
+                        <default image="ui\shared\button_close.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="goals layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="Camera Set">
+                           <child msg="UI_SHOW"/>
+                        </event>
+						<event msg="ZT_PAUSE" data="BFString" string="unpause"/>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

@@ -1,0 +1,90 @@
+<BFTypedBinder binderType="lowconcrete_broken">
+   <types>
+      <entity>
+         <fence>
+            <lowconcrete_broken/>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <ZTPlacementData minimumHeadroom="2.0"/>
+      <ZTDevComponent/>
+      <UIToggleButton template="fence">
+         <UIAspect>
+            <default image="entities\objects\fences\lowconcrete_df\lowconcrete_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:lowconcrete"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="lowconcrete_broken"/>
+         </on>
+      </UIToggleButton>
+      <BFGCollisionData score="0"/>
+      <BFAIEntityDataShared s_uisort="tc" f_FenceStrength="0" f_Height="1.0" b_lowfence="true" b_SeeThrough="true" s_Zoopedia="zoopedia:zoopedia_concretefence:entry"/>
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTFence gate="lowconcretegate"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="start_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowconcrete_df\lowconcrete_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowconcrete_df\lowconcrete_df_vert_broken"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowconcrete_df\lowconcrete_df_diag_broken"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="end_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowconcrete_df\lowconcrete_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90curve90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowconcrete_df\lowconcrete_df_curve90down_broken"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45curve90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowconcrete_df\lowconcrete_df_curve90diag_down_broken"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90curve135">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowconcrete_df\lowconcrete_df_curve135down_short_broken"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45curve135">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowconcrete_df\lowconcrete_df_curve135down_long_broken"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

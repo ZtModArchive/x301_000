@@ -1,0 +1,429 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="BuySushi" CursorTask="false" reserveTag="Use_Stand" objectName="entityname:Sushi_lower" UniqueID="sushi:BuySushi">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <foodstand_sushi/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-10" happiness="1"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuySushi"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData happiness="price_effect(-5,0,5)" f_AteFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatSushi" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:SitBenchEatSushi">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-5" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatSushi" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:SitTableEatSushi">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-10" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatSushi" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:SitPicnicTableEatSushi">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-7" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatSushi" CursorTask="false" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:StandEatSushi">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap f_departurePoints="-20" hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <!--Female Guest-->
+   <BFAITaskTemplate Name="BuySushi" CursorTask="false" reserveTag="Use_Stand" objectName="entityname:Sushi_lower" UniqueID="sushi:BuySushi:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <foodstand_sushi/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-15"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuySushi"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteHappy"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData happiness="price_effect(-10,-5,0)" f_AteFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatSushi" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:SitBenchEatSushi:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-5" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatSushi" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:SitTableEatSushi:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-10" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatSushi" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:SitPicnicTableEatSushi:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-7" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatSushi" CursorTask="false" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:StandEatSushi:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap f_departurePoints="-20" hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   
+   <BFAITaskTemplate Name="BuySushi" CursorTask="false" reserveTag="Use_Stand" objectName="entityname:Sushi_lower" UniqueID="sushi:BuySushi:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <foodstand_sushi/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-8"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuySushi"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData happiness="price_effect(-10,-5,0)" f_AteNonFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatSushi" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:SitBenchEatSushi:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-5" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatSushi" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:SitTableEatSushi:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-10" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatSushi" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:SitPicnicTableEatSushi:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-7" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatSushi" CursorTask="false" Priority="1" objectName="entityname:Sushi_lower" UniqueID="sushi:StandEatSushi:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <Sushi/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatSushiNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap f_departurePoints="-20" hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

@@ -1,0 +1,152 @@
+<UILayout name="DownloadItem">
+   <UIRegion x="0" y="0" w="1010" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+   <children>
+      <UIToggleButton name="checkbox" sticky="0">
+         <!--checkbox-->
+         <UIRegion x="10" y="-2" w="40" h="40" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIHelpInfo name="" short="" long="" help="" ids="options:enable_content"/>
+         <UIAspect string="">
+            <default image="ui\shared\button_check.dds"/>
+            <standard>
+               <normal>
+                  <BFRect x="0" y="0" w="64" h="64"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="0" y="64" w="64" h="64"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="64" y="0" w="64" h="64"/>
+               </activated>
+               <disabled>
+                  <BFRect x="64" y="64" w="64" h="64"/>
+               </disabled>
+            </standard>
+            <alternate>
+               <normal>
+                  <BFRect x="0" y="128" w="64" h="64"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="0" y="192" w="64" h="64"/>
+               </highlighted>
+               <activated sound="uicheck">
+                  <BFRect x="64" y="128" w="64" h="64"/>
+               </activated>
+               <disabled>
+                  <BFRect x="64" y="192" w="64" h="64"/>
+               </disabled>
+            </alternate>
+         </UIAspect>
+         <UIHotKeys/>
+         <on>
+            <event msg="ZTWEB_FILE_ENABLE_OFF"/>
+         </on>
+         <off>
+            <event msg="ZTWEB_FILE_ENABLE_ON"/>
+         </off>
+      </UIToggleButton>
+      <UIStatic>
+         <UIRegion x="30" y="" w="947" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIAspect>
+            <default image="ui/downloads/bar.dds">
+               <BFRect x="0" y="0" w="1024" h="32"/>
+               <BFColor r="255" g="255" b="255" a="255"/>
+            </default>
+         </UIAspect>
+      </UIStatic>
+      <UIText name="DownloadItemName">
+         <UIRegion x="80" y="8" w="437" h="20" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIAspect>
+            <standard>
+               <normal>
+                  <BFFont/>
+               </normal>
+            </standard>
+         </UIAspect>
+         <text format="shell:currentdatedisplay"/>
+      </UIText>
+      <UIText name="DownloadItemSize">
+         <UIState active="normal" visible="normal"/>
+         <UIRegion x="480" y="8" w="62" h="20" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIAspect>
+            <standard>
+               <normal>
+                  <BFFont align="right"/>
+               </normal>
+               <default>
+                  <BFFont align="right"/>
+               </default>
+               <highlighted>
+                  <BFFont align="right"/>
+               </highlighted>
+            </standard>
+         </UIAspect>
+         <text format="shell:downloadformatlabel"/>
+      </UIText>
+      <UIText name="PercentComplete">
+         <UIRegion x="565" y="8" w="257" h="20" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIAspect>
+            <standard>
+               <normal>
+                  <BFFont/>
+               </normal>
+            </standard>
+         </UIAspect>
+         <text format="shell:downloadformatlabel"/>
+      </UIText>
+      <UIButton name="ActivateDownload">
+         <UIRegion x="837" y="8" w="133" h="20" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIAspect locid="ZTDownloadItem:Download">
+            <standard>
+               <normal>
+                  <BFFont>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </BFFont>
+               </normal>
+               <activated>
+                  <BFFont>
+                     <BFColor r="210" g="210" b="0" a="255"/>
+                  </BFFont>
+               </activated>
+               <highlighted>
+                  <BFFont>
+                     <BFColor r="255" g="255" b="0" a="255"/>
+                  </BFFont>
+               </highlighted>
+               <disabled/>
+            </standard>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="options:download_cancel_button"/>
+         <on>
+            <event msg="ZTWEB_FILE_GET" data="BFString" string="StartDownload"/>
+         </on>
+         <text format="shell:downloadformatlabel"/>
+      </UIButton>
+      <UIButton name="goto">
+         <UIRegion x="962" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState visible="normal" active="normal"/>
+         <UIHelpInfo name="" short="" long="" help="" ids="options:show_content"/>
+         <UIAspect alwayshit="true">
+            <default image="ui/shared/button_forward.dds" sound="">
+               <BFRect x="0" y="0" w="-1" h="-1"/>
+               <BFColor r="255" g="255" b="255" a="255"/>
+            </default>
+            <standard>
+               <normal>
+                  <BFRect x="0" y="0" w="64" h="64"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="0" y="64" w="64" h="64"/>
+               </highlighted>
+               <activated sound="">
+                  <BFRect x="64" y="0" w="64" h="64"/>
+               </activated>
+               <disabled>
+                  <BFRect x="64" y="64" w="64" h="64"/>
+               </disabled>
+            </standard>
+         </UIAspect>
+         <on/>
+      </UIButton>
+   </children>
+</UILayout>

@@ -1,0 +1,69 @@
+<BFTypedBinder binderType="snackcart" abstract="true" version="1" versionReplace="true">
+   <types>
+      <entity>
+         <building>
+            <snackcart/>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting mergeKey="child">
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="Vendor" rottype="use" postype="use" attachnode="Link_Vendor"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData moveable="true" dockArrowStyle="special" dockArrowSize="1.0" icon3Doffset="0 0 0.256482" icon3Dscale="0.442941" iconAnim="Stand_Idle"/>
+      <BFAIEntityDataShared b_SeeThrough="true" s_ObjectType="Cart"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="2.5" length="2.5" offwidth="0.25" offlength="0.5" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Vendor">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities\units\guests\AdultMale\Vendor_M.bfm" switch="0 7 14 23 34" minSwitch="0 0 0 7 14"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFSharedPhysVars minDrawSetting="1"/>
+         </shared>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="0">
+               <ZTTransaction name="add_user" cost="1" type="addUser" category="user"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="Use_Cart">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult" capacity="1"/>
+               </slots>
+               <queue>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult" capacity="5"/>
+               </queue>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1" physObj="Vendor">
+               <subBehaviors>
+                  <BFBehAnimate interruptible="true" physObj="Vendor" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true"/>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,43 @@
+<BehaviorSets>
+   <RideVehicle>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="SitBench_Idle" interruptFlag="true" loopFlag="true"/>
+      </behaviors>
+   </RideVehicle>
+   <EnterBathroomStation>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="QueueStation"/>
+      </behaviors>
+   </EnterBathroomStation>
+   <QueueStation>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockQueue container="Board_Vehicle" hitRadius="2.5" queueRadius="12" locoSpeed="slow"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:WaitLine" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:WaitLine" priority="0" timeout="30" global="true" useTargetName="true"/>               
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehWaitQueue container="Board_Vehicle" minWaitTime="30" maxWaitTime="360" waitBehSet="WaitInLineStation"/>
+         <BFBehDock reserveSlotName="Board_Vehicle" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </QueueStation>
+   <WaitInLineStation>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockQueue container="Board_Vehicle" hitRadius="2.5" queueRadius="12" locoSpeed="slow"/>
+         <BFBehAnimate targetAnim="Stand_Idle"/>
+      </behaviors>
+   </WaitInLineStation>
+</BehaviorSets>

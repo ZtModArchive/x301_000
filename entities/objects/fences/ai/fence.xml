@@ -1,0 +1,170 @@
+<BFTypedBinder binderType="fence" abstract="true">
+   <types>
+      <entity>
+         <fence/>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <ZTPlacementData edgePlacement="true" tankPlacement="false" moveable="false" minimumHeadroom="3.0" forceEdgeStraight="true">
+         <stompData>
+            <allow>
+               <bush/>
+               <grass/>
+               <wildflowers/>
+               <fungi/>
+               <watersurfacefoliage/>
+            </allow>
+            <prevent>
+               <log/>
+            </prevent>
+            <delete>
+               <flowerbed/>
+               <Poop/>
+            </delete>
+         </stompData>
+      </ZTPlacementData>
+      <BFGCollisionData score="100000" height="2" width="0.25">
+         <typeScores vehicle="0"/>
+      </BFGCollisionData>
+      <BFAIEntityDataShared b_SuppressEconomyHistory="true" s_VehicleGate="vehiclegate_end" s_uisort="zzzzzzz" b_SendSlap="false" b_SeeThrough="false" f_FenceStrength="10" f_Height="2.0" b_lowfence="false"/>
+      <ZTEntitySelector>
+         <BFPhysObj>
+            <BFTerrainDecalComponent alphaBlend="true" imageName="UI/fx/selection/object.tga">
+               <lighting ambientColor="255 255 255" diffuseColor="255 255 255" specularColor="255 255 255" emmisiveColor="255 255 255"/>
+            </BFTerrainDecalComponent>
+         </BFPhysObj>
+      </ZTEntitySelector>
+   </shared>
+   <suppressed>
+      <BFGEntitySndComponent/>
+   </suppressed>
+   <binder>
+      <BFBinder required="1">
+         <instance>
+            <ZTFence hasCurves="true"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder required="1" binderName="start_post">
+         <instance>
+            <BFPhysObj regionFitType="1">
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFSharedPhysVars seeThrough="true"/>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90">
+         <instance>
+            <BFPhysObj>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFSkewComponent axis="0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFSharedPhysVars seeThrough="true"/>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45">
+         <instance>
+            <BFPhysObj>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFSkewComponent axis="0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFSharedPhysVars seeThrough="true"/>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder required="1" binderName="end_post">
+         <instance>
+            <BFPhysObj regionFitType="1">
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFSharedPhysVars seeThrough="true"/>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90curve90">
+         <instance>
+            <BFPhysObj>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFSkewComponent axis="0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFSharedPhysVars seeThrough="true"/>
+            <ZTFenceSegmentInfo>
+               <hidePaintLocs/>
+               <segmentLocs>
+                  <point x="1.4" y="-0.05" z="0"/>
+                  <point x="2.3" y="-0.8" z="0"/>
+               </segmentLocs>
+            </ZTFenceSegmentInfo>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45curve90">
+         <instance>
+            <BFPhysObj>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFSkewComponent axis="0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFSharedPhysVars seeThrough="true"/>
+            <ZTFenceSegmentInfo>
+               <hidePaintLocs/>
+               <segmentLocs>
+                  <point x="2.0" y="-0.05" z="0"/>
+                  <point x="3.6" y="-0.7" z="0"/>
+               </segmentLocs>
+            </ZTFenceSegmentInfo>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90curve135">
+         <instance>
+            <BFPhysObj>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFSkewComponent axis="0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFSharedPhysVars seeThrough="true"/>
+            <ZTFenceSegmentInfo>
+               <hidePaintLocs/>
+               <segmentLocs>
+                  <point x="1.4" y="-0.05" z="0"/>
+                  <point x="3.05" y="-0.8" z="0"/>
+               </segmentLocs>
+            </ZTFenceSegmentInfo>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45curve135">
+         <instance>
+            <BFPhysObj>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFSkewComponent axis="0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFSharedPhysVars seeThrough="true"/>
+            <ZTFenceSegmentInfo>
+               <hidePaintLocs/>
+               <segmentLocs>
+                  <point x="2.12132" y="0" z="0"/>
+                  <point x="3.71231" y="0.53033" z="0"/>
+               </segmentLocs>
+            </ZTFenceSegmentInfo>
+         </shared>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

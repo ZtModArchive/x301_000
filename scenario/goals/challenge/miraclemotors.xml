@@ -1,0 +1,19 @@
+<BFScenarioGroup name="miraclemotorsrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="miraclemotorsphoto" state="0" sticky="true" optional="true">
+			<info type="photo">
+				<neutral locid="PhotoChallengetext:PHMiracleMotorsShort" overview="PhotoChallengetext:PHMiracleMotors" />
+				<success locid="PhotoChallengetext:PHMiracleMotorsSuccessShort" overview="PhotoChallengetext:PHMiracleMotorsSuccess" />
+			</info>
+			<evaluate>
+			 	<BFScenarioScriptAction script="scenario/scripts/challenge/instant/miraclemotors.lua" entry="evalmiraclemotors" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/miraclemotors.lua" entry="completemiraclemotors" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/miraclemotors.lua" entry="failmiraclemotors" />
+			</failure>	
+		</BFScenarioRule>		
+	 </children>
+</BFScenarioGroup>

@@ -1,0 +1,93 @@
+<BFTypedBinder binderType="Statue_et">
+   <types>
+      <entity>
+         <scenery>
+            <Statue>
+               <Statue_et/>
+            </Statue>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="biomedetail_01" rottype="ignore" postype="use" attachnode="biomedetail_01"/>
+            <parentObj parent="mainObj" child="biomedetail_02" rottype="ignore" postype="use" attachnode="biomedetail_02"/>
+            <parentObj parent="mainObj" child="biomedetail_03" rottype="ignore" postype="use" attachnode="biomedetail_03"/>
+            <parentObj parent="mainObj" child="biomedetail_04" rottype="ignore" postype="use" attachnode="biomedetail_04"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.282910" icon3Dscale="0.41" />
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\Statue_et\Statue_et_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Statue_et"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Statue_et"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_uisort="oc" s_ProfileLock="desertlock" s_Zoopedia="zoopedia:zoopedia_themedstatue:entry" s_Theme="desert" s_Product="CP1" f_FameReq="40"/>
+   		<ZTTourData>
+	 		<theme_desert value="7"/>
+	 		<statue value="7"/>
+	 		<cool value="4"/>
+		</ZTTourData>      
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="3" length="4" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/scenery/Statue_et/Statue_et" switch="0 20 40" minSwitch="0 0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_01">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_02">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_03">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_04">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="420">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

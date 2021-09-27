@@ -1,0 +1,136 @@
+<BFTypedBinder binderType="PeafowlCommon" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Aves>
+						<Galliformes>
+							<Phasianidae>
+								<PeafowlCommon />
+							</Phasianidae>
+						</Galliformes>
+					</Aves>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\units\animals\PeafowlCommon\PeafowlCommon_Adult_F_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo ids="entityname:PeafowlCommon" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PeafowlCommon_Adult_F" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared f_BaseDonationAmount="60" f_MaxTourValue="20" p_FightOffset="0 -.75 180" s_DonateToken="t_DonatePeafowlCommon" p_EggOffset="0 -.5 0" p_MateOffset="-1 0 0" p_PreyOffset="0 1 0" s_Endangerment="LowRisk" s_Species="PeafowlCommon" b_Basic="true" b_Graminivore="true" b_Frugivore="true" s_KeeperEatType="Terrain_Grass" b_SmallAnimal="true" b_FoodDishEater="true" s_KeeperDrinkType="FoodDish_Water" f_adoptRemoveTime="0" f_adoptRarity="1" s_Zoopedia="zoopedia:zoopedia_peafowl:entry" f_RequiredInitialSpace="100" f_RequiredAdditionalSpace="25" f_LocoSearchHorizon="25" b_NoOpenToWorldMessage="true" b_ElevatedNestBoxUser="true" b_TemperateForestAnimal="true" b_PerchesBirchTree="true" b_PerchesOrchidTree="true" b_PerchesKilyTree="true" b_PerchesMapleTree="true" b_PerchesKapokTree="true" b_PerchesElephantEarTree="true" b_PerchesLookoutPost="true" b_PerchesEvergreenOak="true" b_AlpineOdd="true" b_TropicalRainforestOdd="true" b_WetlandsOdd="true" b_BerriesEater="true" b_PerchesDurianTree="true" b_GrasslandOdd="true" b_SavannahOdd="true" b_ScrubOdd="true" b_PerchesBurOak="true" b_PerchesYellowIpeTree="true" b_PerchesSydneyBlueGum="true" b_PerchesShepardsTree="true" b_PerchesPerepatTree="true" b_SmallPrey="true" />
+		<BFGBiomeData location="temperateforest_asia" locationSensitivity="10">
+			<alpine sensitivity="0" />
+			<benthic sensitivity="-10" />
+			<borealforest sensitivity="2" />
+			<coastal sensitivity="-10" />
+			<desert sensitivity="-5" />
+			<grassland sensitivity="0" />
+			<reef sensitivity="-10" />
+			<pelagic sensitivity="-10" />
+			<temperateforest sensitivity="10" primary="true" />
+			<tropicalrainforest sensitivity="0" />
+			<tundra sensitivity="-10" />
+			<savannah sensitivity="-5" />
+			<scrub sensitivity="-5" />
+			<wetlands sensitivity="-5" />
+		</BFGBiomeData>
+		<ZTPlacementData icon3Doffset="0 -0.071179 0.905002" icon3Dscale="0.764240" />
+		<ZTUserStaffAction>
+			<SetAttribute name="hygiene" value="0" threshold="20" locid="superstaff:animal_groom" effect="SuperStaffGroom" />
+			<SetAttribute name="health" value="0" threshold="20" locid="superstaff:animal_heal" />
+		</ZTUserStaffAction>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFShadowLODComponent numLevels="1" switchingDists="60.0" />
+					<BFActorComponent actorfile="entities/units/animals/PeafowlCommon/PeafowlCommon_Adult_M.bfm" />
+					<BF2LegsGroundFitComponent rightAnkleJoint="Bip01 R Foot" leftAnkleJoint="Bip01 L Foot" ankleRotVectorLeft="0 0 -1" ankleRotVectorRight="0 0 -1" heightOffset="0" fitRadius=".15" frontBuoyancyNode="Node_Buoy" backBuoyancyNode="Node_Buoy_Back" />
+					<BFForwardMovingComponent />
+					<BFRotYawMovingComponent />
+					<BFCollisionComponent grid="Bip01 Spine" />
+					<BFGridCollisionComponent />
+					<BFDecalTextureCycleComponent materialName="CommonPeafowl_Adult_M_MTL">
+						<Step imageName="entities/units/animals/shared/tiger_blink_blank.dds" hold="3.0" variance="0.5" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink.dds" hold="0.1" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+					</BFDecalTextureCycleComponent>
+					<BFHeadLookComponent leftRightAnimName="Secondary_HeadLook" lookDirNode="Bip01 Head" lookDirVector="0 1 0" gain_z="-2" fov_extreme_lr="90.0" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFTextTagMacrosComponent>
+					<MACROS>
+						<macro name="Walky" text="anim &apos;Walk_Ahead&apos;" />
+						<macro name="PerchMapleTree" text="!anim &apos;Perch_Idle&apos; blend .3 advance_cur_t, exit" />
+						<macro name="Walky2Standy" text="anim &apos;Walk_2Stand&apos;, anim&apos;Stand_Idle&apos;" />
+						<macro name="Stand2LieBelly" text="anim &apos;Stand_2Sit&apos;, anim &apos;Sit_Idle&apos;" />
+						<macro name="LieBelly2Stand" text="anim &apos;Sit_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+						<macro name="Standy2Walky" text="anim &apos;Stand_2Walk&apos;, anim &apos;Walk_TurnLeftA&apos;" />
+						<macro name="LieOnBelly" text="anim &apos;Sit_Idle&apos;" />
+						<macro name="TurnLeft180" text="anim &apos;Stand_TurnLeft90&apos;, anim &apos;Stand_TurnLeft90&apos;" />
+						<macro name="TurnRight180" text="anim &apos;Stand_TurnRight90&apos;, anim &apos;Stand_TurnRight90&apos;" />
+						<macro name="Ground2Perch" text="as 100 1, anim &apos;Walk_2Perch&apos;" />
+						<macro name="Perch2Ground" text="as 100 1, anim &apos;Perch_2Walk&apos;" />
+					</MACROS>
+				</BFTextTagMacrosComponent>
+			</shared>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehAnimate interruptible="true" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true" />
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="ground" required="1">
+					<instance>
+						<BFLocoAnimate version="1">
+							<stop name="Stand" />
+							<slow name="Walk" />
+							<medium name="Walk" />
+							<fast name="Run" />
+							<fly name="Fly" />
+							<evade name="Run" minAnimSpeed="0.8" maxAnimSpeed="1.5" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFNamedBinder binderName="foodprop" repopulateMethod="byName" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="1250">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

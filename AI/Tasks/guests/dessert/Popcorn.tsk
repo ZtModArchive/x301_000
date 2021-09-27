@@ -1,0 +1,434 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="BuyPopcorn" CursorTask="false" reserveTag="Use_Cart" objectName="entityname:Popcorn_lower" UniqueID="popcorn:BuyPopcorn">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+            <Qualifiers_AND inWater_OR_onLand="true" hunger="L 50" bathroom="L 50" thirst="L 50"/>
+         </Subjects>
+         <Targets>
+            <snackcart_popcorn/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-15"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuyPopcorn"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteHappy"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFAISubjectData happiness="price_effect(-10,-5,0)" f_AteFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatPopcorn" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:SitBenchEatPopcorn">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatPopcorn" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:SitTableEatPopcorn">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatPopcorn" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:SitPicnicTableEatPopcorn">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-7"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatPopcorn" CursorTask="false" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:StandEatPopcorn">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" f_departurePoints="-10" dessert="-100" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <!--Female Guest-->
+   <BFAITaskTemplate Name="BuyPopcorn" CursorTask="false" reserveTag="Use_Cart" objectName="entityname:Popcorn_lower" UniqueID="popcorn:BuyPopcorn:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+            <Qualifiers_AND inWater_OR_onLand="true" hunger="L 50" bathroom="L 50" thirst="L 50"/>
+         </Subjects>
+         <Targets>
+            <snackcart_popcorn/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-8"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuyPopcorn"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFAISubjectData happiness="price_effect(-5,0,5)" f_AteNonFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatPopcorn" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:SitBenchEatPopcorn:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <bench_st/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatPopcorn" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:SitTableEatPopcorn:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatPopcorn" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:SitPicnicTableEatPopcorn:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-7"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatPopcorn" CursorTask="false" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:StandEatPopcorn:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" f_departurePoints="-10" dessert="-100" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <!--Young Guest-->
+   <BFAITaskTemplate Name="BuyPopcorn" CursorTask="false" reserveTag="Use_Cart" objectName="entityname:Popcorn_lower" UniqueID="popcorn:BuyPopcorn:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+            <Qualifiers_AND inWater_OR_onLand="true" hunger="L 50" bathroom="L 50" thirst="L 50"/>
+         </Subjects>
+         <Targets>
+            <snackcart_popcorn/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-8"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuyPopcorn"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFAISubjectData happiness="price_effect(-5,0,5)" f_AteNonFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatPopcorn" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:SitBenchEatPopcorn:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <bench_st/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatPopcorn" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:SitTableEatPopcorn:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatPopcorn" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:SitPicnicTableEatPopcorn:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-7"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatPopcorn" CursorTask="false" Priority="1" objectName="entityname:Popcorn_lower" UniqueID="popcorn:StandEatPopcorn:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <Popcorn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatPopcornNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" f_departurePoints="-10" dessert="-100" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

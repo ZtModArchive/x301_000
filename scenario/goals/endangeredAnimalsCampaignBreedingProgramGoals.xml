@@ -1,0 +1,158 @@
+<ZTScenarioMgr interval="2" name="mgr" state="0" chain="true" allsuccess="true" sticky="true" optional="false">
+	<info locid="EndangeredAnimals:BreedingProgramIntro"/>
+	<children>
+		<BFScenarioRule hidden="1" name="setinitialzoostate" state="0" sticky="true">
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="setinitialzoostate" />
+			</evaluate>
+		</BFScenarioRule>
+		<BFScenarioGroup hidden="0" name="BreedingProgram" state="0" chain="true" allsuccess="true" sticky="true">
+			<info type="primary">
+				<neutral locid="EndangeredAnimals:BreedingProgramOverallGoal" />
+			</info>
+			<children>
+				<BFScenarioGroup hidden="0" name="BreedingProgramNeeds" state="0" chain="false" allsuccess="true" sticky="true">
+					<info type="primary">
+						<neutral locid="EndangeredAnimals:BreedingProgramGetAll" overview="EndangeredAnimals:BreedingProgramOverview" />
+						<success locid="EndangeredAnimals:BreedingProgramGetAllDone" overview="EndangeredAnimals:BreedingProgramOverview" />
+					</info>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completebreedingprogramneeds" />
+					</success>			
+					<children>
+						<BFScenarioRule name="BreedingProgramNeedsTortoise" hidden="0" state="0" sticky="true">
+							<info type="primary">
+								<neutral locid="EndangeredAnimals:BreedingProgramGetTortoiseGoal" />
+								<success locid="EndangeredAnimals:BreedingProgramGetTortoiseGoalDone" />
+							</info>
+							<evaluate>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbreedingprogramneedstortoise" />
+							</evaluate>
+							<success>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completeminigoal" />
+							</success>
+						</BFScenarioRule>
+						<BFScenarioRule name="BreedingProgramNeedsOryx" hidden="0" state="0" sticky="true">
+							<info type="primary">
+								<neutral locid="EndangeredAnimals:BreedingProgramGetOryxGoal" />
+								<success locid="EndangeredAnimals:BreedingProgramGetOryxGoalDone" />
+							</info>
+							<evaluate>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbreedingprogramneedsoryx" />
+							</evaluate>
+							<success>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completeminigoal" />
+							</success>
+						</BFScenarioRule>
+						<BFScenarioRule name="BreedingProgramNeedsMarkhor" hidden="0" state="0" sticky="true">
+							<info type="primary">
+								<neutral locid="EndangeredAnimals:BreedingProgramGetMarkhorGoal" />
+								<success locid="EndangeredAnimals:BreedingProgramGetMarkhorGoalDone" />
+							</info>
+							<evaluate>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbreedingprogramneedsmarkhor" />
+							</evaluate>
+							<success>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completeminigoal" />
+							</success>
+						</BFScenarioRule>
+					</children>
+				</BFScenarioGroup>
+				<BFScenarioGroup hidden="1" name="BreedingProgramBreed" state="0" chain="false" allsuccess="true" sticky="true">
+					<info type="primary">
+						<neutral locid="EndangeredAnimals:BreedingProgramBreedAll" overview="EndangeredAnimals:BreedingProgramBreed" />
+						<success locid="EndangeredAnimals:BreedingProgramBreedAllDone" overview="EndangeredAnimals:BreedingProgramBreed" />
+					</info>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completebreedingprogrambreed" />
+					</success>
+					<children>
+						<BFScenarioRule name="BreedingProgramBreedTortoise" hidden="0" state="0" sticky="true">
+							<info type="primary">
+								<neutral locid="EndangeredAnimals:BreedingProgramBreedTortoiseGoal" />
+								<success locid="EndangeredAnimals:BreedingProgramBreedTortoiseGoalDone" />
+							</info>
+							<evaluate>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbreedingprogrambreedtortoise" />
+							</evaluate>
+							<success>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completeminigoal" />
+							</success>
+						</BFScenarioRule>
+						<BFScenarioRule name="BreedingProgramBreedOryx" hidden="0" state="0" sticky="true">
+							<info type="primary">
+								<neutral locid="EndangeredAnimals:BreedingProgramBreedOryxGoal" />
+								<success locid="EndangeredAnimals:BreedingProgramBreedOryxGoalDone" />
+							</info>
+							<evaluate>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbreedingprogrambreedoryx" />
+							</evaluate>
+							<success>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completeminigoal" />
+							</success>
+						</BFScenarioRule>
+						<BFScenarioRule name="BreedingProgramBreedMarkhor" hidden="0" state="0" sticky="true">
+							<info type="primary">
+								<neutral locid="EndangeredAnimals:BreedingProgramBreedMarkhorGoal" />
+								<success locid="EndangeredAnimals:BreedingProgramBreedMarkhorGoalDone" />
+							</info>
+							<evaluate>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbreedingprogrambreedmarkhor" />
+							</evaluate>
+							<success>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completeminigoal" />
+							</success>
+						</BFScenarioRule>
+					</children>
+				</BFScenarioGroup>
+				<BFScenarioGroup hidden="1" name="BreedingProgramRelease" state="0" chain="false" allsuccess="true" sticky="true">
+					<info type="primary">
+						<neutral locid="EndangeredAnimals:BreedingProgramReleaseAll" overview="EndangeredAnimals:BreedingProgramRelease" />
+						<success locid="EndangeredAnimals:BreedingProgramReleaseAllDone" overview="EndangeredAnimals:BreedingProgramRelease" />
+					</info>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completebreedingprogram" />
+					</success>
+					<children>
+						<BFScenarioRule name="BreedingProgramReleaseTortoise" hidden="0" state="0" sticky="true">
+							<info type="primary">
+								<neutral locid="EndangeredAnimals:BreedingProgramReleaseTortoiseGoal" />
+								<success locid="EndangeredAnimals:BreedingProgramReleaseTortoiseGoalDone" />
+							</info>
+							<evaluate>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbreedingprogramreleasetortoise" />
+							</evaluate>
+							<success>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completeminigoal" />
+							</success>
+						</BFScenarioRule>
+						<BFScenarioRule name="BreedingProgramReleaseOryx" hidden="0" state="0" sticky="true">
+							<info type="primary">
+								<neutral locid="EndangeredAnimals:BreedingProgramReleaseOryxGoal" />
+								<success locid="EndangeredAnimals:BreedingProgramReleaseOryxGoalDone" />
+							</info>
+							<evaluate>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbreedingprogramreleaseoryx" />
+							</evaluate>
+							<success>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completeminigoal" />
+							</success>
+						</BFScenarioRule>
+						<BFScenarioRule name="BreedingProgramReleaseMarkhor" hidden="0" state="0" sticky="true">
+							<info type="primary">
+								<neutral locid="EndangeredAnimals:BreedingProgramReleaseMarkhorGoal" />
+								<success locid="EndangeredAnimals:BreedingProgramReleaseMarkhorGoalDone" />
+							</info>
+							<evaluate>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbreedingprogramreleasemarkhor" />
+							</evaluate>
+							<success>
+								<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completeminigoal" />
+							</success>
+						</BFScenarioRule>
+					</children>
+				</BFScenarioGroup>
+			</children>
+		</BFScenarioGroup>
+	</children>
+</ZTScenarioMgr>

@@ -1,0 +1,39 @@
+﻿<BFTypedBinder binderType="Ostrich_Adult" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Aves>
+						<Struthioniformes>
+							<Struthionidae>
+								<Ostrich>
+									<Ostrich_Adult />
+								</Ostrich>
+							</Struthionidae>
+						</Struthioniformes>
+					</Aves>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<BFAIEntityDataShared b_Adult="1" b_Territorial="true" s_MorphMessage="zoomessages:AnimalPuberty" f_MorphMessagePriority="1" f_MorphMessageDuration="30" b_MediumPrey="true" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Spine" width="1.65" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester escapeBuffer="0.1875" radius=".375" motionClass="mover" waterScore="10" maxSlope=".75" wadeDepth="1" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

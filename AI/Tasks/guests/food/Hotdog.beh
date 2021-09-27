@@ -1,0 +1,43 @@
+<BehaviorSets>
+   <BuyHotdog>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToBuyFood" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Queue"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:BuyingFood" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehScript context="behavior" file="scripts/kickoffanim.lua" function="kickoffanim"/>
+         <BFBehSyncSet subjectBehSet="GuestBuyHotdog" targetBehSet="BuildingSellHotdog" resetPhase="true"/>
+         <BFBehAnimate targetAnim="StandItem_Turn180"/>
+         <BFBehAnimate targetAnim="WalkItem_Ahead"/>
+      </behaviors>
+   </BuyHotdog>
+   <GuestBuyHotdog>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="Money" targetAnim="Stand_ShopGiveMoney" detachAction="killitem"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+         <BFBehAttachObject attachEntity="Hotdog" targetAnim="Stand_2StandItem" locoMod="carry" detachAction="inventory"/>
+      </behaviors>
+   </GuestBuyHotdog>
+   <BuildingSellHotdog>
+      <subjects>
+         <foodstand_hotdog/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="Money" targetAnim="Stand_ShopReceiveItem" detachAction="killitem"/>
+         <BFBehAttachObject attachEntity="Hotdog" targetAnim="Stand_ShopGiveMoney" detachAction="killitem"/>
+      </behaviors>
+   </BuildingSellHotdog>
+</BehaviorSets>

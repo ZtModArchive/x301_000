@@ -1,0 +1,79 @@
+﻿<BFTypedBinder binderType="SaltLick_df" version="2">
+	<types>
+		<entity>
+			<enrichment>
+				<stationary_enrichment>
+					<SaltLick_df />
+				</stationary_enrichment>
+			</enrichment>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\enrichment\SaltLick_df\SaltLick_df_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:SaltLick" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="SaltLick_df" />
+			</on>
+		</UIToggleButton>
+		<UIToggleButton template="researchentity">
+			<UIAspect>
+				<default image="entities\objects\enrichment\SaltLick_df\SaltLick_df_icon.dds" />
+			</UIAspect>
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="SaltLick_df" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared b_Researchable="true" s_Product="CP1" s_ObjectType="Treat" s_uisort="ej" s_Zoopedia="zoopedia:zoopedia_saltlick:entry" f_researchUnlockTime="60" f_researchCost="600" f_FameReq="20" />
+		<ZTPlacementData randomRotate="false" gridSnap="true" autoFootprint="false" dockArrowStyle="special" dockArrowSize="1.0" icon3Doffset="0 0 0.6" icon3Dscale="1.5">
+			<cfootprint width="0" height="0" />
+			<dfootprint width="1" height="1" />
+		</ZTPlacementData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="1" intensity="0.3"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/SaltLick_df/SaltLick_df" switch="0 18 36" minSwitch="0 18 36" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="General">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterSaltLick" useBehSet="UseSaltLick" exitBehSet="ExitSaltLick" targetNode="Dock_01" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterSaltLick" useBehSet="UseSaltLick" exitBehSet="ExitSaltLick" targetNode="Dock_02" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterSaltLick" useBehSet="UseSaltLick" exitBehSet="ExitSaltLick" targetNode="Dock_03" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterSaltLick" useBehSet="UseSaltLick" exitBehSet="ExitSaltLick" targetNode="Dock_04" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="320">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

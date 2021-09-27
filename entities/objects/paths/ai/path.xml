@@ -1,0 +1,41 @@
+<BFTypedBinder binderType="path" abstract="true">
+   <types>
+      <entity>
+         <path/>
+      </entity>
+   </types>
+   <shared>
+      <ZTPlacementData selectable="false" randomRotate="false" gridSnap="true" autoFootprint="false" noBiomeHeightOffset="true" moveable="false" minimumHeadroom="0.0f">
+         <cfootprint width="0" height="0"/>
+      </ZTPlacementData>
+      <BFGCollisionData isPassable="true" isTraversable="true"/>
+      <BFAIEntityDataShared f_ViewScore="1" b_Eyedropper="false" b_SuppressEconomyHistory="true" s_mainObjName="path_decal" b_ViewingArea="true" b_IsElevatedPath="false" b_SendSlap="false"/>
+      <ZTEntitySelector size="0.0" useFootprint="false">
+         <color r="255" g="255" b="255"/>
+      </ZTEntitySelector>
+   </shared>
+   <suppressed>
+      <BFAIEntityDataInstance/>
+      <BFAIFadeController/>
+      <ZTAIStaffRequestController/>
+      <BFGEntitySndComponent/>
+   </suppressed>
+   <binder>
+      <BFNamedBinder binderName="Use_Path">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="path_decal" required="1">
+         <instance>
+            <BFPhysObj>
+               <BFTerrainDecalComponent alphaBlend="true" floatOnWater="true" dwidth="6.01" dheight="6.01"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

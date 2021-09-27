@@ -1,0 +1,28 @@
+<UILayout name="Reward Screen">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect alwayshit="never">
+      <default/>
+   </UIAspect>
+   <children>
+      <UIText name="Reward Message" autosize="true">
+         <UIRegion x="0" y="220" w="1024" h="50"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect alwayshit="never">
+            <default>
+               <BFFont align="center">
+                  <BFColor r="255" g="255" b="0" a="255"/>
+               </BFFont>
+            </default>
+            <standard>
+               <normal sound="super_staff"/>
+            </standard>
+         </UIAspect>
+         <UIShowHideAnim time=".4" bob="1.1">
+            <start x="-1024" y="220" w="-1" h="-1"/>
+            <end x="0" y="220" w="-1" h="-1"/>
+         </UIShowHideAnim>
+         <text format="superstaff:format" type="multi"/>
+      </UIText>
+   </children>
+</UILayout>

@@ -1,0 +1,139 @@
+<BFTypedBinder binderType="LemurRingtailed_Young" abstract="true">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Primata>
+                     <Lemuridae>
+                        <LemurRingtailed>
+                           <LemurRingtailed_Young/>
+                        </LemurRingtailed>
+                     </Lemuridae>
+                  </Primata>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 -0.157251 0.671616" icon3Dscale="1.393588"/>
+      <ZTDevComponent/>
+      <BFAIEntityDataShared f_viewBonus="25" b_Adult="0" f_LocoSearchHorizon="25">
+         <BFAINeedAdjusts health="0.25" stimulation="0.33" exercise="0.33" reproduction="0"/>
+      </BFAIEntityDataShared>
+      <BFGDetachInfo>
+         <detachActionTable>
+            <dropitem destination="drop"/>
+            <killitem destination="kill"/>
+         </detachActionTable>
+      </BFGDetachInfo>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/units/animals/LemurRingtailed/LemurRingtailed_Young_F.bfm" scale="0.5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Spine1" width="0.5" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="texController" required="1">
+         <instance>
+            <BFAITextureController currState="well" defaultState="well">
+               <attribList>
+                  <health/>
+                  <hygiene/>
+               </attribList>
+               <stateList>
+                  <sickanddirty>
+                     <attribData>
+                        <health minRange="70" maxRange="101"/>
+                        <hygiene minRange="70" maxRange="101"/>
+                     </attribData>
+                     <textureData>
+                        <mainObj material="9 - Default" image="entities\units\animals\LemurRingtailed\Lemur_Adult_Sick_Dirty.dds"/>
+                     </textureData>
+                  </sickanddirty>
+                  <sick>
+                     <attribData>
+                        <health minRange="70" maxRange="101"/>
+                     </attribData>
+                     <textureData>
+                        <mainObj material="9 - Default" image="entities\units\animals\LemurRingtailed\Lemur_Adult_Sick.dds"/>
+                     </textureData>
+                  </sick>
+                  <dirty>
+                     <attribData>
+                        <hygiene minRange="70" maxRange="101"/>
+                     </attribData>
+                     <textureData>
+                        <mainObj material="9 - Default" image="entities\units\animals\LemurRingtailed\Lemur_Adult_Dirty.dds"/>
+                     </textureData>
+                  </dirty>
+                  <well>
+                     <textureData>
+                        <mainObj material="9 - Default" image="entities\units\animals\LemurRingtailed\rtlemur_map.dds"/>
+                     </textureData>
+                  </well>
+               </stateList>
+            </BFAITextureController>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAICognitiveMgr>
+               <Sensors>
+                  <ZTAISensor/>
+                  <BFAISensorSelf/>
+                  <ZTAISensorLand/>
+                  <ZTAISensorTA sensorTag="habitat"/>
+               </Sensors>
+               <StateThinkers>
+                  <ZTAIStateThinker mergeKey="Name">
+                     <BFAIStateVar Name="reproduction" Value="" ValueMin="0" ValueMax="0" CessationThreshold="90" TriggerThreshold="90" CriticalThreshold="90" Advanced="true"/>
+                  </ZTAIStateThinker>
+               </StateThinkers>
+               <TaskThinkers>
+                  <ZTAITaskThinker/>
+               </TaskThinkers>
+            </BFAICognitiveMgr>
+         </instance>
+         <shared>
+            <BFAICogShared>
+               <BFAINoPerceive>
+                  <fence/>
+                  <path/>
+                  <entrance/>
+               </BFAINoPerceive>
+            </BFAICogShared>
+         </shared>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFGCollisionTester escapeBuffer="0.0625" radius=".125" motionClass="mover" waterScore="10" maxSlope=".75" wadeDepth="1"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="checkup" required="1">
+         <instance>
+            <ZTAIStaffRequestController attribName="health" thresholdValue="30" testType="4" cancelThresholdValue="20" cancelTestType="1">
+               <ZTStaffRequestData tokenKey="t_CheckupBaby" subjectType="Keeper" priority="5"/>
+            </ZTAIStaffRequestController>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance f_needPointsGood="50"/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

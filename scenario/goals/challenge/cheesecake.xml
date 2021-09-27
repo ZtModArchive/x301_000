@@ -1,0 +1,20 @@
+<BFScenarioGroup name="cheesecakerules" state="0" chain="true" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="cheesecake" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHVargasCheesecakeShort" overview="Challengetext:CHVargasCheesecake" />
+				<success locid="Challengetext:CHVargasCheesecakeSuccessShort" overview="Challengetext:CHVargasCheesecakeSuccess" />
+				<failure locid="Challengetext:CHVargasCheesecakeFailureShort" overview="Challengetext:CHVargasCheesecakeFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/cheesecake.lua" entry="evalcheesecake" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/cheesecake.lua" entry="completecheesecake" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/cheesecake.lua" entry="failcheesecake" />
+			</failure>			
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

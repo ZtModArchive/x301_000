@@ -1,0 +1,58 @@
+<BFTypedBinder binderType="Fountain_Lion">
+   <types>
+      <entity>
+         <scenery>
+            <Fountain>
+               <Fountain_Lion/>
+            </Fountain>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\Fountain_Lion\Fountain_Lion_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Fountain_Lion"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Fountain_Lion"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\scenery\Fountain_Lion\Fountain_Lion_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Fountain_Lion"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Researchable="true" s_Theme="default" f_FameReq="60" s_uisort="p" s_Zoopedia="zoopedia:zoopedia_fountains:entry" f_researchUnlockTime="100" f_researchCost="800"/>
+      <ZTPlacementData icon3Doffset="0 0 0.728190" icon3Dscale="0.177201" />
+   		<ZTTourData>
+	 				<fountain value="5"/>
+		</ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/scenery/Fountain_Lion/Fountain_Lion.nif"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFHasParticleComponent/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="400">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

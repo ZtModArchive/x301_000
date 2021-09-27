@@ -1,0 +1,89 @@
+<BFTypedBinder binderType="PandaRed_Adult" abstract="true">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Carnivora>
+                     <Ursidae>
+                        <PandaRed>
+                           <PandaRed_Adult/>
+                        </PandaRed>
+                     </Ursidae>
+                  </Carnivora>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0.026855 0.861973" icon3Dscale="0.312861"/>
+      <BFAIEntityDataShared f_viewBonus="80" b_Adult="1" s_MorphMessage="zoomessages:AnimalPuberty" f_MorphMessagePriority="1" f_MorphMessageDuration="30"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Head" width="0.75" intensity="0.3"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj2">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Spine" width="0.75" length="1.25" offlength="0.35" intensity="0.3"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+      <BFNamedBinder binderName="texController" required="1">
+         <instance>
+            <BFAITextureController currState="well" defaultState="well">
+               <attribList>
+                  <health/>
+                  <hygiene/>
+               </attribList>
+               <stateList>
+                  <sickanddirty>
+                     <attribData>
+                        <health minRange="70" maxRange="101"/>
+                        <hygiene minRange="80" maxRange="101"/>
+                     </attribData>
+                     <textureData>
+                        <mainObj material="PandaRed_Adult_F_MTL" image="entities\units\animals\PandaRed\PandaRed_Adult_Sick_Dirty.dds"/>
+                     </textureData>
+                  </sickanddirty>
+                  <sick>
+                     <attribData>
+                        <health minRange="70" maxRange="101"/>
+                     </attribData>
+                     <textureData>
+                        <mainObj material="PandaRed_Adult_F_MTL" image="entities\units\animals\PandaRed\PandaRed_Adult_Sick.dds"/>
+                     </textureData>
+                  </sick>
+                  <dirty>
+                     <attribData>
+                        <hygiene minRange="80" maxRange="101"/>
+                     </attribData>
+                     <textureData>
+                        <mainObj material="PandaRed_Adult_F_MTL" image="entities\units\animals\PandaRed\PandaRed_Adult_Dirty.dds"/>
+                     </textureData>
+                  </dirty>
+                  <well>
+                     <textureData>
+                        <mainObj material="PandaRed_Adult_F_MTL" image="entities\units\animals\PandaRed\PandaRed_Adult_F.dds"/>
+                     </textureData>
+                  </well>
+               </stateList>
+            </BFAITextureController>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFGCollisionTester escapeBuffer="0.125" radius=".25" waterScore="10" motionClass="mover" maxSlope=".90" wadeDepth="1"/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

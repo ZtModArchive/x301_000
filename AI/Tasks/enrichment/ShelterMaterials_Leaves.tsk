@@ -1,0 +1,72 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="GetLeaves" reserveTag="General" UniqueID="sheltermaterials_leaves:GetLeaves">
+      <BFAIValidationData>
+         <Subjects>
+            <Qualifiers_AND rest="L 90" hunger="L 90" thirst="L 90" exercise="L 90" bathroom="L 90"/>
+         </Subjects>
+         <Targets/>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_GroundNestBuilder/>
+            <Qualifiers inWater_OR_onLand="true"/>
+         </Subjects>
+         <Targets>
+            <ShelterMaterials_Leaves/>
+            <Qualifiers inHabitat="true"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap rest="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="ApproachShelterMaterials"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="PickUpLeaves"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="GetLeaves_Privacy" reserveTag="General" UniqueID="sheltermaterials_leaves:GetLeaves_Privacy">
+      <BFAIValidationData>
+         <Subjects>
+            <Qualifiers_AND rest="L 90" hunger="L 90" thirst="L 90" exercise="L 90" bathroom="L 90"/>
+         </Subjects>
+         <Targets/>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_GroundNestBuilder/>
+            <Qualifiers inWater_OR_onLand="true"/>
+         </Subjects>
+         <Targets>
+            <ShelterMaterials_Leaves/>
+            <Qualifiers inHabitat="true"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="20">
+         <BFAIAttributeFloatMap privacy="-25"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="ApproachShelterMaterials"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="PickUpLeaves"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

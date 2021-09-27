@@ -1,0 +1,48 @@
+<BFTypedBinder binderType="lamp_df">
+   <types>
+      <entity>
+         <scenery>
+            <lamp>
+               <lamp_df/>
+            </lamp>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\lamp_df\lamp_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:lamp"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="lamp_df"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Theme="default" f_FameReq="40" s_uisort="g" s_Zoopedia="zoopedia:zoopedia_lamp:entry"/>
+      <ZTPlacementData autoFootprint="false">
+         <cfootprint width="0" height="0"/>
+         <dfootprint width="1" height="1"/>
+      </ZTPlacementData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/lamp_df/lamp_df" switch="0 30"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="125">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

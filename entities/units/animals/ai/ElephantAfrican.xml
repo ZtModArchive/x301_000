@@ -1,0 +1,166 @@
+<BFTypedBinder binderType="ElephantAfrican" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Proboscidea>
+							<Elephantidae>
+								<ElephantAfrican />
+							</Elephantidae>
+						</Proboscidea>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\units\animals\ElephantAfrican\ElephantAfrican_Adult_M_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo ids="entityname:ElephantAfrican" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ElephantAfrican_Adult_F" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData waterPlacement="true" minimumHeadroom="3.0" />
+		<BFAIEntityDataShared f_BaseDonationAmount="100" f_MaxTourValue="70" s_DonateToken="t_DonateElephantAfrican" s_Species="ElephantAfrican" p_AggressiveNode="0 -8 180" p_RamNode="0 -6 180" p_GreetNode="-3 -3.5 180" p_NurseNode="1 -.75 90" s_Endangerment="Endangered" b_Advanced="true" b_Granivore="true" b_Graminivore="true" b_Folivore="true" b_Ambivore="true" s_KeeperEatType="Terrain_Hay" b_LargeAnimal="true" b_TroughEater="true" b_MetalTroughEater="true" b_FoodDishEater="true" s_KeeperDrinkType="FoodDish_Water" b_ElevatedFoodDishEater="true" b_SubstratePileEater="true" b_TreeBrowser="true" f_adoptRemoveTime="0" f_adoptRarity="80" s_Zoopedia="zoopedia:zoopedia_elephant:entry" f_RequiredInitialSpace="320" f_RequiredAdditionalSpace="80" p_PursuitBallNode="0 -5 180" b_ElephantHouseUser="true" b_ShadeStructureUser="true" b_SavannahAnimal="true" b_TreeRammer="true" b_TreeScraper="true" b_Browser="true" b_AppleTreatEater="true" b_PursuitBallUser="true" b_EaselUser="true" b_CarTireUser="true" b_DurianFruitEater="true" p_PreyOffset="0 1 0" p_FightOffset="0 -1.25 180" />
+		<BFGBiomeData location="savannah_africa" locationSensitivity="10">
+			<alpine sensitivity="-10" />
+			<benthic sensitivity="-10" />
+			<borealforest sensitivity="-10" />
+			<coastal sensitivity="-10" />
+			<desert sensitivity="-5" />
+			<grassland sensitivity="-5" />
+			<reef sensitivity="-10" />
+			<pelagic sensitivity="-10" />
+			<temperateforest sensitivity="-5" />
+			<tropicalrainforest sensitivity="-10" />
+			<tundra sensitivity="-10" />
+			<savannah sensitivity="10" primary="true" />
+			<scrub sensitivity="-5" />
+			<wetlands sensitivity="-10" />
+		</BFGBiomeData>
+		<ZTEntitySelector nodeName="Bip01 Spine2" useFootprint="false" size="3.0" />
+		<ZTUserStaffAction>
+			<SetAttribute name="hygiene" value="0" threshold="20" locid="superstaff:animal_wash" effect="SuperStaffWashLarge" />
+			<SetAttribute name="health" value="0" threshold="20" locid="superstaff:animal_heal" effect="SuperStaffHeal" />
+		</ZTUserStaffAction>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFShadowLODComponent numLevels="2" switchingDists="18.0 60.0" />
+					<BFActorComponent actorfile="entities/units/animals/ElephantAfrican/ElephantAfrican_Adult_F.bfm" scale="0.75" applyFog="false" />
+					<BF4LegsGroundFitComponent heightOffset="-.10" maxRollError=".2" maxPitchError=".1" maxHeightError=".5" pitchGain="2.00" heightGain="6.0" rollGain="1.0" bicyclePointBack="Bip01" bicyclePointFront="Bip01 Neck" backBuoyancyNode="Node_Buoy_Back" frontBuoyancyNode="Node_Buoy" />
+					<BFSwimComponent waterInDistance="0.50" waterOutDistance="0.1" />
+					<BFLegFitComponent maxLegRaise="2.0" leftFrontHipJoint="Bip01 L UpperArm" leftFrontKneeJoint="Bip01 L ForeArm" leftFrontAnkleJoint="Bip01 L Hand" rightFrontHipJoint="Bip01 R UpperArm" rightFrontKneeJoint="Bip01 R ForeArm" rightFrontAnkleJoint="Bip01 R Hand" leftBackHipJoint="Bip01 L Thigh" leftBackKneeJoint="Bip01 L Calf" leftBackAnkleJoint="Bip01 L Foot" rightBackHipJoint="Bip01 R Thigh" rightBackKneeJoint="Bip01 R Calf" rightBackAnkleJoint="Bip01 R Foot" ankleRotVectorLeftFront="0 0 -1" ankleRotVectorRightFront="0 0 -1" ankleRotVectorRightBack="0 0 -1" ankleRotVectorLeftBack="0 0 -1" hipRaiseVectorLeftFront="0 -1 0" hipRaiseVectorRightFront="0 -1 0" hipRaiseVectorLeftBack="0 0 1" hipRaiseVectorRightBack="0 0 1" kneeRaiseVectorLeftFront="0 0 1" kneeRaiseVectorRightFront="0 0 1" kneeRaiseVectorLeftBack="0 0 1" kneeRaiseVectorRightBack="0 0 1" legFitModeLeftFront="1" legFitModeRightFront="1" legFitModeRightBack="1" legFitModeLeftBack="1" anklePitchVector="0 1 0" maxLOD="1" />
+					<BFSecondaryAnimComponent animName="Secondary_Tail_A" frequency="1.5" chance="40" validAnims="Stand_Idle,Walk_Ahead,Stand_PawGround" />
+					<BFForwardMovingComponent />
+					<BFRotYawMovingComponent />
+					<BFCollisionComponent grid="Bip01 Spine1" />
+					<BFGridCollisionComponent />
+					<BFDecalTextureCycleComponent materialName="elephant">
+						<Step imageName="entities/units/animals/shared/tiger_blink_blank.dds" hold="3.0" variance="0.5" />
+						<Step imageName="entities/units/animals/shared/ele_blink01.dds" hold="0.08" variance="" />
+						<Step imageName="entities/units/animals/shared/ele_blink02.dds" hold="0.1" variance="" />
+						<Step imageName="entities/units/animals/shared/ele_blink03.dds" hold="0.08" variance="" />
+						<Step imageName="entities/units/animals/shared/ele_blink02.dds" hold="0.1" variance="" />
+						<Step imageName="entities/units/animals/shared/ele_blink01.dds" hold="0.08" variance="" />
+					</BFDecalTextureCycleComponent>
+					<BFHeadLookComponent leftRightAnimName="Secondary_HeadLook" lookDirNode="Bip01 Head" lookDirVector="0 1 0" gain_z="-2" fov_extreme_lr="30.0" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars splashScale="2.0"/>
+			</shared>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehLocoSwitchSet loopFlag="true">
+							<behaviorTable>
+								<ground behSet="Stand_Idle" />
+								<water behSet="TreadWater_Idle" />
+							</behaviorTable>
+						</BFBehLocoSwitchSet>
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="ground" required="1">
+					<instance>
+						<BFLocoAnimate version="1">
+							<stop name="Stand" />
+							<slow name="Walk" />
+							<medium name="Walk" />
+							<fast name="Run" />
+							<submissive name="WalkBack" />
+							<evade name="Run" minAnimSpeed=".8" maxAnimSpeed="1.4" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="groundcarry" required="1">
+					<instance>
+						<BFLocoAnimate version="1" stationaryAnim="StandObject_Idle">
+							<stop name="StandObject" />
+							<slow name="WalkObject" />
+							<medium name="WalkObject" />
+							<fast name="WalkObject" />
+							<submissive name="WalkObject" />
+							<evade name="Swim" minAnimSpeed=".8" maxAnimSpeed="1.4" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="water" required="1">
+					<instance>
+						<BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+							<stop name="TreadWater" />
+							<slow name="Swim" />
+							<medium name="Swim" />
+							<fast name="Swim" />
+							<submissive name="Swim" />
+							<evade name="Swim" minAnimSpeed=".8" maxAnimSpeed="1.4" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFNamedBinder binderName="trunk" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="foodprop" repopulateMethod="byName" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="20000">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

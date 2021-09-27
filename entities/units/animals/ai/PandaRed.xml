@@ -1,0 +1,137 @@
+<BFTypedBinder binderType="PandaRed" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Carnivora>
+							<Ursidae>
+								<PandaRed />
+							</Ursidae>
+						</Carnivora>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities/units/animals/PandaRed/PandaRed_Adult_F_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo ids="entityname:PandaRed" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PandaRed_Adult_F" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared f_BaseDonationAmount="120" f_MaxTourValue="70" s_DonateToken="t_DonatePandaRed" p_FenceClimbNode="0 -4 180" p_NurseNode="1 -.5 90" p_GroomNode=".5 0 90" p_FightOffset="0 -1.25 180" p_PreyOffset="0 .5 0" s_Endangerment="Endangered" s_Species="PandaRed" b_Advanced="true" b_BambooEater="true" s_KeeperEatType="Terrain_Bamboo" b_SubstratePileEater="true" b_SmallAnimal="true" b_FoodDishEater="true" s_KeeperDrinkType="FoodDish_Water" b_ElevatedFoodDishEater="true" f_adoptRemoveTime="0" f_adoptRarity="80" s_Zoopedia="zoopedia:zoopedia_redpanda:entry" f_RequiredInitialSpace="200" f_RequiredAdditionalSpace="20" p_PursuitBallNode="0 -3 180" p_ScratchPostNode="0 -2.5 180" b_CubbingDenUser="true" b_ElevatedNestBoxUser="true" b_HollowTreeStumpUser="true" b_RaisedSleepingPlatformUser="true" b_ShadeStructureUser="true" b_SmallWoodenShelterUser="true" b_SmallSnowCaveUser="true" b_SmallRockCaveUser="true" b_SmallConcreteShelterUser="true" b_LargeWoodenShelterUser="true" b_LargeSnowCaveUser="true" b_LargeRockCaveUser="true" b_LargeConcreteShelterUser="true" b_TemperateForestAnimal="true" b_ClimbsMediumWetlandsRockSmall="true" b_WetlandsOdd="true" b_ClimbsLargeWetlandsRockLarge="true" b_ClimbsMediumTundraRockLarge="true" b_TundraOdd="true" b_ClimbsLargeTundraRockLarge="true" b_ClimbsMediumTropicalRainforestRockLarge="true" b_TropicalRainforestOdd="true" b_ClimbsLargeTropicalRainforestRockSmall="true" b_ClimbsLargeTropicalRainforestRockLarge="true" b_ClimbsMediumTemperateForestRockLarge="true" b_ClimbsLargeTemperateForestRockSmall="true" b_ClimbsMediumScrubRockLarge="true" b_ScrubOdd="true" b_ClimbsLargeSavannahRockSmall="true" b_ClimbsMediumSavannahRockLarge="true" b_SavannahOdd="true" b_ClimbsLargeSavannahRockLarge="true" b_GrasslandOdd="true" b_ClimbsMediumGrasslandRockLarge="true" b_ClimbsLargeGrasslandRockSmall="true" b_DesertOdd="true" b_ClimbsMediumDesertRockLarge="true" b_ClimbsLargeDesertRockSmall="true" b_ClimbsMediumBorealForestRockLarge="true" b_BorealForestOdd="true" b_AlpineOdd="true" b_ClimbsMediumAlpineRockLarge="true" b_ClimbsLargeAlpineRockLarge="true" b_ClimbsLargeAlpineRockSmall="true" b_RubberToyUser="true" b_RattleBallUser="true" b_LookoutPostUser="true" b_BerriesEater="true" p_HollowLogDock="0 -2.5 180" b_SmallPrey="true">
+			<BFAINeedAdjusts privacy="0.25" />
+		</BFAIEntityDataShared>
+		<BFGBiomeData location="temperateforest_china" locationSensitivity="10">
+			<alpine sensitivity="-5" />
+			<benthic sensitivity="-10" />
+			<borealforest sensitivity="-5" />
+			<coastal sensitivity="-10" />
+			<desert sensitivity="-10" />
+			<grassland sensitivity="-5" />
+			<reef sensitivity="-10" />
+			<pelagic sensitivity="-10" />
+			<temperateforest sensitivity="10" primary="true" />
+			<tropicalrainforest sensitivity="-10" />
+			<tundra sensitivity="-10" />
+			<savannah sensitivity="-10" />
+			<scrub sensitivity="-10" />
+			<wetlands sensitivity="-10" />
+		</BFGBiomeData>
+		<ZTPlacementData icon3Doffset="0 0 .59" icon3Dscale="0.33" />
+		<ZTUserStaffAction>
+			<SetAttribute name="hygiene" value="0" threshold="20" locid="superstaff:animal_groom" effect="SuperStaffGroom" />
+			<SetAttribute name="health" value="0" threshold="20" locid="superstaff:animal_heal" effect="SuperStaffHeal" />
+		</ZTUserStaffAction>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFShadowLODComponent numLevels="1" switchingDists="60.0" />
+					<BFActorComponent actorfile="entities/units/animals/PandaRed/PandaRed_Adult_F.bfm" scale="0.33" />
+					<BF4LegsGroundFitComponent heightOffset="0" maxRollError=".2" maxPitchError=".1" maxHeightError=".5" pitchGain="2.00" heightGain="6.0" rollGain="1.0" bicyclePointBack="Bip01" bicyclePointFront="Bip01 Neck" frontBuoyancyNode="Node_Buoy" backBuoyancyNode="Node_Buoy_Back" />
+					<BFSecondaryAnimComponent animName="Secondary_EarA" frequency="1.5" chance="40" validAnims="Stand_Idle,Pee_Idle,Poop_Idle,Stand_Sniff,Stand_Swipe,Stand_Turn180,Stand_TurnLeft90,Stand_TurnRight90,Stand_Whistle,Climb_Ahead,Climb_LookLeft,Climb_LookRight,ClimbDown_Idle,ClimbDown_Ahead,Browse_Idle,Drink_Idle,DrinkDish_Idle,Eat_Idle,GetFood_Idle,Lie_Idle,LieTree_Idle,Sit_Idle,Sit_Groom,StandBi_Idle,StandBi_RaiseArms,StandBi_Spit,StandBi_Swipe,StandBi_TurnLeft90,StandBi_TurnRight90,Tailup_Ahead,ToothInspection_Idle" />
+					<BFSecondaryAnimComponent animName="Secondary_TailA" frequency="1.5" chance="30" validAnims="Stand_Idle,Pee_Idle,Poop_Idle,Stand_Sniff,Stand_Swipe,Stand_Turn180,Stand_TurnLeft90,Stand_TurnRight90,Stand_Whistle,ClimbDown_Idle,ClimbDown_Ahead,Browse_Idle,Curl_Idle,Drink_Idle,DrinkDish_Idle,Eat_Idle,GetFood_Idle,LieTree_Idle,ToothInspection_Idle" />
+					<BFLegFitComponent maxLegRaise="2.0" leftFrontHipJoint="Bip01 L Forearm" leftFrontKneeJoint="Bip01 L Hand" leftFrontAnkleJoint="Bip01 L Finger0" rightFrontHipJoint="Bip01 R Forearm" rightFrontKneeJoint="Bip01 R Hand" rightFrontAnkleJoint="Bip01 R Finger0" leftBackHipJoint="Bip01 L Thigh" leftBackKneeJoint="Bip01 L Calf" leftBackAnkleJoint="Bip01 L Foot" rightBackHipJoint="Bip01 R Thigh" rightBackKneeJoint="Bip01 R Calf" rightBackAnkleJoint="Bip01 R Foot" ankleRotVectorLeftFront="0 1 0" ankleRotVectorRightFront="0 -1 0" ankleRotVectorRightBack="0 0 -1" ankleRotVectorLeftBack="0 0 -1" hipRaiseVectorLeftFront="0 0 1" hipRaiseVectorRightFront="0 0 1" hipRaiseVectorLeftBack="0 0 1" hipRaiseVectorRightBack="0 0 1" kneeRaiseVectorLeftFront="0 0 1" kneeRaiseVectorRightFront="0 0 1" kneeRaiseVectorLeftBack="0 0 1" kneeRaiseVectorRightBack="0 0 1" legFitModeLeftFront="0" legFitModeRightFront="0" legFitModeRightBack="1" legFitModeLeftBack="1" anklePitchVector="0 -1 0" maxLOD="1" />
+					<BFForwardMovingComponent />
+					<BFRotYawMovingComponent />
+					<BFCollisionComponent grid="Bip01 Spine1" />
+					<BFGridCollisionComponent />
+					<BFDecalTextureCycleComponent materialName="PandaRed_Adult_F_MTL" textureSet="2">
+						<Step imageName="entities/units/animals/shared/tiger_blink_blank.dds" hold="3.0" variance="0.5" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink.dds" hold="0.1" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+					</BFDecalTextureCycleComponent>
+					<BFHeadLookComponent leftRightAnimName="Secondary_HeadLook" lookDirNode="Bip01 Head" lookDirVector="0 1 0" gain_z="-2" fov_extreme_lr="90.0" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFTextTagMacrosComponent>
+					<MACROS>
+						<macro name="ClimbThing" text="anim &apos;Stand_2Climb&apos;, anim &apos;Climb_Ahead&apos;" />
+						<macro name="ClimbDown" text="anim &apos;Climb_2ClimbDown&apos;, anim &apos;ClimbDown_Ahead&apos;" />
+						<macro name="Climb2Walk" text="!anim &apos;ClimbDown_Idle&apos; blend .3 advance_cur_t, dis, anim &apos;ClimbDown_2Stand&apos;" />
+						<macro name="JumpOnHeatedRock" text="as 100 1, anim &apos;Stand_Jump&apos;" />
+						<macro name="JumpOnRock" text="as 100 1, anim &apos;Stand_Jump&apos;" />
+						<macro name="TurnLeft180" text="anim &apos;Stand_Turn180&apos;" />
+						<macro name="TurnRight180" text="anim &apos;Stand_TurnRight90&apos;, anim &apos;Stand_TurnRight90&apos;" />
+						<macro name="PlatformEat" text="anim &apos;Stand_2GetFood&apos;, anim &apos;GetFood_Idle&apos;, anim &apos;GetFood_2Eat&apos;, anim &apos;Eat_Idle&apos;, anim &apos;Eat_Idle&apos;, anim &apos;Eat_2Stand&apos;" />
+						<macro name="Walky" text="anim &apos;Walk_Ahead&apos;" />
+						<macro name="Stand2LieBelly" text="anim &apos;Stand_2Lie&apos;, anim &apos;Lie_Idle&apos;" />
+						<macro name="LieBelly2Stand" text="anim &apos;Lie_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+						<macro name="Standy2Walky" text="anim &apos;Stand_2Walk&apos;, anim &apos;Walk_Ahead&apos;" />
+						<macro name="Walky2Standy" text="anim &apos;Walk_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+						<macro name="LieOnBelly" text="anim &apos;Lie_Idle&apos;" />
+						<macro name="TurnLeft90" text="anim &apos;Stand_TurnLeft90&apos;" />
+						<macro name="TurnRight90" text="anim &apos;Stand_TurnRight90&apos;" />
+						<macro name="Stand2Sit" text="anim &apos;Stand_2Sit&apos;" />
+						<macro name="RedPandaWalk" text="anim &apos;Walk_2Climb&apos;, anim &apos;Climb_Ahead&apos;" />
+						<macro name="RedPandaClimb180" text="anim &apos;Stand_2Curl_180&apos;" />
+						<macro name="RedPandaCurl" text="anim &apos;Curl_Idle&apos;" />
+						<macro name="RedPandaCurl2Descend" text="anim &apos;Curl_2TailUp&apos;, anim &apos;TailUp_Ahead&apos;" />
+					</MACROS>
+				</BFTextTagMacrosComponent>
+			</shared>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehAnimate interruptible="true" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true" />
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="foodprop" repopulateMethod="byName" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="20000">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,19 @@
+<BFScenarioGroup name="posterrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="posterphoto" state="0" sticky="true" optional="true">
+			<info type="photo">
+				<neutral locid="PhotoChallengetext:PHPosterCampaignShort" overview="PhotoChallengetext:PHPosterCampaign" />
+				<success locid="PhotoChallengetext:PHPosterCampaignSuccessShort" overview="PhotoChallengetext:PHPosterCampaignSuccess" />
+			</info>
+			<evaluate>
+			 	<BFScenarioScriptAction script="scenario/scripts/challenge/poster.lua" entry="evalposter" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/poster.lua" entry="completeposter" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/poster.lua" entry="failposter" />
+			</failure>	
+		</BFScenarioRule>		
+	 </children>
+</BFScenarioGroup>

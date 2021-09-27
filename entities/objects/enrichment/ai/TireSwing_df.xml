@@ -1,0 +1,85 @@
+<BFTypedBinder binderType="TireSwing_df">
+   <types>
+      <entity>
+         <enrichment>
+            <stationary_enrichment>
+               <TireSwing_df/>
+            </stationary_enrichment>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="Swing" rottype="use" postype="use" attachnode="Node_Swing"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\TireSwing_df\TireSwing_df_icon.dds" />
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:TireSwing" />
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="TireSwing_df" />
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\enrichment\TireSwing_df\TireSwing_df_icon.dds" />
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="TireSwing_df" />
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData icon3Doffset="0 0 0.35" icon3Dscale="0.15" randomRotate="false" gridSnap="true" autoFootprint="false" terrainFlatten="true" minimumHeadroom="10.0" protectedPlacement="false">
+         <cfootprint height="2" width="3"/>
+         <dfootprint height="3" width="4"/>
+      </ZTPlacementData>
+      <BFAIEntityDataShared b_ReceiveUpdates="true" b_Researchable="true" s_Product="EndangeredSpecies" s_uisort="ht" s_Zoopedia="zoopedia:zoopedia_tireswing:entry" f_researchUnlockTime="100" f_researchCost="800" f_FameReq="80"/>
+      <BFGCollisionData isPassable="false" isStatic="false" />
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="10" length="6" offwidth="-2" offlength="-1" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/TireSwing_df/TireSwing_df" />
+               <BFGroundFitComponent heightOffset="0.0" />
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1" physObj="Swing">
+               <subBehaviors>
+                  <BFBehAnimate interruptible="true" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true"/>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="Swing">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/objects/enrichment/TireSwing_df/TireSwing_df_Swing.bfm" activeSequenceName="Stand_Swing" activeSequenceAccumulate="false"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="800">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

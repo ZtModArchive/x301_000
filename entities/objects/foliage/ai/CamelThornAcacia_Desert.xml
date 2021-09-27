@@ -1,0 +1,141 @@
+<BFTypedBinder binderType="CamelThornAcacia_Desert">
+   <types>
+      <entity>
+         <foliage>
+            <tree>
+               <CamelThornAcacia_Desert/>
+            </tree>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="biomedetail_01" rottype="ignore" postype="use" attachnode="biomedetail_01"/>
+            <parentObj parent="mainObj" child="biomedetail_02" rottype="ignore" postype="use" attachnode="biomedetail_02"/>
+            <parentObj parent="mainObj" child="biomedetail_03" rottype="ignore" postype="use" attachnode="biomedetail_03"/>
+            <parentObj parent="mainObj" child="biomedetail_04" rottype="ignore" postype="use" attachnode="biomedetail_04"/>
+            <parentObj parent="mainObj" child="biomedetail_05" rottype="ignore" postype="use" attachnode="biomedetail_05"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.436987" icon3Dscale="0.200000" autoFootprint="false" minimumHeadroom="6.0">
+         <cfootprint width="2" height="2"/>
+         <dfootprint width="3" height="3"/>
+      </ZTPlacementData>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\CamelThornAcacia\CamelThornAcacia_Desert_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:CamelThornAcacia_Desert"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="CamelThornAcacia_Desert"/>
+         </on>
+      </UIToggleButton>
+      <BFGBiomeData location="desert_northafrica">
+         <desert/>
+      </BFGBiomeData>
+      <BFAIEntityDataShared b_RubObject_Large="true" b_BrowseTree="true" s_prop="Branches_Prop" s_Zoopedia="zoopedia:zoopedia_camelthornacacia:entry" b_ThickTree="true"/>
+   		<ZTTourData>
+	 			<biome_desert value="3"/>
+		</ZTTourData> 
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width="10" minLength="10" maxLength="18" minOffset="0" maxOffset="5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\foliage\CamelThornAcacia\CamelThornAcacia_Desert" switch="0 15 25 60"/>
+               <BFMultiGroundFitComponent heightOffset="0.0" forceTopLevel="true"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_01">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="15 20 25 45"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_02">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="15 20 25 45"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_03">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="15 20 25 45"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_04">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="15 20 25 45"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_05">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="15 20 25 45"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="60">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="Browse">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterTree" useBehSet="BrowseTree" exitBehSet="ExitTree" targetNode="Dock_Eat_01" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTree" useBehSet="BrowseTree" exitBehSet="ExitTree" targetNode="Dock_Eat_02" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTree" useBehSet="BrowseTree" exitBehSet="ExitTree" targetNode="Dock_Eat_03" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTree" useBehSet="BrowseTree" exitBehSet="ExitTree" targetNode="Dock_Eat_04" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Rub">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_01" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_02" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_03" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_04" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Scratch">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterTreeScratch" useBehSet="ScratchTree" exitBehSet="ExitTreeScratch" targetNode="Dock_Rub_01" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTreeScratch" useBehSet="ScratchTree" exitBehSet="ExitTreeScratch" targetNode="Dock_Rub_02" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTreeScratch" useBehSet="ScratchTree" exitBehSet="ExitTreeScratch" targetNode="Dock_Rub_03" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTreeScratch" useBehSet="ScratchTree" exitBehSet="ExitTreeScratch" targetNode="Dock_Rub_04" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

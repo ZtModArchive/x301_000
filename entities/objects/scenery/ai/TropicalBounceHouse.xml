@@ -1,0 +1,99 @@
+﻿<BFTypedBinder binderType="TropicalBounceHouse">
+	<types>
+		<entity>
+			<scenery>
+				<Playground>
+					<trampoline>
+						<TropicalBounceHouse />
+					</trampoline>
+				</Playground>
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="2">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\buildings\rainforest_bounce_house\RainforestBounceHouse_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:TropicalBounceHouse" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="TropicalBounceHouse" />
+			</on>
+		</UIToggleButton>
+		<UIToggleButton template="researchentity">
+			<UIAspect>
+				<default image="entities\objects\buildings\rainforest_bounce_house\RainforestBounceHouse_icon.dds" />
+			</UIAspect>
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="TropicalBounceHouse" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData selectable="true" terrainFlatten="true" dockArrowStyle="special" dockArrowSize="0.75" icon3Doffset="0 -0.02 0.5" icon3Dscale="0.25" autoFootprint="false">
+			<cfootprint width="2" height="2" />
+			<dfootprint width="3" height="3" />
+		</ZTPlacementData>
+		<BFAIEntityDataShared b_Researchable="true" s_Product="EndangeredSpecies" s_uisort="sb" s_Zoopedia="zoopedia:zoopedia_tropicalbouncehouse:entry" f_researchUnlockTime="120" f_researchCost="1000" f_FameReq="80" />
+		<ZTTourData>
+			<cool value="3" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="9" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFActorComponent actorfile="entities/objects/buildings/rainforest_bounce_house/TropicalBounceHouse.bfm" switch="0 20 40" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="600">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehAnimate interruptible="true" targetAnim="NotInUse_Idle" interruptFlag="true" loopFlag="true" />
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="Use_Ride">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot targetNode="Dock_Young00" capacity="1" enterBehSet="EnterTrampolineLarge" useBehSet="UseTrampoline" exitBehSet="ExitTrampolineLarge" />
+						<BFGEntityContainerSlot targetNode="Dock_Young01" capacity="1" enterBehSet="EnterTrampolineLarge" useBehSet="UseTrampoline" exitBehSet="ExitTrampolineLarge" />
+						<BFGEntityContainerSlot targetNode="Dock_Young02" capacity="1" enterBehSet="EnterTrampolineLarge" useBehSet="UseTrampoline" exitBehSet="ExitTrampolineLarge" />
+						<BFGEntityContainerSlot targetNode="Dock_Young03" capacity="1" enterBehSet="EnterTrampolineLarge" useBehSet="UseTrampoline" exitBehSet="ExitTrampolineLarge" />
+					</slots>
+					<queue>
+						<BFGEntityContainerSlot targetNode="Dock_Young00" capacity="5" />
+						<BFGEntityContainerSlot targetNode="Dock_Young01" capacity="5" />
+						<BFGEntityContainerSlot targetNode="Dock_Young02" capacity="5" />
+						<BFGEntityContainerSlot targetNode="Dock_Young03" capacity="5" />
+					</queue>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,73 @@
+<BFTypedBinder binderType="conservationgate">
+   <types>
+      <entity>
+         <fence>
+            <gate>
+               <conservationgate/>
+            </gate>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <ZTPlacementData deletable="false"/>
+      <UIToggleButton template="fence">
+         <UIAspect>
+            <default image="entities\objects\fences\staffgate_df\staffgate_icon.dds"/>
+         </UIAspect>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Product="EndangeredSpecies" s_uisort="hb" f_FenceStrength="3" />
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="start_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\conservation_df\conservation_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fence90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\conservationgate_df\conservationgate_df_vert"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fence45">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\conservationgate_df\conservationgate_df_diag"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="end_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\conservation_df\conservation_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="gate_animation">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities\objects\fences\conservationgate_df\conservationgate_df_anim.bfm" updateWhenNotVisible="true"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance f_FenceStrength="3"/>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="90">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

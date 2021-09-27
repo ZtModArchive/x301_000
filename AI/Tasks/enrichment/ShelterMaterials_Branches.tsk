@@ -1,0 +1,74 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="GetBranch_Beaver" reserveTag="General" UniqueID="sheltermaterials_branches:GetBranch_Beaver">
+      <BFAIValidationData>
+         <Subjects>
+            <Qualifiers_AND rest="L 90" hunger="L 90" thirst="L 90" exercise="L 90" bathroom="L 90"/>
+         </Subjects>
+         <Targets/>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_BeaverLodgeBuilder/>
+            <Qualifiers inWater_OR_onLand="true"/>
+         </Subjects>
+         <Targets>
+            <ShelterMaterials_Branches/>
+            <Qualifiers inHabitat="true"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap rest="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehScript context="behavior" file="scripts/habitathaswater.lua" function="habitathaswater"/>
+         <BFBehPlaySet behSet="ApproachShelterMaterials"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="PickUpBranch"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="GetBranch_Privacy_Beaver" reserveTag="General" UniqueID="sheltermaterials_branches:GetBranch_Privacy_Beaver">
+      <BFAIValidationData>
+         <Subjects>
+            <Qualifiers_AND rest="L 90" hunger="L 90" thirst="L 90" exercise="L 90" bathroom="L 90"/>
+         </Subjects>
+         <Targets/>
+      </BFAIValidationData>
+      <BFAICreateData>
+         <Subjects>
+            <b_BeaverLodgeBuilder/>
+            <Qualifiers inWater_OR_onLand="true"/>
+         </Subjects>
+         <Targets>
+            <ShelterMaterials_Branches/>
+            <Qualifiers inHabitat="true"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="20">
+         <BFAIAttributeFloatMap privacy="-25"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehScript context="behavior" file="scripts/habitathaswater.lua" function="habitathaswater"/>
+         <BFBehPlaySet behSet="ApproachShelterMaterials"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="PickUpBranch"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

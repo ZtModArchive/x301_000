@@ -1,0 +1,59 @@
+<BFTypedBinder binderType="Kangaroo_df">
+   <types>
+      <entity>
+         <scenery>
+            <Playground>
+               <BouncyRide>
+                  <Kangaroo_df/>
+               </BouncyRide>
+            </Playground>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="rideObj" rottype="use" postype="use" attachnode="Bip02"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\Playground_BouncyRide_Kangaroo_df\BouncyRide_Kangaroo_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:BouncyRide_Kangaroo_df"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Kangaroo_df"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\scenery\Playground_BouncyRide_Kangaroo_df\BouncyRide_Kangaroo_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Kangaroo_df"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData terrainFlatten="true" dockArrowStyle="special" dockArrowSize=".75"/>
+      <BFAIEntityDataShared b_Researchable="true" s_uisort="sa" b_ReceiveUpdates="true" s_Zoopedia="zoopedia:zoopedia_kangarooride:entry" f_researchUnlockTime="45" f_researchCost="200"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="rideObj">
+         <instance>
+            <BFPhysObj useTriShapeGroup="false">
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/Playground_BouncyRide_Kangaroo_df/BouncyRide_Kangaroo_df" switch="0 10 50"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="300">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

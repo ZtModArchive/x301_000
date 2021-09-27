@@ -1,0 +1,42 @@
+<BFTypedBinder binderType="safari">
+   <types>
+      <entity>
+         <path>
+            <safari/>
+         </path>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="path">
+         <UIAspect>
+            <default image="entities\objects\paths\safari\path_safari_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:safari"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTPATH" data="BFString" string="safari"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_ProfileLock="safarilock" s_Zoopedia="zoopedia:zoopedia_asphalt:entry" s_Theme="safari"/>
+   		<ZTTourData>
+	 		<theme_safari value="1"/>
+		</ZTTourData>      
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTPath texture="entities\objects\paths\safari\path_safari_128.DDS" curb="curb_safari"/>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="2.5">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,53 @@
+<BFTypedBinder binderType="Bluebush_Scrub">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <bush>
+                  <Bluebush_Scrub/>
+               </bush>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\Bluebush\Bluebush_Scrub_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Bluebush_Scrub"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Bluebush_Scrub"/>
+         </on>
+      </UIToggleButton>
+      <BFGBiomeData location="scrub_australia">
+         <scrub/>
+      </BFGBiomeData>
+      <BFAIEntityDataShared b_BrowseBush="true" s_prop="Hay_Prop" s_Zoopedia="zoopedia:zoopedia_bluebush:entry" f_FameReq="40"/>
+      <ZTPlacementData icon3Doffset="0 -0.078076 0.692188" icon3Dscale="0.513812"/>
+   		<ZTTourData>
+	 			<biome_scrub value="1"/>
+		</ZTTourData> 
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\foliage\Bluebush\Bluebush_Scrub" switch="0 15"/>
+               <BFMultiGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="15">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,42 @@
+<BFTypedBinder binderType="desertpath_et">
+   <types>
+      <entity>
+         <path>
+            <desertpath_et/>
+         </path>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="path">
+         <UIAspect>
+            <default image="entities\objects\paths\desert\path_desert_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:desert"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTPATH" data="BFString" string="desertpath_et"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_ProfileLock="desertlock" s_Zoopedia="zoopedia:zoopedia_asphalt:entry" s_Product="CP1" s_Theme="desert" />
+   		<ZTTourData>
+	 		<theme_desert value="1"/>
+		</ZTTourData>      
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTPath texture="entities/objects/paths/desert/path_desert.dds" curb="curb_desertpath_et"/>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="2.5">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

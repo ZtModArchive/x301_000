@@ -1,0 +1,110 @@
+<BehaviorSets>
+   <Idle>
+      <subjects>
+         <ambient_air/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateSwitch>
+            <animTable>
+               <Fly anim="Fly_Ahead"/>
+               <default anim="Fly_Ahead"/>
+            </animTable>
+         </BFBehAnimateSwitch>
+      </behaviors>
+   </Idle>
+   <Airborne>
+      <subjects>
+         <ambient_air/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="Wander"/>
+      </behaviors>
+   </Airborne>
+   <Airborne_Caller>
+      <subjects>
+         <ambient_air/>
+      </subjects>
+      <behaviors>
+         <BFBehRandomSet>
+            <randomSets>
+               <Wander weight="70"/>
+               <FlyCall weight="30"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Airborne_Caller>
+   <Wander>
+      <subjects>
+         <ambient_air/>
+      </subjects>
+      <behaviors>
+         <BFBehWander playTime="20"/>
+      </behaviors>
+   </Wander>
+   <FlyStraight>
+      <subjects>
+         <Blimp_end/>
+         <Macaw/>
+         <VultureKing/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Fly_Ahead" playTime="30"/>
+      </behaviors>
+   </FlyStraight>
+   <FlyStraight>
+      <subjects>
+         <ButterflyMonarch/>
+         <Gull/>
+         <LoonCommon/>
+         <Oxpecker/>
+         <DuckMallard/>
+         <Pigeon/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Fly_Ahead" playTime="30" animSpeed="0.4"/>
+      </behaviors>
+   </FlyStraight>
+   <FlyStraight>
+      <subjects>
+         <CrowCommon/>
+         <Kookaburra/>
+         <TernArctic/>
+         <ToucanToco/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Fly_Ahead" playTime="30" animSpeed="0.7"/>
+      </behaviors>
+   </FlyStraight>
+   <FlyCall>
+      <subjects>
+         <Macaw/>
+         <VultureKing/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Fly_Call"/>
+      </behaviors>
+   </FlyCall>
+   <FlyCall>
+      <subjects>
+         <Gull/>
+         <LoonCommon/>
+         <Oxpecker/>
+         <DuckMallard/>
+         <Pigeon/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Fly_Call" animSpeed="0.4"/>
+      </behaviors>
+   </FlyCall>
+   <FlyCall>
+      <subjects>
+         <CrowCommon/>
+         <Kookaburra/>
+         <TernArctic/>
+         <ToucanToco/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Fly_Call" animSpeed="0.7"/>
+      </behaviors>
+   </FlyCall>
+</BehaviorSets>

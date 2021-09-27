@@ -1,0 +1,39 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="ThrowAwayDesertTrashCan" CursorTask="false" Priority="1" reserveTag="Use_Can" UniqueID="ThrowAwayDesertTrashCan">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <trashcan_et/>
+            <Qualifiers_AND f_TrashLevel="L 100" inSight="20"/>
+         </Targets>
+         <Objects>
+            <Trash/>
+            <Recyclable/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-75" thirst="-75" dessert="-75" rest="-75" social="-75" amusement="-75" gift="-75" bathroom="-75" viewanimals="-75"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoThrowawayTrash"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoThrowawayTrash" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <BFBehPlaySet behSet="useContainer"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap happiness="-1"/>
+         <BFAITargetData f_TrashLevel="5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

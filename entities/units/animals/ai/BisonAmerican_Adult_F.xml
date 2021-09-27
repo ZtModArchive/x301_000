@@ -1,0 +1,49 @@
+<BFTypedBinder binderType="BisonAmerican_Adult_F">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Artiodactyla>
+                     <Bovidae>
+                        <BisonAmerican>
+                           <BisonAmerican_Adult>
+                              <BisonAmerican_Adult_F/>
+                           </BisonAmerican_Adult>
+                        </BisonAmerican>
+                     </Bovidae>
+                  </Artiodactyla>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities/units/animals/BisonAmerican/BisonAmerican_Adult_F_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="BisonAmerican_Adult_F"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Male="0" f_adoptCount="rand(1,2)"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/units/animals/BisonAmerican/BisonAmerican_Adult_F.bfm" scale="1.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_Pregnant="false"/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

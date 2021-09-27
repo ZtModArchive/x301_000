@@ -1,0 +1,172 @@
+﻿<BFTypedBinder binderType="GiantSequoia_Boreal">
+	<types>
+		<entity>
+			<foliage>
+				<tree>
+					<GiantSequoia_Boreal />
+				</tree>
+			</foliage>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="biomedetail_01" rottype="ignore" postype="use" attachnode="biomedetail_01" />
+				<parentObj parent="mainObj" child="biomedetail_02" rottype="ignore" postype="use" attachnode="biomedetail_02" />
+				<parentObj parent="mainObj" child="biomedetail_03" rottype="ignore" postype="use" attachnode="biomedetail_03" />
+				<parentObj parent="mainObj" child="biomedetail_04" rottype="ignore" postype="use" attachnode="biomedetail_04" />
+				<parentObj parent="mainObj" child="biomedetail_05" rottype="ignore" postype="use" attachnode="biomedetail_05" />
+				<parentObj parent="mainObj" child="biomedetail_06" rottype="ignore" postype="use" attachnode="biomedetail_06" />
+				<parentObj parent="mainObj" child="biomedetail_07" rottype="ignore" postype="use" attachnode="biomedetail_07" />
+				<parentObj parent="mainObj" child="biomedetail_08" rottype="ignore" postype="use" attachnode="biomedetail_08" />
+				<parentObj parent="mainObj" child="biomedetail_09" rottype="ignore" postype="use" attachnode="biomedetail_09" />
+				<parentObj parent="mainObj" child="biomedetail_10" rottype="ignore" postype="use" attachnode="biomedetail_10" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\foliage\GiantSequoia\Tree_GiantSequoia_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:GiantSequoia_Boreal" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="GiantSequoia_Boreal" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData waterPlacement="false" autoFootprint="false" icon3Doffset="0 -0.05 0.15" icon3Dscale="0.02" minimumHeadroom="26.0">
+			<cfootprint width="2" height="2" />
+			<dfootprint width="3" height="3" />
+		</ZTPlacementData>
+		<BFGBiomeData location="borealforest_northamerica_sequoia">
+			<borealforest />
+		</BFGBiomeData>
+		<BFAIEntityDataShared s_Product="EndangeredSpecies" b_RubObject_Large="true" b_BrowseTree="false" b_BrowseBarkTree="true" s_prop="Branches_Prop" s_Zoopedia="zoopedia:zoopedia_giantsequoia:entry" f_FameReq="60" b_ThickTree="true" />
+		<BFGCollisionData isStatic="true" />
+		<ZTTourData>
+			<biome_boreal value="7" />
+			<cool value="7" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="biomedetail_01">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="15 20 25 45" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_02">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="15 20 25 45" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_03">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="15 20 25 45" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_04">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="15 20 25 45" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_05">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="15 20 25 45" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_06">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="15 20 25 45" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_07">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="15 20 25 45" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_08">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="15 20 25 45" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_09">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="15 20 25 45" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_10">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="15 20 25 45" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width="9" minLength="9" maxLength="15" minOffset="0" maxOffset="4" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/foliage/GiantSequoia/GiantSequoia_Boreal" scale="0.3" switch="0 20 40 60" minSwitch="0 5 25 55" />
+					<BFGroundFitComponent heightOffset="0.0" floatOnWater="true" waterOffset="-1.0" />
+					<BFTerrainPaintComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="100">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="Rub">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_01" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_02" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_03" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_04" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="BrowseTrunk">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterBeaverGnaw" useBehSet="BeaverGnaw" exitBehSet="ExitBeaverGnaw" targetNode="Dock_Beaver_01" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBeaverGnaw" useBehSet="BeaverGnaw" exitBehSet="ExitBeaverGnaw" targetNode="Dock_Beaver_02" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBeaverGnaw" useBehSet="BeaverGnaw" exitBehSet="ExitBeaverGnaw" targetNode="Dock_Beaver_03" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBeaverGnaw" useBehSet="BeaverGnaw" exitBehSet="ExitBeaverGnaw" targetNode="Dock_Beaver_04" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,53 @@
+<BFTypedBinder binderType="Dandelions_Grassland">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <wildflowers>
+                  <Dandelions_Grassland/>
+               </wildflowers>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.642857" icon3Dscale="0.897977" />
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\Dandelions\Dandelions_Grassland_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Dandelions_Grassland"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Dandelions_Grassland"/>
+         </on>
+      </UIToggleButton>
+      <BFGBiomeData location="grassland_northamerica">
+         <grassland/>
+      </BFGBiomeData>
+      <BFAIEntityDataShared b_GrazeGrass="true" s_prop="Grass_Prop" s_Zoopedia="zoopedia:zoopedia_dandelions:entry"/>
+   		<ZTTourData>
+	 			<biome_grasslands value="1"/>
+		</ZTTourData> 
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/foliage/Dandelions/Dandelions_Grassland"  switch="0 15 25 35 60"/>
+               <BFMultiGroundFitComponent heightOffset="0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="15">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

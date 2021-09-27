@@ -1,0 +1,40 @@
+﻿<BFTypedBinder binderType="Kangaroo_Adult" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Diprodonta>
+							<Macropodidae>
+								<Kangaroo>
+									<Kangaroo_Adult />
+								</Kangaroo>
+							</Macropodidae>
+						</Diprodonta>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<ZTPlacementData icon3Doffset="0 -0.044336 1.172217" icon3Dscale="0.613830" />
+		<BFAIEntityDataShared f_viewBonus="5" b_Adult="1" s_MorphMessage="zoomessages:AnimalPuberty" f_MorphMessagePriority="1" f_MorphMessageDuration="30" b_MediumPrey="true" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Spine1" width="2.25" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester escapeBuffer="0.25" radius=".5" motionClass="mover" waterScore="10" maxSlope=".50" wadeDepth="1" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

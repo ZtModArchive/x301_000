@@ -1,0 +1,64 @@
+﻿<BFM modelname="entities\transportation\vehicles\gondola\Gondola_1Seat_1.nif">
+	<animation anim="entities\transportation\vehicles\gondola\Gondola_Stop_2Open.bf" animName="Stop_2Open" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\gondola\Gondola_Open_2Stop.bf" animName="Open_2Stop" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\gondola\Gondola_Bumpy_2Drive.bf" animName="Bumpy_2Drive" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\gondola\Gondola_Stop_Idle.bf" animName="Stop_Idle" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\gondola\Gondola_Open_Idle.bf" animName="Open_Idle" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\gondola\Gondola_Bumpy_Idle.bf" animName="Bumpy_Idle" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\gondola\Gondola_Drive_Ahead.bf" animName="Drive_Ahead" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\gondola\Gondola_Drive_2Stop.bf" animName="Drive_2Stop" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\gondola\Gondola_Stop_2Drive.bf" animName="Stop_2Drive" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\gondola\Gondola_Drive_2Bumpy.bf" animName="Drive_2Bumpy" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+</BFM>
+<Graph name="Gondola_1Seat_1" version="1">
+	<node name="Bumpy">
+		<table>
+			<Bumpy_Idle />
+		</table>
+		<edge name="Drive">
+			<table>
+				<Bumpy_2Drive />
+			</table>
+		</edge>
+	</node>
+	<node name="Drive">
+		<table>
+			<Drive_Ahead />
+		</table>
+		<edge name="Bumpy">
+			<table>
+				<Drive_2Bumpy />
+			</table>
+		</edge>
+		<edge name="Stop">
+			<table>
+				<Drive_2Stop />
+			</table>
+		</edge>
+	</node>
+	<node name="Open">
+		<table>
+			<Open_Idle />
+		</table>
+		<edge name="Stop">
+			<table>
+				<Open_2Stop />
+			</table>
+		</edge>
+	</node>
+	<node name="Stop">
+		<table>
+			<Stop_Idle />
+		</table>
+		<edge name="Drive">
+			<table>
+				<Stop_2Drive />
+			</table>
+		</edge>
+		<edge name="Open">
+			<table>
+				<Stop_2Open />
+			</table>
+		</edge>
+	</node>
+</Graph>

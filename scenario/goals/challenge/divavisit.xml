@@ -1,0 +1,20 @@
+<BFScenarioGroup name="divavisitrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="divavisitphoto" state="0" sticky="true" optional="true">
+			<info type="photo">
+				<neutral locid="PhotoChallengetext:PHDivaVisitShort" overview="PhotoChallengetext:PHDivaVisit" />
+				<success locid="PhotoChallengetext:PHDivaVisitSuccessShort" overview="PhotoChallengetext:PHDivaVisitSuccess" />
+				<failure locid="PhotoChallengetext:PHDivaVisitFailureShort" overview="PhotoChallengetext:PHDivaVisitFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/divavisit.lua" entry="evaldivavisit" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/divavisit.lua" entry="completedivavisit" />
+			</success>		
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/divavisit.lua" entry="faildivavisit" />
+			</failure>	
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

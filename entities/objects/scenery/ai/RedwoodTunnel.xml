@@ -1,0 +1,81 @@
+﻿<BFTypedBinder binderType="RedwoodTunnel">
+	<types>
+		<entity>
+			<scenery>
+				<TourObject>
+					<RedwoodTunnel />
+				</TourObject>
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\scenery\zoopedia_redwoodtunnel\RedwoodTunnel_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:Redwood_Tunnel" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="RedwoodTunnel" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData autoFootprint="false" terrainFlatten="true" dockArrowStyle="standard" dockArrowSize="0.75" icon3Dscale="0.08" icon3Doffset="0 0.15 0.1" minimumHeadroom="20.0">
+			<cfootprint width="3" height="2" />
+			<dfootprint width="4" height="3" />
+			<attachObj>
+				<entity nodeName="ShadowNode_01" binderType="treearch_collision_proxy" />
+				<entity nodeName="ShadowNode_02" binderType="treearch_collision_proxy" />
+			</attachObj>
+			<soundEnv> 
+				<stageVolume soundStage="redwoodtunnel" botLeftX="-4.0" botLeftY="-3.5" topRightX="4.0" topRightY="3.5" height="6.0" />
+			</soundEnv>
+			<stompData>
+				<allow>
+					<groundtrack />
+				</allow>
+			</stompData>
+		</ZTPlacementData>
+		<BFAIEntityDataShared s_uisort="te" s_Zoopedia="zoopedia:zoopedia_redwoodtunnel:entry" f_FameReq="100" />
+		<BFGCollisionData isPassable="true" />
+		<ZTTourData>
+			<tour value="10" />
+			<cool value="10" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFBinder repopulateMethod="byType">
+			<instance>
+				<ZTPlaceEntityComponent />
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="8" length="10" offwidth="1" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/zoopedia_redwoodtunnel/zoopedia_redwoodtunnel" switch="0 25 45" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="2000">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

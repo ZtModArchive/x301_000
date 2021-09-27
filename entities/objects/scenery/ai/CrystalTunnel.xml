@@ -1,0 +1,81 @@
+<BFTypedBinder binderType="CrystalTunnel">
+	<types>
+		<entity>
+			<scenery>
+				<TourObject>
+					<CrystalTunnel />
+				</TourObject>
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\scenery\CrystalTunnel_df\CrystalTunnel_df_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:CrystalTunnel" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="CrystalTunnel" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData autoFootprint="false" terrainFlatten="true" dockArrowStyle="standard" dockArrowSize="0.75" icon3Dscale="0.15" icon3Doffset="0 0 0.65" minimumHeadroom="7.5">
+			<cfootprint width="3" height="4" />
+			<dfootprint width="4" height="5" />
+			<stompData>
+				<allow>
+					<groundtrack />
+				</allow>
+			</stompData>
+			<attachObj>
+				<entity nodeName="Link_ABV_01" binderType="tunnel_collision_proxy" />
+				<entity nodeName="Link_ABV_02" binderType="tunnel_collision_proxy" />
+			</attachObj>
+			<soundEnv> 
+				<stageVolume soundStage="crystaltunnel" botLeftX="-4.0" botLeftY="-5.5" topRightX="4.0" topRightY="5.5" height="6.0" />
+			</soundEnv>
+		</ZTPlacementData>
+		<BFGCollisionData isPassable="true" />
+		<BFAIEntityDataShared s_uisort="tc" s_Zoopedia="zoopedia:zoopedia_crystaltunnel:entry" f_FameReq="60" />
+		<ZTTourData>
+			<tour value="6" />
+			<cool value="7" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFBinder repopulateMethod="byType">
+			<instance>
+				<ZTPlaceEntityComponent />
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="10" length="12" offwidth="0.5" offlength="-0.75" intensity="0.4" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/CrystalTunnel_df/CrystalTunnel_df" switch="0 15 30" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="1200">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,132 @@
+<BFTypedBinder binderType="egg">
+	<types>
+		<entity>
+			<egg />
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+	   <UIToggleButton template="adopt">
+   	   <UIAspect>
+            <default image="entities/objects/eggs/egg_icon.dds"/>
+         </UIAspect>
+      </UIToggleButton>
+		<BFAIEntityDataShared b_ReceiveUpdates="true" b_Eyedropper="false" s_GenerateName="bySpecies">
+			<BFAINeedAdjusts incubation="0.0075" />
+		</BFAIEntityDataShared>
+		<ZTPlacementData selectable="true" deletable="false" gridSnap="false" randomRotate="false" displayFootprint="false" autoFootprint="false" moveable="true">
+			<stompData>
+				<allow>
+					<wildflowers />
+					<grass />
+					<fungi />
+					<bush />
+					<thicket />
+				</allow>
+				<prevent>
+					<log />
+					<flowerbed />
+				</prevent>
+			</stompData>
+			<cfootprint width="1" height="1" />
+			<dfootprint width="2" height="2" />
+		</ZTPlacementData>
+		<ZTAIViewComponent>
+			<viewDataTable>
+				<ZTAIViewData name="Neg_10" viewScore="-90" donateScore="-500" entScore="-100" />
+				<ZTAIViewData name="Neg_9" viewScore="-80" donateScore="-400" entScore="-90" />
+				<ZTAIViewData name="Neg_8" viewScore="-70" donateScore="-300" entScore="-80" />
+				<ZTAIViewData name="Neg_7" viewScore="-60" donateScore="-200" entScore="-70" />
+				<ZTAIViewData name="Neg_6" viewScore="-50" donateScore="-100" entScore="-60" />
+				<ZTAIViewData name="Neg_5" viewScore="-40" donateScore="-90" entScore="-50" />
+				<ZTAIViewData name="Neg_4" viewScore="-30" donateScore="-90" entScore="-40" />
+				<ZTAIViewData name="Neg_3" viewScore="-20" donateScore="-50" entScore="-30" />
+				<ZTAIViewData name="Neg_2" viewScore="-10" donateScore="-16" entScore="-20" />
+				<ZTAIViewData name="Neg_1" viewScore="-5" donateScore="-4" entScore="-10" />
+				<ZTAIViewData name="Midpoint" viewScore="0" donateScore="0" entScore="0" />
+				<ZTAIViewData name="DPos_3" viewScore="0" donateScore="15" entScore="30" />
+				<ZTAIViewData name="DPos_4" viewScore="0" donateScore="30" entScore="40" />
+				<ZTAIViewData name="DPos_5" viewScore="0" donateScore="50" entScore="50" />
+				<ZTAIViewData name="DPos_6" viewScore="0" donateScore="75" entScore="60" />
+				<ZTAIViewData name="Pos_1" viewScore="-1" donateScore="0" entScore="10" />
+				<ZTAIViewData name="Pos_2" viewScore="1" donateScore="1" entScore="20" />
+				<ZTAIViewData name="Pos_3" viewScore="5" donateScore="60" entScore="30" />
+				<ZTAIViewData name="Pos_4" viewScore="10" donateScore="100" entScore="40" />
+				<ZTAIViewData name="Pos_5" viewScore="15" donateScore="130" entScore="50" />
+				<ZTAIViewData name="Pos_6" viewScore="20" donateScore="160" entScore="60" />
+				<ZTAIViewData name="Pos_7" viewScore="30" donateScore="190" entScore="70" />
+				<ZTAIViewData name="Pos_8" viewScore="40" donateScore="220" entScore="80" />
+				<ZTAIViewData name="Pos_9" viewScore="50" donateScore="260" entScore="90" />
+				<ZTAIViewData name="Pos_10" viewScore="60" donateScore="300" entScore="100" />
+			</viewDataTable>
+		</ZTAIViewComponent>
+		<ZTEntitySelector parentName="mainObj" nodeName="" animationTime="0.4" useFootprint="false" size="2.0">
+			<BFPhysObj>
+				<BFTerrainDecalComponent imageName="UI/fx/selection/unit.tga" alphaBlend="true">
+					<lighting emmisiveColor="255 255 255" specularColor="255 255 255" diffuseColor="255 255 255" ambientColor="255 255 255" />
+				</BFTerrainDecalComponent>
+			</BFPhysObj>
+		</ZTEntitySelector>
+		<BFGCollisionData isPassable="true" isTraversable="true" />
+	</shared>
+	<binder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehAnimate interruptible="true" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true" />
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance s_name="unnamed" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAICognitiveMgr>
+					<Sensors>
+						<ZTAISensor />
+						<BFAISensorSelf />
+					</Sensors>
+					<StateThinkers>
+						<ZTAIStateThinker>
+							<BFAIStateVar Name="incubation" Value="" ValueMin=".0075" ValueMax="" CessationThreshold="0" DisplayThreshold="0" PressingThreshold="1.0" TriggerThreshold="1.06" CriticalThreshold="1.05" Advanced="true" />
+						</ZTAIStateThinker>
+					</StateThinkers>
+					<TaskThinkers>
+						<ZTAITaskThinker />
+					</TaskThinkers>
+				</BFAICognitiveMgr>
+			</instance>
+			<shared>
+				<BFAICogShared>
+					<BFAINoPerceive>
+						<fence />
+						<path />
+						<entrance />
+					</BFAINoPerceive>
+				</BFAICogShared>
+			</shared>
+		</BFBinder>
+		<BFBinder repopulateMethod="byType">
+			<instance>
+				<BFAIRelationshipMgr version="1"/>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1" repopulateMethod="byType">
+			<instance>
+				<ZTFeedbackComponent />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<ZTPhotoAnalysisComponent/>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

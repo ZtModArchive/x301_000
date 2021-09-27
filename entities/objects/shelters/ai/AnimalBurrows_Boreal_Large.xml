@@ -1,0 +1,136 @@
+<BFTypedBinder binderType="AnimalBurrows_Boreal_Large">
+   <types>
+      <entity>
+         <shelters>
+            <AnimalBurrows_Boreal_Large/>
+         </shelters>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="biomedetail_01" rottype="ignore" postype="use" attachnode="biomedetail_01"/>
+            <parentObj parent="mainObj" child="biomedetail_02" rottype="ignore" postype="use" attachnode="biomedetail_02"/>
+            <parentObj parent="mainObj" child="biomedetail_03" rottype="ignore" postype="use" attachnode="biomedetail_03"/>
+            <parentObj parent="mainObj" child="biomedetail_04" rottype="ignore" postype="use" attachnode="biomedetail_04"/>
+            <parentObj parent="mainObj" child="biomedetail_05" rottype="ignore" postype="use" attachnode="biomedetail_05"/>
+            <parentObj parent="mainObj" child="biomedetail_06" rottype="ignore" postype="use" attachnode="biomedetail_06"/>
+            <parentObj parent="mainObj" child="biomedetail_07" rottype="ignore" postype="use" attachnode="biomedetail_07"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\shelters\AnimalBurrows_Shelter\AnimalBurrows_Boreal_Large_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:AnimalBurrows_Boreal_Large"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="AnimalBurrows_Boreal_Large"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\shelters\AnimalBurrows_Shelter\AnimalBurrows_Boreal_Large_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="AnimalBurrows_Boreal_Large"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Researchable="true" s_Product="EndangeredSpecies" f_FameReq="60" s_uisort="pd" s_Zoopedia="zoopedia:zoopedia_burrow_boreal:entry" f_researchUnlockTime="100" f_researchCost="800"/>
+   		<ZTTourData>
+	 		<biome_boreal value="5"/>
+	 		<shelter value="7"/>
+		</ZTTourData>      
+      <ZTPlacementData icon3Doffset="0 0 0.7" icon3Dscale="0.35" dockArrowStyle="special" dockArrowSize="1.5" minimumHeadroom="3.0">
+         <cfootprint width="2" height="2"/>
+         <dfootprint width="3" height="3"/>
+      </ZTPlacementData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="ShadowNode_01" width="6" length="4" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/shelters/AnimalBurrows_Shelter/AnimalBurrows_Boreal_Large"/>
+               <BFTravAnimPathComponent actorfile="entities\objects\shelters\AnimalBurrows_Shelter\AnimalBurrows_Boreal_Large_TAP.bfm"/>
+               <BFGroundFitComponent heightOffset="0.1"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_01">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_02">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_03">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_04">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_05">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_06">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_07">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterShelter1" useBehSet="UseShelter" exitBehSet="ExitShelter1" targetNode="Bip01_DockNode01_BaseA2Branch1AEnd"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterShelter2" useBehSet="UseShelter" exitBehSet="ExitShelter2" targetNode="Bip01_DockNode03_BaseB2Branch1BEnd"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="1600">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

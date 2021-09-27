@@ -1,0 +1,106 @@
+<BFTypedBinder binderType="BrowseHolder_Hay">
+   <types>
+      <entity>
+         <food>
+            <BrowseHolder>
+               <BrowseHolder_Hay/>
+            </BrowseHolder>
+         </food>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\food\BrowseHolder\BrowseHolder_Hay_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:BrowseHolder_Hay"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="BrowseHolder_Hay"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\food\BrowseHolder\BrowseHolder_Hay_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="BrowseHolder_Hay"/>
+         </on>
+      </UIToggleButton>       
+      <BFAIEntityDataShared b_Researchable="true" s_FoodType="Vegetation" f_FameReq="60" b_GranivoreFood="true" s_contents="Terrain_Hay" s_prop="Hay_Prop" f_researchUnlockTime="60" f_researchCost="600"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/food/BrowseHolder/BrowseHolder"  switch="0 18"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="full" required="1">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/food/BrowseHolder/BrowseHolder_Hay_Full"  switch="0 18"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="30"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="twothird" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/food/BrowseHolder/BrowseHolder_Hay_66"  switch="0 18"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="20"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="onethird" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/food/BrowseHolder/BrowseHolder_Hay_33"  switch="0 18"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="10"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="empty" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/food/BrowseHolder/BrowseHolder_Hay_Empty"  switch="0 18"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance f_FoodLevel="100"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIFadeController attribName="f_FoodLevel" currState="full" fadePeriod="1">
+               <stateList>
+                  <full physObj="full" minRange="66" maxRange="101"/>
+                  <twothird physObj="twothird" minRange="33" maxRange="66"/>
+                  <onethird physObj="onethird" minRange="1" maxRange="33"/>
+                  <empty physObj="empty" minRange="-101" maxRange="1"/>
+               </stateList>
+            </BFAIFadeController>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="900">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+               <ZTTransaction name="refill" cost="100" type="credit" category="animal_upkeep"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,130 @@
+<BFTypedBinder binderType="Gondola_FourSeats_basic">
+   <types>
+      <entity>
+         <transportation>
+            <vehicle>
+               <skytram>
+                  <Gondola_FourSeats_basic/>
+               </skytram>
+            </vehicle>
+         </transportation>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="Bip01"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData iconAnim="Stop_Idle" icon3Doffset="0 0 0.13" icon3Dscale="0.5"/>
+      <ZTUserCameraData>
+		 <FPCameraNodes>
+			<entry nodeName="Node Camera02" />
+			<entry nodeName="Node Camera01" />
+			<entry nodeName="Node Camera04" />
+			<entry nodeName="Node Camera03" />
+		 </FPCameraNodes>
+      </ZTUserCameraData>
+      <BFAIEntityDataShared s_GameLock="fourseaterlock" s_uisort="4s" b_UseLeftArmOnForwardTrack="true" s_MainObjParentNodeName="Link_Rope" s_ArmParentNodeNameL="Link_Rope" s_ArmParentNodeNameR="Link_Rope" s_Zoopedia="zoopedia:zoopedia_gondola:entry"/>
+      <UIToggleButton>
+         <UIAspect>
+            <default image="entities\transportation\vehicles\gondola\Gondola_4Seats_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Gondola_FourSeats_basic"/>
+         <on>
+            <event string="Gondola_FourSeats_basic"/>
+         </on>
+      </UIToggleButton>
+   </shared>
+   <binder>
+      <BFBinder required="1">
+         <instance>
+            <BFGCollisionTester escapeBuffer="0.1875" radius=".375" motionClass="mover" waterScore="10" maxSlope=".75" wadeDepth="1"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr/>
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="ground" required="1">
+               <instance>
+                  <BFLocoAnimate version="1">
+                     <stop name="Stop"/>
+                     <slow name="Drive" minAnimSpeed="0.5" maxAnimSpeed="0.5"/>
+                     <medium name="Drive" minAnimSpeed="1.5" maxAnimSpeed="1.5"/>
+                     <fast name="Drive" minAnimSpeed="2.0" maxAnimSpeed="2.0"/>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1">
+               <subBehaviors>
+                  <BFBehAnimate interruptible="true" targetAnim="Stop_Idle" interruptFlag="true" loopFlag="true"/>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="850">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="upkeep" cost="70" period="monthly" type="debit" category="upkeep"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="Bip01" ignoreLights="true" width="2" minLength="2.5" maxLength="4" minOffset="0" maxOffset=".5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFShadowLODComponent numLevels="1" switchingDists="60.0"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="120"/>
+               <BFBoundedObjectComponent useModelBounds="true"/>
+               <BFActorComponent actorfile="entities/transportation/vehicles/gondola/Gondola_4Seats_df.bfm" scale="1.0" useDecalsInLow="false"/>
+               <BFForwardMovingComponent/>
+               <BFRotYawMovingComponent/>
+               <BFCollisionComponent grid="Bip01"/>
+               <BFGridCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="armObj_Left" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\transportation\vehicles\gondola\Gondola_Arm_L"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="armObj_Right" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\transportation\vehicles\gondola\Gondola_Arm_R"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Passenger_Cabin">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="Dock_Left" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Right" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Right01" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Left01" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

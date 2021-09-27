@@ -1,0 +1,82 @@
+<BFTypedBinder binderType="Sky_Tower_Reward">
+   <types>
+      <entity>
+         <building>
+            <Sky_Tower_Reward/>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="ShadowNode_01"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData autoFootprint="false" dockArrowStyle="special" dockArrowSize="1.5" icon3Doffset="0 0 0.1" icon3Dscale="0.1">
+         <cfootprint width="2" height="2"/>
+         <dfootprint width="2" height="2"/>
+      </ZTPlacementData>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\buildings\skytower_df\skytower_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Sky_Tower_Reward"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Sky_Tower_Reward"/>
+         </on>
+      </UIToggleButton>
+      <UIButton name="overviewicon">
+         <UIAspect>
+            <default image="ui/zoomap/icon_attractions.dds"/>
+         </UIAspect>
+      </UIButton>
+      <BFAIEntityDataShared s_ObjectType="Misc" s_GameLock="skytowerlock" b_CommerceBuilding="true" s_Product="EndangeredSpecies" s_uisort="fa" b_DonationAcceptor="false" s_Zoopedia="zoopedia:zoopedia_skytower:entry" b_wantLifetimeUsers="true" b_lockFromCampaigns="true" />
+      <ZTTourData>
+         <reward value="7"/>
+         <cool value="7"/>
+      </ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="ShadowNode_01" width="9" length="9" intensity="0.25"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/skytower_df/skytower_df" switch="0 18 36" minSwitch="0 0 20"/>
+               <BFTravAnimPathComponent actorfile="entities/objects/buildings/skytower_df/skytower_TAP_df.bfm"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_Skytower">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterSkyTower1" useBehSet="UseSkyTower" exitBehSet="ExitSkyTower1" targetNode="Dock_Guest3" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterSkyTower2" useBehSet="UseSkyTower" exitBehSet="ExitSkyTower2" targetNode="Dock_Guest2" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterSkyTower3" useBehSet="UseSkyTower" exitBehSet="ExitSkyTower3" targetNode="Dock_Guest1" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterSkyTower4" useBehSet="UseSkyTower" exitBehSet="ExitSkyTower4" targetNode="Dock_Guest4" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="3000">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="upkeep" cost="100" period="monthly" type="debit" category="upkeep"/>
+               <ZTTransaction name="add_user" cost="1" type="addUser" category="user"/>
+               <ZTTransaction name="Buy_Item" costIndex="1" costChoice="5 10 15" cost="5" type="debit" category="concessions_gifts" nextTransaction="add_user"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

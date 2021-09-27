@@ -1,0 +1,102 @@
+<BFTypedBinder binderType="SubstratePile_Insects">
+   <types>
+      <entity>
+         <food>
+            <SubstratePile>
+               <SubstratePile_Insects/>
+            </SubstratePile>
+         </food>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\food\SubstratePile\SubstratePile_Insects_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:SubstratePile_Insects"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="SubstratePile_Insects"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData randomRotate="false" gridSnap="true" autoFootprint="true" terrainFlatten="true"/>
+      <BFAIEntityDataShared s_FoodType="Insects" f_FameReq="100" b_Sniffable="true" b_InsectivoreFood="true" s_contents="Terrain_Insects" s_prop="none"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/food/SubstratePile/SubstratePile"  switch="0 36"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="full" required="1">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/food/SubstratePile/SubstratePile_Insects_Full.nif"  switch="0 36" initialTextKey="snd &quot;SubstratePile_Insects&quot; looping"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="25"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="twothird" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/food/SubstratePile/SubstratePile_Insects_66.nif"  switch="0 36" initialTextKey="snd &quot;SubstratePile_Insects&quot; looping"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="25"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="onethird" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/food/SubstratePile/SubstratePile_Insects_33.nif"  switch="0 36" initialTextKey="snd &quot;SubstratePile_Insects&quot; looping"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="25"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="empty" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/food/SubstratePile/SubstratePile_Insects_Empty"  switch="0 36"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="25"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance f_FoodLevel="100"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIFadeController attribName="f_FoodLevel" currState="full" fadePeriod="1">
+               <stateList>
+                  <full physObj="full" minRange="66" maxRange="101"/>
+                  <twothird physObj="twothird" minRange="33" maxRange="66"/>
+                  <onethird physObj="onethird" minRange="1" maxRange="33"/>
+                  <empty physObj="empty" minRange="-101" maxRange="1"/>
+               </stateList>
+            </BFAIFadeController>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="380">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="refill" cost="120" type="credit" category="animal_upkeep"/>               
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,191 @@
+<BFTypedBinder binderType="bathroomsmall_St">
+   <types>
+      <entity>
+         <building>
+            <bathroom>
+               <bathroomsmall>
+                  <bathroomsmall_St/>
+               </bathroomsmall>
+            </bathroom>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="fire01" rottype="ignore" postype="use" attachnode="Link_Fire01"/>
+            <parentObj parent="mainObj" child="fan" rottype="use" postype="use" attachnode="Link_ExhaustFan"/>
+            <parentObj parent="mainObj" child="pipes" rottype="use" postype="use" attachnode="Link_Pipes"/>
+            <parentObj parent="mainObj" child="biomedetail_01" rottype="ignore" postype="use" attachnode="biomedetail_01"/>
+            <parentObj parent="mainObj" child="biomedetail_02" rottype="ignore" postype="use" attachnode="biomedetail_02"/>
+            <parentObj parent="mainObj" child="biomedetail_03" rottype="ignore" postype="use" attachnode="biomedetail_03"/>
+            <parentObj parent="mainObj" child="biomedetail_04" rottype="ignore" postype="use" attachnode="biomedetail_04"/>
+            <parentObj parent="mainObj" child="biomedetail_05" rottype="ignore" postype="use" attachnode="biomedetail_05"/>
+            <parentObj parent="mainObj" child="biomedetail_06" rottype="ignore" postype="use" attachnode="biomedetail_06"/>
+            <parentObj parent="mainObj" child="biomedetail_07" rottype="ignore" postype="use" attachnode="biomedetail_07"/>
+            <parentObj parent="mainObj" child="biomedetail_08" rottype="ignore" postype="use" attachnode="biomedetail_08"/>
+            <parentObj parent="mainObj" child="biomedetail_09" rottype="ignore" postype="use" attachnode="biomedetail_09"/>
+            <parentObj parent="mainObj" child="biomedetail_10" rottype="ignore" postype="use" attachnode="biomedetail_10"/>
+            <parentObj parent="mainObj" child="biomedetail_11" rottype="ignore" postype="use" attachnode="biomedetail_11"/>
+            <parentObj parent="mainObj" child="biomedetail_12" rottype="ignore" postype="use" attachnode="biomedetail_12"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.519831" icon3Dscale="0.320756" />
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\buildings\bathroomsmall_St\bathroomsmall_St_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:bathroomsmall_St"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="bathroomsmall_St"/>
+         </on>
+      </UIToggleButton>
+      <UIButton name="overviewicon">
+         <UIAspect>
+            <default image="ui/zoomap/icon_bathroom.tga"/>
+         </UIAspect>
+      </UIButton>
+      <BFAIEntityDataShared s_uisort="ce" s_ProfileLock="safarilock" s_Zoopedia="zoopedia:zoopedia_restroom:entry" s_Theme="safari"/>
+   		<ZTTourData>
+	 				<theme_safari value="3"/>
+		</ZTTourData>    
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="8" length="6" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fire01">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Fire.nif" />
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/bathroomsmall_St/bathroomsmall_St" switch="0 30 60" minSwitch="0 0 30"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fan">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/components/exhaustfansmall_df" />
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="pipes">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/components/pipespanel_df" />
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_01">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_02">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_03">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_04">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_05">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_06">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_07">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_08">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_09">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_10">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_11">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_12">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="100" mergeKey="name">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="upkeep" cost="25" period="monthly" type="debit" category="upkeep"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

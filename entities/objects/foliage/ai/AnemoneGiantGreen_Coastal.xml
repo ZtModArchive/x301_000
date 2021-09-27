@@ -1,0 +1,78 @@
+﻿<BFTypedBinder binderType="AnemoneGiantGreen_Coastal">
+	<types>
+		<entity>
+			<foliage>
+				<marineplant>
+					<AnemoneGiantGreen_Coastal />
+				</marineplant>
+			</foliage>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<ZTPlacementData icon3Doffset="0 -0.070264 0.523747" icon3Dscale="2.0" />
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\foliage\AnemoneGiantGreen\AnemoneGiantGreen_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:AnemoneGiantGreen_Coastal" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="AnemoneGiantGreen_Coastal" />
+			</on>
+		</UIToggleButton>
+		<BFGBiomeData location="coastal_warm_oceans_worldwide">
+			<coastal />
+		</BFGBiomeData>
+		<BFAIEntityDataShared s_Product="Marine" b_ReceiveUpdates="true" s_Zoopedia="zoopedia:zoopedia_greenseaanemone:entry" f_FameReq="20" />
+		<ZTTourData>
+			<biome_coastal value="1" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="false" modelfile="entities\objects\foliage\AnemoneGiantGreen\AnemoneGiantGreen" switch="0 25 50" />
+					<BFGroundFitComponent heightOffset="0.0" maxTilt="50" />
+					<BFTerrainPaintComponent />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedRandomTextureInfo>
+					<replacementSet>
+						<group weight="1">
+							<item material="AnemoneGiantGreen_Body" image="entities/objects/foliage/AnemoneGiantGreen/AnemoneGiantGreen_Body_1.dds" layer="base" />
+							<item material="AnemoneGiantGreen_Tentacles" image="entities/objects/foliage/AnemoneGiantGreen/AnemoneGiantGreen_Tentacles_1.dds" layer="base" />
+						</group>
+						<group weight="1">
+							<item material="AnemoneGiantGreen_Body" image="entities/objects/foliage/AnemoneGiantGreen/AnemoneGiantGreen_Body_2.dds" layer="base" />
+							<item material="AnemoneGiantGreen_Tentacles" image="entities/objects/foliage/AnemoneGiantGreen/AnemoneGiantGreen_Tentacles_2.dds" layer="base" />
+						</group>
+						<group weight="1">
+							<item material="AnemoneGiantGreen_Body" image="entities/objects/foliage/AnemoneGiantGreen/AnemoneGiantGreen_Body_3.dds" layer="base" />
+							<item material="AnemoneGiantGreen_Tentacles" image="entities/objects/foliage/AnemoneGiantGreen/AnemoneGiantGreen_Tentacles_3.dds" layer="base" />
+						</group>
+						<group weight="1">
+							<item material="AnemoneGiantGreen_Body" image="entities/objects/foliage/AnemoneGiantGreen/AnemoneGiantGreen_Body_4.dds" layer="base" />
+							<item material="AnemoneGiantGreen_Tentacles" image="entities/objects/foliage/AnemoneGiantGreen/AnemoneGiantGreen_Tentacles_4.dds" layer="base" />
+						</group>
+						<group weight="1">
+							<item material="AnemoneGiantGreen_Body" image="entities/objects/foliage/AnemoneGiantGreen/AnemoneGiantGreen_Body_5.dds" layer="base" />
+							<item material="AnemoneGiantGreen_Tentacles" image="entities/objects/foliage/AnemoneGiantGreen/AnemoneGiantGreen_Tentacles_5.dds" layer="base" />
+						</group>
+					</replacementSet>
+				</BFSharedRandomTextureInfo>
+			</shared>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="30">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,47 @@
+<UILayout name="Donations Item Layout">
+   <UIRegion x="0" y="0" w="300" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect>
+      <default image="" sound="">
+         <BFRect x="0" y="0" w="0" h="0"/>
+         <BFColor r="0" g="0" b="0" a="0"/>
+      </default>
+   </UIAspect>
+   <children>
+      <UIText name="species">
+         <UIRegion x="5" y="0" w="140" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect locid="">
+            <default>
+               <BFFont>
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </BFFont>
+            </default>
+         </UIAspect>
+         <text format="entityinfo:species_label" type="multi"/>
+      </UIText>
+      <UIText name="donation number">
+         <UIRegion x="100" y="0" w="100" h="15" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect locid="">
+            <default>
+               <BFFont align="center">
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </BFFont>
+            </default>
+         </UIAspect>
+         <text format="entityinfo:species_label"/>
+      </UIText>
+      <ZTMoneyText name="donation amount" posformat="entityinfo:posformat" negformat="entityinfo:negformat" nocents="false" nominus="true">
+         <UIRegion x="100" y="0" w="178" h="15" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect locid="">
+            <default>
+               <BFFont align="right">
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </BFFont>
+            </default>
+         </UIAspect>
+      </ZTMoneyText>
+   </children>
+</UILayout>

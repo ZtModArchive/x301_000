@@ -1,0 +1,85 @@
+<BFTypedBinder binderType="binoculars_df" version="2" versionReplace="true">
+   <types>
+      <entity>
+         <scenery>
+            <binoculars_df/>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\binoculars_df\binoculars_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:binoculars"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="binoculars_df"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\scenery\binoculars_df\binoculars_df_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="binoculars_df"/>
+         </on>
+      </UIToggleButton>      
+      <ZTPlacementData terrainFlatten="true" autoFootprint="false" dockArrowStyle="special" dockArrowSize=".5" icon3Doffset="0 0 0.342139" icon3Dscale="0.936682">
+         <cfootprint width="1" height="1"/>
+         <dfootprint width="1" height="1"/>
+      </ZTPlacementData>
+      <BFAIEntityDataShared b_Researchable="true" f_FameReq="20" s_uisort="fd" b_ReceiveUpdates="true" b_ViewingArea="true" f_ViewPriority="2" f_ViewingDistance="30" f_ViewingRange="64" f_ViewCone="90" b_FlipFacingDir="true" s_Zoopedia="zoopedia:zoopedia_binoculars:entry" f_researchUnlockTime="60" f_researchCost="400"/>
+      <BFGCollisionData isStatic="false"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="ShadowNode_01" width="1" length="2" offwidth="0.25" offlength="-0.25" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/objects/scenery/binoculars_df/binoculars.bfm"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFCollisionComponent grid="Grid"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="300">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1">
+               <subBehaviors>
+                  <BFBehAnimate interruptible="true" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true"/>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="Use_Binocs">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot exitBehSet="ExitBinoculars"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

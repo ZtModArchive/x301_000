@@ -1,0 +1,20 @@
+<BFScenarioGroup name="masaigirafferules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="masaigiraffe" state="0" sticky="true" optional="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHMasaiGiraffeShort" overview="Challengetext:CHMasaiGiraffe" />
+				<success locid="Challengetext:CHMasaiGiraffeSuccessShort" overview="Challengetext:CHMasaiGiraffeSuccess" />
+				<failure locid="Challengetext:CHMasaiGiraffeFailureShort" overview="Challengetext:CHMasaiGiraffeFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/masaigiraffe.lua" entry="evalmasaigiraffe" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/masaigiraffe.lua" entry="completemasaigiraffe" />
+			</success>		
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/masaigiraffe.lua" entry="failmasaigiraffe" />
+			</failure>	
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

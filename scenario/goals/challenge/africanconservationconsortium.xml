@@ -1,0 +1,20 @@
+<BFScenarioGroup name="africanconservationconsortiumrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="africanconservationconsortium" state="0" sticky="true" optional="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHAfricanConservationConsortiumShort" overview="Challengetext:CHAfricanConservationConsortium" />
+				<success locid="Challengetext:CHAfricanConservationConsortiumSuccessShort" overview="Challengetext:CHAnimalAssistanceSuccess" />
+				<failure locid="Challengetext:CHAfricanConservationConsortiumFailureShort" overview="Challengetext:CHAfricanConservationConsortiumFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/africanconservationconsortium.lua" entry="evalAfricanConservationConsortium" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/africanconservationconsortium.lua" entry="completeAfricanConservationConsortium" />
+			</success>		
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/africanconservationconsortium.lua" entry="failAfricanConservationConsortium" />
+			</failure>	
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

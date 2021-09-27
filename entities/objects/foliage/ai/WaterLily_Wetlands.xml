@@ -1,0 +1,54 @@
+<BFTypedBinder binderType="WaterLily_Wetlands">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <watersurfacefoliage>
+                  <WaterLily_Wetlands/>
+               </watersurfacefoliage>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\WaterLily\WaterLily_Wetlands_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:WaterLily_Wetlands"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="WaterLily_Wetlands"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_waterlily:entry" f_FameReq="40"/>
+      <ZTPlacementData waterPlacement="true" terrainFlatten="false" landPlacement="false" icon3Doffset="0 0 0.600000" icon3Dscale="0.462162" />
+      <BFGBiomeData location="wetland_africa">
+         <wetlands/>
+      </BFGBiomeData>
+   		<ZTTourData>
+	 		<biome_wetlands value="1"/>
+		</ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/foliage/WaterLily/WaterLily_Wetlands"  switch="0 15 25 35 60"/>
+               <BFGroundFitComponent heightOffset="0.0" floatOnWater="true" waterOffset="0.0"/>
+               <BFTerrainPaintComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="10">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

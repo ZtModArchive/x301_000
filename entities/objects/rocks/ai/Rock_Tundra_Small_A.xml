@@ -1,0 +1,65 @@
+<BFTypedBinder binderType="Rock_Tundra_Small_A">
+   <types>
+      <entity>
+         <rock>
+            <Rock_Tundra_Small_A/>
+         </rock>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\rocks\tundra\Rock_Tundra_Small_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Rock_Tundra_Small_A"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Rock_Tundra_Small_A"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData icon3Doffset="0 0 0.729019" icon3Dscale="0.554734" terrainFlatten="false"><!--check rock.xml for other placement data--></ZTPlacementData>
+      <BFAIEntityDataShared f_FameReq="20" b_SmallRock="true" s_Zoopedia="zoopedia:zoopedia_tundrarocks:entry"/>
+      <BFGBiomeData location="tundra_worldwide">
+         <tundra/>
+      </BFGBiomeData>
+      <BFGCollisionData isPassable="false" isStatic="false"/>
+      <BFGInfluenceComponent defaultRadius="10.0" defaultGroupFactor="20.0" defaultRadiusDropoff="linear" defaultGroupDropoff="linear">
+         <biome/>
+         <location/>
+      </BFGInfluenceComponent>
+   		<ZTTourData>
+	 				<biome_tundra value="1"/>
+			</ZTTourData>  
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width="2" minLength="2" maxLength="3" minOffset="0" maxOffset=".375"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities/objects/rocks/tundra/Rock_Tundra_Small_A" scale=".5"/>
+               <BFGroundFitComponent heightOffset="0.0" maxTilt="75"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="20">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

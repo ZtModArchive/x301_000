@@ -1,0 +1,280 @@
+<BFTypedBinder binderType="Easel">
+   <types>
+      <entity>
+         <enrichment>
+            <stationary_enrichment>
+               <Easel/>
+            </stationary_enrichment>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\Easel\Easel_idle_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Easel"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Easel"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_NoPerceiveOverride="true"  s_uisort="fz" s_Zoopedia="zoopedia:zoopedia_easel:entry" f_FameReq="100"/>
+      <ZTPlacementData randomRotate="false" gridSnap="true" autoFootprint="true" terrainFlatten="true" dockArrowStyle="special" dockArrowSize="1.0" icon3Doffset="0 -0.032556 0.296654" icon3Dscale="0.550313" minimumHeadroom="3.0" protectedPlacement="false"/>
+   <BFGCollisionData isPassable="false" isStatic="true"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="ShadowNode_01" width="4" minLength="4" maxLength="6" minOffset="0" maxOffset="1"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_idle" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance f_PaintLevel="0"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="blank" required="1">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Idle_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="first_elephant" required="0">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Elephant30_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="second_elephant" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Elephant60_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="third_elephant" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Elephant90_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="finished_elephant" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Elephant100_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="variant_elephant" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_ElephantVarient_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="first_gorilla" required="0">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Gorilla30_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="second_gorilla" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Gorilla60_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="third_gorilla" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Gorilla90_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="finished_gorilla" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Gorilla100_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="variant_gorilla" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_GorillaVarient_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="first_chimpanzee" required="0">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Chimp30_CanvasTrays" switch="0 36" minSwitch="0 15" />
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="second_chimpanzee" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Chimp60_CanvasTrays" switch="0 36" minSwitch="0 15" />
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="third_chimpanzee" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Chimp90_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="finished_chimpanzee" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Chimp100_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="variant_chimpanzee" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_ChimpVarient_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      
+      <BFNamedBinder binderName="first_guest" required="0">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Guest60_CanvasTrays" switch="0 36" minSwitch="0 15" />
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="second_guest" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Guest60_CanvasTrays" switch="0 36" minSwitch="0 15" />
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="third_guest" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Guest90_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>      
+      <BFNamedBinder binderName="finished_guest" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_Guest100_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="variant_guest" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/Easel/Easel_GuestVarient_CanvasTrays" switch="0 36" minSwitch="0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>      
+      
+      
+      
+      
+      
+      <BFBinder required="1">
+         <instance>
+            <BFAIFadeController attribName="f_PaintLevel" currState="blank" fadePeriod=".25">
+               <stateList>
+                  <blank physObj="blank" minRange="-1000" maxRange="1"/>
+
+
+                  <variant_elephant physObj="variant_elephant" minRange="1" maxRange="2"/>
+                  <first_elephant physObj="first_elephant" minRange="2" maxRange="8"/>
+                  <second_elephant physObj="second_elephant" minRange="8" maxRange="16"/>
+                  <third_elephant physObj="third_elephant" minRange="16" maxRange="24"/>
+                  <finished_elephant physObj="finished_elephant" minRange="24" maxRange="32"/>
+                  <variant_gorilla physObj="variant_gorilla" minRange="32" maxRange="33"/>
+                  <first_gorilla physObj="first_gorilla" minRange="33" maxRange="40"/>
+                  <second_gorilla physObj="second_gorilla" minRange="40" maxRange="48"/>
+                  <third_gorilla physObj="third_gorilla" minRange="48" maxRange="56"/>
+                  <finished_gorilla physObj="finished_gorilla" minRange="56" maxRange="64"/>
+                  <variant_chimpanzee physObj="variant_chimpanzee" minRange="64" maxRange="65"/>
+                  <first_chimpanzee physObj="first_chimpanzee" minRange="65" maxRange="72"/>
+                  <second_chimpanzee physObj="second_chimpanzee" minRange="72" maxRange="80"/>
+                  <third_chimpanzee physObj="third_chimpanzee" minRange="80" maxRange="88"/>
+                  <finished_chimpanzee physObj="finished_chimpanzee" minRange="88" maxRange="91"/>
+
+                  <first_guest physObj="first_guest" minRange="91" maxRange="93"/>
+                  <second_guest physObj="second_guest" minRange="93" maxRange="95"/>
+                  <third_guest physObj="third_guest" minRange="95" maxRange="97"/>
+                  <finished_guest physObj="finished_guest" minRange="97" maxRange="99"/>                  
+                  <variant_guest physObj="variant_guest" minRange="99" maxRange="101"/>
+
+
+                  
+               </stateList>
+            </BFAIFadeController>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="Paint">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterEasel" useBehSet="Paint" exitBehSet="ExitEasel" targetNode="Dock_Paint_0" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="1500">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

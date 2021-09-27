@@ -1,0 +1,44 @@
+<BFTypedBinder binderType="food" abstract="true">
+   <types>
+      <entity>
+         <food/>
+      </entity>
+   </types>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFCollisionComponent/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="65"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <ZTPhotoAnalysisComponent/>
+         </instance>
+      </BFBinder>
+   </binder>
+   <shared>
+      <BFGCollisionData isTraversable="true" isPassable="true"/>
+      <ZTPlacementData moveable="true" protectedPlacement="true">
+         <stompData>
+            <delete>
+               <Poop/>
+            </delete>
+            <prevent/>
+         </stompData>
+      </ZTPlacementData>
+      <BFAIEntityDataShared b_SuppressEconomyHistory="true" s_uisort="zzzz" b_SendSlap="true" b_Food="true" b_SmallFood="true"/>
+      <ZTEntitySelector parentName="mainObj" nodeName="" animationTime="0.4" useFootprint="false" size="2.0">
+         <BFPhysObj>
+            <BFTerrainDecalComponent imageName="UI/fx/selection/unit.tga" alphaBlend="true">
+               <lighting emmisiveColor="255 255 255" specularColor="255 255 255" diffuseColor="255 255 255" ambientColor="255 255 255"/>
+            </BFTerrainDecalComponent>
+         </BFPhysObj>
+      </ZTEntitySelector>
+      <ZTUserStaffAction>
+         <SetAttribute name="f_FoodLevel" value="100" locid="superstaff:food"/>
+      </ZTUserStaffAction>
+   </shared>
+</BFTypedBinder>

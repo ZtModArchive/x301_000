@@ -1,0 +1,100 @@
+<BFTypedBinder binderType="RockPool">
+	<types>
+		<entity>
+			<scenery>
+				<TourObject>
+					<RockPool />
+				</TourObject>
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="mist01" rottype="ignore" postype="use" attachnode="Link_Mist01" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\scenery\rock_pool\RockPool_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:RockPool" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="RockPool" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData autoFootprint="false" icon3Dscale="0.125" icon3Doffset="0 0 0.75" randomRotate="false" gridSnap="true" terrainFlatten="true" minimumHeadroom="3.0" protectedPlacement="false">
+			<cfootprint width="5" height="5" />
+			<dfootprint width="6" height="6" />
+		</ZTPlacementData>
+		<BFAIEntityDataShared s_uisort="td" s_Zoopedia="zoopedia:zoopedia_RockPool:entry" f_FameReq="80" b_NoPerceiveOverride="true" />
+		<ZTTourData>
+			<tour value="7" />
+			<cool value="7" />
+		</ZTTourData>
+		<BFGCollisionData isPassable="false" isStatic="true" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="8" length="10" offwidth="2" offlength="3" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj2">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="10" length="10" offwidth="-1" offlength="-1" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent modelfile="entities/objects/Scenery/rock_pool/rock_pool.nif" scale="0.8" switch="0 15 35" minSwitch="0 0 15" />
+					<BFTravAnimPathComponent actorfile="entities/objects/Scenery/rock_pool/rock_pool_TAP.bfm" />
+					<BFGroundFitComponent heightOffset="0.2" />
+					<BFForceUpdateWhenVisibleComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mist01">
+			<instance>
+				<BFPhysObj drawLast="true">
+					<BFSimpleLODComponent modelfile="entities/objects/fx/mist.nif" scale="1.5" />
+					<BFForceUpdateWhenVisibleComponent />
+					<BFHasParticleComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="1500">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="TAP" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterRockPool1" useBehSet="UseRockPool" exitBehSet="ExitRockPool1" targetNode="Bip01_DockNode00_EnterA" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent initialTextKey="snd &quot;RockPool_waterflow&quot; looping" />
+				</BFPhysObj>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,202 @@
+﻿<BFTypedBinder binderType="Orangutan_Young" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Primata>
+							<Pongidae>
+								<Orangutan>
+									<Orangutan_Young />
+								</Orangutan>
+							</Pongidae>
+						</Primata>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<ZTDevComponent />
+		<BFAIEntityDataShared f_viewBonus="65" b_Adult="0" p_TerrainWaterNode="0 -1 0" b_SmallPrey="true">
+			<BFAINeedAdjusts health="0.25" stimulation="0.33" exercise="0.33" reproduction="0" />
+		</BFAIEntityDataShared>
+		<BFGDetachInfo>
+			<detachActionTable>
+				<dropitem destination="drop" />
+				<killitem destination="kill" />
+			</detachActionTable>
+		</BFGDetachInfo>
+		<ZTPlacementData icon3Dscale="1.0" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01" width="0.8" intensity="0.25" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj2">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Head" width="1" intensity="0.25" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="texController" required="1">
+			<instance>
+				<BFAITextureController currState="well" defaultState="well">
+					<attribList>
+						<health />
+						<hygiene />
+					</attribList>
+					<stateList>
+						<sickanddirty>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="Orangutan_Young_F_Body_Mat" image="entities\units\animals\Orangutan\Orangutan_Adult_Sick_Dirty.dds" />
+							</textureData>
+						</sickanddirty>
+						<sick>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="Orangutan_Young_F_Body_Mat" image="entities\units\animals\Orangutan\Orangutan_Adult_Sick.dds" />
+							</textureData>
+						</sick>
+						<dirty>
+							<attribData>
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="Orangutan_Young_F_Body_Mat" image="entities\units\animals\Orangutan\Orangutan_Adult_Dirty.dds" />
+							</textureData>
+						</dirty>
+						<well>
+							<textureData>
+								<mainObj material="Orangutan_Young_F_Body_Mat" image="entities\units\animals\Orangutan\Orangutan_Young_F.dds" />
+							</textureData>
+						</well>
+					</stateList>
+				</BFAITextureController>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFActorComponent actorfile="entities/units/animals/Orangutan/Orangutan_Young_F.bfm" scale="0.5" switch="0 5000 5001" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFTextTagMacrosComponent>
+					<MACROS>
+						<macro name="ClimbAcacia" text="!anim &apos;Climb_Idle&apos; blend .3 advance_cur_t, dis, exit" />
+						<macro name="ClimbBananaTree" text="!anim &apos;Climb_Idle&apos; blend .3 advance_cur_t, anim &apos;Climb_Idle&apos;, dis, exit" />
+						<macro name="ClimbBaobob180" text="!anim &apos;Climb_Idle&apos; blend .3 advance_cur_t, anim &apos;Climb_Idle&apos;, dis, anim &apos;Climb_Turn180Right&apos;, exit" />
+						<macro name="ClimbElephantEar" text="!anim &apos;Climb_Idle&apos; blend 0.5 advance_cur_t, dis, exit" />
+						<macro name="ClimbKily" text="!anim &apos;Climb_Idle&apos; blend .2 advance_cur_t, anim &apos;Climb_2Stand&apos;, anim &apos;Stand_2Walk&apos;, anim &apos;Walk_Ahead&apos;, anim &apos;Walk_2Stand&apos;, dis, TurnLeft180,  anim &apos;Stand_2Sit&apos;, anim &apos;Sit_Idle&apos;,  exit" />
+						<macro name="ClimbTreeFernA" text="!anim &apos;Climb_Idle&apos; blend .3 advance_cur_t, dis, Climb2Walk, exit" />
+						<macro name="ClimbThing" text="anim &apos;Walk_2Climb&apos;, anim &apos;Climb_FlatUp&apos;" />
+						<macro name="Climb2Sit" text="anim &apos;Climb_2Sit&apos;, anim &apos;Sit_Idle&apos;" />
+						<macro name="Walk2Climb" text="anim &apos;Walk_2Climb&apos;, anim &apos;Climb_FlatUp&apos;" />
+						<macro name="Sit2Climb" text="anim &apos;Sit_2Climb&apos;, anim &apos;Climb_FlatDown&apos;" />
+						<macro name="Climb2Walk" text="!anim &apos;Climb_Idle&apos; blend .3 advance_cur_t, dis, anim &apos;Climb_2Stand&apos;" />
+						<macro name="ClimbDown" text="anim &apos;Climb_FlatDown&apos;" />
+						<macro name="JumpOnRock" text="as 100 1, anim &apos;Stand_Jump&apos;" />
+						<macro name="TurnLeft180" text="anim &apos;Stand_TurnLeft90&apos;, anim &apos;Stand_TurnLeft90&apos;" />
+						<macro name="TurnRight180" text="anim &apos;Stand_TurnRight90&apos;, anim &apos;Stand_TurnRight90&apos;" />
+						<macro name="Stand2Sit" text="anim &apos;Stand_2Sit&apos;, anim &apos;Sit_Idle&apos;" />
+						<macro name="PlatformEat" text="anim &apos;Stand_2Eat&apos;, anim &apos;Eat_Idle&apos;, anim &apos;Eat_B&apos;, anim &apos;Eat_2Stand&apos;" />
+						<macro name="Walky" text="anim &apos;Walk_Ahead&apos;" />
+						<macro name="Walky2Standy" text="anim &apos;Walk_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+						<macro name="Standy2Walky" text="anim &apos;Stand_2Walk&apos;, anim &apos;Walk_Ahead&apos;" />
+						<macro name="TurnLeft90" text="anim &apos;Stand_TurnLeft90&apos;" />
+						<macro name="TurnRight90" text="anim &apos;Stand_TurnRight90&apos;" />
+						<macro name="Stand2LieBelly" text="anim &apos;Stand_2Sit&apos;, anim &apos;Sit_Idle&apos;" />
+						<macro name="LieBelly2Stand" text="anim &apos;Sit_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+						<macro name="LieOnBelly" text="anim &apos;Sit_Idle&apos;" />
+						<macro name="Standy2MonkeyBars" text="anim &apos;Stand_2HangOne&apos;, anim &apos;HangOne_2BrachiateInner&apos;, anim &apos;BrachiateInner_Idle&apos;" />
+						<macro name="SwingOnMonkeyBars" text="anim &apos;BrachiateInner_2HangOne&apos;, anim &apos;HangOne_2Swing&apos;, anim &apos;Swing_Idle&apos;" />
+						<macro name="Swing2ExitMonkeyBars" text="anim &apos;Swing_2HangOne&apos;, anim &apos;HangOne_2BrachiateInner&apos;, anim &apos;BrachiateInner_Idle&apos;, anim &apos;BrachiateInner_2HangOne&apos;, anim &apos;HangOne_2Stand&apos;" />
+						<macro name="RedPandaTailWalk" text="anim &apos;Walk_Ahead&apos;" />
+						<macro name="RedPandaClimb180" text="anim &apos;Stand_TurnRight90&apos;, anim &apos;Stand_TurnRight90&apos;" />
+						<macro name="RedPandaCurl" text="anim &apos;Stand_2Sit&apos;, anim &apos;Sit_Idle&apos;" />
+						<macro name="RedPandaCurl2Descend" text="anim &apos;Sit_2Stand&apos;, anim &apos;Stand_Idle&apos;, anim &apos;Stand_2Walk&apos;,  anim &apos;Walk_Ahead&apos;" />
+					</MACROS>
+				</BFTextTagMacrosComponent>
+			</shared>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester escapeBuffer="0.1875" radius=".375" motionClass="mover" waterScore="10" maxSlope=".75" wadeDepth="1" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAICognitiveMgr>
+					<Sensors>
+						<ZTAISensor />
+						<BFAISensorSelf />
+						<ZTAISensorLand />
+						<ZTAISensorTA sensorTag="habitat" />
+					</Sensors>
+					<StateThinkers>
+						<ZTAIStateThinker mergeKey="Name">
+							<BFAIStateVar Name="reproduction" Value="" ValueMin="0" ValueMax="0" CessationThreshold="90" TriggerThreshold="90" CriticalThreshold="90" Advanced="true" />
+						</ZTAIStateThinker>
+					</StateThinkers>
+					<TaskThinkers>
+						<ZTAITaskThinker />
+					</TaskThinkers>
+				</BFAICognitiveMgr>
+			</instance>
+			<shared>
+				<BFAICogShared>
+					<BFAINoPerceive>
+						<fence />
+						<path />
+						<entrance />
+					</BFAINoPerceive>
+				</BFAICogShared>
+			</shared>
+		</BFBinder>
+		<BFNamedBinder binderName="checkup" required="1">
+			<instance>
+				<ZTAIStaffRequestController attribName="health" thresholdValue="30" testType="4" cancelThresholdValue="20" cancelTestType="1">
+					<ZTStaffRequestData tokenKey="t_CheckupBaby" subjectType="Keeper" priority="5" />
+				</ZTAIStaffRequestController>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance f_needPointsGood="50" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<ZTAITrickComponent/>
+			</instance>
+			<shared>
+				<ZTAITrickComponentData>
+					<Knowledge>
+						<DolphinJump minScore="20" maxScore="25"/>
+						<DolphinJumpHoop_Young minScore="50" maxScore="55"/>
+					</Knowledge>
+				</ZTAITrickComponentData>
+			</shared>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

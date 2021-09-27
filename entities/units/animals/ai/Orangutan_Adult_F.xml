@@ -1,0 +1,101 @@
+<BFTypedBinder binderType="Orangutan_Adult_F">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Primata>
+                     <Pongidae>
+                        <Orangutan>
+                           <Orangutan_Adult>
+                              <Orangutan_Adult_F />
+                           </Orangutan_Adult>
+                        </Orangutan>
+                     </Pongidae>
+                  </Primata>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity />
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\units\animals\Orangutan\Orangutan_Adult_F_icon.dds" />
+         </UIAspect>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Male="0" f_adoptCount="rand(1,2)" p_FightOffset="0 -1.5 180" p_GroomDock="0 -.5 0" p_MaleGroomDock="0 .45 0" p_GroomNode="0 -1 180"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/units/animals/Orangutan/Orangutan_Adult_F.bfm" scale="1.35"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFTextTagMacrosComponent>
+               <MACROS>
+                  <macro name="ClimbAcacia" text="!anim 'Climb_Idle' blend .3 advance_cur_t, dis, exit"/>
+                  <macro name="ClimbBananaTree" text="!anim 'Climb_Idle' blend .3 advance_cur_t, anim 'Climb_Idle', dis, exit"/>
+                  <macro name="ClimbBaobob180" text="!anim 'Climb_Idle' blend .3 advance_cur_t, anim 'Climb_Idle', dis, anim 'Climb_Turn180Right', exit"/>
+                  <macro name="ClimbElephantEar" text="!anim 'Climb_Idle' blend 0.5 advance_cur_t, dis, exit"/>
+                  <macro name="ClimbKily" text="!anim 'Climb_Idle' blend .2 advance_cur_t, anim 'Climb_2Stand', anim 'Stand_2Walk', anim 'Walk_Ahead', anim 'Walk_2Stand', dis, TurnLeft180,  anim 'Stand_2Sit', anim 'Sit_Idle',  exit"/>
+                  <macro name="ClimbTreeFernA" text="!anim 'Climb_Idle' blend .3 advance_cur_t, dis, Climb2Walk, exit"/>
+                  <macro name="ClimbThing" text="anim 'Walk_2Climb', anim 'Climb_FlatUp'" />
+                  <macro name="Climb2Sit" text="anim &apos;Climb_2Sit&apos;, anim &apos;Sit_Idle&apos;" />
+                  <macro name="Walk2Climb" text="anim &apos;Walk_2Climb&apos;, anim &apos;Climb_FlatUp&apos;" />
+                  <macro name="Sit2Climb" text="anim &apos;Sit_2Climb&apos;, anim &apos;Climb_FlatDown&apos;" />
+                  <macro name="Climb2Walk" text="!anim &apos;Climb_Idle&apos; blend .3 advance_cur_t, dis, anim &apos;Climb_2Stand&apos;" />
+                  <macro name="ClimbDown" text="anim &apos;Climb_FlatDown&apos;" />
+                  <macro name="JumpOnRock" text="as 100 1, anim &apos;Stand_Jump&apos;" />
+                  <macro name="TurnLeft180" text="anim &apos;Stand_TurnLeft90&apos;, anim &apos;Stand_TurnLeft90&apos;" />
+                  <macro name="TurnRight180" text="anim &apos;Stand_TurnRight90&apos;, anim &apos;Stand_TurnRight90&apos;" />
+                  <macro name="Stand2Sit" text="anim &apos;Stand_2Sit&apos;, anim &apos;Sit_Idle&apos;" />
+                  <macro name="PlatformEat" text="anim &apos;Stand_2Eat&apos;, anim &apos;Eat_Idle&apos;, anim &apos;Eat_B&apos;, anim &apos;Eat_2Stand&apos;" />
+                  <macro name="Walky" text="anim &apos;Walk_Ahead&apos;" />
+                  <macro name="Walky2Standy" text="anim &apos;Walk_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+                  <macro name="Standy2Walky" text="anim &apos;Stand_2Walk&apos;, anim &apos;Walk_Ahead&apos;" />
+                  <macro name="TurnLeft90" text="anim &apos;Stand_TurnLeft90&apos;" />
+                  <macro name="TurnRight90" text="anim &apos;Stand_TurnRight90&apos;" />
+                  <macro name="Stand2LieBelly" text="anim &apos;Stand_2Sit&apos;, anim &apos;Sit_Idle&apos;" />
+                  <macro name="LieBelly2Stand" text="anim &apos;Sit_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+                  <macro name="LieOnBelly" text="anim &apos;Sit_Idle&apos;" />
+                  <macro name="Standy2MonkeyBars" text="anim &apos;Stand_2HangOne&apos;, anim &apos;HangOne_2BrachiateInner&apos;, anim &apos;BrachiateInner_Idle&apos;" />
+                  <macro name="SwingOnMonkeyBars" text="anim &apos;BrachiateInner_2HangOne&apos;, anim &apos;HangOne_2Swing&apos;, anim &apos;Swing_Idle&apos;" />
+                  <macro name="Swing2ExitMonkeyBars" text="anim &apos;Swing_2HangOne&apos;, anim &apos;HangOne_2BrachiateInner&apos;, anim &apos;BrachiateInner_Idle&apos;, anim &apos;BrachiateInner_2HangOne&apos;, anim &apos;HangOne_2Stand&apos;" />
+                  <macro name="RedPandaTailWalk" text="anim &apos;Walk_Ahead&apos;" />
+                  <macro name="RedPandaClimb180" text="anim &apos;Stand_TurnRight90&apos;, anim &apos;Stand_TurnRight90&apos;" />
+                  <macro name="RedPandaCurl" text="anim &apos;Stand_2Sit&apos;, anim &apos;Sit_Idle&apos;" />
+                  <macro name="RedPandaCurl2Descend" text="anim &apos;Sit_2Stand&apos;, anim &apos;Stand_Idle&apos;, anim &apos;Stand_2Walk&apos;,  anim &apos;Walk_Ahead&apos;" />
+               </MACROS>
+            </BFTextTagMacrosComponent>
+         </shared>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_Pregnant="false" />
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr />
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="groundcarryyoung" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="StandBaby_Idle">
+                     <stop name="StandBaby" />
+                     <slow name="WalkBaby" />
+                     <medium name="WalkBaby" />
+                     <fast name="WalkBaby" />
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

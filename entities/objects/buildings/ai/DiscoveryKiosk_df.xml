@@ -1,0 +1,233 @@
+<BFTypedBinder binderType="DiscoveryKiosk_df">
+   <types>
+      <entity>
+         <building>
+            <DiscoveryKiosk_df/>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="biomedetail_01" rottype="ignore" postype="use" attachnode="biomedetail_01"/>
+            <parentObj parent="mainObj" child="biomedetail_02" rottype="ignore" postype="use" attachnode="biomedetail_02"/>
+            <parentObj parent="mainObj" child="biomedetail_03" rottype="ignore" postype="use" attachnode="biomedetail_03"/>
+            <parentObj parent="mainObj" child="biomedetail_04" rottype="ignore" postype="use" attachnode="biomedetail_04"/>
+            <parentObj parent="mainObj" child="biomedetail_05" rottype="ignore" postype="use" attachnode="biomedetail_05"/>
+            <parentObj parent="mainObj" child="biomedetail_06" rottype="ignore" postype="use" attachnode="biomedetail_06"/>
+            <parentObj parent="mainObj" child="biomedetail_07" rottype="ignore" postype="use" attachnode="biomedetail_07"/>
+            <parentObj parent="mainObj" child="screen1idle" rottype="use" postype="use" attachnode="Node_Screen1"/>
+            <parentObj parent="mainObj" child="screen1used" rottype="use" postype="use" attachnode="Node_Screen1"/>
+            <parentObj parent="mainObj" child="screen2idle" rottype="use" postype="use" attachnode="Node_Screen2"/>
+            <parentObj parent="mainObj" child="screen2used" rottype="use" postype="use" attachnode="Node_Screen2"/>
+            <parentObj parent="mainObj" child="screen3idle" rottype="use" postype="use" attachnode="Node_Screen3"/>
+            <parentObj parent="mainObj" child="screen3used" rottype="use" postype="use" attachnode="Node_Screen3"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData dockArrowStyle="standard" dockArrowSize="1.5" icon3Doffset="0 0 0.1" icon3Dscale="0.35"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\buildings\DiscoveryKiosk_df\DiscoveryKiosk_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:DiscoveryKiosk"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="DiscoveryKiosk_df"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\buildings\DiscoveryKiosk_df\DiscoveryKiosk_df_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="DiscoveryKiosk_df"/>
+         </on>
+      </UIToggleButton>
+      <UIButton name="overviewicon">
+         <UIAspect>
+            <default image="ui/zoomap/icon_attractions.dds"/>
+         </UIAspect>
+      </UIButton>
+      <BFAIEntityDataShared s_ObjectType="Misc" b_Researchable="true" s_Product="EndangeredSpecies" s_uisort="ef" b_DonationAcceptor="false" s_Zoopedia="zoopedia:zoopedia_discoverykiosk:entry" f_researchUnlockTime="60" f_researchCost="200" b_wantLifetimeUsers="true" f_FameReq="20"/>
+      <ZTTriggeredEventsComponent>
+         <add_user>
+            <nonbroadcast>
+               <event msg="BFSND_PLAY_FROM_ENTITY" data="BFString" string="discokiosk_loop"/>
+            </nonbroadcast>
+         </add_user>
+      </ZTTriggeredEventsComponent>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="ShadowNode_01" width="5" length="5" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="channel1">
+         <instance>
+            <BFGPhysAnimController currState="idle1" defaultState="idle1">
+               <stateList>
+                  <idle1 parent="mainObj" child="screen1idle" rottype="use" postype="use" attachnode="Node_Screen1"/>
+                  <used1 parent="mainObj" child="screen1used" rottype="use" postype="use" attachnode="Node_Screen1"/>
+               </stateList>
+            </BFGPhysAnimController>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="channel2">
+         <instance>
+            <BFGPhysAnimController currState="idle2" defaultState="idle2">
+               <stateList>
+                  <idle2 parent="mainObj" child="screen2idle" rottype="use" postype="use" attachnode="Node_Screen2"/>
+                  <used2 parent="mainObj" child="screen2used" rottype="use" postype="use" attachnode="Node_Screen2"/>
+               </stateList>
+            </BFGPhysAnimController>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="channel3">
+         <instance>
+            <BFGPhysAnimController currState="idle3" defaultState="idle3">
+               <stateList>
+                  <idle3 parent="mainObj" child="screen3idle" rottype="use" postype="use" attachnode="Node_Screen3"/>
+                  <used3 parent="mainObj" child="screen3used" rottype="use" postype="use" attachnode="Node_Screen3"/>
+               </stateList>
+            </BFGPhysAnimController>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="screen1idle" required="1">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSceneGraphComponent isBFR="true" modelfile="entities/objects/buildings/DiscoveryKiosk_df/DiscoveryKiosk_ScreenIdle_df" scale="1.0"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="screen1used" required="0">
+         <instance>
+            <BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSceneGraphComponent modelfile="entities/objects/buildings/DiscoveryKiosk_df/DiscoveryKiosk_ScreenUsed_df.nif" scale="1.0"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="26.666666667"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="screen2idle" required="1">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSceneGraphComponent isBFR="true" modelfile="entities/objects/buildings/DiscoveryKiosk_df/DiscoveryKiosk_ScreenIdle_df" scale="1.0"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="screen2used" required="0">
+         <instance>
+            <BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSceneGraphComponent modelfile="entities/objects/buildings/DiscoveryKiosk_df/DiscoveryKiosk_ScreenUsed_df.nif" scale="1.0"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="26.666666667"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="screen3idle" required="1">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSceneGraphComponent isBFR="true" modelfile="entities/objects/buildings/DiscoveryKiosk_df/DiscoveryKiosk_ScreenIdle_df" scale="1.0"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="screen3used" required="0">
+         <instance>
+            <BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSceneGraphComponent modelfile="entities/objects/buildings/DiscoveryKiosk_df/DiscoveryKiosk_ScreenUsed_df.nif" scale="1.0"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="26.666666667"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/DiscoveryKiosk_df/DiscoveryKiosk_df" switch="0 18 36" minSwitch="0 0 20"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_01">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_02">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_03">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_04">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_05">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_06">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_07">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_Kiosk">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot useBehSet="UseDiscoveryKiosk1" targetNode="Dock_Guest1"/>
+                  <BFGEntityContainerSlot useBehSet="UseDiscoveryKiosk2" targetNode="Dock_Guest2"/>
+                  <BFGEntityContainerSlot useBehSet="UseDiscoveryKiosk3" targetNode="Dock_Guest3"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="1500">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="upkeep" cost="100" period="monthly" type="debit" category="upkeep"/>
+               <ZTTransaction name="add_user" cost="1" type="addUser" category="user"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

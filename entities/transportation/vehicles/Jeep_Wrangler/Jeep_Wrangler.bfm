@@ -1,0 +1,48 @@
+﻿<BFM modelname="entities\transportation\vehicles\Jeep_Wrangler\Jeep_Wrangler.nif">
+	<animation anim="entities\transportation\vehicles\Jeep_Wrangler\Jeep_Wrangler_Stop_2Open.bf" animName="Stop_2Open" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\Jeep_Wrangler\Jeep_Wrangler_Open_Idle.bf" animName="Open_Idle" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\Jeep_Wrangler\Jeep_Wrangler_Drive_Ahead.bf" animName="Drive_Ahead" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\Jeep_Wrangler\Jeep_Wrangler_Drive_2Stop.bf" animName="Drive_2Stop" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\Jeep_Wrangler\Jeep_Wrangler_Stop_Idle.bf" animName="Stop_Idle" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\Jeep_Wrangler\Jeep_Wrangler_Stop_Beep.bf" animName="Stop_Beep" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\Jeep_Wrangler\Jeep_Wrangler_Stop_2Drive.bf" animName="Stop_2Drive" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\transportation\vehicles\Jeep_Wrangler\Jeep_Wrangler_Open_2Stop.bf" animName="Open_2Stop" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+</BFM>
+<Graph name="Jeep_Wrangler" version="1">
+	<node name="Drive">
+		<table>
+			<Drive_Ahead />
+		</table>
+		<edge name="Stop">
+			<table>
+				<Drive_2Stop />
+			</table>
+		</edge>
+	</node>
+	<node name="Open">
+		<table>
+			<Open_Idle />
+		</table>
+		<edge name="Stop">
+			<table>
+				<Open_2Stop />
+			</table>
+		</edge>
+	</node>
+	<node name="Stop">
+		<table>
+			<Stop_Beep />
+			<Stop_Idle />
+		</table>
+		<edge name="Drive">
+			<table>
+				<Stop_2Drive />
+			</table>
+		</edge>
+		<edge name="Open">
+			<table>
+				<Stop_2Open />
+			</table>
+		</edge>
+	</node>
+</Graph>

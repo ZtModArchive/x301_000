@@ -1,0 +1,87 @@
+<BFTypedBinder binderType="Blimp_end">
+   <types>
+      <entity>
+         <actor>
+            <ambient>
+               <ambient_air>
+                  <Blimp_end/>
+               </ambient_air>
+            </ambient>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData iconAnim="Fly_Ahead" icon3Dscale=".1"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <position x="0" y="0" z="0"/>
+               <BFActorComponent actorfile="entities/units/animals/20yearBlimp_end/20yearblimp_end.bfm" switch="0 20 40"/>
+               <BFBirdGroundFitComponent heightOffset="25" ignoreElevatedPath="true" minHeightOffset="20" desiredClimbRate="0.2" desiredDiveRate="0.2"/>
+               <BFForwardMovingComponent/>
+               <BFRotYawMovingComponent/>
+               <BFGridCollisionComponent/>
+               <BFBoundedObjectComponent worldBounded="0">
+                  <minPoint x="-1000000" y="-100000" z="-100000"/>
+                  <maxPoint x="1000000" y="100000" z="100000"/>
+               </BFBoundedObjectComponent>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\blob_animal_final.tga" baseNode="Bip01 Body" width="15" minLength="10" maxLength="12" minOffset="0" maxOffset="5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1">
+               <subBehaviors>
+                  <BFBehAnimate interruptible="true" targetAnim="Fly_Ahead" interruptFlag="true" loopFlag="true" animSpeed="0.1"/>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr/>
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="ground" required="1">
+               <instance>
+                  <BFLocoAnimate version="1">
+                     <stop name="Fly"/>
+                     <slow name="Fly">
+                        <waggle name="Fly_Ahead" wag="0.3"/>
+                     </slow>
+                     <medium name="Fly">
+                        <waggle name="Fly_Ahead" wag="0.3"/>
+                     </medium>
+                     <fast name="Fly">
+                        <waggle name="Fly_Ahead" wag="0.3"/>
+                     </fast>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>
+      <BFNamedBinder binderName="soundObj">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent initialTextKey="snd &quot;Blimp_end_BlimpEngine&quot; looping"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

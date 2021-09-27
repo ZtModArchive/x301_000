@@ -1,0 +1,53 @@
+﻿<BFTypedBinder binderType="BlackThornBush_Savannah">
+	<types>
+		<entity>
+			<foliage>
+				<plant>
+					<bush>
+						<BlackThornBush_Savannah />
+					</bush>
+				</plant>
+			</foliage>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<ZTPlacementData icon3Doffset="0 -0.032983 0.526242" icon3Dscale="0.42" />
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\foliage\BlackThornBush\BlackThornBush_Savannah_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:BlackThornBush_Savannah" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="BlackThornBush_Savannah" />
+			</on>
+		</UIToggleButton>
+		<BFGBiomeData location="savannah_africa">
+			<savannah />
+		</BFGBiomeData>
+		<BFAIEntityDataShared b_BrowseBush="true" s_prop="Hay_Prop" s_Zoopedia="zoopedia:zoopedia_blackthorn:entry" f_FameReq="40" />
+		<ZTTourData>
+			<biome_savannah value="1" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities/objects/foliage/BlackThornBush/BlackThornBush_Savannah" switch="0 15 25 35 60" />
+					<BFMultiGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="15">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

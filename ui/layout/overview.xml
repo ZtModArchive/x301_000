@@ -1,0 +1,336 @@
+<UILayout name="overview">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect>
+      <default/>
+   </UIAspect>
+   <children>
+      <ZTOverviewComponent name="overview_screen" modal="true">
+         <layers>
+            <terrain ui="mapTerrain" ref="terrain"/>
+            <water ui="mapWater" icon="ui/zoomap/mapbutton_water.dds" name="zoomap:waterlabel" ref="water"/>
+            <paths ui="mapPaths" icon="ui/zoomap/mapbutton_path.dds" name="zoomap:pathslabel" ref="paths"/>
+            <fences ui="mapFences" icon="ui/zoomap/mapbutton_fence.dds" name="zoomap:fenceslabel" ref="fences"/>
+            <buildings ui="mapBuildings" icon="ui/zoomap/mapbutton_building.dds" name="zoomap:buildingslabel" ref="buildings" hasCanvas="false"/>
+            <animals ui="mapAnimals" icon="ui/zoomap/mapbutton_animal.dds" name="zoomap:animalslabel" ref="animals" hasCanvas="false"/>
+            <groundtrack ui="mapGroundTrack" icon="ui/zoomap/mapbutton_jeeptrail.dds" name="zoomap:groundtracklabel" ref="groundtrack"/>
+            <elevatedpaths ui="mapElevatedPaths" icon="ui/zoomap/mapbutton_elevatedpaths.dds" name="zoomap:elevatedpathlabel" ref="elevatedpaths"/>
+            <skytrack ui="mapSkyTrack" icon="ui/zoomap/mapbutton_tramtrack.dds" name="zoomap:skytracklabel" ref="skytrack" />
+            <where ui="mapYouAreHere" icon="ui/zoomap/mapbutton_urhere.dds" name="zoomap:youareherelabel" ref="where" hasCanvas="false"/>
+         </layers>
+         <colors>
+            <fence r="50" g="98" b="50"/>
+            <curb r="100" g="143" b="100"/>
+            <zoowall r="155" g="110" b="77"/>
+            <path r="221" g="235" b="226"/>
+            <elevatedpath r="0" g="0" b="0" />
+            <groundtrack r="255" g="0" b="0" />
+            <skytrack r="0" g="0" b="255" />
+            <water r="143" g="177" b="227" a="255"/>
+         </colors>
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect>
+            <default/>
+         </UIAspect>
+         <UIHotKeys>
+            <file name="UI/hotkeys/hotkeys.xml" node="overview"/>
+         </UIHotKeys>
+         <show>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="pause"/>
+         </show>
+         <hide>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="unpause"/>
+         </hide>
+         <children>
+            <UILayout name="back ground pieces" cursor="zoom.cur">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <children>
+                  <UIStatic name="background graphic 1">
+                     <UIRegion x="0" y="0" w="512" h="512" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui/zoomap/back_A_512.dds">
+                           <BFRect x="0" y="0" w="512" h="512"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic name="background graphic 2">
+                     <UIRegion x="512" y="0" w="512" h="512" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui/zoomap/back_B_512.dds">
+                           <BFRect x="0" y="0" w="512" h="512"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic name="background graphic 3">
+                     <UIRegion x="0" y="512" w="256" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui/zoomap/back_C_256.dds">
+                           <BFRect x="0" y="0" w="256" h="256"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic name="background graphic 4">
+                     <UIRegion x="256" y="512" w="256" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui/zoomap/back_D_256.dds">
+                           <BFRect x="0" y="0" w="256" h="256"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic name="background graphic 5">
+                     <UIRegion x="512" y="512" w="256" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui/zoomap/back_E_256.dds">
+                           <BFRect x="0" y="0" w="256" h="256"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic name="background graphic 6">
+                     <UIRegion x="768" y="512" w="256" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui/zoomap/back_F_256.dds">
+                           <BFRect x="0" y="0" w="256" h="256"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+               </children>
+            </UILayout>
+            <UIButton name="mapTerrain" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help=""/>
+               <UIAspect string="">
+                  <default image="" sound="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIButton>
+            <UIStatic name="mapWater" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect string="">
+                  <default image="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic name="mapPaths" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect string="">
+                  <default image="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic name="mapElevatedPaths" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect string="">
+                  <default image="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic name="mapGroundTrack" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect string="">
+                  <default image="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic name="mapSkyTrack" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect string="">
+                  <default image="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic name="mapFences" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect string="">
+                  <default image="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic name="mapFoliage" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect string="">
+                  <default image="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIButton name="clickme" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help=""/>
+               <UIAspect string="" alwayshit="true">
+                  <default image="" sound="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+               <activate>
+                  <event msg="ZT_CAMERA_POSITION" data="BFString" string=""/>
+               </activate>
+            </UIButton>
+            <UILayout name="mapBuildings" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect string="">
+                  <default image="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="mapAnimals" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect string="">
+                  <default image="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="mapYouAreHere" cursor="zoom.cur">
+               <UIRegion x="14" y="42" w="712" h="712" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect string="">
+                  <default image="">
+                     <BFRect x="0" y="0" w="385" h="385"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UIListBox name="filterLegend" template="listbox" rows="-1">
+               <UIRegion x="750" y="124" w="712" h="525"/>
+               <UIAspect>
+                  <default>
+                     <BFRect x="0" y="0" w="800" h="60"/>
+                     <BFColor r="255" g="255" b="255" a="0"/>
+                  </default>
+               </UIAspect>
+            </UIListBox>
+            <UIText name="map_legend_label">
+               <UIRegion x="800" y="60" w="200" h="40"/>
+               <UIAspect locid="zoomap:map_legend_label">
+                  <default>
+                     <BFFont align="left"/>
+                     <BFRect x="0" y="0" w="800" h="60"/>
+                     <BFColor r="255" g="255" b="255" a="0"/>
+                  </default>
+               </UIAspect>
+            </UIText>
+            <UIText name="over_view_map_label">
+               <UIRegion x="10" y="3" w="200" h="40"/>
+               <UIAspect locid="zoomap:over_view_map_label">
+                  <default>
+                     <BFFont align="left"/>
+                     <BFRect x="0" y="0" w="800" h="60"/>
+                     <BFColor r="255" g="255" b="255" a="0"/>
+                  </default>
+               </UIAspect>
+            </UIText>
+            <UIButton name="export map">
+               <UIRegion x="847" y="677" w="75" h="75" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="zoomap:export_map_button"/>
+               <UIAspect string="">
+                  <default image="ui/photosaf/newbook.dds">
+                     <BFRect x="0" y="0" w="64" h="64"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="128" y="768" w="64" h="64"/>
+                        <BFColor r="255" g="255" b="255" a="255"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="128" y="832" w="64" h="64"/>
+                        <BFColor r="255" g="255" b="255" a="255"/>
+                     </highlighted>
+                     <activated sound="">
+                        <BFRect x="192" y="768" w="64" h="64"/>
+                        <BFColor r="255" g="255" b="255" a="255"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="192" y="832" w="64" h="64"/>
+                        <BFColor r="128" g="128" b="128" a="180"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <activate>
+                  <event msg="ZT_EXPORT_OVERVIEW_MAP"/>
+               </activate>
+               <UIHotKeys/>
+            </UIButton>
+            <UIButton name="return">
+               <UIRegion x="923" y="677" w="75" h="75" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="zoomap:exit_button"/>
+               <UIAspect string="">
+                  <default image="ui\shared\button_back.dds" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="0" w="64" h="64"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="64" w="64" h="64"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="64" y="0" w="64" h="64"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="64" y="64" w="64" h="64"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <activate>
+                  <event msg="UI_CHILD" data="UIChildData" name="overview_screen">
+                     <child msg="UI_HIDE"/>
+                  </event>
+               </activate>
+               <UIHotKeys/>
+            </UIButton>
+         </children>
+      </ZTOverviewComponent>
+   </children>
+</UILayout>

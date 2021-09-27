@@ -1,0 +1,82 @@
+<BFTypedBinder binderType="BeaverAmerican_Adult" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Rodentia>
+							<Castoridae>
+								<BeaverAmerican>
+									<BeaverAmerican_Adult />
+								</BeaverAmerican>
+							</Castoridae>
+						</Rodentia>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<ZTPlacementData icon3Doffset="0 -0.036017 0.954023" icon3Dscale="0.871980" />
+		<BFAIEntityDataShared f_viewBonus="50" b_Adult="1" b_BeaverLodgeBuilder="true" b_ScentMarksLogs="true" b_ScentMarksLargeRocks="true" b_ScentMarksMediumRocks="true" s_MorphMessage="zoomessages:AnimalPuberty" f_MorphMessagePriority="1" f_MorphMessageDuration="30"/>
+	</shared>
+	<binder>
+	   <BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Spine2" width="1.5" intensity="0.3"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="texController" required="1">
+			<instance>
+				<BFAITextureController currState="well" defaultState="well">
+					<attribList>
+						<health />
+						<hygiene />
+					</attribList>
+					<stateList>
+						<sickanddirty>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="BeaverAmerican_Adult_F_MTL" image="entities\units\animals\BeaverAmerican\BeaverAmerican_Adult_F_map_Sick_Dirty.dds" />
+							</textureData>
+						</sickanddirty>
+						<sick>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="BeaverAmerican_Adult_F_MTL" image="entities\units\animals\BeaverAmerican\BeaverAmerican_Adult_F_map_Sick.dds" />
+							</textureData>
+						</sick>
+						<dirty>
+							<attribData>
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="BeaverAmerican_Adult_F_MTL" image="entities\units\animals\BeaverAmerican\BeaverAmerican_Adult_F_map_Dirty.dds" />
+							</textureData>
+						</dirty>
+						<well>
+							<textureData>
+								<mainObj material="BeaverAmerican_Adult_F_MTL" image="entities\units\animals\BeaverAmerican\BeaverAmerican_Adult_F.dds" />
+							</textureData>
+						</well>
+					</stateList>
+				</BFAITextureController>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester escapeBuffer="0.1875" radius=".375" motionClass="swimmer" waterScore="0" landScore="0" maxSlope=".50" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

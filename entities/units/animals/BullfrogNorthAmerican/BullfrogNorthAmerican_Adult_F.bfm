@@ -1,0 +1,62 @@
+﻿<BFM modelname="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F.nif">
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_ShortHop_Ahead.bf" animName="ShortHop_Ahead" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_Hop_Ahead.bf" animName="Hop_Ahead" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_ShortHop_TurnLeftA.bf" animName="ShortHop_TurnLeftA" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_Stand_2Hop.bf" animName="Stand_2Hop" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_Hop_LeftA.bf" animName="Hop_LeftA" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_Hop_RightA.bf" animName="Hop_RightA" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_ShortHop_TurnRightA.bf" animName="ShortHop_TurnRightA" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_Stand_Croak.bf" animName="Stand_Croak" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_Stand_2ShortHop.bf" animName="Stand_2ShortHop" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_Stand_Idle.bf" animName="Stand_Idle" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_Stand_Ribbit.bf" animName="Stand_Ribbit" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_ShortHop_2Stand.bf" animName="ShortHop_2Stand" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_Stand_TurnRightA.bf" animName="Stand_TurnRightA" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_Hop_2Stand.bf" animName="Hop_2Stand" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\units\animals\BullfrogNorthAmerican\BullfrogNorthAmerican_Adult_F_Stand_TurnLeftA.bf" animName="Stand_TurnLeftA" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+</BFM>
+<Graph name="BullfrogNorthAmerican_Adult_F" version="1">
+	<node name="Hop">
+		<table>
+			<Hop_Ahead />
+			<Hop_LeftA />
+			<Hop_RightA />
+		</table>
+		<edge name="Stand">
+			<table>
+				<Hop_2Stand />
+			</table>
+		</edge>
+	</node>
+	<node name="ShortHop">
+		<table>
+			<ShortHop_Ahead />
+			<ShortHop_TurnLeftA />
+			<ShortHop_TurnRightA />
+		</table>
+		<edge name="Stand">
+			<table>
+				<ShortHop_2Stand />
+			</table>
+		</edge>
+	</node>
+	<node name="Stand">
+		<table>
+			<Stand_Croak />
+			<Stand_Idle />
+			<Stand_Ribbit />
+			<Stand_TurnLeftA />
+			<Stand_TurnRightA />
+		</table>
+		<edge name="Hop">
+			<table>
+				<Stand_2Hop />
+			</table>
+		</edge>
+		<edge name="ShortHop">
+			<table>
+				<Stand_2ShortHop />
+			</table>
+		</edge>
+	</node>
+</Graph>

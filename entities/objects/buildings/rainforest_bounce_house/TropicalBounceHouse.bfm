@@ -1,0 +1,28 @@
+﻿<BFM modelname="entities\objects\buildings\rainforest_bounce_house\rainforest_bounce_house.nif">
+	<animation anim="entities\objects\buildings\rainforest_bounce_house\rainforest_bounce_house_InUse_Idle.bf" animName="InUse_Idle" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\objects\buildings\rainforest_bounce_house\rainforest_bounce_house_NotInUse_2InUse.bf" animName="NotInUse_2InUse" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\objects\buildings\rainforest_bounce_house\rainforest_bounce_house_NotInUse_Idle.bf" animName="NotInUse_Idle" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+	<animation anim="entities\objects\buildings\rainforest_bounce_house\rainforest_bounce_house_InUse_2NotInUse.bf" animName="InUse_2NotInUse" debug="false" animSpeed="1.000000" explicitUseOnly="false" resolveUnitCollisions="true" load="true" />
+</BFM>
+<Graph name="rainforest_bounce_house" version="1">
+	<node name="InUse">
+		<table>
+			<InUse_Idle />
+		</table>
+		<edge name="NotInUse">
+			<table>
+				<InUse_2NotInUse />
+			</table>
+		</edge>
+	</node>
+	<node name="NotInUse">
+		<table>
+			<NotInUse_Idle />
+		</table>
+		<edge name="InUse">
+			<table>
+				<NotInUse_2InUse />
+			</table>
+		</edge>
+	</node>
+</Graph>

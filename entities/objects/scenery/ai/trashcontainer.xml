@@ -1,0 +1,45 @@
+<BFTypedBinder binderType="trashcontainer" abstract="true">
+   <types>
+      <entity>
+         <scenery>
+            <trashcontainer/>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData dockArrowStyle="none"/>
+      <ZTUserStaffAction>
+         <SetAttribute name="f_TrashLevel" value="0" threshold="20" locid="superstaff:empty_trash" effect="SuperStaffEmptytrash"/>
+      </ZTUserStaffAction>
+      <BFGCollisionData isStatic="false"/>
+      <BFAIEntityDataShared s_ObjectType="TrashCan"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="1.5" length="1.5" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_Can">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="DockTrashContainer" useBehSet="UseTrashContainer" exitBehSet="ExitTrashContainer" targetNode="Dock_Adult"/>
+                  <BFGEntityContainerSlot enterBehSet="DockTrashContainer" useBehSet="UseTrashContainer" exitBehSet="ExitTrashContainer" targetNode="Dock_Adult01"/>
+                  <BFGEntityContainerSlot enterBehSet="DockTrashContainer" useBehSet="UseTrashContainer" exitBehSet="ExitTrashContainer" targetNode="Dock_Adult02"/>
+                  <BFGEntityContainerSlot enterBehSet="DockTrashContainer" useBehSet="UseTrashContainer" exitBehSet="ExitTrashContainer" targetNode="Dock_Adult03"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

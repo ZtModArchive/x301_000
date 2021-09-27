@@ -1,0 +1,99 @@
+<BFTypedBinder binderType="lowmosaic">
+   <types>
+      <entity>
+         <fence>
+            <lowmosaic/>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="fence">
+         <UIAspect>
+            <default image="entities\objects\fences\lowmosaic_end\lowmosaic_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:lowmosaicfence"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="lowmosaic"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Product="EndangeredSpecies" s_Theme="endangered" b_SeeThrough="true" s_ProfileLock="endangeredlock" s_uisort="tb" f_FenceStrength="8" b_lowfence="true" s_Zoopedia="zoopedia:zoopedia_endangeredanimalsfence:entry" s_Broken="lowmosaic_broken" b_ClimbFenceLow="true" f_Height="1.0" />
+   		<ZTTourData>
+	 	 	<theme_endangered value="8"/>
+		</ZTTourData>       
+      <ZTPlacementData minimumHeadroom="2.0"/>
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTFence gate="lowmosaicgate"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="start_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowmosaic_end\lowmosaic_end_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowmosaic_end\lowmosaic_end_vert"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowmosaic_end\lowmosaic_end_diag"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="end_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowmosaic_end\lowmosaic_end_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90curve90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowmosaic_end\lowmosaic_end_curve90down"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45curve90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowmosaic_end\lowmosaic_end_curve90diag_down"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90curve135">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowmosaic_end\lowmosaic_end_curve135down_short"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45curve135">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowmosaic_end\lowmosaic_end_curve135down_long"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="110">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

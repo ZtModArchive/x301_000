@@ -1,0 +1,147 @@
+﻿<BFTypedBinder binderType="HippopotamusPygmy" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Artiodactyla>
+							<Hippopotamidae>
+								<HippopotamusPygmy />
+							</Hippopotamidae>
+						</Artiodactyla>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj3" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\units\animals\HippopotamusPygmy\HippopotamusPygmy_Adult_F_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo ids="entityname:HippopotamusPygmy" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="HippopotamusPygmy_Adult_F" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData waterPlacement="true" />
+		<BFAIEntityDataShared s_Product="CP1" f_BaseDonationAmount="100" f_MaxTourValue="70" s_DonateToken="t_DonateHippopotamusPygmy" s_Species="HippopotamusPygmy" p_NurseNode=".75 .25 90" s_Endangerment="Critical" b_Advanced="true" b_Ambivore="true" b_Granivore="true" b_Graminivore="true" s_KeeperEatType="Terrain_Hay" b_LargeAnimal="true" b_TroughEater="true" b_MetalTroughEater="true" b_FoodDishEater="true" s_KeeperDrinkType="FoodDish_Water" b_SubstratePileEater="true" b_Grazer="true" b_Browser="true" f_adoptRemoveTime="0" f_adoptRarity="80" s_Zoopedia="zoopedia:zoopedia_hippopotamuspygmy:entry" f_RequiredInitialSpace="280" f_RequiredAdditionalSpace="40" p_PursuitBallNode="0 -3 180" b_SmallStableUser="true" b_LargeWoodenShelterUser="true" b_LargeStableUser="true" b_LargeConcreteShelterUser="true" b_WetlandsAnimal="true" b_TreeRubber="true" b_ScratchPostRubber="true" b_RubberToyUser="true" b_RattleBallUser="true" b_PursuitBallUser="true" b_PlasticBarrelUser="true" b_CarTireUser="true" b_BallUser="true" b_SaltLickUser="true" b_FeederBallUser="true" p_FightOffset="0 -2.25 180">
+			<BFAINeedAdjusts privacy="0" exercise="0.15" />
+		</BFAIEntityDataShared>
+		<BFGBiomeData location="tropicalrainforest_centralafrica" locationSensitivity="10">
+			<alpine sensitivity="-10" />
+			<borealforest sensitivity="-10" />
+			<desert sensitivity="-10" />
+			<grassland sensitivity="-5" />
+			<temperateforest sensitivity="-5" />
+			<tropicalrainforest sensitivity="10" primary="true" />
+			<tundra sensitivity="-10" />
+			<savannah sensitivity="-10" />
+			<scrub sensitivity="-10" />
+			<wetlands sensitivity="0" />
+		</BFGBiomeData>
+		<ZTUserStaffAction>
+			<SetAttribute name="hygiene" value="0" threshold="20" locid="superstaff:animal_wash" effect="SuperStaffWashLarge" />
+			<SetAttribute name="health" value="0" threshold="20" locid="superstaff:animal_heal" effect="SuperStaffHeal" />
+		</ZTUserStaffAction>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFShadowLODComponent numLevels="1" switchingDists="60.0" />
+					<BFActorComponent actorfile="entities\units\animals\HippopotamusPygmy\HippopotamusPygmy_Adult_F.bfm" />
+					<BF4LegsGroundFitComponent heightOffset="0" maxRollError=".2" maxPitchError=".1" maxHeightError=".5" pitchGain="1.00" heightGain="6.0" rollGain="1.0" bicyclePointBack="Bip01 Spine1" bicyclePointFront="Node_Eat" backBuoyancyNode="Node_Buoy_Back" frontBuoyancyNode="Node_Buoy_Front" />
+					<BFSwimComponent waterInDistance="0.50" waterOutDistance="0.1" />
+					<BFSecondaryAnimComponent animName="Secondary_EarTwitchA" frequency="1.5" chance="40" validAnims="Stand_Idle,Stand_Gape,Stand_Grunt,Stand_LookLeft,Stand_LookRight,Stand_Nudge,Stand_RubTreeA,Stand_RubTreeB,Stand_Stomp,Stand_TurnLeft90,Stand_TurnRight90,Chew_Idle,Chew_Graze,Chew_Eat,Chew_Browse,TreadWater_Idle,TreadWater_Grunt,TreadWater_Nudge,Treadwater_TurnLeft,TreadWater_TurnRight,Swim_Ahead,EatTrough_Idle" />
+					<BFSecondaryAnimComponent animName="Secondary_TailTwitchA" frequency="1.5" chance="40" validAnims="Stand_Idle,Stand_Gape,Stand_Grunt,Stand_LookLeft,Stand_LookRight,Stand_Nudge,Stand_RubTreeA,Stand_RubTreeB,Stand_Stomp,Stand_TurnLeft90,Stand_TurnRight90,Chew_Idle,Chew_Graze,Chew_Eat,Chew_Browse,TreadWater_Grunt,TreadWater_Nudge,TreadWater_Idle,Treadwater_TurnLeft,TreadWater_TurnRight,Swim_Ahead,EatTrough_Idle" />
+					<BFLegFitComponent maxLegRaise="0.6" leftFrontHipJoint="Bip01 L UpperArm" leftFrontKneeJoint="Bip01 L Forearm" leftFrontAnkleJoint="Bip01 L Hand" rightFrontHipJoint="Bip01 R UpperArm" rightFrontKneeJoint="Bip01 R Forearm" rightFrontAnkleJoint="Bip01 R Hand" leftBackHipJoint="Bip01 L Thigh" leftBackKneeJoint="Bip01 L Calf" leftBackAnkleJoint="Bip01 L Foot" rightBackHipJoint="Bip01 R Thigh" rightBackKneeJoint="Bip01 R Calf" rightBackAnkleJoint="Bip01 R Foot" ankleRotVectorLeftFront="0 0 1" ankleRotVectorRightFront="0 0 1" ankleRotVectorRightBack="0 0 -1" ankleRotVectorLeftBack="0 0 -1" hipRaiseVectorLeftFront="0 1 0" hipRaiseVectorRightFront="0 1 0" hipRaiseVectorLeftBack="0 0 1" hipRaiseVectorRightBack="0 0 1" kneeRaiseVectorLeftFront="0 0 1" kneeRaiseVectorRightFront="0 0 1" kneeRaiseVectorLeftBack="0 0 1" kneeRaiseVectorRightBack="0 0 1" legFitModeLeftFront="0" legFitModeRightFront="0" legFitModeRightBack="1" legFitModeLeftBack="1" anklePitchVector="0 -1 0" maxLOD="1" />
+					<BFForwardMovingComponent />
+					<BFRotYawMovingComponent />
+					<BFCollisionComponent grid="Grid" />
+					<BFGridCollisionComponent waterTestNode="Bip01 Pelvis" />
+					<BFDecalTextureCycleComponent materialName="HippopotamusPygmy_Adult_M_MTL" textureSet="2">
+						<Step imageName="entities/units/animals/shared/tiger_blink_blank.dds" hold="3.0" variance="0.5" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink.dds" hold="0.1" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+					</BFDecalTextureCycleComponent>
+					<BFHeadLookComponent leftRightAnimName="Secondary_HeadLook" lookDirNode="Bip01 Head" lookDirVector="0 -1 0" gain_z="-2" fov_extreme_lr="90.0" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFTextTagMacrosComponent>
+					<MACROS>
+						<macro name="Walky" text="anim &apos;Walk_Ahead&apos;" />
+						<macro name="Walky2Standy" text="anim &apos;Walk_2Stand&apos;, anim&apos;Stand_Idle&apos;" />
+						<macro name="Stand2LieBelly" text="anim &apos;Stand_2Lie&apos;, anim &apos;Lie_Idle&apos;" />
+						<macro name="LieBelly2Stand" text="anim &apos;Lie_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+						<macro name="Standy2Walky" text="anim &apos;Stand_2Walk&apos;, anim &apos;Walk_TurnLeftA&apos;" />
+						<macro name="LieOnBelly" text="anim &apos;Lie_Idle&apos;" />
+						<macro name="TurnLeft180" text="anim &apos;Stand_TurnLeft90&apos;, anim &apos;Stand_TurnLeft90" />
+						<macro name="TurnRight180" text="anim &apos;Stand_TurnRight90&apos;, anim &apos;Stand_TurnRight90&apos;" />
+						<macro name="WalkBack" text="anim &apos;Backup_Ahead&apos;" />
+						<macro name="Standy2WalkBack" text="anim &apos;Stand_2Backup&apos;, anim &apos;Backup_Ahead&apos;" />
+						<macro name="WalkBack2Stand" text="anim &apos;Backup_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+					</MACROS>
+				</BFTextTagMacrosComponent>
+			</shared>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehLocoSwitchSet loopFlag="true">
+							<behaviorTable>
+								<ground behSet="Stand_Idle" />
+								<water behSet="TreadWater_Idle" />
+							</behaviorTable>
+						</BFBehLocoSwitchSet>
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="water" required="1">
+					<instance>
+						<BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+							<stop name="TreadWater" />
+							<slow name="Swim" />
+							<medium name="Swim" />
+							<fast name="Swim" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFNamedBinder binderName="foodprop" repopulateMethod="byName" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="20000">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

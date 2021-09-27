@@ -1,0 +1,195 @@
+<BFTypedBinder binderType="ReptilePool">
+	<types>
+		<entity>
+			<shelters>
+				<ReptilePool />
+			</shelters>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="biomedetail_01" rottype="ignore" postype="use" attachnode="biomedetail_01" />
+				<parentObj parent="mainObj" child="biomedetail_02" rottype="ignore" postype="use" attachnode="biomedetail_02" />
+				<parentObj parent="mainObj" child="biomedetail_03" rottype="ignore" postype="use" attachnode="biomedetail_03" />
+				<parentObj parent="mainObj" child="biomedetail_04" rottype="ignore" postype="use" attachnode="biomedetail_04" />
+				<parentObj parent="mainObj" child="biomedetail_05" rottype="ignore" postype="use" attachnode="biomedetail_05" />
+				<parentObj parent="mainObj" child="biomedetail_06" rottype="ignore" postype="use" attachnode="biomedetail_06" />
+				<parentObj parent="mainObj" child="biomedetail_07" rottype="ignore" postype="use" attachnode="biomedetail_07" />
+				<parentObj parent="mainObj" child="biomedetail_08" rottype="ignore" postype="use" attachnode="biomedetail_08" />
+				<parentObj parent="mainObj" child="biomedetail_09" rottype="ignore" postype="use" attachnode="biomedetail_09" />
+				<parentObj parent="mainObj" child="biomedetail_10" rottype="ignore" postype="use" attachnode="biomedetail_10" />
+				<parentObj parent="mainObj" child="biomedetail_11" rottype="ignore" postype="use" attachnode="biomedetail_11" />
+				<parentObj parent="mainObj" child="biomedetail_12" rottype="ignore" postype="use" attachnode="biomedetail_12" />
+				<parentObj parent="mainObj" child="biomedetail_13" rottype="ignore" postype="use" attachnode="biomedetail_13" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\shelters\ReptilePool\ReptilePool_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:ReptilePool" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ReptilePool" />
+			</on>
+		</UIToggleButton>
+		<UIToggleButton template="researchentity">
+			<UIAspect>
+				<default image="entities\objects\shelters\ReptilePool\ReptilePool_icon.dds" />
+			</UIAspect>
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ReptilePool" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_Product="CP1" b_Researchable="true" f_FameReq="40" s_uisort="wd" s_Zoopedia="zoopedia:zoopedia_reptilepool:entry" f_researchUnlockTime="60" f_researchCost="400" />
+		<ZTPlacementData icon3Doffset="0.0 -0.02 0.78" icon3Dscale="0.21" autoFootprint="false" dockArrowStyle="special" dockArrowSize="1.0" minimumHeadroom="2.0" protectedPlacement="false" terrainFlatten="true" gridSnap="true">
+			<cfootprint width="3" height="3" />
+			<dfootprint width="4" height="4" />
+		</ZTPlacementData>
+		<ZTTourData>
+			<shelter value="3" />
+		</ZTTourData>
+		<BFGCollisionData isPassable="false" isStatic="true" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="11" length="7" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/shelters/ReptilePool/ReptilePool.nif" switch="0 25 45" scale="0.9"/>
+					<BFTravAnimPathComponent actorfile="entities\objects\shelters\ReptilePool\ReptilePool_TAP.bfm" />
+					<BFGroundFitComponent heightOffset="0" />
+					<BFForceUpdateWhenVisibleComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_01">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_02">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_03">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_04">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_05">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_06">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_07">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_08">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_09">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_10">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_11">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_12">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="biomedetail_13">
+			<instance>
+				<BFPhysObj>
+					<BFDecorativeDetailObjectComponent lodDistances="5 15 25 35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="TAP_Bathe" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterReptilePool2" useBehSet="UseReptilePool" exitBehSet="ExitReptilePool2" targetNode="Pool_EnterB" capacity="1" exclusiveID="ReptilePool" />
+						<BFGEntityContainerSlot enterBehSet="EnterReptilePool4" useBehSet="UseReptilePool" exitBehSet="ExitReptilePool4" targetNode="Pool_EnterD" capacity="1" exclusiveID="ReptilePool" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="TAP_Sleep" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterReptilePool1" useBehSet="UseReptilePool" exitBehSet="ExitReptilePool1" targetNode="Pool_EnterA" capacity="1" exclusiveID="ReptilePool" />
+						<BFGEntityContainerSlot enterBehSet="EnterReptilePool3" useBehSet="UseReptilePool" exitBehSet="ExitReptilePool3" targetNode="Pool_EnterC" capacity="1" exclusiveID="ReptilePool" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="1000">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

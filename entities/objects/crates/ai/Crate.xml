@@ -1,0 +1,58 @@
+<BFTypedBinder binderType="Crate" abstract="true">
+	<types>
+		<entity>
+			<Crate/>
+		</entity>
+	</types>
+	<shared>
+		<BFAIEntityDataShared b_ReceiveUpdates="1" b_Eyedropper="false" b_contentsAreNotInSim="true" />
+		<ZTPlacementData protectedPlacement="true" deletable="false" moveable="true" randomRotate="false" gridSnap="true" autoFootprint="true" terrainFlatten="false" waterPlacement="false" tankPlacement="false">
+			<stompData>
+				<delete>
+					<treat />
+					<watersurfacefoliage />
+					<Poop />
+				</delete>
+				<prevent />
+				<allow>
+					<bush />
+					<grass />
+					<wildflowers />
+					<fungi />
+				</allow>
+			</stompData>
+		</ZTPlacementData>
+		<BFGCollisionData score="100000" />
+		<ZTEntitySelector>
+			<BFPhysObj>
+				<BFTerrainDecalComponent imageName="UI/fx/selection/object.tga" alphaBlend="true">
+					<lighting emmisiveColor="255 255 255" specularColor="255 255 255" diffuseColor="255 255 255" ambientColor="255 255 255" />
+				</BFTerrainDecalComponent>
+				<BFGroundFitComponent heightOffset="0.0" floatOnWater="true" waterOffset="-0.15"/> 
+			</BFPhysObj>
+		</ZTEntitySelector>
+	</shared>
+	<binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFGroundFitComponent heightOffset="0.0" floatOnWater="true" waterOffset="-0.85" useShaderWaterHeight="true"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>	
+		<BFBinder>
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot hideContents="true" ownContents="true" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<ZTPhotoAnalysisComponent />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

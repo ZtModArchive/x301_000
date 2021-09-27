@@ -1,0 +1,139 @@
+<BehaviorSets>
+   <Idle>
+      <subjects>
+         <LizardLive/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateSwitch>
+            <animTable>
+               <Walk anim="Walk_Ahead"/>
+               <Run anim="Run_Ahead"/>
+               <Stand anim="Stand_Idle"/>
+               <default anim="Walk_Ahead"/>
+            </animTable>
+         </BFBehAnimateSwitch>
+      </behaviors>
+   </Idle>
+   <Ambient>
+      <subjects>
+         <LizardLive/>
+      </subjects>
+      <behaviors>
+         <BFBehRandomSet>
+            <randomSets>
+               <Stand weight="20"/>
+               <RunStraight weight="50"/>
+               <RunTurn weight="30"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Ambient>
+   <Stand>
+      <subjects>
+         <LizardLive/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Idle"/>
+      </behaviors>
+   </Stand>
+   <RunStraight>
+      <subjects>
+         <LizardLive/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Run_Ahead" playTime="30"/>
+      </behaviors>
+   </RunStraight>
+   <RunTurn>
+      <subjects>
+         <LizardLive/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Run_Ahead" playTime="30"/>
+      </behaviors>
+   </RunTurn>
+   <DockAttacked>
+      <subjects>
+         <LizardLive/>
+      </subjects>
+      <behaviors>
+         <BFBehScript context="behavior" file="scripts/playparticle.lua" function="playParticle" params="{Floor} runps PlacementCloud"/>
+         <BFBehDockNow targetNode="p_PredatorOffset" subjectNode="p_PreyOffset" reserveSlotName="general"/>
+      </behaviors>
+   </DockAttacked>
+   <Attacked>
+      <subjects>
+         <LizardLive/>
+      </subjects>
+      <behaviors>
+         <BFBehSetAttribute>
+            <BFAISubjectData b_Dead="true"/>
+         </BFBehSetAttribute>
+         <BFBehAnimate targetAnim="Dead_Idle"/>
+      </behaviors>
+   </Attacked>
+   <WaitPickup>
+      <subjects>
+         <LizardLive/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Dead_Idle" loopFlag="true"/>
+      </behaviors>
+   </WaitPickup>
+   <PickedUp>
+      <subjects>
+         <LizardLive/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Dead_2Limp"/>
+         <BFBehAnimate targetAnim="Limp_Idle" loopFlag="true"/>
+      </behaviors>
+   </PickedUp>
+   <BeingCarried>
+      <subjects>
+         <LizardLive/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Limp_Idle" loopFlag="true"/>
+      </behaviors>
+   </BeingCarried>
+   <Dropped>
+      <subjects>
+         <LizardLive/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Limp_2Dead"/>
+      </behaviors>
+   </Dropped>
+   <PickUpLizardLive>
+      <subjects>
+         <Felidae/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:PickingUp" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject targetNode="Dock_PickUp" targetAnim="Stand_2StandObject_Rough" locoMod="carry" detachAction="dropitem" detachBehSet="DetachLizardLive" targetBehSet="BeingCarried"/>
+      </behaviors>
+   </PickUpLizardLive>
+   <PickUpLizardLive>
+      <subjects>
+         <Ursidae/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject targetNode="Dock_PickUp" targetAnim="Stand_2StandObject" locoMod="carry" detachAction="dropitem" detachBehSet="DetachLizardLive" targetBehSet="BeingCarried"/>
+      </behaviors>
+   </PickUpLizardLive>
+   <DetachLizardLive>
+      <subjects>
+         <Ursidae/>
+         <Felidae/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="StandObject_Idle"/>
+         <BFBehSyncSet syncEntity="object" subjectBehSet="DropObject_Ground" targetBehSet="Dropped"/>
+      </behaviors>
+   </DetachLizardLive>
+</BehaviorSets>

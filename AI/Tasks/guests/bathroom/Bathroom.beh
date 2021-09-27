@@ -1,0 +1,174 @@
+<BehaviorSets>
+   <UseBathroom>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingUseBathroom"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:NeedUseBathroom" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+      </behaviors>
+   </UseBathroom>
+   <UseBathroomLarge>
+      <subjects>
+         <Guest_Adult_M/>
+         <Guest_Young_M/>
+      </subjects>
+      <behaviors>      
+				 <BFBehRandomSet>
+						<randomSets>
+							 <UseBathroomLargeMaleEntrance weight="500"/>
+							 <UseBathroomLargeFemaleEntrance weight="1"/>
+						</randomSets>
+				 </BFBehRandomSet>
+
+      </behaviors>
+   </UseBathroomLarge>
+   
+
+   <UseBathroomLargeMaleEntrance>
+      <subjects>
+         <Guest_Adult_M/>
+         <Guest_Young_M/>
+      </subjects>
+      <behaviors>      
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Male_Enter" targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_TurnLeftA"/>
+         <BFBehAnimate targetAnim="Walk_TurnRightA"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:UsingBathroom"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHide minTime="4" maxTime="8"/>
+         <BFBehSendTrigger subjectTrigger="Use_Bathroom"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_TurnLeftA"/>
+         <BFBehAnimate targetAnim="Walk_TurnRightA"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:UseBathroomLarge" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </UseBathroomLargeMaleEntrance>
+   
+
+   <UseBathroomLargeFemaleEntrance>
+      <subjects>
+         <Guest_Adult_M/>
+         <Guest_Young_M/>
+      </subjects>
+      <behaviors>      
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Female_Enter" targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_TurnRightA"/>
+         <BFBehAnimate targetAnim="Walk_TurnLeftA"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:UsingBathroom"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHide minTime="1" maxTime="1"/>
+         <BFBehSendTrigger subjectTrigger="Use_Bathroom"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimate targetAnim="Run_TurnRightA"/>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_LaughBathroom" GiveTo="Guest" Payload="subject" Radius="20" Timeout="30" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>            
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EmbarrasedBathroom" priority="0" timeout="60" global="false"/>
+               <ZTActionInfo locID="guestactions:EmbarrasedBathroom"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEvasion evasionRadius="15" locoSpeed="scream"/>     
+      </behaviors>
+   </UseBathroomLargeFemaleEntrance>
+
+   
+   
+   
+   
+   
+   <UseBathroomLarge>
+      <subjects>
+         <Guest_Adult_F/>
+         <Guest_Young_F/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Female_Enter" targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_TurnRightA"/>
+         <BFBehAnimate targetAnim="Walk_TurnLeftA"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:UsingBathroom"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHide minTime="4" maxTime="8"/>
+         <BFBehSendTrigger subjectTrigger="Use_Bathroom"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_TurnRightA"/>
+         <BFBehAnimate targetAnim="Walk_TurnLeftA"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:UseBathroomLarge" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </UseBathroomLarge>
+   <UseBathroomSmall>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingUseBathroom"/>
+               <ZTThoughtInfo locID="guestthoughts:NeedUseBathroom" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>      
+         <BFBehPlaySet behSet="Queue"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnRight90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:UsingBathroom"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHide minTime="4" maxTime="8"/>
+         <BFBehSendTrigger subjectTrigger="Use_Bathroom"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnLeft90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:UseBathroomSmall" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </UseBathroomSmall>
+</BehaviorSets>

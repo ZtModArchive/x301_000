@@ -1,0 +1,104 @@
+﻿<BFTypedBinder binderType="BatCave">
+	<types>
+		<entity>
+			<scenery>
+				<TourObject>
+					<BatCave />
+				</TourObject>
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting mergeKey="child">
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="nobats" rottype="use" postype="use" attachnode="Node_Bats" />
+				<parentObj parent="mainObj" child="bats" rottype="use" postype="use" attachnode="Node_Bats" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\scenery\BatCave\BatCave_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:BatCave" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="BatCave" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData terrainFlatten="true" icon3Dscale="0.25" icon3Doffset="0 0 0.5" minimumHeadroom="3.0" />
+		<BFAIEntityDataShared b_ReceiveUpdates="true" s_uisort="tb" s_Zoopedia="zoopedia:zoopedia_batcave:entry" f_FameReq="40" b_NoPerceiveOverride="true" p_InvestigateNode="0 -3 0" />
+		<ZTTourData>
+			<OnRandomAnimation tourValue="50">
+				<ZTFeedbackData>
+					<ZTThoughtInfo locID="guestthoughts:BatCaveAnimationCool" priority="2" timeout="60" global="false" useTargetTarget="true" useTargetName="true" />
+				</ZTFeedbackData>
+			</OnRandomAnimation>
+			<tour value="6" />
+			<cool value="7" />
+		</ZTTourData>
+		<ZTTriggeredEventsComponent>
+			<Bats_flyout>
+				<nonbroadcast>
+					<event msg="BFSND_PLAY_FROM_ENTITY" data="BFString" string="Batcave_batsfly" />
+				</nonbroadcast>
+			</Bats_flyout>
+		</ZTTriggeredEventsComponent>
+	</shared>
+	<binder>
+		<BFBinder>
+			<instance>
+				<BFGPhysAnimController currState="nobats" defaultState="nobats" overrideSettings="true">
+					<stateList>
+						<nobats parent="mainObj" child="nobats" rottype="use" postype="use" attachnode="Node_Bats" />
+						<bats parent="mainObj" child="bats" rottype="use" postype="use" attachnode="Node_Bats" minPeriod="45" maxPeriod="60" eventTrigger="Bats_flyout" />
+					</stateList>
+				</BFGPhysAnimController>
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="nobats">
+			<instance>
+				<BFPhysObj drawLast="true">
+					<BFSimpleLODComponent modelfile="entities/objects/scenery/batcave/batcave_blink.nif" scale="1.0" />
+					<BFForceUpdateWhenVisibleComponent controllersOnly="false" />
+					<BFHasParticleComponent />
+					<BFAnimatedObjectControllerComponent autoStart="true" loop="true" duration="7.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="bats" required="0">
+			<instance>
+				<BFPhysObj drawLast="true">
+					<BFSimpleLODComponent modelfile="entities/objects/scenery/batcave/batcave_fly.nif" scale="1.0" />
+					<BFForceUpdateWhenVisibleComponent controllersOnly="false" />
+					<BFHasParticleComponent />
+					<BFAnimatedObjectControllerComponent autoStart="true" duration="7.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="6" length="5" offwidth="-0.5" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent modelfile="entities/objects/scenery/BatCave/BatCave.nif" switch="0 15 45" minSwitch="0 0 40" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="1000">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

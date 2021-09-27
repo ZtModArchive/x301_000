@@ -1,0 +1,30 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="BrowsePuyaPlant" reserveTag="BrowseSpectacledBear" UniqueID="PuyaPlant:BrowsePuyaPlant">
+      <BFAICreateData>
+         <Subjects>
+            <BearSpectacled/>
+            <Qualifiers inWater_OR_onLand="true"/>
+         </Subjects>
+         <Targets>
+            <PuyaPlant_Temperate/>
+            <Qualifiers inHabitat="true"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-30"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehEnter/>
+         <BFBehPlaySet behSet="useContainer"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-40" bathroom="30" hygiene="10"/>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

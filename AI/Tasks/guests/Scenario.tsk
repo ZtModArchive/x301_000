@@ -1,0 +1,323 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="DanceMusicalRock" CursorTask="false" reserveTag="Use_MusicalRock" TaskDelayMin="120" TaskDelayMax="240" UniqueID="scenario:UseMusicalRock">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F_Rockstar/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <b_MusicalRock/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap amusement="-100" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoDanceMusicalRock" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehMove pathRadius="4" locoSpeed="fast"/>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:DanceMusicalRock" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:DanceMusicalRock" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      	 <BFBehAnimate targetAnim="Dance_Idle"/>
+      	 <BFBehAnimate targetAnim="Dance_Idle"/>
+      	 <BFBehAnimate targetAnim="Dance_Idle"/>
+      	 <BFBehAnimate targetAnim="Dance_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAmusementgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="-50" happiness="-10" gift="+15"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   
+
+   <BFAITaskTemplate Name="UseMarineGazebo" CursorTask="false" reserveTag="Use_MusicalRock" TaskDelayMin="120" TaskDelayMax="240" UniqueID="scenario:UseMarineGazebo">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M_Pirate/>
+	    <Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <gazebo_mm/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap rest="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoToGazebo" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <BFBehPlaySet behSet="useContainer"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap rest="-5" happiness="-2"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+
+
+   <BFAITaskTemplate Name="LookAtOctopusAquarium" CursorTask="false" reserveTag="Use_Aquarium" TaskDelayMin="300" TaskDelayMax="500" UniqueID="scenario:LookAtOctopusAquarium">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M_Pirate/>
+				<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <Aquarium_Octopus/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap amusement="rand(-30,-15, 1)"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoLookAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock targetAnim="Stand_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:LookingAt" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:UseOctopusAquarium" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="LookAtKiosk"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAmusementgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="-100" happiness="-20" gift="+15"/>
+         <BFBehExecTask>
+            <ZTBehEconomy transactionName="add_user"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="LookAtSeaHorseAquarium" CursorTask="false" reserveTag="Use_Aquarium" TaskDelayMin="300" TaskDelayMax="500" UniqueID="scenario:LookAtSeaHorseAquarium">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M_Pirate/>
+  				<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <Aquarium_SeaHorse/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap amusement="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoLookAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock targetAnim="Stand_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:LookingAt" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:UseSeaHorseAquarium" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="LookAtKiosk"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAmusementgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="-100" happiness="-20" gift="+15"/>
+         <BFBehExecTask>
+            <ZTBehEconomy transactionName="add_user"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="LookAtTropicalFishAquarium" CursorTask="false" reserveTag="Use_Aquarium" TaskDelayMin="300" TaskDelayMax="500" UniqueID="scenario:LookAtTropicalFishAquarium">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M_Pirate/>
+				<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <Aquarium_TropicalFish/>            
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap amusement="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoLookAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock targetAnim="Stand_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:LookingAt" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:UseTropicalFishAquarium" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="LookAtKiosk"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAmusementgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="-100" happiness="-20" gift="+15"/>
+         <BFBehExecTask>
+            <ZTBehEconomy transactionName="add_user"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="LookAtJellyfishAquarium" CursorTask="false" reserveTag="Use_Aquarium" TaskDelayMin="300" TaskDelayMax="500" UniqueID="scenario:LookAtJellyfishAquarium">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M_Pirate/>
+				<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <Aquarium_Jellyfish/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap amusement="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoLookAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock targetAnim="Stand_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:LookingAt" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:UseJellyfishAquarium" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="LookAtKiosk"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAmusementgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="-100" happiness="-20" gift="+15"/>
+         <BFBehExecTask>
+            <ZTBehEconomy transactionName="add_user"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+
+
+   <BFAITaskTemplate Name="LookAtFountainSplash" CursorTask="false" TaskDelayMin="300" TaskDelayMax="500" UniqueID="scenario:LookAtFountainSplash">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M_Pirate/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <FountainSplash_mm/>            
+            <Qualifiers inSight="15"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap amusement="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoLookAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDockRadial dockRadius="6" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook/>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:LookingAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook disengage="true"/>
+         <BFBehPlaySet behSet="LookAtObject"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:LookAtFountainTheme" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAmusementgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="-50" happiness="-10" gift="+5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   
+   <BFAITaskTemplate Name="ReactFountainSplash" CursorTask="false" TaskDelayMin="300" TaskDelayMax="500" UniqueID="scenario:ReactFountainSplash">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M_Pirate/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <FountainSplash_mm/>            
+         </Targets>
+         <Objects>
+         	<t_FountainSplash/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="100"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:LookingAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="GetSplashed"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:LookAtFountainTheme" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAmusementgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="-25" happiness="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>   
+   
+
+
+
+
+   
+</BFAITaskTemplateList>

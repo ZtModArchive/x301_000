@@ -1,0 +1,35 @@
+<BFTypedBinder binderType="FlamingoGreater_Adult_M">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Aves>
+                  <Phoenicopteriformes>
+                     <Phoenicopteridae>
+                        <FlamingoGreater>
+                           <FlamingoGreater_Adult>
+                              <FlamingoGreater_Adult_M/>
+                           </FlamingoGreater_Adult>
+                        </FlamingoGreater>
+                     </Phoenicopteridae>
+                  </Phoenicopteriformes>
+               </Aves>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\units\animals\FlamingoGreater\FlamingoGreater_Adult_M_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="FlamingoGreater_Adult_M"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Male="1" f_adoptCount="rand(1,4)"/>
+   </shared>
+</BFTypedBinder>

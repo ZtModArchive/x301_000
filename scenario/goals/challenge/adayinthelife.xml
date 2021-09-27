@@ -1,0 +1,19 @@
+<BFScenarioGroup name="adayintheliferules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="adayinthelifephoto" state="0" sticky="true" optional="true">
+			<info type="photo">
+				<neutral locid="PhotoChallengetext:PHADayInTheLifeShort" overview="PhotoChallengetext:PHADayInTheLife" />
+				<success locid="PhotoChallengetext:PHADayInTheLifeSuccessShort" overview="PhotoChallengetext:PHADayInTheLifeSuccess" />
+			</info>
+			<evaluate>
+			 	<BFScenarioScriptAction script="scenario/scripts/challenge/instant/adayinthelife.lua" entry="evaladayinthelife" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/adayinthelife.lua" entry="completeadayinthelife" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/adayinthelife.lua" entry="failadayinthelife" />
+			</failure>	
+		</BFScenarioRule>		
+	 </children>
+</BFScenarioGroup>

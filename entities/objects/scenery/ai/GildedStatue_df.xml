@@ -1,0 +1,63 @@
+<BFTypedBinder binderType="GildedStatue_df">
+   <types>
+      <entity>
+         <scenery>
+            <GildedStatue_df/>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\GildedStatue_df\GildedStatue_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:GildedStatue_df"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="GildedStatue_df"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Theme="default" s_uisort="od" s_ObjectType="Statue" s_ProfileLock="pandalock" s_Zoopedia="zoopedia:zoopedia_gildedstatue:entry"/>
+   		<ZTTourData>
+	 		<reward value="6"/>
+	 		<cool value="5"/>
+	 		<statue value="9"/>
+		</ZTTourData>      
+      <ZTPlacementData icon3Doffset="0 0 0.242077" icon3Dscale="0.813803" autoFootprint="false" moveable="false" terrainFlatten="false">
+         <cfootprint width="0" height="0"/>
+         <dfootprint width="1" height="1"/>
+      </ZTPlacementData>
+      <BFGCollisionData isPassable="false" isStatic="false"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="2" length="1" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/GildedStatue_df/GildedStatue_df" switch="0 25 40"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="300">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

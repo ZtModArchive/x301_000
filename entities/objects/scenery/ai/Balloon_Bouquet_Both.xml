@@ -1,0 +1,65 @@
+<BFTypedBinder binderType="Balloon_Bouquet_Both">
+   <types>
+      <entity>
+         <scenery>
+            <Balloon_Bouquet_Both/>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTDevComponent/>
+      <UIToggleButton template="adopt">
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Balloon_Bouquet"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Balloon_Bouquet_Both"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData terrainFlatten="false" dockArrowStyle="special" dockArrowSize="0.75"/>
+      <BFAIEntityDataShared b_ReceiveUpdates="true" s_Zoopedia="zoopedia:zoopedia_balloonbouquet:entry"/>
+   		<ZTTourData>
+	 		<cool value="5"/>
+	 		<reward value="5"/>
+		</ZTTourData>
+		<BFGCollisionData isPassable="false" isStatic="false"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width="3" minLength="3" maxLength="4" minOffset="0.5" maxOffset="1"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/objects/scenery/MylarBalloons_df/MylarBalloons_df_mix.bfm" switch="0 10 50"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1" physObj="mainObj">
+               <subBehaviors>
+                  <BFBehAnimate interruptible="false" targetAnim="sway_idle" loopFlag="true"/>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="313">
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

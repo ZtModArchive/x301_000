@@ -1,0 +1,95 @@
+<BFTypedBinder binderType="plexiglass">
+   <types>
+      <entity>
+         <fence>
+            <plexiglass/>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="fence">
+         <UIAspect>
+            <default image="entities\objects\fences\plexiglass_df\plexiglass_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:plexiglass"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="plexiglass"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_uisort="sh" f_FenceStrength="6" s_Zoopedia="zoopedia:zoopedia_plexiglass:entry" f_FameReq="80" s_Broken="plexiglass_broken" b_SeeThrough="true"/>
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTFence gate="concretegate"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="start_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\plexiglass_df\plexiglass_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\plexiglass_df\plexiglass_df_vert"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\plexiglass_df\plexiglass_df_diag"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="end_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\plexiglass_df\plexiglass_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90curve90">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\plexiglass_df\plexiglass_df_curve90down"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45curve90">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\plexiglass_df\plexiglass_df_curve90diag_down"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90curve135">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\plexiglass_df\plexiglass_df_curve135down_short"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45curve135">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\plexiglass_df\plexiglass_df_curve135down_long"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+                  <BFBinder>
+      			<instance>
+				<ZTEconomyComponent cost="225">
+      					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+      				</ZTEconomyComponent>
+      			</instance>
+		</BFBinder>
+</binder>
+</BFTypedBinder>

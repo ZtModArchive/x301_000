@@ -1,0 +1,48 @@
+<BFTypedBinder binderType="TrashGround" versionReplace="true">
+   <types>
+      <entity>
+         <item>
+            <TrashGround/>
+         </item>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <BFGInfluenceComponent defaultRadius="9.0" defaultGroupFactor="0.0" defaultRadiusDropoff="linear" defaultGroupDropoff="none">
+         <smell key="bad" value="0.2"/>
+      </BFGInfluenceComponent>
+      <BFGCollisionData isPassable="true"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="UI\infopan\icon_Trash.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:TrashGround"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="TrashGround"/>
+         </on>
+      </UIToggleButton>
+      <ZTUserStaffAction>
+         <RemoveObject locid="superstaff:clean_trash" effect="SuperStaffSweep" delay="2.0"/>
+      </ZTUserStaffAction>
+      <ZTPlacementData deletable="false"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/Items/Trash/Trash" scale="1.0" switch="0 36"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <ZTAIStaffRequestController triggerOnCreation="true">
+               <ZTStaffRequestData tokenKey="t_SweepTrash" subjectType="Worker" priority="2"/>
+            </ZTAIStaffRequestController>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,78 @@
+<BFTypedBinder binderType="desert_et_broken">
+	<types>
+		<entity>
+			<fence>
+				<desert_et_broken />
+			</fence>
+		</entity>
+	</types>
+	<instance>
+		<ZTFenceEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<ZTDevComponent />
+		<UIToggleButton template="fence">
+			<UIAspect>
+				<default image="entities\objects\fences\desert_et\desert_et_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:desertfence" />
+			<on>
+				<event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="desert_et_broken" />
+			</on>
+		</UIToggleButton>
+		<BFGCollisionData score="0" />
+		<BFAIEntityDataShared s_uisort="mam" s_ProfileLock="desertlock" f_FenceStrength="0" b_SeeThrough="true" s_Theme="desert" s_Zoopedia="zoopedia:zoopedia_desertfence:entry" />
+	</shared>
+	<binder>
+		<BFBinder>
+			<instance>
+				<ZTFence gate="desertgate_et" hasCurves="false" />
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="start_post">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent modelfile="entities\objects\fences\desert_et\desert_et_post" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars seeThrough="false" />
+			</shared>
+		</BFNamedBinder>
+		<BFNamedBinder required="0" binderName="fence90">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent modelfile="entities\objects\fences\desert_et\desert_et_vert_broken" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars seeThrough="false" />
+			</shared>
+		</BFNamedBinder>
+		<BFNamedBinder required="0" binderName="fence45">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent modelfile="entities\objects\fences\desert_et\desert_et_diag_broken" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars seeThrough="false" />
+			</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="end_post">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent modelfile="entities\objects\fences\desert_et\desert_et_post" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars seeThrough="false" />
+			</shared>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance f_FenceStrength="0" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

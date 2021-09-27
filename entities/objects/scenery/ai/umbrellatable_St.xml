@@ -1,0 +1,48 @@
+﻿<BFTypedBinder binderType="umbrellatable_St">
+	<types>
+		<entity>
+			<scenery>
+				<umbrellatable>
+					<umbrellatable_St />
+				</umbrellatable>
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\scenery\umbrellatable_St\umbrellatable_St_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:umbrellatable_St" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="umbrellatable_St" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_uisort="em" s_ProfileLock="safarilock" s_Zoopedia="zoopedia:zoopedia_themedumbrellatable:entry" s_Theme="safari" f_FameReq="40" />
+		<ZTPlacementData terrainFlatten="true" />
+		<ZTTourData>
+			<theme_safari value="5" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/umbrellatable_St/umbrellatable_St" switch="0 20 50" minSwitch="0 0 45" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="210">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

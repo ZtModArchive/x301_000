@@ -1,0 +1,102 @@
+<BFTypedBinder binderType="Worker" abstract="true">
+   <types>
+      <entity>
+         <actor>
+            <people>
+               <Staff>
+                 <Worker/>
+               </Staff>
+            </people>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+         <UIToggleButton template="adopt">
+            <UIAspect>
+               <default image="entities\units\staff\Worker\Worker_M_icon.dds"/>
+            </UIAspect>
+            <UIHelpInfo ids="entityname:Maintenanceworker"/>
+            <on>
+               <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Worker"/>
+            </on>
+      </UIToggleButton>
+   </shared>
+   <binder>
+      <BFBinder required="1">
+         <instance>
+            <BFAICognitiveMgr>
+               <Sensors>
+                  <ZTAIStaffSensorSelf/>
+                  <ZTAIStaffSensor/>
+               </Sensors>             
+               <TaskThinkers>
+                  <ZTAIStaffTaskThinker/>
+               </TaskThinkers>
+            </BFAICognitiveMgr>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <ZTAIStaffAssignmentComponent/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr/>
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="ground" required="1">
+               <instance>
+                  <BFLocoAnimate version="1">
+                     <stop name="Stand"/>
+                     <slow name="Walk" minAnimSpeed="1.0" maxAnimSpeed="1.4">
+                        <waggle name="Walk_Ahead" wag="0.1"/>
+                     </slow>
+                     <medium name="Walk" minAnimSpeed="1.4" maxAnimSpeed="1.6"/>
+                     <fast name="Run"/>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="groundcarry" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="StandItem_Idle">
+                     <stop name="StandItem"/>
+                     <slow name="WalkItem" minAnimSpeed="1.0" maxAnimSpeed="1.4">
+                        <waggle name="WalkItem_Ahead" wag="0.1"/>
+                     </slow>
+                     <med name="WalkItem" minAnimSpeed="1.4" maxAnimSpeed="1.6"/>
+                     <fast name="WalkItem" minAnimSpeed="1.6" maxAnimSpeed="1.8"/>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="water" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+                     <stop name="TreadWater"/>
+                     <slow name="Swim"/>
+                     <medium name="Swim"/>
+                     <fast name="Swim"/>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>      
+      <BFNamedBinder binderName="Broom" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Broom\Broom" scale="1.0" switch="0 9"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>   
+      <BFNamedBinder binderName="Wrench" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Wrench\Wrench.nif" scale="1.0" switch="0 36"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>   
+  </binder>   
+</BFTypedBinder>

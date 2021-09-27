@@ -1,0 +1,64 @@
+<BFTypedBinder binderType="Papyrus_Wetlands">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <thicket>
+                  <Papyrus_Wetlands/>
+               </thicket>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\Papyrus\Papyrus_Wetlands_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Papyrus_Wetlands"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Papyrus_Wetlands"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_papyrus:entry" f_FameReq="60" b_GrazeGrass="true" s_prop="Grass_Prop"/>
+      <ZTPlacementData waterPlacement="true" icon3Doffset="0 0 0.149072" icon3Dscale="0.438672" minimumHeadroom="3.0" maximumDepth="1.0"/>
+      <BFGBiomeData location="wetland_africa">
+         <wetlands/>
+      </BFGBiomeData>
+   		<ZTTourData>
+	 		<biome_wetlands value="2"/>
+		</ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width="3" minLength="3" maxLength="5" minOffset="0" maxOffset="1"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\foliage\Papyrus\Papyrus_Wetlands" scale=".7" switch="0 30 60"/>
+               <BFMultiGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="20">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

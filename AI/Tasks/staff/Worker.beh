@@ -1,0 +1,123 @@
+<BehaviorSets>
+   <DockTrashContainer>
+      <subjects>
+         <Worker/>
+      </subjects>
+      <behaviors>
+         <BFBehDock targetAnim="Stand_Idle"/>
+      </behaviors>
+   </DockTrashContainer>
+   
+   
+   <UseTrashContainer>
+      <subjects>
+         <Worker/>
+      </subjects>
+      <behaviors>
+      	 <ZTBehFeedback>
+      	 	<ZTFeedbackData>
+		 	<ZTActionInfo locID="staffactions:EmptyTrashcan"/>
+	 	</ZTFeedbackData>
+	 </ZTBehFeedback>
+      	 <ZTBehFeedback>
+      	 	<ZTFeedbackData>
+		 	<ZTThoughtInfo locID="staffthoughts:WorkerEmptyTrashcan" priority="1" timeout="30" global="false" />
+	 	</ZTFeedbackData>
+	 </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_EmptyTrash"/>
+      </behaviors>
+   </UseTrashContainer>
+   <UseRecyclingBin>
+      <subjects>
+         <Worker/>
+      </subjects>
+      <behaviors>
+      	 <ZTBehFeedback>
+      	 	<ZTFeedbackData>
+		 	<ZTActionInfo locID="staffactions:EmptyTrashcan"/>
+	 	</ZTFeedbackData>
+	 </ZTBehFeedback>
+      	 <ZTBehFeedback>
+      	 	<ZTFeedbackData>
+		 	<ZTThoughtInfo locID="staffthoughts:WorkerEmptyTrashcan" priority="1" timeout="30" global="false" />
+	 	</ZTFeedbackData>
+	 </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_EmptyTrash"/>
+      </behaviors>
+   </UseRecyclingBin>   
+   
+   
+   <ExitTrashContainer>
+      <subjects>
+         <Worker/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </ExitTrashContainer>
+   
+   <DockWaterFilter>
+      <subjects>
+         <Worker/>
+      </subjects>
+      <behaviors>
+         <BFBehDock targetAnim="Stand_Idle"/>
+      </behaviors>
+   </DockWaterFilter>
+   
+   
+   <UseWaterFilter>
+      <subjects>
+         <Worker/>
+      </subjects>
+      <behaviors>
+      	 <ZTBehFeedback>
+      	 	<ZTFeedbackData>
+		 	<ZTActionInfo locID="staffactions:CleanFilter"/>
+	 	</ZTFeedbackData>
+	 </ZTBehFeedback>
+      	 <ZTBehFeedback>
+      	 	<ZTFeedbackData>
+		 	<ZTThoughtInfo locID="staffthoughts:WorkerCleanFilter" priority="1" timeout="30" global="false" />
+	 	</ZTFeedbackData>
+	 </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_RepairFilter"/>
+         <BFBehAnimate targetAnim="Stand_CleanFilter"/>
+         <BFBehAnimate targetAnim="Stand_RepairFilter"/>
+      </behaviors>
+   </UseWaterFilter>
+   
+   
+   <ExitWaterFilter>
+      <subjects>
+         <Worker/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </ExitWaterFilter>
+   
+   <MWFailFeedback>
+      <subjects>
+         <Worker/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="staffthoughts:StaffFailure" priority="-1" timeout="30" global="false" useTargetName="true"/>
+		           <ZTMessageInfo locID="zoomessages:MWFailure" priority="-1" timeout="30" interval="30" global="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+    </MWFailFeedback>
+   
+   <KillTarget>
+      <subjects>
+         <Worker/>
+      </subjects>
+      <behaviors>
+         <BFBehKill killTarget="true"/>
+      </behaviors>
+   </KillTarget>
+   
+</BehaviorSets>

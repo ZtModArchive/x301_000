@@ -1,0 +1,308 @@
+<BFTypedBinder binderType="LargeBall_mm">
+	<types>
+		<entity>
+			<prop>
+				<LargeBall_mm />
+			</prop>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<ZTDevComponent />
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\props\Ball_mm\BallLarge_mm_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:LargeBall_mm" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="LargeBall_mm" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData moveable="true" randomRotate="false" gridSnap="true" icon3Doffset="0 -0.060010 0.91" icon3Dscale="1.064964" minimumHeadroom=".5" autoFootprint="false">
+			<cfootprint width="1" height="9" />
+			<dfootprint width="1" height="11" />
+		</ZTPlacementData>
+		<BFAIEntityDataShared s_Product="Marine" b_CanLookUpByGlobalID="true" b_NoPerceiveOverride="true" s_uisort="bb" s_Zoopedia="zoopedia:zoopedia_largeball:entry" f_researchUnlockTime="60" f_researchCost="600" f_FameReq="40" b_collideWithGroundVehicles="true" b_movingEntityWithGridFootprint="true" />
+		<BFGDetachInfo>
+			<detachActionTable>
+				<dropitem destination="drop" />
+				<killitem destination="kill" />
+				<inventory destination="inventory" />
+				<maketrash destination="kill" />
+			</detachActionTable>
+		</BFGDetachInfo>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width=".5" minLength=".5" maxLength=".75" minOffset="0" maxOffset=".125" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="false" modelfile="entities\objects\props\Ball_mm\BallLarge_mm" switch="0 35 50" minSwitch="0 10 20" />
+					<BFRealPhysicsComponent shapeRadius="0.25" rollFrictionCoef="0.05" bounceCoef="0.7" displacableByObjects="false" doLobWhack="true" minLobPitch="85" maxLobPitch="90" minWhackSpeed="8.0" maxWhackSpeed="10.0"/>
+					<BFGroundFitComponent heightOffset="0.25" floatOnWater="true" waterOffset="-0.15" />
+					<BFCollisionComponent grid="footprint" />
+					<BFGridCollisionComponent />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars>
+					<virtualNodes>
+						<Node_Whap y="5" z="-.5" />
+						<Node_Training x="-1.5" y="-1.5" z="10" yaw="-90" />
+						<Node_Orca_Training x="-5.25" y="-1.5" z="10" yaw="-90" />
+						<Node_FlukeSwipeBall_Failure y="-2" yaw="180" />
+						<Node_FlukeSwipeBall_Success y="-0.75" yaw="180" />
+						<Node_FlukeSwipeBall_Critical y="-0.75" yaw="180" />
+						<Node_FlukeSwipeBall_Orca_Success y="-1.5" yaw="180" />
+						<Node_FlukeSwipeBall_Orca_Critical y="-1.5" yaw="180" />
+						<Node_FlukeSwipeBall_Beluga_Success y="-2" yaw="180" />
+						<Node_FlukeSwipeBall_Beluga_Critical y="-2" yaw="180" />
+						<Node_RamBallOutOfWater_Failure y="-4.4" z="-1" yaw="180" />
+						<Node_RamBallOutOfWater_Orca_Failure y="-8.8" z="-2" yaw="180" />
+						<Node_RamBallOutOfWater_WhalePilotShortFinned_Failure y="-3.08" z="-.7" yaw="180" />
+						<Node_RamBallOutOfWater_WhaleFalseKiller_Failure y="-5.5" z="-1.25" yaw="180" />
+						<Node_RamBallOutOfWater_Success y="-4.4" z="-1" yaw="180" />
+						<Node_RamBallOutOfWater_Orca_Success y="-8.8" z="-2" yaw="180" />
+						<Node_RamBallOutOfWater_WhalePilotShortFinned_Success y="-3.08" z="-.7" yaw="180" />
+						<Node_RamBallOutOfWater_WhaleFalseKiller_Success y="-5.5" z="-1.25" yaw="180" />
+						<Node_RamBallOutOfWater_Critical y="-5.4" z="-1" yaw="180" />
+						<Node_RamBallOutOfWater_Orca_Critical y="-10.8" z="-1" yaw="180" />
+						<Node_RamBallOutOfWater_WhalePilotShortFinned_Critical y="-3.78" z="-.7" yaw="180" />
+						<Node_RamBallOutOfWater_WhaleFalseKiller_Critical y="-6.75" z="-1.25" yaw="180" />
+					</virtualNodes>
+				</BFSharedPhysVars>
+			</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Play">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UsePursuitBall_Whap" exitBehSet="ExitBall" exclusiveID="Ball1" targetNode="Dock_01" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UsePursuitBall_Whap" exitBehSet="ExitBall" exclusiveID="Ball1" targetNode="Dock_02" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UsePursuitBall_Whap" exitBehSet="ExitBall" exclusiveID="Ball1" targetNode="Dock_03" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UsePursuitBall_Whap" exitBehSet="ExitBall" exclusiveID="Ball1" targetNode="Dock_04" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Training" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot targetNode="Node_Training" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Orca_Training" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot targetNode="Node_Orca_Training" exclusiveID="Ball1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="FlukeSwipeBall_Failure">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_FlukeSwipeBall" useBehSet="FlukeSwipeBall_Failure" targetNode="Node_FlukeSwipeBall_Failure" exclusiveID="Ball1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="FlukeSwipeBall_Success">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_FlukeSwipeBall" useBehSet="FlukeSwipeBall_Success" targetNode="Node_FlukeSwipeBall_Success" exclusiveID="Ball1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="FlukeSwipeBall_Orca_Success" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_FlukeSwipeBall" useBehSet="FlukeSwipeBall_Success" targetNode="Node_FlukeSwipeBall_Orca_Success" exclusiveID="Ball1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="FlukeSwipeBall_Beluga_Success" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_FlukeSwipeBall" useBehSet="FlukeSwipeBall_Success" targetNode="Node_FlukeSwipeBall_Beluga_Success" exclusiveID="Ball1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="FlukeSwipeBall_Critical">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_FlukeSwipeBall" useBehSet="FlukeSwipeBall_Critical" targetNode="Node_FlukeSwipeBall_Critical" exclusiveID="Ball1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="FlukeSwipeBall_Orca_Critical" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_FlukeSwipeBall" useBehSet="FlukeSwipeBall_Critical" targetNode="Node_FlukeSwipeBall_Orca_Critical" exclusiveID="Ball1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="FlukeSwipeBall_Beluga_Critical" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_FlukeSwipeBall" useBehSet="FlukeSwipeBall_Critical" targetNode="Node_FlukeSwipeBall_Beluga_Critical" exclusiveID="Ball1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_Failure" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Failure" targetNode="Node_RamBallOutOfWater_Failure" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_Orca_Failure" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Failure" targetNode="Node_RamBallOutOfWater_Orca_Failure" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_WhalePilotShortFinned_Failure" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Failure" targetNode="Node_RamBallOutOfWater_WhalePilotShortFinned_Failure" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_WhaleFalseKiller_Failure" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Failure" targetNode="Node_RamBallOutOfWater_WhaleFalseKiller_Failure" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_Success" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Success" targetNode="Node_RamBallOutOfWater_Success" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_WhalePilotShortFinned_Success" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Success" targetNode="Node_RamBallOutOfWater_WhalePilotShortFinned_Success" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_WhaleFalseKiller_Success" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Success" targetNode="Node_RamBallOutOfWater_WhaleFalseKiller_Success" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_Orca_Success" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Success" targetNode="Node_RamBallOutOfWater_Orca_Success" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_Critical" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Critical" targetNode="Node_RamBallOutOfWater_Critical" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_WhalePilotShortFinned_Critical" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Critical" targetNode="Node_RamBallOutOfWater_WhalePilotShortFinned_Critical" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_WhaleFalseKiller_Critical" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Critical" targetNode="Node_RamBallOutOfWater_WhaleFalseKiller_Critical" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="RamBallOutOfWater_Orca_Critical" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="DockBall_RamBallOutOfWater" useBehSet="RamBallOutOfWater_Critical" targetNode="Node_RamBallOutOfWater_Orca_Critical" exclusiveID="TrickArea1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="320">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance b_Moving="false" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester maxSlope=".01" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

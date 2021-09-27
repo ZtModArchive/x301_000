@@ -1,0 +1,2491 @@
+<UILayout name="photoalbum">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect>
+      <default/>
+   </UIAspect>
+   <children>
+      <ZTPhotoAlbumComponent name="photoalbum_layout" modal="true">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect>
+            <default/>
+         </UIAspect>
+         <UIHotKeys>
+            <file name="UI/hotkeys/hotkeys.xml" node="escreturn"/>
+         </UIHotKeys>
+         <show>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="pause"/>
+         </show>
+         <hide>
+            <event msg="UI_CHILD" data="UIChildData" name="grab selected camera photo">
+               <child msg="UI_ACTIVATE_OFF"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="grab selected camera photo">
+               <child msg="UI_DISABLE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="delete selected camera photo">
+               <child msg="UI_DISABLE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+               <child msg="UI_ACTIVATE_OFF"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+               <child msg="UI_DISABLE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+               <child msg="UI_DISABLE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Camera Set">
+               <child msg="UI_SHOW"/>
+            </event>
+            <event msg="ZT_PHOTOEVENT_NUM_PICTURES"/>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="unpause"/>
+         </hide>
+         <children>
+            <UILayout name="album_screen">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <children>
+                  <UILayout name="back ground pieces">
+                     <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UILayout name="background graphic 1" template="blankna">
+                           <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="" alwayshit="true">
+                                 <BFRect x="0" y="0" w="1024" h="768"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UILayout>
+                        <UILayout name="topheader graphic" template="header">
+                           <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="" alwayshit="true">
+                                 <BFRect x="0" y="0" w="1024" h="768"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UILayout>
+                        <UILayout name="middle header graphic" template="header">
+                           <UIRegion x="50" y="51" w="921" h="40" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="" alwayshit="true">
+                                 <BFRect x="0" y="0" w="1024" h="768"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UILayout>
+                        <UILayout name="last header graphic" template="header">
+                           <UIRegion x="25" y="260" w="978" h="40" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="" alwayshit="true">
+                                 <BFRect x="0" y="0" w="1024" h="768"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UILayout>
+                        <UILayout name="background graphic 1" template="panelwell">
+                           <UIRegion x="50" y="90" w="921" h="102" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="" alwayshit="true">
+                                 <BFRect x="0" y="0" w="1024" h="768"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UILayout>
+                        <UILayout name="Book">
+                           <UIRegion x="25" y="300" w="978" h="388" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="ui/photosaf/book.dds">
+                                 <BFRect x="0" y="0" w="512" h="256"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UILayout>
+                     </children>
+                  </UILayout>
+                  <UITextEdit name="caption0" template="textedit" cursor="edit.cur" maxlength="22">
+                     <UIRegion x="85" y="472" w="175" h="18" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default>
+                           <BFFont y="2">
+                              <BFColor r="59" g="83" b="66" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal image="ui/shared/box.dds">
+                              <BFColor r="0" g="0" b="0" a="255"/>
+                           </normal>
+                        </standard>
+                     </UIAspect>
+                     <text format="savegame:prompt"/>
+                  </UITextEdit>
+                  <UITextEdit name="caption1" template="textedit" cursor="edit.cur" maxlength="22">
+                     <UIRegion x="275" y="472" w="175" h="18" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default>
+                           <BFFont y="2">
+                              <BFColor r="59" g="83" b="66" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal image="ui/shared/box.dds">
+                              <BFColor r="0" g="0" b="0" a="255"/>
+                           </normal>
+                        </standard>
+                     </UIAspect>
+                     <text format="savegame:prompt"/>
+                  </UITextEdit>
+                  <UITextEdit name="caption2" template="textedit" cursor="edit.cur" maxlength="22">
+                     <UIRegion x="85" y="626" w="175" h="18" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default>
+                           <BFFont y="2">
+                              <BFColor r="59" g="83" b="66" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal image="ui/shared/box.dds">
+                              <BFColor r="0" g="0" b="0" a="255"/>
+                           </normal>
+                        </standard>
+                     </UIAspect>
+                     <text format="savegame:prompt"/>
+                  </UITextEdit>
+                  <UITextEdit name="caption3" template="textedit" cursor="edit.cur" maxlength="22">
+                     <UIRegion x="275" y="626" w="175" h="18" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default>
+                           <BFFont y="2">
+                              <BFColor r="59" g="83" b="66" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal image="ui/shared/box.dds">
+                              <BFColor r="0" g="0" b="0" a="255"/>
+                           </normal>
+                        </standard>
+                     </UIAspect>
+                     <text format="savegame:prompt"/>
+                  </UITextEdit>
+                  <UITextEdit name="caption4" template="textedit" cursor="edit.cur" maxlength="22">
+                     <UIRegion x="575" y="472" w="175" h="18" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default>
+                           <BFFont y="2">
+                              <BFColor r="59" g="83" b="66" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal image="ui/shared/box.dds">
+                              <BFColor r="0" g="0" b="0" a="255"/>
+                           </normal>
+                        </standard>
+                     </UIAspect>
+                     <text format="savegame:prompt"/>
+                  </UITextEdit>
+                  <UITextEdit name="caption5" template="textedit" cursor="edit.cur" maxlength="22">
+                     <UIRegion x="765" y="472" w="175" h="18" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default>
+                           <BFFont y="2">
+                              <BFColor r="59" g="83" b="66" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal image="ui/shared/box.dds">
+                              <BFColor r="0" g="0" b="0" a="255"/>
+                           </normal>
+                        </standard>
+                     </UIAspect>
+                     <text format="savegame:prompt"/>
+                  </UITextEdit>
+                  <UITextEdit name="caption6" template="textedit" cursor="edit.cur" maxlength="22">
+                     <UIRegion x="575" y="626" w="175" h="18" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default>
+                           <BFFont y="2">
+                              <BFColor r="59" g="83" b="66" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal image="ui/shared/box.dds">
+                              <BFColor r="0" g="0" b="0" a="255"/>
+                           </normal>
+                        </standard>
+                     </UIAspect>
+                     <text format="savegame:prompt"/>
+                  </UITextEdit>
+                  <UITextEdit name="caption7" template="textedit" cursor="edit.cur" maxlength="22">
+                     <UIRegion x="765" y="626" w="175" h="18" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default>
+                           <BFFont y="2">
+                              <BFColor r="59" g="83" b="66" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal image="ui/shared/box.dds">
+                              <BFColor r="0" g="0" b="0" a="255"/>
+                           </normal>
+                        </standard>
+                     </UIAspect>
+                     <text format="savegame:prompt"/>
+                  </UITextEdit>
+                  <UIText name="leftpagenumber">
+                     <UIRegion x="253" y="644" w="30" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect>
+                        <default>
+                           <BFFont align="center">
+                              <BFColor r="0" g="0" b="0" a="255"/>
+                           </BFFont>
+                        </default>
+                     </UIAspect>
+                     <text format="photoalbum:pagenumber"/>
+                  </UIText>
+                  <UIText name="rightpagenumber">
+                     <UIRegion x="743" y="644" w="30" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect>
+                        <default>
+                           <BFFont align="center">
+                              <BFColor r="0" g="0" b="0" a="255"/>
+                           </BFFont>
+                        </default>
+                     </UIAspect>
+                     <text format="photoalbum:pagenumber"/>
+                  </UIText>
+                  <UIText name="photoalbum selection text2">
+                     <UIRegion x="130" y="270" w="300" h="20" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default>
+                           <BFFont>
+                              <BFColor r="255" g="248" b="178" a="255"/>
+                           </BFFont>
+                        </default>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <text format="photoalbum:album_name_label"/>
+                  </UIText>
+                  <UIButton name="prevpage">
+                     <UIRegion x="50" y="619" w="45" h="45" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:prevpage_button"/>
+                     <UIAspect string="">
+                        <default image="ui\photosaf\page.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="45" h="63"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="45" h="63"/>
+                           </highlighted>
+                           <activated sound="album_prev_page">
+                              <BFRect x="0" y="64" w="45" h="63"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="92" y="64" w="45" h="63"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <activate>
+                        <event msg="ZT_PHOTOEVENT_ALBUM_PREVPAGE"/>
+                     </activate>
+                     <UIHotKeys/>
+                  </UIButton>
+                  <UIButton name="nextpage">
+                     <UIRegion x="933" y="619" w="45" h="45" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:nextpage_button"/>
+                     <UIAspect string="">
+                        <default image="ui\photosaf\page.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="46" y="0" w="45" h="63"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="46" y="64" w="45" h="63"/>
+                           </highlighted>
+                           <activated sound="album_next_page">
+                              <BFRect x="46" y="64" w="45" h="63"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="92" y="64" w="45" h="63"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <activate>
+                        <event msg="ZT_PHOTOEVENT_ALBUM_NEXTPAGE"/>
+                     </activate>
+                     <UIHotKeys/>
+                  </UIButton>
+                  <UIText name="film count">
+                     <UIRegion x="195" y="64" w="150" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect>
+                        <default>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                     </UIAspect>
+                     <text format="photoalbum:filmcount"/>
+                  </UIText>
+                  <UIText name="film label">
+                     <UIRegion x="35" y="65" w="150" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect locid="photoalbum:film_label">
+                        <default>
+                           <BFFont align="right">
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                     </UIAspect>
+                  </UIText>
+                  <UIToggleButton name="grab selected camera photo" sticky="1">
+                     <UIRegion x="800" y="40" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="disabled" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:move_pic_button"/>
+                     <UIAspect>
+                        <default image="ui/photosaf/button_grab.dds">
+                           <BFRect x="0" y="0" w="128" h="128"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="128" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="128" y="0" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="128" y="128" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <on>
+                        <event msg="UI_CHILD" data="UIChildData" name="album photo selection">
+                           <child msg="UI_SHOW"/>
+                        </event>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_PICTURE"/>
+                        <event msg="UI_CHILD" data="UIChildData" name="delete selected camera photo">
+                           <child msg="UI_DISABLE"/>
+                        </event>
+                     </on>
+                     <off>
+                        <event msg="UI_CHILD" data="UIChildData" name="delete selected camera photo">
+                           <child msg="UI_ENABLE"/>
+                        </event>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_PICTURE_CANCELED"/>
+                        <event msg="UI_CHILD" data="UIChildData" name="album photo selection">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </off>
+                  </UIToggleButton>
+                  <UIButton name="delete selected camera photo">
+                     <UIRegion x="895" y="40" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="disabled" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:delete_pic_button"/>
+                     <UIAspect>
+                        <default image="ui/photosaf/button_delete.dds">
+                           <BFRect x="0" y="0" w="128" h="128"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="128" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="128" y="0" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="128" y="128" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="delete_pic">
+                           <child msg="UI_SHOW"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+                  <UIButton name="delete all photos from camera">
+                     <UIRegion x="685" y="40" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:delete_all_pics_button"/>
+                     <UIAspect string="">
+                        <default image="ui/photosaf/newbook.dds">
+                           <BFRect x="0" y="0" w="64" h="64"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="897" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="960" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="64" y="897" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="960" w="64" h="64"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="delete_camera_pics">
+                           <child msg="UI_SHOW"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+                  <UIToggleButton name="grab selected album photo" sticky="1">
+                     <UIRegion x="800" y="248" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="disabled" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:move_pic_button"/>
+                     <UIAspect>
+                        <default image="ui/photosaf/button_grab.dds">
+                           <BFRect x="0" y="0" w="128" h="128"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="128" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="128" y="0" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="128" y="128" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <on>
+                        <event msg="UI_CHILD" data="UIChildData" name="album photo selection">
+                           <child msg="UI_SHOW"/>
+                        </event>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_PICTURE"/>
+                        <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                           <child msg="UI_DISABLE"/>
+                        </event>
+                     </on>
+                     <off>
+                        <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                           <child msg="UI_ENABLE"/>
+                        </event>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_PICTURE_CANCELED"/>
+                        <event msg="UI_CHILD" data="UIChildData" name="album photo selection">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </off>
+                  </UIToggleButton>
+                  <UIButton name="delete selected album photo">
+                     <UIRegion x="895" y="248" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="disabled" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:delete_pic_button"/>
+                     <UIAspect>
+                        <default image="ui/photosaf/button_delete.dds">
+                           <BFRect x="0" y="0" w="128" h="128"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="128" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="128" y="0" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="128" y="128" w="128" h="128"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="delete_pic">
+                           <child msg="UI_SHOW"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+                  <UIButton name="photo album manager opener">
+                     <UIRegion x="35" y="248" w="70" h="70"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:album_selecter_button"/>
+                     <UIAspect string="">
+                        <default image="ui/photosaf/newbook.dds">
+                           <BFRect x="0" y="0" w="64" h="64"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="128" y="897" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="128" y="960" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="192" y="897" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="192" y="960" w="64" h="64"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </standard>
+                        <alternate>
+                           <normal>
+                              <BFRect x="128" y="897" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="128" y="960" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="192" y="897" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="192" y="960" w="64" h="64"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </alternate>
+                     </UIAspect>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="photoalbum_manager_dialog">
+                           <child msg="UI_SHOW"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+                  <UIButton name="save album to html">
+                     <UIRegion x="475" y="249" w="63" h="63" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:save_html_button"/>
+                     <UIAspect string="">
+                        <default image="ui/photosaf/newbook.dds">
+                           <BFRect x="0" y="0" w="64" h="64"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="128" y="768" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="128" y="832" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="192" y="768" w="64" h="64"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="192" y="832" w="64" h="64"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="ZT_PHOTOEVENT_ALBUM_SAVE_AS_HTML"/>
+                     </activate>
+                  </UIButton>
+                  <UIText name="Photo safari label">
+                     <UIRegion x="24" y="3" w="1024" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect locid="photoalbum:photo_safari_label">
+                        <default>
+                           <BFFont align="left">
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                     </UIAspect>
+                  </UIText>
+                  <UIStatic name="button background">
+                     <UIRegion x="7" y="690" w="70" h=" 70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackleft.dds">
+                           <BFRect x="0" y="27" w="104" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="return">
+                     <UIRegion x="5" y="690" w="75" h="75" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:return_button"/>
+                     <UIAspect string="">
+                        <default image="ui\shared\button_back.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="photoalbum_layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                     <UIHotKeys/>
+                  </UIButton>
+               </children>
+            </UILayout>
+            <UIToggleSet name="toggle sets">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <children>
+                  <UIToggleSet name="album photos">
+                     <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="" sound=""/>
+                     </UIAspect>
+                     <children>
+                        <UIToggleButton name="thumb0" sticky="1" repress="1">
+                           <UIRegion x="90" y="346" w="163" h="123" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="">
+                              <default image="">
+                                 <BFRect x="0" y="0" w="192" h="144"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIToggleButton>
+                        <UIToggleButton name="thumb1" sticky="1" repress="1">
+                           <UIRegion x="278" y="346" w="163" h="123" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="">
+                              <default image="">
+                                 <BFRect x="0" y="0" w="192" h="144"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIToggleButton>
+                        <UIToggleButton name="thumb2" sticky="1">
+                           <UIRegion x="90" y="499" w="163" h="123" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="">
+                              <default image="">
+                                 <BFRect x="0" y="0" w="192" h="144"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIToggleButton>
+                        <UIToggleButton name="thumb3" sticky="1" repress="1">
+                           <UIRegion x="278" y="499" w="163" h="123" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="">
+                              <default image="">
+                                 <BFRect x="0" y="0" w="192" h="144"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIToggleButton>
+                        <UIToggleButton name="thumb4" sticky="1" repress="1">
+                           <UIRegion x="580" y="346" w="163" h="123" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="">
+                              <default image="">
+                                 <BFRect x="0" y="0" w="163" h="123"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIToggleButton>
+                        <UIToggleButton name="thumb5" sticky="1" repress="1">
+                           <UIRegion x="770" y="346" w="163" h="123" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="">
+                              <default image="">
+                                 <BFRect x="0" y="0" w="163" h="123"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIToggleButton>
+                        <UIToggleButton name="thumb6" sticky="1" repress="1">
+                           <UIRegion x="580" y="499" w="163" h="123" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="">
+                              <default image="">
+                                 <BFRect x="0" y="0" w="163" h="123"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIToggleButton>
+                        <UIToggleButton name="thumb7" sticky="1" repress="1">
+                           <UIRegion x="770" y="499" w="163" h="123" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="">
+                              <default image="">
+                                 <BFRect x="0" y="0" w="163" h="123"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIToggleButton>
+                        <UIToggleButton name="tape0" sticky="1" repress="1">
+                           <UIRegion x="80" y="336" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="" alwayshit="true">
+                              <default image="ui/photosaf/select.dds">
+                                 <BFRect x="0" y="0" w="217" h="169"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="171" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_SELECT_PICTURE" data="BFPoint" x="0"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="0"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                           </off>
+                           <doubleclick>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="0"/>
+                              <event msg="ZT_PHOTOEVENT_ENLARGE_ALBUM_PIC" data="BFPoint" x="0"/>
+                           </doubleclick>
+                        </UIToggleButton>
+                        <UIToggleButton name="tape1" sticky="1" repress="1">
+                           <UIRegion x="267" y="336" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="" alwayshit="true">
+                              <default image="ui/photosaf/select.dds">
+                                 <BFRect x="0" y="0" w="217" h="169"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="171" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_SELECT_PICTURE" data="BFPoint" x="1"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="1"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                           </off>
+                           <doubleclick>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="1"/>
+                              <event msg="ZT_PHOTOEVENT_ENLARGE_ALBUM_PIC" data="BFPoint" x="1"/>
+                           </doubleclick>
+                        </UIToggleButton>
+                        <UIToggleButton name="tape2" sticky="1" repress="1">
+                           <UIRegion x="80" y="490" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="" alwayshit="true">
+                              <default image="ui/photosaf/select.dds">
+                                 <BFRect x="0" y="0" w="217" h="169"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="171" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_SELECT_PICTURE" data="BFPoint" x="2"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="2"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                           </off>
+                           <doubleclick>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="2"/>
+                              <event msg="ZT_PHOTOEVENT_ENLARGE_ALBUM_PIC" data="BFPoint" x="2"/>
+                           </doubleclick>
+                        </UIToggleButton>
+                        <UIToggleButton name="tape3" sticky="1" repress="1">
+                           <UIRegion x="267" y="490" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="" alwayshit="true">
+                              <default image="ui/photosaf/select.dds">
+                                 <BFRect x="0" y="0" w="217" h="169"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="171" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_SELECT_PICTURE" data="BFPoint" x="3"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="3"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                           </off>
+                           <doubleclick>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="3"/>
+                              <event msg="ZT_PHOTOEVENT_ENLARGE_ALBUM_PIC" data="BFPoint" x="3"/>
+                           </doubleclick>
+                        </UIToggleButton>
+                        <UIToggleButton name="tape4" sticky="1" repress="1">
+                           <UIRegion x="570" y="336" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="" alwayshit="true">
+                              <default image="ui/photosaf/select.dds">
+                                 <BFRect x="0" y="0" w="217" h="169"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="171" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_SELECT_PICTURE" data="BFPoint" x="4"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="4"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                           </off>
+                           <doubleclick>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="4"/>
+                              <event msg="ZT_PHOTOEVENT_ENLARGE_ALBUM_PIC" data="BFPoint" x="4"/>
+                           </doubleclick>
+                        </UIToggleButton>
+                        <UIToggleButton name="tape5" sticky="1" repress="1">
+                           <UIRegion x="760" y="336" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="" alwayshit="true">
+                              <default image="ui/photosaf/select.dds">
+                                 <BFRect x="0" y="0" w="217" h="169"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="171" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_SELECT_PICTURE" data="BFPoint" x="5"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="5"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                           </off>
+                           <doubleclick>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="5"/>
+                              <event msg="ZT_PHOTOEVENT_ENLARGE_ALBUM_PIC" data="BFPoint" x="5"/>
+                           </doubleclick>
+                        </UIToggleButton>
+                        <UIToggleButton name="tape6" sticky="1" repress="1">
+                           <UIRegion x="570" y="490" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="" alwayshit="true">
+                              <default image="ui/photosaf/select.dds">
+                                 <BFRect x="0" y="0" w="217" h="169"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="171" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_SELECT_PICTURE" data="BFPoint" x="6"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="6"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                           </off>
+                           <doubleclick>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="6"/>
+                              <event msg="ZT_PHOTOEVENT_ENLARGE_ALBUM_PIC" data="BFPoint" x="6"/>
+                           </doubleclick>
+                        </UIToggleButton>
+                        <UIToggleButton name="tape7" sticky="1" repress="1">
+                           <UIRegion x="760" y="490" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+                           <UIAspect string="" alwayshit="true">
+                              <default image="ui/photosaf/select.dds">
+                                 <BFRect x="0" y="0" w="217" h="169"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="171" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="0" y="343" w="217" h="169"/>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="0" y="0" w="217" h="169"/>
+                                    <BFColor r="128" g="128" b="128" a="180"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_SELECT_PICTURE" data="BFPoint" x="7"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_ENABLE"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="7"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                 <child msg="UI_DISABLE"/>
+                              </event>
+                           </off>
+                           <doubleclick>
+                              <event msg="ZT_PHOTOEVENT_ALBUM_DESELECT_PICTURE" data="BFPoint" x="7"/>
+                              <event msg="ZT_PHOTOEVENT_ENLARGE_ALBUM_PIC" data="BFPoint" x="7"/>
+                           </doubleclick>
+                        </UIToggleButton>
+                     </children>
+                  </UIToggleSet>
+                  <UIToggleSet name="exposures" template="listbox" columns="-1">
+                     <UIRegion x="55" y="90" w="910" h="100" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="512" h="512"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <normal/>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIToggleSet>
+               </children>
+            </UIToggleSet>
+            <UILayout name="album photo selection">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <children>
+                  <UIHoverButton name="selection0">
+                     <UIRegion x="80" y="336" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help=""/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui/photosaf/select.dds">
+                           <BFRect x="0" y="0" w="217" h="169"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="171" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </standard>
+                        <alternate>
+                           <normal>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </alternate>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="ZT_PHOTOEVENT_MOVE_ENTER" data="BFPoint" x="0"/>
+                     </enter>
+                     <leave>
+                        <event msg="ZT_PHOTOEVENT_MOVE_EXIT" data="BFPoint" x="0"/>
+                     </leave>
+                     <on>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_TARGET" data="BFPoint" x="0"/>
+                     </on>
+                  </UIHoverButton>
+                  <UIHoverButton name="selection1">
+                     <UIRegion x="267" y="336" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help=""/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui/photosaf/select.dds">
+                           <BFRect x="0" y="0" w="217" h="169"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="171" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </standard>
+                        <alternate>
+                           <normal>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </alternate>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="ZT_PHOTOEVENT_MOVE_ENTER" data="BFPoint" x="1"/>
+                     </enter>
+                     <leave>
+                        <event msg="ZT_PHOTOEVENT_MOVE_EXIT" data="BFPoint" x="1"/>
+                     </leave>
+                     <on>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_TARGET" data="BFPoint" x="1"/>
+                     </on>
+                  </UIHoverButton>
+                  <UIHoverButton name="selection2">
+                     <UIRegion x="80" y="490" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help=""/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui/photosaf/select.dds">
+                           <BFRect x="0" y="0" w="217" h="169"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="171" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </standard>
+                        <alternate>
+                           <normal>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </alternate>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="ZT_PHOTOEVENT_MOVE_ENTER" data="BFPoint" x="2"/>
+                     </enter>
+                     <leave>
+                        <event msg="ZT_PHOTOEVENT_MOVE_EXIT" data="BFPoint" x="2"/>
+                     </leave>
+                     <on>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_TARGET" data="BFPoint" x="2"/>
+                     </on>
+                  </UIHoverButton>
+                  <UIHoverButton name="selection3">
+                     <UIRegion x="267" y="490" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help=""/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui/photosaf/select.dds">
+                           <BFRect x="0" y="0" w="217" h="169"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="171" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </standard>
+                        <alternate>
+                           <normal>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </alternate>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="ZT_PHOTOEVENT_MOVE_ENTER" data="BFPoint" x="3"/>
+                     </enter>
+                     <leave>
+                        <event msg="ZT_PHOTOEVENT_MOVE_EXIT" data="BFPoint" x="3"/>
+                     </leave>
+                     <on>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_TARGET" data="BFPoint" x="3"/>
+                     </on>
+                  </UIHoverButton>
+                  <UIHoverButton name="selection4">
+                     <UIRegion x="570" y="336" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help=""/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui/photosaf/select.dds">
+                           <BFRect x="0" y="0" w="217" h="169"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="171" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </standard>
+                        <alternate>
+                           <normal>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </alternate>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="ZT_PHOTOEVENT_MOVE_ENTER" data="BFPoint" x="4"/>
+                     </enter>
+                     <leave>
+                        <event msg="ZT_PHOTOEVENT_MOVE_EXIT" data="BFPoint" x="4"/>
+                     </leave>
+                     <on>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_TARGET" data="BFPoint" x="4"/>
+                     </on>
+                  </UIHoverButton>
+                  <UIHoverButton name="selection5">
+                     <UIRegion x="760" y="336" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help=""/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui/photosaf/select.dds">
+                           <BFRect x="0" y="0" w="217" h="169"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="171" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </standard>
+                        <alternate>
+                           <normal>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </alternate>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="ZT_PHOTOEVENT_MOVE_ENTER" data="BFPoint" x="5"/>
+                     </enter>
+                     <leave>
+                        <event msg="ZT_PHOTOEVENT_MOVE_EXIT" data="BFPoint" x="5"/>
+                     </leave>
+                     <on>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_TARGET" data="BFPoint" x="5"/>
+                     </on>
+                  </UIHoverButton>
+                  <UIHoverButton name="selection6">
+                     <UIRegion x="570" y="490" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help=""/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui/photosaf/select.dds">
+                           <BFRect x="0" y="0" w="217" h="169"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="171" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </standard>
+                        <alternate>
+                           <normal>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </alternate>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="ZT_PHOTOEVENT_MOVE_ENTER" data="BFPoint" x="6"/>
+                     </enter>
+                     <leave>
+                        <event msg="ZT_PHOTOEVENT_MOVE_EXIT" data="BFPoint" x="6"/>
+                     </leave>
+                     <on>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_TARGET" data="BFPoint" x="6"/>
+                     </on>
+                  </UIHoverButton>
+                  <UIHoverButton name="selection7">
+                     <UIRegion x="760" y="490" w="184" h="143" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help=""/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui/photosaf/select.dds">
+                           <BFRect x="0" y="0" w="217" h="169"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="171" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </standard>
+                        <alternate>
+                           <normal>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </highlighted>
+                           <activated>
+                              <BFRect x="0" y="343" w="217" h="169"/>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="0" y="0" w="217" h="169"/>
+                              <BFColor r="128" g="128" b="128" a="180"/>
+                           </disabled>
+                        </alternate>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="ZT_PHOTOEVENT_MOVE_ENTER" data="BFPoint" x="7"/>
+                     </enter>
+                     <leave>
+                        <event msg="ZT_PHOTOEVENT_MOVE_EXIT" data="BFPoint" x="7"/>
+                     </leave>
+                     <on>
+                        <event msg="ZT_PHOTOEVENT_MOVE_SELECTED_TARGET" data="BFPoint" x="7"/>
+                     </on>
+                  </UIHoverButton>
+               </children>
+            </UILayout>
+            <UILayout name="photoalbum_manager_dialog" modal="true">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect>
+                  <default>
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+               <UIHotKeys>
+                  <file name="UI/hotkeys/hotkeys.xml" node="escreturn"/>
+               </UIHotKeys>
+               <children>
+                  <UILayout name="photoalbum_manager" modal="true">
+                     <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default alwayshit="true" image="ui\shared\white1x1.dds">
+                           <BFColor r="0" g="0" b="0" a="128"/>
+                        </default>
+                     </UIAspect>
+                     <UIHotKeys>
+                        <file name="UI/hotkeys/hotkeys.xml" node="escreturn"/>
+                     </UIHotKeys>
+                     <children>
+                        <UILayout name="" template="blankna">
+                           <UIRegion x="255" y="250" w="512" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="">
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <children>
+                              <UILayout name="" template="header">
+                                 <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="">
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                              <UILayout name="" template="panelwell">
+                                 <UIRegion x="23" y="67" w="467" h="122" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="">
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                              <UIToggleSet name="albumlist" template="listbox" rows="-1">
+                                 <UIRegion x="15" y="72" w="-26" h="112" walign="max"/>
+                                 <UIState visible="normal"/>
+                              </UIToggleSet>
+                              <UIButton name="continue_button">
+                                 <UIRegion x="400" y="187" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:continue_button"/>
+                                 <UIAspect string="">
+                                    <default image="ui\shared\button_ok.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uiclick">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                 </UIAspect>
+                                 <activate>
+                                    <event msg="UI_CHILD" data="UIChildData" name="photoalbum_manager_dialog">
+                                       <child msg="UI_HIDE"/>
+                                    </event>
+                                 </activate>
+                                 <UIHotKeys/>
+                              </UIButton>
+                              <UIButton name="delete_photo_album">
+                                 <UIRegion x="225" y="187" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:delete_album_button"/>
+                                 <UIAspect string="">
+                                    <default image="ui/photosaf/newbook.dds">
+                                       <BFRect x="0" y="0" w="64" h="64"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="768" w="64" h="64"/>
+                                          <BFColor r="255" g="255" b="255" a="255"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="832" w="64" h="64"/>
+                                          <BFColor r="255" g="255" b="255" a="255"/>
+                                       </highlighted>
+                                       <activated sound="uiclick">
+                                          <BFRect x="64" y="768" w="64" h="64"/>
+                                          <BFColor r="255" g="255" b="255" a="255"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="832" w="64" h="64"/>
+                                          <BFColor r="128" g="128" b="128" a="180"/>
+                                       </disabled>
+                                    </standard>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="delete_album_confirmation">
+                                       <child msg="UI_SHOW"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="photoalbum selection text">
+                                       <event msg="UI_COPY_TEXT" data="BFString" string="delete_album_display"/>
+                                    </event>
+                                 </on>
+                              </UIButton>
+                              <UIButton name="add photo album">
+                                 <UIRegion x="43" y="187" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:createnew_button"/>
+                                 <UIAspect string="">
+                                    <default image="ui/photosaf/newbook.dds">
+                                       <BFRect x="0" y="0" w="64" h="64"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="128" y="897" w="64" h="64"/>
+                                          <BFColor r="255" g="255" b="255" a="255"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="128" y="960" w="64" h="64"/>
+                                          <BFColor r="255" g="255" b="255" a="255"/>
+                                       </highlighted>
+                                       <activated sound="uiclick">
+                                          <BFRect x="192" y="897" w="64" h="64"/>
+                                          <BFColor r="255" g="255" b="255" a="255"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="192" y="960" w="64" h="64"/>
+                                          <BFColor r="128" g="128" b="128" a="180"/>
+                                       </disabled>
+                                    </standard>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="add _new_album_confirmation">
+                                       <child msg="UI_SHOW"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="new_albumstring">
+                                       <child msg="UI_LBUTTONUP"/>
+                                    </event>
+                                 </on>
+                              </UIButton>
+                              <UIText name="photoalbum selection text">
+                                 <UIRegion x="225" y="41" w="300" h="20" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect locid="">
+                                    <default>
+                                       <BFFont/>
+                                    </default>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <text format="shell:profilenameformat"/>
+                              </UIText>
+                              <UIText name="selected_album_label">
+                                 <UIRegion x="55" y="41" w="230" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect locid="photoalbum:selected_album_label">
+                                    <default image="" sound="">
+                                       <BFFont/>
+                                       <BFRect x="175" y="130" w="100" h="16"/>
+                                    </default>
+                                    <normal/>
+                                 </UIAspect>
+                              </UIText>
+                              <UIText name="photoalbum_manager_label">
+                                 <UIRegion x="0" y="3" w="512" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect locid="photoalbum:photo_album_manager_label">
+                                    <default image="" sound="">
+                                       <BFFont align="center">
+                                          <BFColor r="255" g="248" b="178" a="255"/>
+                                       </BFFont>
+                                       <BFRect x="175" y="130" w="100" h="16"/>
+                                    </default>
+                                    <normal/>
+                                 </UIAspect>
+                              </UIText>
+                              <UIButton name="return">
+                                 <UIRegion x="470" y="-4" w="39" h="39" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="confirm:closealbummananger"/>
+                                 <UIAspect string="">
+                                    <default image="ui\shared\button_close.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uiclick">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <activate>
+                                    <event msg="UI_CHILD" data="UIChildData" name="photoalbum_manager_dialog">
+                                       <child msg="UI_HIDE"/>
+                                    </event>
+                                 </activate>
+                              </UIButton>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="delete_camera_pics" modal="true">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect>
+                  <default>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+               <UIHotKeys>
+                  <file name="UI/hotkeys/hotkeys.xml" node="esccancel"/>
+               </UIHotKeys>
+               <children>
+                  <UILayout name="">
+                     <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default alwayshit="true" image="ui\shared\white1x1.dds">
+                           <BFColor r="0" g="0" b="0" a="128"/>
+                        </default>
+                     </UIAspect>
+                     <children>
+                        <UILayout name="" template="blankna">
+                           <UIRegion x="255" y="250" w="512" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="">
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <children>
+                              <UILayout name="" template="panelwell">
+                                 <UIRegion x="23" y="67" w="467" h="122" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image=""/>
+                                 </UIAspect>
+                              </UILayout>
+                              <UILayout name="logo">
+                                 <UIRegion x="200" y="-5" w="115" h="75" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui\shared\zoo2logo.dds"/>
+                                 </UIAspect>
+                              </UILayout>
+                              <UILayout name="" template="buttonbar">
+                                 <UIRegion x="22" y="191" w="468" h="61" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image=""/>
+                                 </UIAspect>
+                              </UILayout>
+                              <UIButton name="cancel">
+                                 <UIRegion x="43" y="187" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="confirm:delete_camera_pics_cancel_button"/>
+                                 <UIAspect string="">
+                                    <default image="ui\shared\button_return.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uiclick">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                 </UIAspect>
+                                 <activate>
+                                    <event msg="UI_CHILD" data="UIChildData" name="delete_camera_pics">
+                                       <child msg="UI_HIDE"/>
+                                    </event>
+                                 </activate>
+                                 <UIHotKeys/>
+                              </UIButton>
+                              <UIButton name="delete camera pics confirm button">
+                                 <UIRegion x="400" y="187" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="confirm:delete_camera_pics_button"/>
+                                 <UIAspect string="">
+                                    <default image="ui\shared\button_ok.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uiclick">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                 </UIAspect>
+                                 <activate>
+                                    <event msg="ZT_PHOTOEVENT_CAMERA_DELETE_ALL_PICTURES"/>
+                                    <event msg="UI_CHILD" data="UIChildData" name="delete_camera_pics">
+                                       <child msg="UI_HIDE"/>
+                                    </event>
+                                 </activate>
+                                 <UIHotKeys/>
+                              </UIButton>
+                              <UIText name="">
+                                 <UIRegion x="28" y="80" w="456" h="100" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect locid="confirm:delete_camera_pics">
+                                    <default image="" sound="">
+                                       <BFRect x="0" y="0" w="465" h="40"/>
+                                       <BFFont align="center">
+                                          <BFColor r="255" g="197" b="78" a="255"/>
+                                       </BFFont>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal/>
+                                       <highlighted/>
+                                       <activated/>
+                                       <disabled/>
+                                    </standard>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <text type="multi"/>
+                              </UIText>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="delete_pic" modal="true">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect>
+                  <default>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+               <UIHotKeys>
+                  <file name="UI/hotkeys/hotkeys.xml" node="esccancel"/>
+               </UIHotKeys>
+               <children>
+                  <UILayout name="">
+                     <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default alwayshit="true" image="ui\shared\white1x1.dds">
+                           <BFColor r="0" g="0" b="0" a="128"/>
+                        </default>
+                     </UIAspect>
+                     <children>
+                        <UILayout name="" template="blankna">
+                           <UIRegion x="255" y="250" w="512" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="">
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <children>
+                              <UILayout name="" template="panelwell">
+                                 <UIRegion x="23" y="67" w="467" h="122" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image=""/>
+                                 </UIAspect>
+                              </UILayout>
+                              <UILayout name="logo">
+                                 <UIRegion x="200" y="-5" w="115" h="75" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui\shared\zoo2logo.dds"/>
+                                 </UIAspect>
+                              </UILayout>
+                              <UILayout name="" template="buttonbar">
+                                 <UIRegion x="22" y="191" w="468" h="61" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image=""/>
+                                 </UIAspect>
+                              </UILayout>
+                              <UIButton name="cancel">
+                                 <UIRegion x="43" y="187" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="confirm:delete_pic_cancel_button"/>
+                                 <UIAspect string="">
+                                    <default image="ui\shared\button_back.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uiclick">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                 </UIAspect>
+                                 <activate>
+                                    <event msg="UI_CHILD" data="UIChildData" name="delete_pic">
+                                       <child msg="UI_HIDE"/>
+                                    </event>
+                                 </activate>
+                                 <UIHotKeys/>
+                              </UIButton>
+                              <UIButton name="delete pic">
+                                 <UIRegion x="400" y="187" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="confirm:delete_pic_button"/>
+                                 <UIAspect string="">
+                                    <default image="ui\shared\button_ok.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uiclick">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                 </UIAspect>
+                                 <activate>
+                                    <event msg="ZT_PHOTOEVENT_DELETE_SELECTED_PICTURE"/>
+                                    <event msg="UI_CHILD" data="UIChildData" name="grab selected camera photo">
+                                       <child msg="UI_DISABLE"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="delete selected camera photo">
+                                       <child msg="UI_DISABLE"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="grab selected album photo">
+                                       <child msg="UI_DISABLE"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="delete selected album photo">
+                                       <child msg="UI_DISABLE"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="delete_pic">
+                                       <child msg="UI_HIDE"/>
+                                    </event>
+                                 </activate>
+                                 <UIHotKeys/>
+                              </UIButton>
+                              <UIText name="">
+                                 <UIRegion x="28" y="80" w="456" h="100" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect locid="confirm:delete_pic">
+                                    <default image="" sound="">
+                                       <BFRect x="0" y="0" w="465" h="40"/>
+                                       <BFFont align="center">
+                                          <BFColor r="255" g="197" b="78" a="255"/>
+                                       </BFFont>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal/>
+                                       <highlighted/>
+                                       <activated/>
+                                       <disabled/>
+                                    </standard>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <text type="multi"/>
+                              </UIText>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="enlargement_screen">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <UIHotKeys>
+                  <file name="UI/hotkeys/hotkeys.xml" node="escreturn"/>
+               </UIHotKeys>
+               <children>
+                  <UILayout name="back ground pieces">
+                     <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIStatic name="background graphic 1">
+                           <UIRegion x="0" y="0" w="512" h="512" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="ui/photosaf/full_A_512.dds">
+                                 <BFRect x="0" y="0" w="512" h="512"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UIStatic>
+                        <UIStatic name="background graphic 2">
+                           <UIRegion x="512" y="0" w="512" h="512" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="ui/photosaf/full_B_512.dds">
+                                 <BFRect x="0" y="0" w="512" h="512"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UIStatic>
+                        <UIStatic name="background graphic 3">
+                           <UIRegion x="0" y="512" w="256" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="ui/photosaf/full_C_256.dds">
+                                 <BFRect x="0" y="0" w="256" h="256"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UIStatic>
+                        <UIStatic name="background graphic 4">
+                           <UIRegion x="256" y="512" w="256" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="ui/photosaf/full_D_256.dds">
+                                 <BFRect x="0" y="0" w="256" h="256"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UIStatic>
+                        <UIStatic name="background graphic 5">
+                           <UIRegion x="512" y="512" w="256" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="ui/photosaf/full_E_256.dds">
+                                 <BFRect x="0" y="0" w="256" h="256"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UIStatic>
+                        <UIStatic name="background graphic 6">
+                           <UIRegion x="768" y="512" w="256" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default image="ui/photosaf/full_F_256.dds">
+                                 <BFRect x="0" y="0" w="256" h="256"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+                  <UIStatic name="pic">
+                     <UIRegion x="51" y="38" w="922" h="692" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect string="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="922" h="692"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIStatic>
+                  <UIButton name="return">
+                     <UIRegion x="0" y="723" w="54" h="48" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:return_to_album"/>
+                     <UIAspect string="">
+                        <default image="ui\shared\button_back.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <activate>
+                        <event msg="ZT_PHOTOEVENT_ALBUM"/>
+                     </activate>
+                     <UIHotKeys/>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </ZTPhotoAlbumComponent>
+   </children>
+</UILayout>

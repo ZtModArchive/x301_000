@@ -1,0 +1,654 @@
+<UILayout name="Photo Mode">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIShowHideAnim time=".3">
+      <start x="0" y="0" w="1024" h="768"/>
+      <end x="0" y="0" w="1024" h="768"/>
+   </UIShowHideAnim>
+   <UIAspect string="">
+      <default image="" sound="">
+         <BFRect x="0" y="0" w="0" h="0"/>
+         <BFColor r="255" g="255" b="255" a="255"/>
+      </default>
+   </UIAspect>
+   <UIHotKeys/>
+   <children>
+      <UILayout name="cursor_mode_screen">
+         <UIRegion x="128" y="768" w="768" h="576" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIShowHideAnim time=".3">
+            <start x="128" y="768" w="768" h="576"/>
+            <end x="0" y="0" w="1024" h="768"/>
+         </UIShowHideAnim>
+         <UIAspect>
+            <default/>
+            <standard>
+               <normal/>
+            </standard>
+         </UIAspect>
+         <children>
+            <UIText name="space bar message">
+               <UIRegion x="0" y="640" w="1024" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect locid="photom:spacebarmessage">
+                  <default image="">
+                     <BFFont align="center">
+                        <BFColor r="255" g="255" b="255" a="100"/>
+                     </BFFont>
+                  </default>
+                  <standard/>
+               </UIAspect>
+               <UIHotKeys/>
+            </UIText>
+            <UILayout name="back ground pieces">
+               <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect string="" alwayshit="never">
+                  <default image="" sound="">
+                     <BFRect x="0" y="0" w="0" h="0"/>
+                     <BFColor r="0" g="0" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+               <children>
+                  <UIStatic name="background graphic 1">
+                     <UIRegion x="0" y="0" w="50" h="50" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect string="" alwayshit="never">
+                        <default image="ui/photosaf/newback_A_512.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <normal/>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIStatic>
+                  <UIStatic name="background graphic 2">
+                     <UIRegion x="50" y="0" w="100" h="50" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect string="" alwayshit="never">
+                        <default image="ui/photosaf/newback_B_512.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIStatic>
+                  <UIStatic name="background graphic 3">
+                     <UIRegion x="0" y="50" w="50" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect string="" alwayshit="never">
+                        <default image="ui/photosaf/newback_C_512.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIStatic>
+                  <UIStatic name="background graphic 4">
+                     <UIRegion x="50" y="50" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect string="" alwayshit="never">
+                        <default image="ui/photosaf/newback_D_512.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIStatic>
+               </children>
+            </UILayout>
+            <UIStatic name="photo_screen_dither">
+               <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+               <UIHotKeys/>
+            </UIStatic>
+            <UIText name="Photo Counter">
+               <UIRegion x="75" y="18" w="100" h="50" xalign="% min" yalign="% min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default image="">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                     <BFFont align="center"/>
+                  </default>
+                  <standard/>
+               </UIAspect>
+               <UIHotKeys/>
+               <text format="photom:counter"/>
+            </UIText>
+				<UIText name="Out of Film Message" autosize="true">
+					<UIRegion x="0" y="60" w="1024" h="50"/>
+					<UIState active="normal" visible="hidden"/>
+					<UIAspect alwayshit="never" locid="messages:out_of_film">
+						<default>
+							<BFFont align="center">
+								<BFColor r="255" g="0" b="0" a="255"/>
+							</BFFont>
+						</default>
+						<standard/>
+					</UIAspect>
+					<UIShowHideAnim time=".4" bob="1.1">
+						<start x="-1024" y="304" w="-1" h="-1"/>
+						<end x="0" y="304" w="-1" h="-1"/>
+					</UIShowHideAnim>
+					<text format="superstaff:format" type="multi"/>
+				</UIText>             
+            <UILayout name="Last Photo Layout">
+               <UIRegion x="145" y="125" w="198" h="150" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect string="">
+                  <default image="ui/photosaf/lastpic.dds">
+                     <BFRect x="0" y="0" w="198" h="150"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard/>
+               </UIAspect>
+               <UIHotKeys/>
+               <children>
+                  <UIStatic name="Photo">
+                     <UIRegion x="3" y="3" w="192" h="144" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect string="">
+                        <default image="">
+                           <BFRect x="0" y="0" w="192" h="144"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard/>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIStatic>
+               </children>
+            </UILayout>
+            <UISlider name="ZoomSlider" min="0" max="100" inc="5" value="0">
+               <UIRegion x="-100" y="125" w="200" h="36" xalign="mid"/>
+               <UIHotKeys>
+                  <down code="38" msg="UI_SCROLL" data="BFPoint" y="-1"/>
+                  <down code="40" msg="UI_SCROLL" data="BFPoint" y="+1"/>
+               </UIHotKeys>
+               <children>
+                  <UIStatic>
+                     <UIRegion x="50" y="15" w="135" h="18"/>
+                     <UIAspect>
+                        <default image="ui/photosaf/lastpic.dds">
+                           <BFRect x="0" y="238" w="135" h="18"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIText name="number">
+                     <UIRegion x="0" y="12" h="21" w="45"/>
+                     <UIAspect>
+                        <default>
+                           <BFFont align="center" x="" y="3">
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                     </UIAspect>
+                     <text format="photom:number"/>
+                  </UIText>
+                  <UIDrag name="thumb">
+                     <UIRegion y="0" w="19" h="14"/>
+                     <UIAspect>
+                        <default image="ui/photosaf/lastpic.dds">
+                           <BFRect x="237" y="0" w="19" h="14"/>
+                        </default>
+                     </UIAspect>
+                     <drag>
+                        <UIDragCommand msg="UI_MOUSE_DRAG" axis="x"/>
+                     </drag>
+                  </UIDrag>
+               </children>
+               <thumb name="thumb" axis="x">
+                  <UIRegion x="51" y="0" w="-15" h="90" walign="max" halign="% min"/>
+               </thumb>
+               <field name="number" type="float" fmt="%.0f%%"/>
+            </UISlider>
+            <UILayout name="photo challenges layout">
+               <UIRegion x="0" y="0" w="1024" h="270" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIShowHideAnim time=".3">
+                  <start x="0" y="-270" w="-1" h="-1"/>
+                  <end x="0" y="0" w="-1" h="-1"/>
+               </UIShowHideAnim>
+               <UIAspect string="">
+                  <default image="" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="0" g="0" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+               <children>
+                  <UILayout name="photo challenges">
+                     <UIRegion x="100" y="0" w="824" h="0" xalign="min" yalign="min" walign="len" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect string="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="0" h="0"/>
+                           <BFColor r="0" g="0" b="0" a="255"/>
+                        </default>
+                     </UIAspect>
+                     <children>
+                        <UILayout name="dynamic background" template="blank">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default/>
+                           </UIAspect>
+                        </UILayout>
+                        <UILayout name="dynamic background header" template="header">
+                           <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default/>
+                           </UIAspect>
+                        </UILayout>
+                        <UIText name="photo challenge label">
+                           <UIRegion x="20" y="4" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="ZTPhotoMode:photo_challenge_mode_label">
+                              <default image="">
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                                 <BFFont/>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIListBox name="photo challenges listbox" rows="1" column="-1" autosize="true">
+                           <UIRegion x="26" y="40" w="0" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                        </UIListBox>
+                        <UIButton name="decline">
+                           <UIRegion x="-90" y="-28" w="180" h="20" xalign="mid" yalign="max" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:decline">
+                              <default>
+                                 <BFFont align="center"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFFont>
+                                       <BFColor r="210" g="210" b="0" a="255"/>
+                                    </BFFont>
+                                 </normal>
+                                 <highlighted>
+                                    <BFFont>
+                                       <BFColor r="230" g="230" b="0" a="255"/>
+                                    </BFFont>
+                                 </highlighted>
+                                 <activated>
+                                    <BFFont>
+                                       <BFColor r="250" g="250" b="0" a="255"/>
+                                    </BFFont>
+                                 </activated>
+                                 <disabled>
+                                    <BFFont>
+                                       <BFColor r="128" g="128" b="128" a="128"/>
+                                    </BFFont>
+                                 </disabled>
+                              </standard>
+                           </UIAspect>
+                           <activate>
+                              <event msg="UI_CHILD" data="UIChildData" name="decline_photochallenge_confirmation">
+                                 <child msg="UI_SHOW"/>
+                              </event>
+                           </activate>
+                        </UIButton>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UIButton name="zoopedia link">
+               <UIRegion x="-10" y="520" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="photom:photo_zoopedia_button"/>
+               <UIAspect string="">
+                  <default image="ui/shared/button_zoopedia.dds" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="0" w="64" h="64"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="64" w="64" h="64"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="64" y="0" w="64" h="64"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="64" y="64" w="64" h="64"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <UIHotKeys/>
+               <activate>
+                  <event msg="UI_HYPERLINK" data="BFString" string="zoopedia:zoopedia_photosafari:entry"/>
+               </activate>
+            </UIButton>
+            <UIButton name="Photo Album">
+               <UIRegion x="-10" y="563" w="64" h="64" xalign="min" yalign=" min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="shell:photo_album_button_stt" long="shell:photo_album_button_ltt" help=""/>
+               <UIAspect string="">
+                  <default image="ui/maingame/buttons.dds" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="384" y="128" w="64" h="64"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="384" y="191" w="64" h="64"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="448" y="128" w="64" h="64"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="448" y="191" w="64" h="64"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <UIHotKeys/>
+               <activate>
+                  <event msg="UI_CHILD" data="UIChildData" name="photoalbum_layout">
+                     <child msg="UI_SHOW"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="Main Game Buttons">
+                     <child msg="UI_ACTIVATE_OFF"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="Camera Set">
+                     <child msg="UI_HIDE"/>
+                  </event>
+               </activate>
+            </UIButton>
+            <UILayout name="help2 screen" modal="true">
+               <UIRegion x="215" y="100" w="600" h="475" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect string="">
+                  <default image="" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="0" g="0" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+               <children>
+                  <UILayout name="background graphic" template="blank">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect string="">
+                        <default image=""/>
+                        <normal/>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="background graphic" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect string="">
+                        <default image="" sound=""/>
+                        <normal/>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UIButton name="Close">
+                     <UIRegion x="550" y="-5" w="45" h="42" xalign="min" yalign=" min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photom:help_button"/>
+                     <UIAspect string="">
+                        <default image="ui/shared/button_close.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="help2 screen">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="help2 screen text">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="ZT_SET_USER_ATTRIBUTE" data="BFKeyValObj" key="photohelpshown" val="true"/>
+                     </activate>
+                  </UIButton>
+                  <UILayout name="help2 screen text" modal="true">
+                     <UIRegion x="-125" y="-32" w="725" h="475" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect string="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="255"/>
+                        </default>
+                     </UIAspect>
+                     <children>
+                        <UIStatic name="mouse">
+                           <UIRegion x="337" y="255" w="190" h="178" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect string="">
+                              <default image="ui/photosaf/helpscreen_gfx.dds" sound="">
+                                 <BFRect x="0" y="0" w="190" h="178"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <normal/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIStatic>
+                        <UIText name="Photo Safari Help Label">
+                           <UIRegion x="100" y="38" w="225" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:photo_help_label">
+                              <default image="">
+                                 <BFFont align="center">
+                                    <BFColor r="255" g="255" b="255" a="100"/>
+                                 </BFFont>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Photo Safari Help Label 2">
+                           <UIRegion x="150" y="80" w="475" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:photo_help_label2">
+                              <default image="">
+                                 <BFFont align="left">
+                                    <BFColor r="255" g="255" b="255" a="100"/>
+                                 </BFFont>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="toggle camera">
+                           <UIRegion x="135" y="125" w="600" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:toggle_camera">
+                              <default image="">
+                                 <BFFont align="center">
+                                    <BFColor r="255" g="255" b="255" a="100"/>
+                                 </BFFont>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="press space to take photo">
+                           <UIRegion x="135" y="150" w="600" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:spacebar_take_photo">
+                              <default image="">
+                                 <BFFont align="center">
+                                    <BFColor r="255" g="255" b="255" a="100"/>
+                                 </BFFont>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="zoom camera">
+                           <UIRegion x="135" y="225" w="600" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:zoom_camera">
+                              <default image="">
+                                 <BFFont align="center">
+                                    <BFColor r="255" g="255" b="255" a="100"/>
+                                 </BFFont>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Move Forward">
+                           <UIRegion x="105" y="275" w="225" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:move_forward">
+                              <default image="">
+                                 <BFFont align="right">
+                                    <BFColor r="255" g="255" b="255" a="100"/>
+                                 </BFFont>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Activate Cursor">
+                           <UIRegion x="535" y="275" w="225" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:right_click">
+                              <default image="">
+                                 <BFFont align="left">
+                                    <BFColor r="255" g="255" b="255" a="100"/>
+                                 </BFFont>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Look Around left">
+                           <UIRegion x="105" y="400" w="225" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:look_around">
+                              <default image="">
+                                 <BFFont align="right">
+                                    <BFColor r="255" g="255" b="255" a="100"/>
+                                 </BFFont>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Look Around">
+                           <UIRegion x="535" y="400" w="225" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:look_around">
+                              <default image="">
+                                 <BFFont align="left">
+                                    <BFColor r="255" g="255" b="255" a="100"/>
+                                 </BFFont>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="right click message">
+                           <UIRegion x="135" y="460" w="475" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:photo_right_click_message">
+                              <default image="">
+                                 <BFFont align="left">
+                                    <BFColor r="255" g="255" b="255" a="100"/>
+                                 </BFFont>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="left click message">
+                           <UIRegion x="240" y="460" w="475" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="photom:photo_left_click_message">
+                              <default image="">
+                                 <BFFont align="right">
+                                    <BFColor r="255" g="255" b="255" a="100"/>
+                                 </BFFont>
+                              </default>
+                              <standard/>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UIToggleButton name="emote button 2" sticky="0" toggle="0">
+               <UIRegion x="-10" y="485" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="filter:emote_toggle_button"/>
+               <UIAspect>
+                  <default image="UI\maingame\viewfilter_emoticons.dds">
+                     <BFRect x="0" y="0" w="64" h="64"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="128" w="64" h="64"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="192" w="64" h="64"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="64" y="128" w="64" h="64"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="64" y="192" w="64" h="64"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="0" y="0" w="64" h="64"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="64" w="64" h="64"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="64" y="0" w="64" h="64"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="64" y="64" w="64" h="64"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <on>
+                  <event msg="ZT_VIEWFILTER_HIDE" data="BFString" string="emote"/>
+                  <event msg="UI_CHILD" data="UIChildData" name="emote button">
+                     <child msg="UI_ACTIVATE_ON"/>
+                  </event>
+               </on>
+               <off>
+                  <event msg="ZT_VIEWFILTER_SHOW" data="BFString" string="emote"/>
+                  <event msg="UI_CHILD" data="UIChildData" name="emote button">
+                     <child msg="UI_ACTIVATE_OFF"/>
+                  </event>
+               </off>
+            </UIToggleButton>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

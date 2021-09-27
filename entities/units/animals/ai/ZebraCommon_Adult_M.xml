@@ -1,0 +1,35 @@
+<BFTypedBinder binderType="ZebraCommon_Adult_M">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Perissodactyla>
+                     <Equidae>
+                        <ZebraCommon>
+                           <ZebraCommon_Adult>
+                              <ZebraCommon_Adult_M/>
+                           </ZebraCommon_Adult>
+                        </ZebraCommon>
+                     </Equidae>
+                  </Perissodactyla>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\units\animals\ZebraCommon\ZebraCommon_Adult_M_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ZebraCommon_Adult_M"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Male="1" f_adoptCount="rand(1,4)"/>
+   </shared>
+</BFTypedBinder>

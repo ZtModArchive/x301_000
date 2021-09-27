@@ -1,0 +1,105 @@
+<UISlider templateName="Options Slider" min="0" max="2" inc="1" value="-1">
+   <UIRegion x="20" y="30" w="200" h="22"/>
+   <UIAspect alwayshit="true"/>
+   <UIHotKeys>
+      <down code="38" msg="UI_SCROLL" data="BFPoint" y="-1"/>
+      <down code="40" msg="UI_SCROLL" data="BFPoint" y="+1"/>
+   </UIHotKeys>
+   <children>
+      <UIStatic name="slideback">
+         <UIRegion w="100" h="100" walign="% min" halign="% min"/>
+         <UIAspect alwayshit="never">
+            <default image="ui/shared/c_back_D.dds"/>
+         </UIAspect>
+      </UIStatic>
+      <UIText name="number">
+         <UIRegion x="0" y="0" h="20" w="45"/>
+         <UIState visible="hidden"/>
+         <UIAspect>
+            <default image="">
+               <BFFont y="3" align="center">
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </BFFont>
+            </default>
+         </UIAspect>
+         <text format="options:number"/>
+      </UIText>
+      <UIDrag name="thumb">
+         <UIRegion y="0" w="53" h="20"/>
+         <UIAspect>
+            <default image="ui/shared/slider_B_horiz.tga"/>
+            <standard>
+               <normal>
+                  <BFRect x="0" y="39" w="53" h="20"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="0" y="6" w="53" h="20"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="0" y="6" w="53" h="20"/>
+               </activated>
+               <disabled>
+                  <BFRect x="0" y="39" w="53" h="20"/>
+                  <BFColor r="192" g="192" b="192" a="128"/>
+               </disabled>
+            </standard>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="options:setting_slider_thumb"/>
+         <drag>
+            <UIDragCommand msg="UI_MOUSE_DRAG" axis="x"/>
+         </drag>
+      </UIDrag>
+      <UIButton name="slidedown">
+         <UIRegion x="0" y="0" w="10" h="100" halign="% min"/>
+         <UIHelpInfo name="" short="" long="" help="" ids="options:setting_slider_lower"/>
+         <UIAspect>
+            <default image="ui/shared/slider_B_horiz.tga"/>
+            <standard>
+               <normal>
+                  <BFRect x="1" y="66" w="10" h="20"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="12" y="66" w="10" h="20"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="23" y="66" w="10" h="20"/>
+               </activated>
+               <disabled>
+                  <BFRect x="34" y="66" w="10" h="20"/>
+               </disabled>
+            </standard>
+         </UIAspect>
+         <activate>
+            <event msg="UI_SCROLL" data="BFPoint" x="-1"/>
+         </activate>
+      </UIButton>
+      <UIButton name="slideup">
+         <UIRegion x="-10" y="0" w="10" h="100" xalign="max" halign="% min"/>
+         <UIHelpInfo ids="options:setting_slider_higher"/>
+         <UIAspect>
+            <default image="ui/shared/slider_B_horiz.tga"/>
+            <standard>
+               <normal>
+                  <BFRect x="0" y="87" w="10" h="20"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="12" y="87" w="10" h="20"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="23" y="87" w="10" h="20"/>
+               </activated>
+               <disabled>
+                  <BFRect x="34" y="87" w="10" h="20"/>
+               </disabled>
+            </standard>
+         </UIAspect>
+         <activate>
+            <event msg="UI_SCROLL" data="BFPoint" x="+1"/>
+         </activate>
+      </UIButton>
+   </children>
+   <thumb name="thumb" axis="x" style="move">
+      <UIRegion x="30" y="0" w="-30" h="90" walign="max" halign="% min"/>
+   </thumb>
+   <field name="number" type="float" fmt="%1.0f"/>
+</UISlider>

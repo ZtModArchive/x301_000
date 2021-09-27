@@ -1,0 +1,53 @@
+<BFTypedBinder binderType="FringedPolygala_Boreal">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <wildflowers>
+                  <FringedPolygala_Boreal/>
+               </wildflowers>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\FringedPolygala\FringedPolygala_Boreal_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:FringedPolygala_Boreal"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="FringedPolygala_Boreal"/>
+         </on>
+      </UIToggleButton>
+      <BFGBiomeData location="borealforest_northamerica">
+         <borealforest/>
+      </BFGBiomeData>
+      <BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_fringedpolygala:entry" f_FameReq="20"/>
+      <ZTPlacementData icon3Doffset="0 -0.002295 0.804492" icon3Dscale="0.528790" />
+   		<ZTTourData>
+	 			<biome_boreal value="1"/>
+		</ZTTourData> 
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\foliage\FringedPolygala\FringedPolygala_Boreal"  switch="0 20 40"/>
+               <BFMultiGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="10">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

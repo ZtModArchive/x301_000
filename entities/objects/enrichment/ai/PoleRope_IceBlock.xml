@@ -1,0 +1,67 @@
+<BFTypedBinder binderType="PoleRope_IceBlock">
+   <types>
+      <entity>
+         <enrichment>
+            <stationary_enrichment>
+               <PoleRope>
+                  <PoleRope_IceBlock/>
+               </PoleRope>
+            </stationary_enrichment>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="Rope" rottype="ignore" postype="use" attachnode="Link_Rope"/>
+            <parentObj parent="Rope" child="IceBlock" rottype="use" postype="use" attachnode="Node_Attach" childattachnode="Node_Child"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\PoleRope\PoleRope_Iceblock_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:PoleRope_IceBlock"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PoleRope_IceBlock"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\enrichment\PoleRope\PoleRope_Iceblock_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PoleRope_IceBlock"/>
+         </on>
+      </UIToggleButton>      
+      <BFAIEntityDataShared b_Researchable="true" s_uisort="hf" s_Zoopedia="zoopedia:zoopedia_polewithiceblock:entry" f_researchUnlockTime="100" f_researchCost="800" f_FameReq="60"/>
+      <ZTPlacementData randomRotate="false" gridSnap="true" autoFootprint="true" icon3Doffset="0 0 0.092700" icon3Dscale="0.407293"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj useTriShapeGroup="false">
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/PoleRope/PoleRope"  switch="0 18 36"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="IceBlock">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/IceBlock/IceBlock"  switch="0 18 36"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="440">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

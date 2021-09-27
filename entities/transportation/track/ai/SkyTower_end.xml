@@ -1,0 +1,120 @@
+<BFTypedBinder binderType="SkyTower_end">
+   <types>
+      <entity>
+         <transportation>
+            <track>
+               <skytower>
+                  <SkyTower_end/>
+               </skytower>
+            </track>
+         </transportation>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity />
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.4" icon3Dscale="0.5" waterPlacement="true" moveable="false">
+      </ZTPlacementData>
+      <UIToggleButton template="skyplacement">
+         <UIAspect>
+            <default image="entities\transportation\track\skytower\skytower_icon.dds" />
+         </UIAspect>
+          <UIHelpInfo name="" short="" long="" help="" ids="entityname:SkyTower"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="SkyTower_end" />
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_uisort="b" f_FameReq="40" s_Zoopedia="zoopedia:zoopedia_skytrampole:entry" b_NoPerceiveOverride="true" b_ScentMarkable="true" p_ScentMarkDock=".5 -.5 0" p_DogScentMarkDock="0 -.5 0" p_LemurScentMarkDock=".5 -.5 90" p_ElephantScentMarkDock="1 -.5 0"/>
+      <!-- waterplaceable -->
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\transportation\track\skytower\pole_base" switch="0 10"/>
+               <BFGroundFitComponent heightOffset="0.5" />
+               <BFCollisionComponent />
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="topObj_T" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\transportation\track\skytower\T_Arm" switch="0 20"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="topObj_L" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\transportation\track\skytower\L_Arm" switch="0 20"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="topObj_UTurn" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\transportation\track\skytower\U_Arm" switch="0 20"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="expandoPiece1" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\transportation\track\skytower\pole" switch="0 20"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_ScentEmitter="false"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="MarkScent" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterRockMarkScent1" useBehSet="ScentMark" exitBehSet="ExitRockMarkScent1" targetNode="p_ScentMarkDock" exclusiveID="SkyTower1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="MarkScent_Elephant" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterRockMarkScent1" useBehSet="ScentMark" exitBehSet="ExitRockMarkScent1" targetNode="p_ElephantScentMarkDock" exclusiveID="SkyTower1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="MarkScent_Lemur" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterRockMarkScent1" useBehSet="ScentMark" exitBehSet="ExitRockMarkScent1" targetNode="p_LemurScentMarkDock" exclusiveID="SkyTower1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="MarkScent_Dog" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterRockMarkScent1" useBehSet="ScentMark" exitBehSet="ExitRockMarkScent1" targetNode="p_DogScentMarkDock" exclusiveID="SkyTower1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Sniff" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterRockSniff1" useBehSet="SniffRock" exitBehSet="ExitRockSniff1" targetNode="p_ScentMarkDock" exclusiveID="SkyTower1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

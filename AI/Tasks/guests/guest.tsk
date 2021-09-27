@@ -1,0 +1,231 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="DefaultTask_Land" UniqueID="guest:DefaultTask_Land">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore=".00001">
+         <BFAIAttributeFloatMap/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DefaultThought" priority="0" timeout="30" global="false"/>
+               <ZTActionInfo locID="guestactions:DefaultAction"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimateRandom minPlays="1" maxPlays="5">
+            <randomAnims>
+               <Stand_Idle weight="1"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+         <BFBehSetAttribute>
+            <BFAISubjectData f_departurePoints="-1"/>
+         </BFBehSetAttribute>            
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="DefaultTask_Water" UniqueID="guest:DefaultTask_Water">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+            <Qualifiers inWater="true"/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore=".00001"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DefaultThought" priority="0" timeout="30" global="false"/>
+               <ZTActionInfo locID="guestactions:DefaultAction"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>      
+         <BFBehWander minPlayTime="1" maxPlayTime="3" avoidWater="true"/>
+         <BFBehSetAttribute>
+            <BFAISubjectData f_departurePoints="-1"/>
+         </BFBehSetAttribute>         
+      </BFBehExecTask>
+      <BFAICompletionData/>
+      <BFAIFailureData/>
+   </BFAITaskTemplate>      
+  
+   
+   <BFAITaskTemplate Name="LeaveZoo" CursorTask="false" sensorTag="viewanimals" UniqueID="guest:LeaveZoo">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <entrance/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData leaveZoo="true">
+         <BFAIAttributeFloatMap/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSetAttribute>
+            <BFAISubjectData f_departurePoints="-100"/>
+         </BFBehSetAttribute>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:LeaveZoo"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:LeaveZoo" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehMove locoSpeed="slow"/>
+         <BFBehAnimate targetAnim="Stand_Idle"/>
+         <BFBehSendTrigger subjectTrigger="Adjust_SurveyData"/>
+         <BFBehSendTrigger subjectTrigger="Adjust_ZooFame"/>
+         <ZTBehEconomy transactionName="remove_user" general="true"/>
+         <BFBehKill killSubject="true"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFBehExecTask>
+            <ZTBehEconomy transactionName="remove_user" general="true"/>
+            <BFBehKill killSubject="true"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="GuestGetOffTrack" CursorTask="false" UniqueID="guest:GuestGetOffTrack" Priority="2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+            <t_GetOffTrack/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="100000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EvadeVehicle" useTargetName="true"/>  
+            </ZTFeedbackData>
+         </ZTBehFeedback>   
+         <BFBehEvasion evasionRadius="5" locoSpeed="fast"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EvadeVehicle" priority="-1" timeout="30" global="false" useTargetName="true"/>  
+            </ZTFeedbackData>
+         </ZTBehFeedback>         
+      </BFBehExecTask>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>   
+
+
+   <BFAITaskTemplate Name="SpitOn" UniqueID="guest:SpitOn">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+            <t_SpitOn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="100"/>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <BFBehAnimate targetAnim="Stand_ShakeFist" playTime="3"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+               <ZTThoughtInfo locID="guestthoughts:GotSpitOnBad" priority="-1" timeout="30" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap f_departurePoints="-20" happiness="20"/>
+         <BFBehExecTask>
+            <BFBehSendToken>
+               <BFAITokenList>
+                  <BFAIToken Name="t_LaughSpitOn" GiveTo="Guest" Payload="target" Radius="10" Timeout="15" Reconsider="true"/>
+               </BFAITokenList>
+            </BFBehSendToken>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData/>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="LaughSpitOn" UniqueID="guest:LaughSpitOn">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+            <t_LaughSpitOn/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="100"/>
+      <BFBehExecTask>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalSpitGood" priority="0" timeout="30" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Laugh"/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+      <BFAIFailureData/>
+   </BFAITaskTemplate>
+   
+
+   <BFAITaskTemplate Name="LaughBathroom" UniqueID="guest:LaughBathroom">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+            <t_LaughBathroom/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="100"/>
+      <BFBehExecTask>
+         <BFBehHeadLook/>
+         <BFBehFaceTarget/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:LaughBathroom" priority="0" timeout="30" global="false" useTargetName="true"/>
+               <ZTActionInfo locID="guestactions:LaughBathroom" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Laugh"/>
+         <BFBehFaceTarget/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+      <BFAIFailureData/>
+   </BFAITaskTemplate>
+   
+   
+</BFAITaskTemplateList>

@@ -1,0 +1,64 @@
+<BehaviorSets>
+   <UseRestaurant>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoToRestaurant"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoToRestaurant" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock subjectNode="Bip01" targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_TurnLeftA"/>
+         <BFBehAnimate targetAnim="Walk_TurnLeftA"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehHide minTime="15" maxTime="20"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+         <BFBehScript context="behavior" file="scripts/kickoffanim.lua" function="kickoffanim"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_TurnRightA"/>
+         <BFBehAnimate targetAnim="Walk_TurnRightA"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+      </behaviors>
+   </UseRestaurant>
+   <UseRestaurant>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoToRestaurant"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoToRestaurant" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock subjectNode="Bip01" targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_TurnLeftA"/>
+         <BFBehAnimate targetAnim="Walk_TurnLeftA"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehHide minTime="15" maxTime="20"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+         <BFBehScript context="behavior" file="scripts/kickoffanim.lua" function="kickoffanim"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_TurnRightA"/>
+         <BFBehAnimate targetAnim="Walk_TurnRightA"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+      </behaviors>
+   </UseRestaurant>
+</BehaviorSets>

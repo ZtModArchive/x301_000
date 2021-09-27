@@ -1,0 +1,1876 @@
+<BehaviorSets>
+<!-- Begin Default Behaviors Section -->
+<!-- Begin Default Behavior Branches -->
+   <Default_Happy>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehViewEvent viewKey="Pos_2">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalHappy" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehRandomSet>
+            <randomSets>
+               <DefaultStand weight="90"/>
+               <DefaultHappy weight="10"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Default_Happy>
+   <Default_VeryHappy>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehViewEvent viewKey="DPos_4">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalVeryHappy" priority="1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehRandomSet>
+            <randomSets>
+               <DefaultStand weight="80"/>
+               <DefaultHappy weight="20"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Default_VeryHappy>
+   <Default_Happy_inWater>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehViewEvent viewKey="Pos_2">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalHappy" priority="0" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehRandomSet>
+            <randomSets>
+               <DefaultStand weight="90"/>
+               <Default_inWater_Happy weight="10"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Default_Happy_inWater>
+   <Default_VeryHappy_inWater>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehViewEvent viewKey="DPos_4">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalVeryHappy" priority="1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehRandomSet>
+            <randomSets>
+               <DefaultStand weight="80"/>
+               <Default_inWater_Happy weight="20"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Default_VeryHappy_inWater>
+   <Default_Unhappy>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehViewEvent viewKey="Neg_2">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalUnhappy" priority="-1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehRandomSet>
+            <randomSets>
+               <DefaultStand weight="70"/>
+               <DefaultSqueal weight="10"/>
+               <DefaultSnort weight="10"/>
+               <DefaultUnhappy weight="10"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Default_Unhappy>
+   <Default_VeryUnhappy>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehViewEvent viewKey="Neg_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalVeryUnhappy" priority="2" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehRandomSet>
+            <randomSets>
+               <DefaultStand weight="60"/>
+               <DefaultSqueal weight="10"/>
+               <DefaultSnort weight="10"/>
+               <DefaultUnhappy weight="20"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Default_VeryUnhappy>
+   <Default_Unhappy_inWater>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehViewEvent viewKey="Neg_2">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalUnhappy" priority="-1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehRandomSet>
+            <randomSets>
+               <DefaultStand weight="70"/>
+               <DefaultSqueal weight="10"/>
+               <DefaultSnort weight="10"/>
+               <DefaultUnhappy weight="10"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Default_Unhappy_inWater>
+   <Default_VeryUnhappy_inWater>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehViewEvent viewKey="Neg_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalVeryUnhappy" priority="2" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehRandomSet>
+            <randomSets>
+               <DefaultStand weight="60"/>
+               <DefaultSqueal weight="10"/>
+               <DefaultSnort weight="10"/>
+               <DefaultUnhappy weight="20"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Default_VeryUnhappy_inWater>
+<!-- End Default Behavior Branches -->
+<!-- Begin Default Behavior Leaves -->
+   <DefaultStand>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Standing"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Idle"/>
+      </behaviors>
+   </DefaultStand>
+   <DefaultTreadWater>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:TreadingWater"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="TreadWater_Idle"/>
+      </behaviors>
+   </DefaultTreadWater>
+   <DefaultLie>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:LyingDown"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Lie_Idle"/>
+      </behaviors>
+   </DefaultLie>
+   <DefaultLieSide>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:LyingDown"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="LieSide_Idle"/>
+      </behaviors>
+   </DefaultLieSide>
+   <DefaultSleep>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Sleeping"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Sleep_Idle"/>
+      </behaviors>
+   </DefaultSleep>
+   <DefaultRest>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Resting"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Rest_Idle"/>
+      </behaviors>
+   </DefaultRest>
+   <DefaultSqueal>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Squealing"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Squeal"/>
+      </behaviors>
+   </DefaultSqueal>
+   <DefaultSnort>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Snorting"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Snort"/>
+      </behaviors>
+   </DefaultSnort>
+   <DefaultWallow>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Wallowing"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Wallow_Idle"/>
+      </behaviors>
+   </DefaultWallow>
+   <DefaultHappy>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Graze"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Graze"/>
+         <BFBehSetAttribute>
+            <BFAITargetData hunger="-1"/>
+         </BFBehSetAttribute>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </DefaultHappy>
+   <Default_inWater_Happy>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Wandering"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehWander minPlayTime="7" maxPlayTime="15" avoidWater="true" locoSpeed="medium"/>
+         <BFBehSetAttribute>
+            <BFAITargetData exercise="-10"/>
+         </BFBehSetAttribute>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalExerciseGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </Default_inWater_Happy>
+   <DefaultUnhappy>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:RoarAngry"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Squeal"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </DefaultUnhappy>
+   <Default_inWater_Unhappy>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:RoarAngry"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Squeal"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </Default_inWater_Unhappy>
+<!-- End Default Behavior Leaves -->
+<!-- End Default Behaviors Section -->
+   <Idle>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehLocoSwitchSet>
+            <behaviorTable>
+               <ground behSet="Ground_Idle"/>
+               <water behSet="Water_Idle"/>
+            </behaviorTable>
+         </BFBehLocoSwitchSet>
+      </behaviors>
+   </Idle>
+   <Ground_Idle>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimSwitchSet>
+            <behaviorTable>
+               <Stand behSet="DefaultStand"/>
+               <Lie behSet="DefaultLie"/>
+               <LieSide behSet="DefaultLieSide"/>
+               <Sleep behSet="DefaultSleep"/>
+               <Rest behSet="DefaultRest"/>
+               <Wallow behSet="DefaultWallow"/>
+               <default behSet="DefaultStand"/>
+            </behaviorTable>
+         </BFBehAnimSwitchSet>
+      </behaviors>
+   </Ground_Idle>
+   <Water_Idle>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimSwitchSet>
+            <behaviorTable>
+               <Swim behSet="DefaultTreadWater"/>
+               <TreadWater behSet="DefaultTreadWater"/>
+               <default behSet="DefaultTreadWater"/>
+            </behaviorTable>
+         </BFBehAnimSwitchSet>
+      </behaviors>
+   </Water_Idle>
+   <Think>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimSwitchSet loopFlag="true">
+            <behaviorTable>
+               <Stand behSet="Idle"/>
+               <default behSet="Idle"/>
+            </behaviorTable>
+         </BFBehAnimSwitchSet>
+      </behaviors>
+   </Think>
+   <LookAt>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehRandomSet>
+            <randomSets>
+               <Idle weight="50"/>
+               <Investigate weight="50"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </LookAt>
+   <Investigate>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingToLookAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook/>
+         <BFBehDockRadial subjectNode="Node_Mouth" targetRadius="4"/>
+         <ZTBehViewEvent viewKey="Pos_2"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:LookAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehFaceTarget/>
+         <BFBehPlaySet behSet="Sniff"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </Investigate>
+   <InvestigateLarge>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingToLookAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook/>
+         <BFBehMove pathRadius="10" closestApproach="true"/>
+         <ZTBehViewEvent viewKey="Pos_2"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:LookAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehFaceTarget/>
+         <BFBehPlaySet behSet="Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </InvestigateLarge>
+   <Die_OldAge>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Dying"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Sleep"/>
+         <ZTBehViewEvent viewKey="Neg_10">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalDiedBad" priority="-1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTMessageInfo locID="zoomessages:AnimalDied" priority="-1" timeout="60" global="true" useEntityName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehKill killSubject="true" fadeOutPeriod="1"/>
+      </behaviors>
+   </Die_OldAge>
+   <Die_Sick>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Dying_Sick"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Sleep"/>
+         <ZTBehViewEvent viewKey="Neg_10">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalDiedSickBad" priority="-1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTMessageInfo locID="zoomessages:AnimalDiedSick" priority="-1" timeout="60" global="true" useEntityName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehKill killSubject="true" fadeOutPeriod="1"/>
+      </behaviors>
+   </Die_Sick>
+   <Die_Fight>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+	 <ZTBehMorph morphEntity="subject" morphTargetEntityType="Carcass_Meat" NameIt="true"/>
+      </behaviors>
+   </Die_Fight>
+   <Stand>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Idle"/>
+      </behaviors>
+   </Stand>
+   <Lie>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Lie_Idle"/>
+      </behaviors>
+   </Lie>
+   <LieSide>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="LieSide_Idle"/>
+      </behaviors>
+   </LieSide>
+   <Sleep>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Sleep_Idle" playTime="20"/>
+      </behaviors>
+   </Sleep>
+   <Rest>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Rest_Idle"/>
+      </behaviors>
+   </Rest>
+   <Wallow>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Wallow_Idle"/>
+         <BFBehAnimateRandom>
+            <randomAnims>
+               <Wallow_A weight="33"/>
+               <Wallow_B weight="33"/>
+               <Wallow_Idle weight="33"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </Wallow>
+   <Poop>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehSpawn spawnEntity="Poop_Rhinoceros" subjectNode="Poop" targetAnim="Poop_Idle"/>
+      </behaviors>
+   </Poop>
+   <Poop_Sick>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehSpawn spawnEntity="Poop_Rhinoceros_Sick" subjectNode="Poop" targetAnim="Poop_Idle"/>
+      </behaviors>
+   </Poop_Sick>
+   <Pee>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Pee_Idle"/>
+      </behaviors>
+   </Pee>
+   <LookLeft>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_LookLeft"/>
+      </behaviors>
+   </LookLeft>
+   <LookRight>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_LookRight"/>
+      </behaviors>
+   </LookRight>
+   <LookLeftRight>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehRandomSet>
+            <randomSets>
+               <LookLeft weight="50"/>
+               <LookRight weight="50"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </LookLeftRight>
+   <FailureSet>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Mew"/>
+      </behaviors>
+   </FailureSet>
+   <Mew>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Mew"/>
+      </behaviors>
+   </Mew>
+   <Horn>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Horning"/>
+      </behaviors>
+   </Horn>
+   <RubHorn>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_RubHornOnObject"/>
+      </behaviors>
+   </RubHorn>
+   <Rub>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_RubOnObject"/>
+      </behaviors>
+   </Rub>
+   <HornClub>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_HornClub"/>
+      </behaviors>
+   </HornClub>
+   <EnterBall>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDockRadial subjectNode="Node_Mouth" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterBall> 
+   <UseBall_Whap>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehWhap targetAnim="Stand_HornClub"/>
+      </behaviors>
+   </UseBall_Whap>
+   <UsePursuitBall_Whap>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehWhap targetAnim="Stand_HornClub"/>
+      </behaviors>
+   </UsePursuitBall_Whap>
+   <UseCarTire_Whap>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehWhap targetAnim="Stand_HornClub"/>
+      </behaviors>
+   </UseCarTire_Whap>
+   <UseBarrel_Whap>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehWhap targetAnim="Stand_HornClub"/>
+      </behaviors>
+   </UseBarrel_Whap>
+   <UseBall>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_HornClub"/>
+      </behaviors>
+   </UseBall>
+   <ExitBall>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+      </behaviors>
+   </ExitBall>
+   <EnterSubstratePile>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDockRadial subjectNode="Node_Mouth" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterSubstratePile> 
+   <UseSubstratePile>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Dig"/>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Graze" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Graze" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+      </behaviors>
+   </UseSubstratePile>
+   <ExitSubstratePile>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+      </behaviors>
+   </ExitSubstratePile>
+   <EnterTreeRub>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingToRub" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook/>
+         <BFBehDock subjectNode="Dock_Rub" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterTreeRub>
+   <RubTree>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_RubHornOnObject"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Rubbing" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </RubTree>
+   <ExitTreeRub>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_TurnL"/>
+      </behaviors>
+   </ExitTreeRub>
+   <Fight>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Dig"/>
+         <BFBehAnimateRandom>
+            <randomAnims>
+               <Stand_HornClub weight="20"/>
+               <Stand_Horning weight="20"/>
+               <Stand_Gore weight="60"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </Fight>
+   <FightHurt>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_HornClub"/>
+         <BFBehAnimateRandom>
+            <randomAnims>
+               <Stand_HornClub weight="75"/>
+               <Stand_Horning weight="25"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+         <BFBehAnimate targetAnim="Lie_Idle"/>
+         <ZTBehViewEvent viewKey="Neg_7">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalHurtBad" priority="-1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehSetAttribute>
+            <BFAISubjectData health="30"/>
+         </BFBehSetAttribute>
+      </behaviors>
+   </FightHurt>
+   <DefendEqual>
+      <subjects>
+         <RhinocerosWhite_Adult_M/>
+      </subjects>
+      <behaviors>
+         <BFBehRandomSet>
+            <randomSets>
+               <Fight weight="50"/>
+               <FightHurt weight="50"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </DefendEqual>
+   <DockFight>
+      <subjects>
+         <RhinocerosWhite_Adult_M/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingToFight" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="4" pursuitRadius="20" locoSpeed="fast" pollFreq="0.1"/>
+         <BFBehDockNow subjectNode="p_FightOffset" targetNode="p_FightOffset" reserveSlotName="general" redock="true"/>
+      </behaviors>
+   </DockFight>
+   <DockFight2>
+      <subjects>
+         <RhinocerosWhite_Adult_M/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingToFight" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="4" pursuitRadius="20" locoSpeed="fast" pollFreq="0.1"/>
+         <BFBehAnimate targetAnim="Stand_Idle" loopFlag="true"/>
+      </behaviors>
+   </DockFight2>
+   <FightSnap>
+      <subjects>
+         <RhinocerosWhite_Adult_M/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate interruptFlag="true" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </FightSnap>
+   <WaitFight>
+      <subjects>
+         <RhinocerosWhite_Adult_M/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom>
+            <randomAnims>
+               <Stand_Horning weight="50"/>
+               <Stand_Idle weight="50"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </WaitFight>
+   <Nuzzle>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+	<ZTBehFeedback>
+		<ZTFeedbackData>
+			<ZTActionInfo locID="animalactions:NuzzleOther" useTargetName="true" />
+		</ZTFeedbackData>
+	</ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Nuzzle"/>
+      </behaviors>
+   </Nuzzle>
+   <DockNuzzle>
+      <subjects>
+         <RhinocerosWhite_Adult_F/>
+      </subjects>
+      <behaviors>
+	<ZTBehFeedback>
+		<ZTFeedbackData>
+			<ZTActionInfo locID="animalactions:GoingToNuzzleOther" useTargetName="true" />
+		</ZTFeedbackData>
+	</ZTBehFeedback>
+         <BFBehDock subjectNode="Node_Mouth" targetNode="p_SniffNode" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </DockNuzzle>
+   <WaitNuzzle>
+      <subjects>
+         <RhinocerosWhite_Adult_F/>
+      </subjects>
+      <behaviors>
+	<ZTBehFeedback>
+		<ZTFeedbackData>
+			<ZTActionInfo locID="animalactions:WaitNuzzle" useTargetName="true" />
+		</ZTFeedbackData>
+	</ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Idle" loopFlag="true"/>
+      </behaviors>
+   </WaitNuzzle>
+   <DockSniff>
+      <subjects>
+         <RhinocerosWhite_Adult/>
+      </subjects>
+      <behaviors>
+	<ZTBehFeedback>
+		<ZTFeedbackData>
+			<ZTActionInfo locID="animalactions:GoingToSniff" useTargetName="true" />
+		</ZTFeedbackData>
+	</ZTBehFeedback>
+         <BFBehDock subjectNode="p_SniffNode2" targetNode="p_SniffNode" targetAnim="Stand_Idle"/>
+         <BFBehFaceTarget/>
+      </behaviors>
+   </DockSniff>
+   <WaitSniff>
+      <subjects>
+         <RhinocerosWhite_Adult/>
+      </subjects>
+      <behaviors>
+	<ZTBehFeedback>
+		<ZTFeedbackData>
+			<ZTActionInfo locID="animalactions:WaitSniff" useTargetName="true" />
+		</ZTFeedbackData>
+	</ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Idle" loopFlag="true"/>
+      </behaviors>
+   </WaitSniff>
+   <Sniff>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+	<ZTBehFeedback>
+		<ZTFeedbackData>
+			<ZTActionInfo locID="animalactions:SniffOther" useTargetName="true" />
+		</ZTFeedbackData>
+	</ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Sniff"/>
+      </behaviors>
+   </Sniff>
+   <Stand_Sniff>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Sniff"/>
+      </behaviors>
+   </Stand_Sniff>
+   <Squeal>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Squeal"/>
+      </behaviors>
+   </Squeal>
+   <Snort>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Snort"/>
+      </behaviors>
+   </Snort>
+   <Dig>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Dig"/>
+      </behaviors>
+   </Dig>
+   <Charge>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Charge_Ahead"/>
+      </behaviors>
+   </Charge>
+   <Graze>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="Grass_Prop" targetAnim="Chew_Graze" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+      </behaviors>
+   </Graze>
+   <Chew>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Chew_Idle"/>
+      </behaviors>
+   </Chew>
+   <BrowseBush>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Chew_PullHorn"/>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Browse" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Browse" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+      </behaviors>
+   </BrowseBush>
+   <Eat>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Graze" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Graze" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+      </behaviors>
+   </Eat>
+   <EatApple>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="target" targetAnim="Chew_Graze" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+      </behaviors>
+   </EatApple>
+   <EnterHollowLogLeft>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDock subjectNode="p_HollowLogDock" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterHollowLogLeft>
+   <EnterHollowLogRight>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDock subjectNode="p_HollowLogDock" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterHollowLogRight>
+   <EnterHollowLogMiddle>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDock subjectNode="p_HollowLogDock" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterHollowLogMiddle>
+   <EnterTrough>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDock subjectNode="Node_Mouth" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterTrough> 
+   <UseTrough>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Eat" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Eat" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+      </behaviors>
+   </UseTrough>
+   <DrinkTrough>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Chew_Idle"/>
+         <BFBehAnimate targetAnim="Chew_Eat"/>
+         <BFBehAnimate targetAnim="Chew_Idle"/>
+      </behaviors>
+   </DrinkTrough>
+   <ExitTrough>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+      </behaviors>
+   </ExitTrough>
+   <Drink>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Drink_Idle"/>
+      </behaviors>
+   </Drink>
+   <EnterFoodDish>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDock subjectNode="Node_Mouth" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterFoodDish> 
+   <UseFoodDish>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Graze" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Graze" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+      </behaviors>
+   </UseFoodDish>
+   <DrinkFoodDish>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Drink_Idle"/>
+      </behaviors>
+   </DrinkFoodDish>
+   <ExitFoodDish>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+      </behaviors>
+   </ExitFoodDish>
+   <EnterShadeStructure>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingRestUnder" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDockRadial subjectNode="Floor" targetRadius="3" rotError="180"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterShadeStructure> 
+   <UseShadeStructure>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:RestingUnder" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Idle" playTime="20"/>
+      </behaviors>
+   </UseShadeStructure>
+   <ExitShadeStructure>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ExitingShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+      </behaviors>
+   </ExitShadeStructure>
+   <Nurse>
+      <subjects>
+         <RhinocerosWhite_Young/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:BeingNursed" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Nurse" playTime="6"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </Nurse>
+   <DockNurse>
+      <subjects>
+         <RhinocerosWhite_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Node_Mouth" targetNode="p_NurseNode" targetAnim="Stand_Idle" locoSpeed="fast"/>
+      </behaviors>
+   </DockNurse>
+   <WaitNurse>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Idle" loopFlag="true"/>
+      </behaviors>
+   </WaitNurse>
+   <NurseYoung>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:NurseOther" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Idle" loopFlag="true"/>
+      </behaviors>
+   </NurseYoung>
+   <WaitAttackGuest>
+      <subjects>
+         <RhinocerosWhite_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Idle" loopFlag="true"/>
+      </behaviors>
+   </WaitAttackGuest>
+   <AttackGuest>
+      <subjects>
+         <RhinocerosWhite_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_AttackGuest" interruptFlag="true"/>
+      </behaviors>
+   </AttackGuest>
+   <DockAttacked>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehScript context="behavior" file="scripts/playparticle.lua" function="playParticle" params="{Floor} runps PlacementCloud"/>
+         <BFBehDockNow targetNode="p_PredatorOffset" subjectNode="p_PreyOffset" reserveSlotName="general"/>
+      </behaviors>
+   </DockAttacked>
+   <Attacked>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="LieSide_Idle"/>
+         <BFBehPlaySet behSet="Die_Fight"/>
+      </behaviors>
+   </Attacked>
+   <EnterShelter1>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingRestShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook/>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="Bip01_DockNode01_BaseA2Branch1AEnd"/>
+         <BFBehHeadLook disengage="true"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode01_BaseA2Branch1AEnd" exitTap="false"/>
+      </behaviors>
+   </EnterShelter1>
+   <EnterShelter2>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingRestShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook/>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="Bip01_DockNode03_BaseB2Branch1BEnd"/>
+         <BFBehHeadLook disengage="true"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode03_BaseB2Branch1BEnd" exitTap="false"/>
+      </behaviors>
+   </EnterShelter2>
+   <EnterShelter3>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingRestShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook/>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="Bip01_DockNode05_BaseC2Branch1CEnd"/>
+         <BFBehHeadLook disengage="true"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode05_BaseC2Branch1CEnd" exitTap="false"/>
+      </behaviors>
+   </EnterShelter3>
+   <EnterShelter4>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingRestShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook/>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="Bip01_DockNode07_BaseD2Branch1DEnd"/>
+         <BFBehHeadLook disengage="true"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode07_BaseD2Branch1DEnd" exitTap="false"/>
+      </behaviors>
+   </EnterShelter4>
+   <EnterShelter5>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingRestShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook/>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="Bip01_DockNode09_BaseE2Branch1EEnd"/>
+         <BFBehHeadLook disengage="true"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode09_BaseE2Branch1EEnd" exitTap="false"/>
+      </behaviors>
+   </EnterShelter5>
+   <EnterShelter6>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingRestShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook/>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="Bip01_DockNode11_BaseF2Branch1FEnd"/>
+         <BFBehHeadLook disengage="true"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode11_BaseF2Branch1FEnd" exitTap="false"/>
+      </behaviors>
+   </EnterShelter6>
+   <UseShelter>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:RestingShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Lie_Idle" playTime="20"/>
+      </behaviors>
+   </UseShelter>
+   <ExitShelter1>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ExitingShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode02_Branch1AEnd2ExitA" exitTAP="true"/>
+      </behaviors>
+   </ExitShelter1>
+   <ExitShelter2>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ExitingShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode04_Branch1BEnd2ExitB" exitTAP="true"/>
+      </behaviors>
+   </ExitShelter2>
+   <ExitShelter3>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ExitingShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode06_Branch1CEnd2ExitC" exitTAP="true"/>
+      </behaviors>
+   </ExitShelter3>
+   <ExitShelter4>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ExitingShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode08_Branch1DEnd2ExitD" exitTAP="true"/>
+      </behaviors>
+   </ExitShelter4>
+   <ExitShelter5>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ExitingShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode10_Branch1EEnd2ExitE" exitTAP="true"/>
+      </behaviors>
+   </ExitShelter5>
+   <ExitShelter6>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:ExitingShelter" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Bip01_DockNode12_Branch1FEnd2ExitF" exitTAP="true"/>
+      </behaviors>
+   </ExitShelter6>
+   <SmashFence>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Charge_Ahead"/>
+      </behaviors>
+   </SmashFence>
+   <Mate>
+      <subjects>
+         <RhinocerosWhite_Adult/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:Mating" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Sleep_Idle" playTime="10"/>
+      </behaviors>
+   </Mate>
+   <Birth>
+      <subjects>
+         <RhinocerosWhite_Adult_F/>
+      </subjects>
+      <behaviors>
+         <BFBehRandomSet minPlays="1" maxPlays="1">
+            <randomSets>
+               <SpawnF weight="50"/>
+               <SpawnM weight="50"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Birth>
+   <SpawnF>
+      <subjects>
+         <RhinocerosWhite_Adult_F/>
+      </subjects>
+      <behaviors>
+         <BFBehSpawn spawnEntity="RhinocerosWhite_Young_F" spawnRelation="child" subjectNode="Floor" fadeInPeriod="1" randomPosOffset="3" randomRotOffset="180" spawnInTA="true"/>
+         <BFBehScript context="behavior" file="scripts/justgavebirth.lua" function="justgavebirth"/>
+      </behaviors>
+   </SpawnF>
+   <SpawnM>
+      <subjects>
+         <RhinocerosWhite_Adult_F/>
+      </subjects>
+      <behaviors>
+         <BFBehSpawn spawnEntity="RhinocerosWhite_Young_M" spawnRelation="child" subjectNode="Floor" fadeInPeriod="1" randomPosOffset="3" randomRotOffset="180" spawnInTA="true"/>
+         <BFBehScript context="behavior" file="scripts/justgavebirth.lua" function="justgavebirth"/>
+      </behaviors>
+   </SpawnM>
+   <Sick>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Idle"/>
+      </behaviors>
+   </Sick>
+   <VerySick>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Sleep_Idle" playTime="30"/>
+      </behaviors>
+   </VerySick>
+   <MatingCall_F>
+      <subjects>
+         <RhinocerosWhite_Adult_F/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:MatingCallAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Snort"/>
+      </behaviors>
+   </MatingCall_F>
+   <MatingCall_M>
+      <subjects>
+         <RhinocerosWhite_Adult_M/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:MatingCallAnswer" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Snort"/>
+      </behaviors>
+   </MatingCall_M>
+   <ChaseBall>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:GoingToPlayWith" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook/>
+         <BFBehDockRadial subjectNode="p_PursuitBallNode" targetAnim="Stand_Idle" locoSpeed="fast"/>
+         <BFBehHeadLook disengage="true"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:PlayingWith" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehWhap targetAnim="Stand_HornClub"/>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalPlayObjectGood" priority="2" timeout="60" global="false" useTargetTarget="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+      </behaviors>
+   </ChaseBall>
+   <ThrashWater>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Drown_Idle" interruptFlag="true"/>
+      </behaviors>
+   </ThrashWater>
+   <ChewCud>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Chew_Idle"/>
+         <BFBehAnimate targetAnim="Chew_Idle"/>
+         <BFBehAnimate targetAnim="Chew_Idle"/>
+      </behaviors>
+   </ChewCud>
+   <Roar>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:SnortAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Snort"/>
+      </behaviors>
+   </Roar>
+   <EnterSaltLick>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDock subjectNode="Node_Mouth" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterSaltLick> 
+   <UseSaltLick>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Chew_Lick"/>
+      </behaviors>
+   </UseSaltLick>
+   <ExitSaltLick>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+      </behaviors>
+   </ExitSaltLick>
+   <InterspeciesTerritorialCall>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:CallAt" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewEvent viewKey="Pos_4">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalCallGood" priority="0" timeout="60" global="false" useTargetTarget="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehPlaySet behSet="Roar"/>
+      </behaviors>
+   </InterspeciesTerritorialCall>
+   <Turn180>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+      </behaviors>
+   </Turn180>
+   <EnterDurianFruit>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDockRadial subjectNode="Node_Mouth" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterDurianFruit> 
+   <UseDurianFruit>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="Horn" playTime="3"/>
+         <ZTBehMorph morphEntity="target" morphPeriod="1" morphTargetEntityType="DurianFruit_Open_df"/>
+      </behaviors>
+   </UseDurianFruit>
+   <EatDurianFruit>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Chew_Graze"/>
+         <BFBehAnimate targetAnim="Chew_Idle"/>
+         <BFBehAnimate targetAnim="Chew_Graze"/>
+         <BFBehAnimate targetAnim="Chew_Idle"/>
+      </behaviors>
+   </EatDurianFruit>
+   <ExitDurianFruit>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="Turn180"/>
+      </behaviors>
+   </ExitDurianFruit>
+   <EnterIceBlock>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDock subjectNode="Node_Mouth" targetAnim="Stand_Idle"/>
+         <BFBehHeadLook disengage="true"/>
+      </behaviors>
+   </EnterIceBlock> 
+   <UseIceBlock>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Graze" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+         <BFBehAttachObject attachEntity="s_prop" targetAnim="Chew_Graze" targetNode="Dock_Attach" detachAction="killitem" detachBehSet="Chew" container="foodprop"/>
+      </behaviors>
+   </UseIceBlock>
+   <ExitIceBlock>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="Turn180"/>
+      </behaviors>
+   </ExitIceBlock>
+   <LoopIdle>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimSwitchSet loopFlag="true">
+            <behaviorTable>
+               <Stand behSet="LoopStand"/>
+               <Lie behSet="LoopLie"/>
+               <Sleep behSet="LoopSleep"/>
+               <default behSet="LoopStand"/>
+            </behaviorTable>
+         </BFBehAnimSwitchSet>
+      </behaviors>
+   </LoopIdle>
+   <LoopStand>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Idle" loopFlag="true"/>
+      </behaviors>
+   </LoopStand>
+   <LoopLie>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Lie_Idle" loopFlag="true"/>
+      </behaviors>
+   </LoopLie>
+   <LoopSleep>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Sleep_Idle" loopFlag="true"/>
+      </behaviors>
+   </LoopSleep>
+   <Stand_Idle>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate interruptFlag="true" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </Stand_Idle>
+   <TreadWater_Idle>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate interruptFlag="true" targetAnim="TreadWater_Idle"/>
+      </behaviors>
+   </TreadWater_Idle>
+   <EnterDinoPrey>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehRandomSet>
+            <randomSets>
+               <EnterDinoPreyRight weight="50"/>
+               <EnterDinoPreyLeft weight="50"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </EnterDinoPrey> 
+   <EnterDinoPreyRight>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDock subjectNode="Node_Mouth" targetNode="Hit_Right" targetAnim="Stand_Idle" locoSpeed="fast"/>
+         <BFBehHeadLook disengage="true"/>
+         <BFBehPlaySet behSet="UseDinoPreyRight"/>
+      </behaviors>
+   </EnterDinoPreyRight> 
+   <EnterDinoPreyLeft>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehHeadLook/>
+         <BFBehDock subjectNode="Node_Mouth" targetNode="Hit_Left" targetAnim="Stand_Idle" locoSpeed="fast"/>
+         <BFBehHeadLook disengage="true"/>
+         <BFBehPlaySet behSet="UseDinoPreyLeft"/>
+      </behaviors>
+   </EnterDinoPreyLeft> 
+   <UseDinoPreyRight>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehSyncSet subjectBehSet="AttackGuest" targetBehSet="Hit_Right"/>
+      </behaviors>
+   </UseDinoPreyRight>
+   <UseDinoPreyLeft>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehSyncSet subjectBehSet="AttackGuest" targetBehSet="Hit_Left"/>
+      </behaviors>
+   </UseDinoPreyLeft>
+   <ExitDinoPrey>
+      <subjects>
+         <RhinocerosWhite/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_TurnR"/>
+      </behaviors>
+   </ExitDinoPrey>
+</BehaviorSets>

@@ -1,0 +1,94 @@
+<BFTypedBinder binderType="SqueakyToy">
+   <types>
+      <entity>
+         <enrichment>
+            <toy>
+               <SqueakyToy/>
+            </toy>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\SqueakyToy\SqueakyToy_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:SqueakyToy"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="SqueakyToy"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\enrichment\SqueakyToy\SqueakyToy_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="SqueakyToy"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData moveable="true" randomRotate="false" gridSnap="true" autoFootprint="false" icon3Doffset="0 0.015 0.76" icon3Dscale="3.9">
+         <cfootprint width="0" height="0"/>
+         <dfootprint width="1" height="1"/>
+      </ZTPlacementData>
+      <BFGCollisionData isPassable="true"/>
+      <BFAIEntityDataShared s_uisort="bd" s_Product="CP1" s_Zoopedia="zoopedia:zoopedia_squeakytoy:entry" f_researchUnlockTime="100" f_researchCost="800" f_FameReq="60"/>
+      <BFGDetachInfo>
+         <detachActionTable>
+            <dropitem destination="drop"/>
+            <killitem destination="kill"/>
+            <inventory destination="inventory"/>
+            <maketrash destination="kill"/>
+         </detachActionTable>
+      </BFGDetachInfo>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width=".6" ignoreLights="true" minLength=".5" maxLength="1" minOffset="0" maxOffset=".25"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities\objects\enrichment\SqueakyToy\SqueakyToy.bfm"/>
+               <BFFakePhysicsComponent idleAnim="Idle" moveAnim="Bounce" escapeAnim="Nudge" slideRate="1.0" maxEscapeTries="5"/>
+               <BFGroundFitComponent heightOffset="0.0" maxTilt="50" floatOnWater="true" waterOffset="-0.65"/>
+               <BFCollisionComponent grid="Bip01 COG"/>
+               <BFGridCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Play">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall_Whap" exitBehSet="ExitBall" targetNode="Dock_PickUp01" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall_Whap" exitBehSet="ExitBall" targetNode="Dock_PickUp02" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="320">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFGCollisionTester maxSlope=".01"/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,82 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="UseBathroomSmall" CursorTask="false" reserveTag="Use" UniqueID="bathroom:UseBathroomSmall">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bathroomsmall/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap bathroom="-10"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="UseBathroomSmall"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteBathroomgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap bathroom="-100" happiness="-3"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="UseBathroomLarge" CursorTask="false" reserveTag="Use_Male" UniqueID="bathroom:UseBathroomLarge">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+            <Guest_Young_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bathroomlarge/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap bathroom="-20"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="UseBathroom"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteBathroomgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap bathroom="-100" happiness="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="UseBathroomLarge" CursorTask="false" reserveTag="Use_Female" UniqueID="bathroom:UseBathroomLarge:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+            <Guest_Young_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bathroomlarge/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap bathroom="-11"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="UseBathroom"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteBathroomgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap bathroom="-100" happiness="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

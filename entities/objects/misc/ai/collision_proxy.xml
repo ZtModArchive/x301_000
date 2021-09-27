@@ -1,0 +1,27 @@
+<BFTypedBinder binderType="collision_proxy" abstract="true">
+   <types>
+      <entity>
+         <collision_proxy/>
+      </entity>
+   </types>
+   <shared>
+      <BFAIEntityDataShared b_DoNotSave="true" b_IsCollisionProxy="true"/>
+      <BFGCollisionData isPassable="false"/>
+      <ZTPlacementData gridSnap="true" autoFootprint="true" deletable="false" selectable="false" moveable="false"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFCollisionComponent/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <ZTPhotoAnalysisComponent/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

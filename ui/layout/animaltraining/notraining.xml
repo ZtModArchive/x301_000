@@ -1,0 +1,109 @@
+<UILayout name="Training Messages">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect>
+      <default alwayshit="true" image="">
+         <BFColor r="0" g="0" b="0" a="128"/>
+      </default>
+   </UIAspect>
+   <children>
+      <UILayout name="unable to train">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect>
+            <default alwayshit="true" image="ui\shared\white1x1.dds">
+               <BFColor r="0" g="0" b="0" a="128"/>
+            </default>
+         </UIAspect>
+         <children>
+            <UILayout template="blankna" name="">
+               <UIRegion x="255" y="250" w="512" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default image="">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+               <children>
+                  <UILayout name="" template="panelwell">
+                     <UIRegion x="22" y="67" w="468" h="122" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="">
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UILayout name="logo">
+                     <UIRegion x="210" y="-10" w="85" h="85" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\zoo2logo.dds">
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UILayout name="" template="buttonbar">
+                     <UIRegion x="22" y="191" w="468" h="61" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="">
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UIText name="done training text">
+                     <UIRegion x="30" y="80" w="450" h="100" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="training:unable_to_train_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="465" h="40"/>
+                           <BFFont align="center"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <text format="training:unable_to_train_format" type="multi"/>
+                  </UIText>
+                  <UIButton name="dismiss panel">
+                     <UIRegion x="400" y="187" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids=""/>
+                     <UIAspect string="">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="unable to train"/>
+                        <event msg="UI_HIDE"/>
+                        <event msg="ZT_FP_ACCEPTANIMALDONETRAINING"/>
+                     </activate>
+                     <UIHotKeys/>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

@@ -1,0 +1,125 @@
+<BFTypedBinder binderType="Narwhal_Adult_F">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Cetacea>
+                     <Monodontidae>
+                        <Narwhal>
+                           <Narwhal_Adult>
+                              <Narwhal_Adult_F/>
+                           </Narwhal_Adult>
+                        </Narwhal>
+                     </Monodontidae>
+                  </Cetacea>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared b_Male="0"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\units\animals\Narwhal\Narwhal_Adult_F_icon.dds" />
+         </UIAspect>
+      </UIToggleButton>
+      <ZTPlacementData icon3Doffset="0 0 .92" icon3Dscale=".64" />
+   </shared>
+   <binder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_Pregnant="false"/>
+         </instance>
+      </BFBinder>
+	<BFBinder required="1">
+		<instance>
+			<BFLocomotionMgr />
+		</instance>
+		<binder>
+			<BFNamedBinder binderName="watercarryback" required="1">
+				<instance>
+					<BFLocoAnimate version="1" stationaryAnim="TreadWaterSubHugYoung">
+						<stop name="TreadWaterSubHugYoung" />
+						<slow name="SwimSubHugYoung" animSpeed="0.4">
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" />
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" />
+						</slow>
+						<medium name="SwimSubHugYoung" animSpeed="0.7">
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" />
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" />
+						</medium>
+						<fast name="SwimSubHugYoung" animSpeed="0.9">
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" />
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" />
+						</fast>
+						<evade name="SwimSubHugYoung" minAnimSpeed="0.75" maxAnimSpeed="1" minResetPeriod="1" maxResetPeriod="2">
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" />
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" />
+						</evade>
+						<attack name="SwimSubHugYoung" flapAnim="SwimSubHugYoung_Ahead" minAnimSpeed="0.75" maxAnimSpeed="1.0" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" roll="0.5" />
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" pitch="0.5" />
+						</attack>
+						<stalk name="SwimSubHugYoung" flapAnim="SwimSubHugYoung_Ahead" animSpeed="0.75">
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" />
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" />
+						</stalk>
+						<glide name="SwimSubHugYoungGlide" flapAnim="SwimSubHugYoung_2SwimSubHugYoungGlide" minFlapPeriod="4" maxFlapPeriod="6">
+							<anim name="SwimSubHugYoungGlide_Ahead" yaw="1.0" pitch="0.5" acceleration="-0.1" minSpeed="0.25" maxSpeed="1.0" />
+							<anim name="SwimSubHugYoung_2SwimSubHugYoungGlide" yaw="1.0" pitch="0.5" />
+						</glide>
+						<porpoise name="SwimSubHugYoung" minAnimSpeed="0.75" maxAnimSpeed="1.0" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" roll="0.5" />
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" pitch="0.5" />
+						</porpoise>
+					</BFLocoAnimate>
+				</instance>
+			</BFNamedBinder>
+			<BFNamedBinder binderName="underwatercarryback" required="1">
+				<instance>
+					<BFLocoAnimate version="1" stationaryAnim="TreadWaterSubHugYoung">
+						<stop name="TreadWaterSubHugYoung" />
+						<slow name="SwimSubHugYoung" animSpeed="0.4">
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" />
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" />
+						</slow>
+						<medium name="SwimSubHugYoung" animSpeed="0.7">
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" />
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" />
+						</medium>
+						<fast name="SwimSubHugYoung" animSpeed="0.9">
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" />
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" />
+						</fast>
+						<evade name="SwimSubHugYoung" minAnimSpeed="0.75" maxAnimSpeed="1" minResetPeriod="1" maxResetPeriod="2">
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" />
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" />
+						</evade>
+						<attack name="SwimSubHugYoung" flapAnim="SwimSubHugYoung_Ahead" minAnimSpeed="0.75" maxAnimSpeed="1.0" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" roll="0.5" />
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" pitch="0.5" />
+						</attack>
+						<stalk name="SwimSubHugYoung" flapAnim="SwimSubHugYoung_Ahead" animSpeed="0.75">
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" />
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" />
+						</stalk>
+						<glide name="SwimSubHugYoungGlide" flapAnim="SwimSubHugYoung_2SwimSubHugYoungGlide" minFlapPeriod="4" maxFlapPeriod="6">
+							<anim name="SwimSubHugYoungGlide_Ahead" yaw="1.0" pitch="0.5" acceleration="-0.1" minSpeed="0.25" maxSpeed="1.0" />
+							<anim name="SwimSubHugYoung_2SwimSubHugYoungGlide" yaw="1.0" pitch="0.5" />
+						</glide>
+						<porpoise name="SwimSubHugYoung" minAnimSpeed="0.75" maxAnimSpeed="1.0" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="SwimSubHugYoung_Ahead" yaw="1.0" pitch="0.5" roll="0.5" />
+							<anim name="SwimSub_2SwimSubHugYoung" yaw="1.0" pitch="0.5" />
+						</porpoise>
+					</BFLocoAnimate>
+				</instance>
+			</BFNamedBinder>
+		</binder>
+	</BFBinder>
+   </binder>
+</BFTypedBinder>

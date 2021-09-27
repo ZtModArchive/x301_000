@@ -1,0 +1,70 @@
+<BFTypedBinder binderType="Statue_AnimalBabies">
+   <types>
+      <entity>
+         <scenery>
+            <Statue>
+               <Statue_AnimalBabies/>
+            </Statue>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="statueObj" rottype="use" postype="use" attachnode="Node_Statue"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.6" icon3Dscale="0.5" moveable="true"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\Statue_AnimalBabies\Statue_AnimalBabies_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Statue_AnimalBabies"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Statue_AnimalBabies"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Theme="default" s_uisort="sta" s_Zoopedia="zoopedia:zoopedia_animalbabies:entry" b_SeeThrough="false"/>
+      <ZTTourData>
+         <statue value="9"/>
+         <cool value="6"/>
+         <reward value="7"/>
+      </ZTTourData>
+      <ZTDevComponent/>      
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="3" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities/objects/scenery/Statue_AnimalBabies/Statue_AnimalBabies_base_end" switch="0 15 30"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="statueObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/Statue_AnimalBabies/Statue_AnimalBabies_sculpture_end" switch="0 15 30"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="300">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

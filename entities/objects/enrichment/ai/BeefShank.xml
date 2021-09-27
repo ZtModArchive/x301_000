@@ -1,0 +1,77 @@
+<BFTypedBinder binderType="BeefShank">
+   <types>
+      <entity>
+         <enrichment>
+            <treat>
+               <BeefShank/>
+            </treat>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\BeefShank\BeefShank_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:BeefShank"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="BeefShank"/>
+         </on>
+      </UIToggleButton>
+      <BFGCollisionData isPassable="true"/>
+      <BFAIEntityDataShared s_uisort="ef" b_Sniffable="true" s_prop="Meat_Prop" s_Zoopedia="zoopedia:zoopedia_beefshank:entry" f_FameReq="20"/>
+      <BFGDetachInfo>
+         <detachActionTable>
+            <dropitem destination="drop"/>
+            <killitem destination="kill"/>
+            <inventory destination="inventory"/>
+            <maketrash destination="kill"/>
+         </detachActionTable>
+      </BFGDetachInfo>
+      <ZTPlacementData autoFootprint="false">
+         <cfootprint width="0" height="0"/>
+         <dfootprint width="1" height="1"/>
+      </ZTPlacementData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="1.25" length="0.75" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/BeefShank/BeefShank" switch="0 18 36"/>
+               <BFGroundFitComponent heightOffset="0.0" maxTilt="50"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Eat">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterBeefShank" useBehSet="UseBeefShank" exitBehSet="ExitBeefShank" targetNode="Dock_Eat" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="75">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

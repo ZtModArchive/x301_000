@@ -1,0 +1,35 @@
+<BFTypedBinder binderType="CrocodileNile_Adult_M">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Reptilia>
+                  <Crocodylia>
+                     <Crocodylidae>
+                        <CrocodileNile>
+                           <CrocodileNile_Adult>
+                              <CrocodileNile_Adult_M/>
+                           </CrocodileNile_Adult>
+                        </CrocodileNile>
+                     </Crocodylidae>
+                  </Crocodylia>
+               </Reptilia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\units\animals\CrocodileNile\CrocodileNile_Adult_M_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="CrocodileNile_Adult_M"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Male="1" f_adoptCount="rand(1,1)"/>
+   </shared>
+</BFTypedBinder>

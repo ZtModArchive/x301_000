@@ -1,0 +1,2532 @@
+<UILayout>
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <children>
+      <UILayout alwayshit="true" name="multilist layout">
+         <UIRegion x="164" y="130" w="696" h="300" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIHotKeys>
+            <file name="UI/hotkeys/hotkeys.xml" node="escclose"/>
+         </UIHotKeys>
+         <children>
+            <UILayout name="multilist" template="blank">
+               <UIRegion x="0" y="10" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <children>
+                  <UILayout name="header template" template="header">
+                     <UIRegion x="0" y="0" w="0" h="35" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="">
+                           <BFRect x="0" y="0" w="640" h="579"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UIText name="multi list laber">
+                     <UIRegion x="28" y="5" w="300" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="multilist:multilist_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFFont align="left">
+                              <BFColor r="255" g="197" b="78" a="255"/>
+                           </BFFont>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UILayout name="panel well template" template="panelwell">
+                     <UIRegion x="5" y="55" w="-5" h="-22" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="">
+                           <BFRect x="0" y="0" w="640" h="579"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UIToggleSet name="multi list tabs">
+                     <UIRegion x="-333" y="-10" w="335" h="64" xalign="max" yalign="min" walign="len" halign="len"/>
+                     <children>
+                        <UIToggleButton name="Animal Multilist Tab" toggle="1" sticky="1">
+                           <UIRegion x="0" y="0" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_info_tab"/>
+                           <UIAspect string="">
+                              <default image="ui/shared/tabanimal.dds" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="0" y="0" w="64" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="64" w="64" h="64"/>
+                                 </highlighted>
+                                 <activated sound="uitab">
+                                    <BFRect x="64" y="0" w="64" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="64" y="64" w="64" h="64"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="64" y="0" w="64" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="64" y="0" w="64" h="64"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="64" y="0" w="64" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="64" y="64" w="64" h="64"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="UI_CHILD" data="UIChildData" name="animal tab layout">
+                                 <child msg="UI_SHOW"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist type label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_name_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist count label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_number_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                 <child msg="ZT_AUTOPOPULATE_LIST" data="BFString" string="animal"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multi list animal filters">
+                                 <child msg="UI_REPRESS"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="UI_CHILD" data="UIChildData" name="animal tab layout">
+                                 <child msg="UI_HIDE"/>
+                              </event>
+                           </off>
+                        </UIToggleButton>
+                        <UIToggleButton name="Guest Multilist Tab" toggle="0" sticky="1">
+                           <UIRegion x="48" y="0" w="64" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="multilist:guest_info_tab"/>
+                           <UIAspect string="">
+                              <default image="ui/shared/tabguest.dds" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="0" y="0" w="64" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="64" w="64" h="64"/>
+                                 </highlighted>
+                                 <activated sound="uitab">
+                                    <BFRect x="64" y="0" w="64" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="64" y="64" w="64" h="64"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="64" y="0" w="64" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="64" y="0" w="64" h="64"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="64" y="0" w="64" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="64" y="64" w="64" h="64"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="UI_CHILD" data="UIChildData" name="guest tab layout">
+                                 <child msg="UI_SHOW"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist type label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:guest_name_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist count label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:guest_number_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="guest multi list">
+                                 <child msg="ZT_AUTOPOPULATE_LIST" data="BFString" string="Guest"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multi list guest filters">
+                                 <child msg="UI_REPRESS"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="UI_CHILD" data="UIChildData" name="guest tab layout">
+                                 <child msg="UI_HIDE"/>
+                              </event>
+                           </off>
+                        </UIToggleButton>
+                        <UIToggleButton name="Staff Multilist Tab" toggle="0" sticky="1">
+                           <UIRegion x="103" y="0" w="48" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="multilist:staff_info_tab"/>
+                           <UIAspect string="">
+                              <default image="ui/shared/tab_staff_keeper.dds" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="8" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="8" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated sound="uitab">
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="UI_CHILD" data="UIChildData" name="staff tab layout">
+                                 <child msg="UI_SHOW"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist type label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:staff_name_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist count label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:staff_number_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="staff multi list">
+                                 <child msg="ZT_AUTOPOPULATE_LIST" data="BFString" string="Staff"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multi list staff filters">
+                                 <child msg="UI_REPRESS"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="UI_CHILD" data="UIChildData" name="staff tab layout">
+                                 <child msg="UI_HIDE"/>
+                              </event>
+                           </off>
+                        </UIToggleButton>
+                        <UIToggleButton name="Vehicle Multilist Tab" toggle="0" sticky="1">
+                           <UIRegion x="150" y="0" w="48" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="multilist:vehicle_info_tab"/>
+                           <UIAspect string="">
+                              <default image="ui/shared/transportation_tab.dds" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="8" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="8" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated sound="uitab">
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="UI_CHILD" data="UIChildData" name="vehicle tab layout">
+                                 <child msg="UI_SHOW"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist type label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:vehicle_name_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist count label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:vehicle_number_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="vehicle multi list">
+                                 <child msg="ZT_AUTOPOPULATE_LIST" data="BFString" string="vehicle"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multi list vehicle filters">
+                                 <child msg="UI_REPRESS"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="UI_CHILD" data="UIChildData" name="vehicle tab layout">
+                                 <child msg="UI_HIDE"/>
+                              </event>
+                           </off>
+                        </UIToggleButton>
+                        <UIToggleButton name="Building Multilist Tab" toggle="0" sticky="1">
+                           <UIRegion x="198" y="0" w="48" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="multilist:building_info_tab"/>
+                           <UIAspect string="">
+                              <default image="ui/zooinfo/tab_buildprofit.dds" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="8" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="8" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated sound="uitab">
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="UI_CHILD" data="UIChildData" name="building tab layout">
+                                 <child msg="UI_SHOW"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist type label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:building_name_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist count label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:building_number_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="building multi list">
+                                 <child msg="ZT_AUTOPOPULATE_LIST" data="BFString" string="building"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multi list building filters">
+                                 <child msg="UI_REPRESS"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="UI_CHILD" data="UIChildData" name="building tab layout">
+                                 <child msg="UI_HIDE"/>
+                              </event>
+                           </off>
+                        </UIToggleButton>
+                        <UIToggleButton name="Donation Box Multilist Tab" toggle="0" sticky="1">
+                           <UIRegion x="246" y="0" w="48" h="64" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="multilist:donation_info_tab"/>
+                           <UIAspect string="">
+                              <default image="ui/zooinfo/tab_donations.dds" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="8" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="8" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated sound="uitab">
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </standard>
+                              <alternate>
+                                 <normal>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </highlighted>
+                                 <activated>
+                                    <BFRect x="72" y="0" w="48" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="72" y="64" w="48" h="64"/>
+                                 </disabled>
+                              </alternate>
+                           </UIAspect>
+                           <UIHotKeys/>
+                           <on>
+                              <event msg="UI_CHILD" data="UIChildData" name="donation box tab layout">
+                                 <child msg="UI_SHOW"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist type label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:donation_box_name_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multilist count label">
+                                 <child msg="UI_SET_LOCID" data="BFString" string="multilist:donation_box_number_label"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="donation box multi list">
+                                 <child msg="ZT_AUTOPOPULATE_LIST" data="BFString" string="donationbox"/>
+                              </event>
+                              <event msg="UI_CHILD" data="UIChildData" name="multi list donation box filters">
+                                 <child msg="UI_REPRESS"/>
+                              </event>
+                           </on>
+                           <off>
+                              <event msg="UI_CHILD" data="UIChildData" name="donation box tab layout">
+                                 <child msg="UI_HIDE"/>
+                              </event>
+                           </off>
+                        </UIToggleButton>
+                     </children>
+                  </UIToggleSet>
+                  <UILayout name="Multilist header">
+                     <UIRegion x="16" y="40" w="-4" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <children>
+                        <UIText name="multilist type label">
+                           <UIRegion x="5" y="0" w="100" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIAspect locid="multilist:animal_name_label">
+                              <default>
+                                 <BFFont align="left">
+                                    <BFColor r="255" g="197" b="78" a="255"/>
+                                 </BFFont>
+                              </default>
+                           </UIAspect>
+                        </UIText>
+                        <UIText name="sort label">
+                           <UIRegion x="120" y="0" w="272" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIAspect locid="">
+                              <default>
+                                 <BFFont align="left">
+                                    <BFColor r="255" g="197" b="78" a="255"/>
+                                 </BFFont>
+                              </default>
+                           </UIAspect>
+                           <text format="multilist:sort_label_format"/>
+                        </UIText>
+                        <UIText name="multilist count label">
+                           <UIRegion x="380" y="0" w="130" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIAspect locid="multilist:animal_number_label">
+                              <default>
+                                 <BFFont align="right"/>
+                              </default>
+                           </UIAspect>
+                        </UIText>
+                        <UIText name="multilist count">
+                           <UIRegion x="520" y="0" w="55" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIAspect locid="">
+                              <default image="" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFFont/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <text format="multilist:num_format"/>
+                        </UIText>
+                     </children>
+                  </UILayout>
+                  <UILayout name="animal tab layout">
+                     <UIRegion x="10" y="5" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIToggleSet name="multi list animal filters">
+                           <UIRegion x="0" y="46" w="-10" h="64" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <children>
+                              <UILayout template="buttonbar">
+                                 <UIRegion x="0" y="8" w="0" h="42" xalign="min" yalign="min" walign="max" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="" sound="">
+                                       <BFRect x="0" y="0" w="310" h="243"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                              <UIToggleButton name="animal_all_button" toggle="1" sticky="1">
+                                 <UIRegion x="0" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_type"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="128" y="384" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="128" y="448" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="192" y="384" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="192" y="448" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="192" y="384" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="192" y="384" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="192" y="384" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="192" y="448" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_type_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_TYPE"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="animal_enviornment_button" toggle="0" sticky="1">
+                                 <UIRegion x="111" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_env"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons_biome.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_env_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="environment"/>
+                                    </event>
+                                 </on>
+                                 <UIHotKeys/>
+                              </UIToggleButton>
+                              <UIToggleButton name="animal_hunger_button" toggle="0" sticky="1">
+                                 <UIRegion x="143" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_hunger"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="256" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="320" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="256" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="320" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="256" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="256" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="256" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="320" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_hunger_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="hunger"/>
+                                    </event>
+                                 </on>
+                                 <UIHotKeys/>
+                              </UIToggleButton>
+                              <UIToggleButton name="animal_thirsty_button" toggle="0" sticky="1">
+                                 <UIRegion x="175" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_thirst"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="256" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="256" y="192" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="320" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="320" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="320" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="320" y="128" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="320" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="320" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_thirst_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="thirst"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="animal_rest_button" toggle="0" sticky="1">
+                                 <UIRegion x="207" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_rest"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="128" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="128" y="192" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="192" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="192" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="192" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="192" y="128" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="192" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="192" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_rest_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="rest"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="animal_exercise_button" toggle="0" sticky="1">
+                                 <UIRegion x="239" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_exercise"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="384" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="384" y="192" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="448" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="448" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="448" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="448" y="128" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="448" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="448" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_exercise_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="exercise"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="animal_sick_button" toggle="0" sticky="1">
+                                 <UIRegion x="461" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_sick"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="128" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="128" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="192" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="192" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="192" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="192" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="192" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="192" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_sick_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="health"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <!-- Advanced Needs-->
+                              <UIToggleButton name="animal_hygiene_button" toggle="0" sticky="1">
+                                 <UIRegion x="286" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_hygiene"/>
+                                 <UIAspect string="">
+                                    <default image="ui\icon_needs\quickstats_hygene.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_hygiene_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="hygiene"/>
+                                    </event>
+                                 </on>
+                                 <UIHotKeys/>
+                              </UIToggleButton>
+                              <UIToggleButton name="animal_privacy_button" toggle="0" sticky="1">
+                                 <UIRegion x="318" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_privacy"/>
+                                 <UIAspect string="">
+                                    <default image="ui\icon_needs\quickstats_privacy.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_privacy_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="privacy"/>
+                                    </event>
+                                 </on>
+                                 <UIHotKeys/>
+                              </UIToggleButton>
+                              <UIToggleButton name="animal_social_button" toggle="0" sticky="1">
+                                 <UIRegion x="350" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_social"/>
+                                 <UIAspect string="">
+                                    <default image="ui\icon_needs\quickstats_social.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_social_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="social"/>
+                                    </event>
+                                 </on>
+                                 <UIHotKeys/>
+                              </UIToggleButton>
+                              <UIToggleButton name="animal_stimulation_button" toggle="0" sticky="1">
+                                 <UIRegion x="382" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_stimulation"/>
+                                 <UIAspect string="">
+                                    <default image="ui\icon_needs\quickstats_mentalstim.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_stimulation_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="stimulation"/>
+                                    </event>
+                                 </on>
+                                 <UIHotKeys/>
+                              </UIToggleButton>
+                              <UIToggleButton name="animal_angry_button" toggle="0" sticky="1">
+                                 <UIRegion x="429" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_happy"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="384" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="448" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="384" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="448" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="384" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="384" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="384" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="384" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_happy_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_ANIMAL_HAPPINESS_UP"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="animal_pregnant_button" toggle="0" sticky="1">
+                                 <UIRegion x="493" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:animal_sort_pregnant"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:animal_sort_pregnant_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="animals multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_PREGNANCY_DOWN"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                           </children>
+                        </UIToggleSet>
+                        <ZTMultiList name="animals multi list" template="panel" rows="-1" countComponent="multilist count" update=".5">
+                           <UIRegion x="0" y="95" w="-10" h="-25" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default/>
+                           </UIAspect>
+                           <colors>
+                              <BFColor r="45" g="70" b="115" a="255"/>
+                              <BFColor r="45" g="40" b="100" a="255"/>
+                           </colors>
+                           <children/>
+                        </ZTMultiList>
+                        <UIText name="species label">
+                           <UIRegion x="10" y="-22" w="150" h="30" xalign="min" yalign="max" walign="len" halign="len"/>
+                           <UIAspect locid="multilist:species_label">
+                              <default image="" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFFont/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                        </UIText>
+                        <UIText name="species count">
+                           <UIRegion x="200" y="-22" w="55" h="30" xalign="min" yalign="max" walign="len" halign="len"/>
+                           <UIAspect locid="">
+                              <default image="" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFFont/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <text format="multilist:num_format"/>
+                        </UIText>
+                     </children>
+                  </UILayout>
+                  <UILayout name="guest tab layout">
+                     <UIRegion x="10" y="5" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIToggleSet name="multi list guest filters">
+                           <UIRegion x="0" y="46" w="-10" h="64" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <children>
+                              <UILayout template="buttonbar">
+                                 <UIRegion x="0" y="8" w="0" h="42" xalign="min" yalign="min" walign="max" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="" sound="">
+                                       <BFRect x="0" y="0" w="310" h="243"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                              <UIToggleButton name="guest_all_button" toggle="1" sticky="1">
+                                 <UIRegion x="0" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:guest_sort_type"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="256" y="384" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="256" y="448" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="320" y="384" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="384" y="448" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="320" y="384" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="320" y="384" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="320" y="384" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="384" y="448" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:guest_sort_type_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="guest multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_TYPE"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="guest_favorite_button" toggle="0" sticky="1">
+                                 <UIRegion x="109" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:guest_sort_fav_animal"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons_animalfav.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:guest_sort_fav_animal_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="guest multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_FAVORITE_ANIMAL"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="guest_angry_button" toggle="0" sticky="1">
+                                 <UIRegion x="143" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:guest_sort_happy"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="384" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="448" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="384" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="448" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="384" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="384" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="384" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="384" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:guest_sort_happy_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="guest multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="happiness"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="guest_hunger_button" toggle="0" sticky="1">
+                                 <UIRegion x="175" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:guest_sort_hunger"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="256" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="320" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="256" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="320" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="256" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="256" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="256" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="320" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:guest_sort_hunger_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="guest multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="hunger"/>
+                                    </event>
+                                 </on>
+                                 <UIHotKeys/>
+                              </UIToggleButton>
+                              <UIToggleButton name="guest_thirst_button" toggle="0" sticky="1">
+                                 <UIRegion x="207" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:guest_sort_thirst"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="256" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="256" y="192" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="320" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="320" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="320" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="320" y="128" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="320" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="320" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:guest_sort_thirst_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="guest multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="thirst"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="guest_rest_button" toggle="0" sticky="1">
+                                 <UIRegion x="239" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:guest_sort_rest"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="256" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="256" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="320" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="320" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="320" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="320" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="320" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="320" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:guest_sort_rest_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="guest multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="rest"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="guest_amusement_button" toggle="0" sticky="1">
+                                 <UIRegion x="271" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:guest_sort_amusement"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="384" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="384" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="448" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="448" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="448" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="448" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="448" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="448" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:guest_sort_amusement_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="guest multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="amusement"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="guest_bathroom_button" toggle="0" sticky="1">
+                                 <UIRegion x="303" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:guest_sort_bathroom"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="192" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="128" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="128" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:guest_sort_bathroom_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="guest multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_NEED_DOWN" data="BFString" string="bathroom"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="guest_thought_button" toggle="0" sticky="1">
+                                 <UIRegion x="348" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:guest_sort_thought"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds"/>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="128" y="256" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="128" y="320" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="192" y="256" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="192" y="320" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="192" y="256" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="192" y="256" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="192" y="256" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="192" y="320" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:guest_sort_thought_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="guest multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_STRING" data="BFString" string="thought"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                           </children>
+                        </UIToggleSet>
+                        <ZTMultiList name="guest multi list" template="panel" rows="-1" countComponent="multilist count" update=".5">
+                           <UIRegion x="0" y="95" w="-10" h="-25" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default/>
+                           </UIAspect>
+                           <colors>
+                              <BFColor r="45" g="70" b="115" a="255"/>
+                              <BFColor r="45" g="40" b="100" a="255"/>
+                           </colors>
+                           <children/>
+                        </ZTMultiList>
+                     </children>
+                  </UILayout>
+                  <UILayout name="staff tab layout">
+                     <UIRegion x="10" y="5" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIToggleSet name="multi list staff filters">
+                           <UIRegion x="0" y="46" w="-10" h="64" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <children>
+                              <UILayout template="buttonbar">
+                                 <UIRegion x="0" y="8" w="0" h="42" xalign="min" yalign="min" walign="max" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="" sound="">
+                                       <BFRect x="0" y="0" w="310" h="243"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                              <UIToggleButton name="staff_all_button" toggle="1" sticky="1">
+                                 <UIRegion x="0" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:staff_sort_type"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="384" y="384" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="384" y="448" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="448" y="384" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="448" y="448" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="448" y="384" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="448" y="384" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="448" y="384" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="448" y="448" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:staff_sort_type_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="staff multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_TYPE"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="staff_task_button" toggle="0" sticky="1">
+                                 <UIRegion x="109" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:staff_sort_task"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="384" y="256" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="384" y="320" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="448" y="256" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="448" y="448" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="448" y="256" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="448" y="256" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="448" y="256" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="448" y="448" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:staff_sort_task_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="staff multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_STRING" data="BFString" string="Task Label"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="staff_assignments_button" toggle="0" sticky="1">
+                                 <UIRegion x="143" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:staff_sort_assign"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\quickstat_buttons.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="256" y="256" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="256" y="320" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="320" y="256" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="320" y="320" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="320" y="256" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="320" y="256" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="320" y="256" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="320" y="320" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:staff_sort_assign_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="staff multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_TYPE"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                           </children>
+                        </UIToggleSet>
+                        <ZTMultiList name="staff multi list" template="panel" rows="-1" countComponent="multilist count" update=".5">
+                           <UIRegion x="0" y="95" w="-10" h="-25" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default/>
+                           </UIAspect>
+                           <colors>
+                              <BFColor r="45" g="70" b="115" a="255"/>
+                              <BFColor r="45" g="40" b="100" a="255"/>
+                           </colors>
+                           <children/>
+                        </ZTMultiList>
+                     </children>
+                  </UILayout>
+                  <UILayout name="vehicle tab layout">
+                     <UIRegion x="10" y="5" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIToggleSet name="multi list vehicle filters">
+                           <UIRegion x="0" y="46" w="-10" h="64" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <children>
+                              <UILayout template="buttonbar">
+                                 <UIRegion x="0" y="8" w="0" h="42" xalign="min" yalign="min" walign="max" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="" sound="">
+                                       <BFRect x="0" y="0" w="310" h="243"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                              <UIToggleButton name="vehicle_all_button" toggle="1" sticky="1">
+                                 <UIRegion x="0" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:vehicle_sort_type"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_vehicletype.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:vehicle_sort_type_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="staff multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_TYPE"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="vehicle_sort_current_capacity_button" toggle="0" sticky="1">
+                                 <UIRegion x="109" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:vehicle_sort_current_capacity"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_vehiclepassengers.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:vehicle_sort_current_capacity_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="vehicle multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_STRING_REVERSE" data="BFString" string="occupancy"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="vehicle_sort_total_capacity_button" toggle="0" sticky="1">
+                                 <UIRegion x="143" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:vehicle_sort_total_capacity"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_vehicleseats.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:vehicle_sort_total_capacity_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="vehicle multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_STRING_REVERSE" data="BFString" string="capacity"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="vehicle_sort_status_button" toggle="0" sticky="1">
+                                 <UIRegion x="175" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:vehicle_sort_status"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_vehicleactivity.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:vehicle_sort_status_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="vehicle multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_STRING" data="BFString" string="state"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                           </children>
+                        </UIToggleSet>
+                        <ZTMultiList name="vehicle multi list" template="panel" rows="-1" countComponent="multilist count" update=".5">
+                           <UIRegion x="0" y="95" w="-10" h="-25" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default/>
+                           </UIAspect>
+                           <colors>
+                              <BFColor r="45" g="70" b="115" a="255"/>
+                              <BFColor r="45" g="40" b="100" a="255"/>
+                           </colors>
+                           <children/>
+                        </ZTMultiList>
+                     </children>
+                  </UILayout>
+                  <UILayout name="building tab layout">
+                     <UIRegion x="10" y="5" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIToggleSet name="multi list building filters">
+                           <UIRegion x="0" y="46" w="-10" h="64" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <children>
+                              <UILayout template="buttonbar">
+                                 <UIRegion x="0" y="8" w="0" h="42" xalign="min" yalign="min" walign="max" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="" sound="">
+                                       <BFRect x="0" y="0" w="310" h="243"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                              <UIToggleButton name="building_all_button" toggle="1" sticky="1">
+                                 <UIRegion x="0" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:building_sort_type"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_buildingtype.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:building_sort_type_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="building multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_TYPE"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="building_sort_months_button" toggle="0" sticky="1">
+                                 <UIRegion x="109" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:building_sort_months"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_monthsinoperation.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:building_sort_months_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="building multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_INT_GREATER" data="BFString" string="months"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="building_sort_profit_button" toggle="0" sticky="1">
+                                 <UIRegion x="160" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:building_sort_profit"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_profit.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:building_sort_profit_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="building multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_INT_GREATER" data="BFString" string="profit"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="building_sort_avg_profit_button" toggle="0" sticky="1">
+                                 <UIRegion x="210" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:building_sort_avg_profit"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_averageprofit.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:building_sort_avg_profit_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="building multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_INT_GREATER" data="BFString" string="avg profit"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                           </children>
+                        </UIToggleSet>
+                        <ZTMultiList name="building multi list" template="panel" rows="-1" countComponent="multilist count" update=".5">
+                           <UIRegion x="0" y="95" w="-10" h="-25" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default/>
+                           </UIAspect>
+                           <colors>
+                              <BFColor r="45" g="70" b="115" a="255"/>
+                              <BFColor r="45" g="40" b="100" a="255"/>
+                           </colors>
+                           <children/>
+                        </ZTMultiList>
+                     </children>
+                  </UILayout>
+                  <UILayout name="donation box tab layout">
+                     <UIRegion x="10" y="5" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIToggleSet name="multi list donation box filters">
+                           <UIRegion x="0" y="46" w="-10" h="64" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <children>
+                              <UILayout template="buttonbar">
+                                 <UIRegion x="0" y="8" w="0" h="42" xalign="min" yalign="min" walign="max" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="" sound="">
+                                       <BFRect x="0" y="0" w="310" h="243"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                              <UIToggleButton name="donation_box_all_button" toggle="1" sticky="1">
+                                 <UIRegion x="0" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:donation_box_sort_type"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_donationboxtype.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:donation_box_sort_type_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="donation box multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_TYPE"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="donation_box_sort_months_button" toggle="0" sticky="1">
+                                 <UIRegion x="109" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:donation_box_sort_months"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_monthsinoperation.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:donation_box_sort_months_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="donation box multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_INT_GREATER" data="BFString" string="months"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="donation_box_sort_profit_button" toggle="0" sticky="1">
+                                 <UIRegion x="160" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:donation_box_sort_profit"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_profit.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:donation_box_sort_profit_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="donation box multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_INT_GREATER" data="BFString" string="profit"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                              <UIToggleButton name="donation_box_sort_avg_profit_button" toggle="0" sticky="1">
+                                 <UIRegion x="210" y="0" w="58" h="58" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="multilist:donation_box_sort_avg_profit"/>
+                                 <UIAspect string="">
+                                    <default image="ui\zooinfo\button_averageprofit.dds" sound="">
+                                       <BFRect x="0" y="0" w="-1" h="-1"/>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uitab">
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="sort label">
+                                       <child msg="UI_SET_LOCID" data="BFString" string="multilist:donation_box_sort_avg_profit_stt"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="donation box multi list">
+                                       <child msg="ZT_MULTILIST_SORT_BY_INT_GREATER" data="BFString" string="avg profit"/>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                           </children>
+                        </UIToggleSet>
+                        <ZTMultiList name="donation box multi list" template="panel" rows="-1" countComponent="multilist count" update=".5">
+                           <UIRegion x="0" y="95" w="-10" h="-25" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect>
+                              <default/>
+                           </UIAspect>
+                           <colors>
+                              <BFColor r="45" g="70" b="115" a="255"/>
+                              <BFColor r="45" g="40" b="100" a="255"/>
+                           </colors>
+                           <children/>
+                        </ZTMultiList>
+                     </children>
+                  </UILayout>
+                  <UIButton name="close">
+                     <UIRegion x="-42" y="-4" w="40" h="40" xalign="max" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="zoostatus:close"/>
+                     <UIAspect string="">
+                        <default image="ui\shared\button_close.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="multilist layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="Camera Set">
+                           <child msg="UI_SHOW"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+            <UILayout name="move icon">
+               <UIRegion x="0" y="0" w="553" h="435" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <children>
+                  <UILayout>
+                     <UIRegion x="2" y="12" w="25" h="27" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\moveable.dds">
+                           <BFRect x="0" y="0" w="32" h="32"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UIDrag bounded="true" cursor="movebox.cur">
+               <UIRegion x="0" y="12" w="-320" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFRect x="0" y="0" w="1" h="1"/>
+                     <BFColor r="255" g="255" b="255" a="0"/>
+                  </default>
+                  <standard>
+                     <activated x="0" y="0" w="1" h="1">
+                        <BFColor r="134" g="201" b="139" a="64"/>
+                     </activated>
+                  </standard>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_POS"/>
+               </drag>
+               <doubleclick>
+                  <event msg="UI_SET_POS" data="BFPoint" x="164" y="130"/>
+                  <event msg="UI_SET_SIZE" data="BFPoint" x="696" y="300"/>
+               </doubleclick>
+            </UIDrag>
+            <UIDrag minWidth="350" maxWidth="696" bounded="true" cursor="horizontal.cur">
+               <UIRegion x="-5" y="0" w="0" h="0" xalign="max" yalign="min" walign="max" halign="max"/>
+               <UIAspect alwayshit="true"/>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_SIZE" axis="x"/>
+               </drag>
+            </UIDrag>
+            <UIDrag minHeight="240" maxHeight="400" bounded="true" cursor="vertical.cur">
+               <UIRegion x="-10" y="-10" w="0" h="0" xalign="min" yalign="max" walign="max" halign="max"/>
+               <UIAspect alwayshit="true">
+                  <default/>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_SIZE" axis="y"/>
+               </drag>
+            </UIDrag>
+            <UIDrag minWidth="350" maxWidth="696" minHeight="240" maxHeight="400" bounded="true" cursor="diagonal.cur">
+               <UIRegion x="-23" y="-23" w="0" h="0" xalign="max" yalign="max" walign="max" halign="max"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui\shared\cornerdrag.dds">
+                     <BFRect x="0" y="0" w="32" h="32"/>
+                  </default>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_SIZE" axis="x"/>
+                  <UIDragCommand msg="UI_ADD_SIZE" axis="y"/>
+               </drag>
+            </UIDrag>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

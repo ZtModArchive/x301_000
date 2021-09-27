@@ -1,0 +1,94 @@
+<BFTypedBinder binderType="Keeper_Adult_F_02">
+  <types>
+    <entity>
+      <actor>
+        <people>
+          <Staff>
+            <Keeper>
+              <Keeper_Adult_F>
+                <Keeper_Adult_F_02/>
+              </Keeper_Adult_F>
+            </Keeper>
+          </Staff>
+        </people>
+      </actor>
+    </entity>
+  </types>
+  <instance>
+    <BFGEntity/>
+  </instance>
+  <binder>
+    <BFNamedBinder binderName="mainObj">
+      <instance>
+        <BFPhysObj/>
+      </instance>
+      <shared>
+        <BFSharedRandomTextureInfo>
+          <replacementSet>
+            <group weight="1">
+              <item material="body" image="entities\units\staff\shared\staff_keeper_m_02.dds" layer="base"/>
+            </group>
+          </replacementSet>
+        </BFSharedRandomTextureInfo>
+      </shared>
+    </BFNamedBinder>
+    <BFNamedBinder binderName="headObj" required="0">
+      <instance>
+        <BFPhysObj/>
+      </instance>
+      <shared>
+        <BFSharedRandomTextureInfo>
+          <replacementSet>
+            <group weight="1">
+              <item material="guest_f_head" image="entities\units\guests\shared\guest_adult_f_head_02.dds" layer="base"/>
+              <item material="guest_f_headlo" image="entities\units\guests\shared\guest_adult_f_headlo_02.dds" layer="base"/>
+            </group>
+          </replacementSet>
+        </BFSharedRandomTextureInfo>
+      </shared>
+    </BFNamedBinder>
+    <BFNamedBinder binderName="headObjWetsuit" required="0">
+      <instance>
+        <BFPhysObj/>
+      </instance>
+      <shared>
+        <BFSharedRandomTextureInfo>
+          <replacementSet>
+            <group weight="1">
+              <item material="guest_f_head" image="entities\units\staff\Keeper\staff_keeper_marine_f_head_02.dds" layer="base"/>
+              <item material="guest_m_head" image="entities\units\staff\Keeper\staff_keeper_marine_f_head_02.dds" layer="base"/>
+              <item material="guest_adult_m_head" image="entities\units\staff\Keeper\staff_keeper_marine_f_head_02.dds" layer="base"/>
+              <item material="guest_f_headlo" image="entities\units\staff\Keeper\low\staff_keeper_marine_f_headlo_02.dds" layer="base"/>
+            </group>
+          </replacementSet>
+        </BFSharedRandomTextureInfo>
+      </shared>
+    </BFNamedBinder>
+    <BFBinder required="1" repopulateMethod="byType">
+      <instance>
+        <ZTWetsuitComponent>
+          <OnLand>
+            <Textures>
+              <group>
+                <item material="body" image="entities\units\staff\shared\staff_keeper_m_02.dds" layer="base"/>
+              </group>
+            </Textures>
+            <Physobjs>
+              <parenting child ="headObj" attachnode="Link_Head"/>
+            </Physobjs>
+          </OnLand>
+          <InWater>
+            <Textures>
+              <group>
+                <item material="body" image="entities\units\staff\keeper\staff_wetsuits_zookeeper_02.dds" layer="base"/>
+              </group>
+            </Textures>
+            <Physobjs>
+              <parenting child ="headObjWetsuit" attachnode="Link_Head"/>
+            </Physobjs>
+          </InWater>
+        </ZTWetsuitComponent>
+      </instance>
+    </BFBinder>
+  </binder>
+</BFTypedBinder>

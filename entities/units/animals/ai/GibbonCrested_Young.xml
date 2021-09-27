@@ -1,0 +1,108 @@
+<BFTypedBinder binderType="GibbonCrested_Young" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Primata>
+							<Hylobatidae>
+								<GibbonCrested>
+									<GibbonCrested_Young />
+								</GibbonCrested>
+							</Hylobatidae>
+						</Primata>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<ZTDevComponent />
+		<BFAIEntityDataShared f_viewBonus="65" b_Adult="0" p_TerrainWaterNode="0 -1 0" p_PickedUpNode="0 -2 180">
+			<BFAINeedAdjusts health="0.25" stimulation="0.33" exercise="0.33" reproduction="0" />
+		</BFAIEntityDataShared>
+		<BFGDetachInfo>
+			<detachActionTable>
+				<dropitem destination="drop" />
+				<killitem destination="kill" />
+			</detachActionTable>
+		</BFGDetachInfo>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01" width="0.8" length="0.8" intensity="0.25"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj2">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Head" width="1.25" length="1.25" intensity="0.25"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFActorComponent actorfile="entities/units/animals/GibbonCrested/GibbonCrested_Young_F.bfm" scale="0.50" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester escapeBuffer="0.1875" radius=".375" motionClass="mover" waterScore="10" maxSlope=".75" wadeDepth="1" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAICognitiveMgr>
+					<Sensors>
+						<ZTAISensor />
+						<BFAISensorSelf />
+						<ZTAISensorLand />
+						<ZTAISensorTA sensorTag="habitat" />
+					</Sensors>
+					<StateThinkers>
+						<ZTAIStateThinker mergeKey="Name">
+							<BFAIStateVar Name="reproduction" Value="" ValueMin="0" ValueMax="0" CessationThreshold="90" TriggerThreshold="90" CriticalThreshold="90" Advanced="true" />
+						</ZTAIStateThinker>
+					</StateThinkers>
+					<TaskThinkers>
+						<ZTAITaskThinker />
+					</TaskThinkers>
+				</BFAICognitiveMgr>
+			</instance>
+			<shared>
+				<BFAICogShared>
+					<BFAINoPerceive>
+						<fence />
+						<path />
+						<entrance />
+					</BFAINoPerceive>
+				</BFAICogShared>
+			</shared>
+		</BFBinder>
+		<BFNamedBinder binderName="checkup" required="1">
+			<instance>
+				<ZTAIStaffRequestController attribName="health" thresholdValue="30" testType="4" cancelThresholdValue="20" cancelTestType="1">
+					<ZTStaffRequestData tokenKey="t_CheckupBaby" subjectType="Keeper" priority="5" />
+				</ZTAIStaffRequestController>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance f_needPointsGood="50"/>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,319 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="Kangaroo_ThrowMimic" CursorTask="false" Priority="1" UniqueID="Kangaroo_ThrowMimic" TaskDelayMin="60" TaskDelayMax="120">
+      <BFAICreateData>
+         <Subjects>
+            <Kangaroo/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <Guest_Young/>
+            <Qualifiers inSight="15"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="5">
+       <BFAIAttributeFloatMap  social="-100" exercise="-100" stimulation="-100" hunger="-100" thirst="-100" rest="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_MimicKangaroo" GiveTo="target" Payload="subject" Timeout="5" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="Guest_MimicKangaroo" CursorTask="false" Priority="1" UniqueID="Guest_MimicKangaroo">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+         	<t_MimicKangaroo/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="-100" dessert="-100" rest="-100" social="-100" amusement="-100" gift="-100" bathroom="-100" viewanimals="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:MimicAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:MimicAnimal" priority="1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>      
+      	<BFBehFaceTarget/>
+      	<BFBehAnimate targetAnim="Stand_MimicKangaroo"/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+
+   <BFAITaskTemplate Name="Lion_ThrowMimic" CursorTask="false" Priority="1" UniqueID="Lion_ThrowMimic" TaskDelayMin="60" TaskDelayMax="120">
+      <BFAICreateData>
+         <Subjects>
+            <Lion/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <Guest_Young/>
+            <Qualifiers inSight="15"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="5">
+       <BFAIAttributeFloatMap  social="-100" exercise="-100" stimulation="-100" hunger="-100" thirst="-100" rest="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_MimicLion" GiveTo="target" Payload="subject" Timeout="5" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="Guest_MimicLion" CursorTask="false" Priority="1" UniqueID="Guest_MimicLion">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+         	<t_MimicLion/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="-100" dessert="-100" rest="-100" social="-100" amusement="-100" gift="-100" bathroom="-100" viewanimals="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:MimicAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:MimicAnimal" priority="1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>  
+      	<BFBehFaceTarget/>
+      	<BFBehAnimate targetAnim="Stand_MimicCat"/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+
+   <BFAITaskTemplate Name="Chimp_ThrowMimic" CursorTask="false" Priority="1" UniqueID="Chimp_ThrowMimic" TaskDelayMin="60" TaskDelayMax="120">
+      <BFAICreateData>
+         <Subjects>
+            <Chimpanzee/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <Guest_Young/>
+            <Qualifiers inSight="15"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="5">
+       <BFAIAttributeFloatMap  social="-100" exercise="-100" stimulation="-100" hunger="-100" thirst="-100" rest="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_MimicChimp" GiveTo="target" Payload="subject" Timeout="5" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="Guest_MimicChimp" CursorTask="false" Priority="1" UniqueID="Guest_MimicChimp">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+         	<t_MimicChimp/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="-100" dessert="-100" rest="-100" social="-100" amusement="-100" gift="-100" bathroom="-100" viewanimals="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:MimicAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:MimicAnimal" priority="1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>  
+      	<BFBehFaceTarget/>
+      	<BFBehAnimate targetAnim="Stand_MimicChimp"/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+
+   <BFAITaskTemplate Name="Gorilla_ThrowMimic" CursorTask="false" Priority="1" UniqueID="Gorilla_ThrowMimic" TaskDelayMin="60" TaskDelayMax="120">
+      <BFAICreateData>
+         <Subjects>
+            <GorillaMountain/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <Guest_Young/>
+            <Qualifiers inSight="15"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="5">
+       <BFAIAttributeFloatMap  social="-100" exercise="-100" stimulation="-100" hunger="-100" thirst="-100" rest="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_MimicGorilla" GiveTo="target" Payload="subject" Timeout="5" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="Guest_MimicGorilla" CursorTask="false" Priority="1" UniqueID="Guest_MimicGorilla">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+         	<t_MimicChimp/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="-100" dessert="-100" rest="-100" social="-100" amusement="-100" gift="-100" bathroom="-100" viewanimals="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:MimicAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:MimicAnimal" priority="1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>  
+      	<BFBehFaceTarget/>
+      	<BFBehAnimate targetAnim="Stand_MimicGorilla"/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+
+   <BFAITaskTemplate Name="Flamingo_ThrowMimic" CursorTask="false" Priority="1" UniqueID="Flamingo_ThrowMimic" TaskDelayMin="60" TaskDelayMax="120">
+      <BFAICreateData>
+         <Subjects>
+            <FlamingoGreater/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <Guest_Young/>
+            <Qualifiers inSight="15"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="5">
+       <BFAIAttributeFloatMap  social="-100" exercise="-100" stimulation="-100" hunger="-100" thirst="-100" rest="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_MimicFlamingo" GiveTo="target" Payload="subject" Timeout="5" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="Guest_MimicFlamingo" CursorTask="false" Priority="1" UniqueID="Guest_MimicFlamingo">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+         	<t_MimicFlamingo/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="-100" dessert="-100" rest="-100" social="-100" amusement="-100" gift="-100" bathroom="-100" viewanimals="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:MimicAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:MimicAnimal" priority="1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>  
+      	<BFBehFaceTarget/>
+      	<BFBehAnimate targetAnim="Stand_MimicFlamingo"/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+
+   <BFAITaskTemplate Name="Moose_ThrowMimic" CursorTask="false" Priority="1" UniqueID="Moose_ThrowMimic" TaskDelayMin="60" TaskDelayMax="120">
+      <BFAICreateData>
+         <Subjects>
+            <Moose/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <Guest_Young/>
+            <Qualifiers inSight="15"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="5">
+       <BFAIAttributeFloatMap  social="-100" exercise="-100" stimulation="-100" hunger="-100" thirst="-100" rest="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_MimicMoose" GiveTo="target" Payload="subject" Timeout="5" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="Guest_MimicMoose" CursorTask="false" Priority="1" UniqueID="Guest_MimicMoose">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <fromToken/>
+         </Targets>
+         <Objects>
+         	<t_MimicMoose/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="-100" dessert="-100" rest="-100" social="-100" amusement="-100" gift="-100" bathroom="-100" viewanimals="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:MimicAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:MimicAnimal" priority="1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>  
+      	<BFBehFaceTarget/>
+      	<BFBehAnimate targetAnim="Stand_MimicMoose"/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

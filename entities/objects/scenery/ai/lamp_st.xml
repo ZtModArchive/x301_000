@@ -1,0 +1,64 @@
+﻿<BFTypedBinder binderType="lamp_st">
+	<types>
+		<entity>
+			<scenery>
+				<lamp>
+					<lamp_st />
+				</lamp>
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+         <physObjParenting>            
+            <parentObj parent="mainObj" child="fire" rottype="ignore" postype="use" attachnode="Link_Fire"/>
+         </physObjParenting>
+      </BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\scenery\lamp_st\lamp_st_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:lamp_st" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="lamp_st" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_uisort="g" s_ProfileLock="safarilock" s_Zoopedia="zoopedia:zoopedia_themedlamp:entry" s_Theme="safari" f_FameReq="40" />
+		<ZTPlacementData autoFootprint="false" randomRotate="true" icon3Doffset="0 0 0.482250" icon3Dscale="0.392064">
+			<cfootprint width="0" height="0" />
+			<dfootprint width="1" height="1" />
+		</ZTPlacementData>
+		<ZTTourData>
+			<theme_safari value="4" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/lamp_st/lamp_st" switch="0 20 40" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="fire">
+			<instance>
+				<BFPhysObj drawLast="true">
+					<BFSimpleLODComponent modelfile="entities/objects/fx/Fire.nif" />
+					<BFForceUpdateWhenVisibleComponent />
+					<BFHasParticleComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="175">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

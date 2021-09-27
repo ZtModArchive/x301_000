@@ -1,0 +1,33 @@
+<BFTypedBinder binderType="Grandstand">
+   <types>
+      <entity>
+         <scenery>
+            <Grandstand/>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <ZTUserStaffAction>
+         <BoardObject locid="superstaff:sitonbleacher" />
+         <DisembarkObject locid="superstaff:getoffbleacher" showSelection="false" />
+      </ZTUserStaffAction>
+      <ZTUserCameraData parentingZOffset="0.0">
+         <FPCameraNodes>
+            <entry nodeName="Node Camera" />
+         </FPCameraNodes>
+      </ZTUserCameraData>
+      <BFAIEntityDataShared s_Product="Marine" b_Grandstand="true" s_showIcon="MarineShow"/>
+   </shared>
+   <binder>
+     <BFNamedBinder binderName="mainObj">
+      <instance>
+        <BFPhysObj>
+          <BFDistanceCullComponent firstPersonOnly="true" cullDistance="100000" />
+        </BFPhysObj>
+      </instance>
+    </BFNamedBinder>
+  </binder>
+</BFTypedBinder>

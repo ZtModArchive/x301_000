@@ -1,0 +1,20 @@
+<BFScenarioGroup name="alternatetransportrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="alternatetransport" state="0" sticky="true" optional="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHAlternateTransportShort" overview="Challengetext:CHAlternateTransport" />
+				<success locid="Challengetext:CHAlternateTransportSuccessShort" overview="Challengetext:CHAlternateTransportSuccess" />
+				<failure locid="Challengetext:CHAlternateTransportFailureShort" overview="Challengetext:CHAlternateTransportFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/alternatetransport.lua" entry="evalalternatetransport" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/alternatetransport.lua" entry="completealternatetransport" />
+			</success>		
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/alternatetransport.lua" entry="failalternatetransport" />
+			</failure>	
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

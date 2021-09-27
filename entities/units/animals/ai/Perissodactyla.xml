@@ -1,0 +1,34 @@
+﻿<BFTypedBinder binderType="Perissodactyla" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Perissodactyla />
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<BFAIEntityDataShared b_CudChewer="true">
+			<BFAINeedAdjusts hunger="0.33" social="0.50" />
+		</BFAIEntityDataShared>
+	</shared>
+	<binder>
+		<BFBinder>
+			<instance>
+				<BFAICognitiveMgr>
+					<StateThinkers>
+						<ZTAIStateThinker>
+							<BFAIStateVar Name="explore" TriggerThreshold="50" />
+						</ZTAIStateThinker>
+					</StateThinkers>
+				</BFAICognitiveMgr>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,311 @@
+<BehaviorSets>
+   <Idle>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>	
+        <BFBehLocoSwitchSet>
+          <behaviorTable>
+            <ground behSet="Idle_Ground"/>
+            <water behSet="Idle_Water"/>
+            <underwater behSet="Idle_Underwater"/>
+          </behaviorTable>
+        </BFBehLocoSwitchSet>
+      </behaviors>
+   </Idle>
+
+   <Idle_Ground>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>	
+         <BFBehAnimateRandom minPlays="1" maxPlays="7">
+            <randomAnims>
+               <Stand_Idle weight="1"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </Idle_Ground>	
+   
+   <Idle_Water>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>	
+         <BFBehAnimateRandom minPlays="1" maxPlays="7">
+            <randomAnims>
+               <TreadWater_Idle weight="1"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </Idle_Water>
+   
+   <Idle_Underwater>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>	
+         <BFBehAnimateRandom minPlays="1" maxPlays="7">
+            <randomAnims>
+               <TreadWaterSub_Idle weight="1"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </Idle_Underwater>
+   
+
+   <DockBench>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>	
+	 <BFBehDock targetAnim="Stand_Idle"/>
+      </behaviors>
+   </DockBench>		
+   <RestBench>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>	
+	 <BFBehAnimate targetAnim="SitBench_Idle"/>
+      </behaviors>
+   </RestBench>
+    <ExitBench>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>	
+	 <BFBehAnimate targetAnim="Walk_Ahead"/>
+      </behaviors>
+   </ExitBench>  
+   <WaitForPath>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom loopFlag="true">
+            <randomAnims>
+               <Stand_Idle weight="10"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </WaitForPath>
+   <EnterStaffCenter1>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="EnterB"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="EnterB" exitTap="false"/>
+      </behaviors>
+   </EnterStaffCenter1>  
+   <UseStaffCenter1>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom>
+            <randomAnims>
+               <SitBench_Idle weight="80"/>
+               <SitBench_Yawn weight="2"/>
+               <SitBench_CheckWatch weight="2"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </UseStaffCenter1>   
+   <ExitStaffCenter1>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="ExitB" exitTAP="true"/>
+      </behaviors>
+   </ExitStaffCenter1>
+   <EnterStaffCenter2>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="EnterC"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="EnterC" exitTap="false"/>
+      </behaviors>
+   </EnterStaffCenter2>  
+   <UseStaffCenter2>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom>
+            <randomAnims>
+               <Stand_Idle weight="80"/>
+               <Stand_TapGlass weight="2"/>
+               <Stand_ScratchHead weight="2"/>
+            </randomAnims>
+         </BFBehAnimateRandom> 
+      </behaviors>
+   </UseStaffCenter2>  
+   <ExitStaffCenter2>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="ExitC" exitTAP="true"/>
+      </behaviors>
+   </ExitStaffCenter2>
+   <EnterStaffCenter3>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="EnterD"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="EnterD" exitTap="false"/>
+      </behaviors>
+   </EnterStaffCenter3>  
+   <UseStaffCenter3>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom>
+            <randomAnims>
+               <Stand_Idle weight="80"/>
+               <Stand_TapGlass weight="2"/>
+               <Stand_ScratchHead weight="2"/>
+            </randomAnims>
+         </BFBehAnimateRandom> 
+      </behaviors>
+   </UseStaffCenter3>  
+   <ExitStaffCenter3>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="ExitD" exitTAP="true"/>
+      </behaviors>
+   </ExitStaffCenter3>
+   <EnterStaffCenter4>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="EnterE"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="EnterE" exitTap="false"/>
+      </behaviors>
+   </EnterStaffCenter4>  
+   <UseStaffCenter4>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom>
+            <randomAnims>
+               <SitBench_Idle weight="80"/>
+               <SitBench_Yawn weight="2"/>
+               <SitBench_CheckWatch weight="2"/>
+            </randomAnims>
+         </BFBehAnimateRandom>      
+      </behaviors>
+   </UseStaffCenter4> 
+   <ExitStaffCenter4>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="ExitE" exitTAP="true"/>
+      </behaviors>
+   </ExitStaffCenter4>
+   <EnterStaffCenter5>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="EnterF"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="EnterF" exitTap="false"/>
+      </behaviors>
+   </EnterStaffCenter5>  
+   <UseStaffCenter5>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom>
+            <randomAnims>
+               <Stand_Idle weight="80"/>
+               <Stand_TapGlass weight="2"/>
+               <Stand_ScratchHead weight="2"/>
+            </randomAnims>
+         </BFBehAnimateRandom> 
+      </behaviors>
+   </UseStaffCenter5> 
+   <ExitStaffCenter5>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="ExitF" exitTAP="true"/>
+      </behaviors>
+   </ExitStaffCenter5>
+   <EnterStaffCenter6>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="Enter2LadderA"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Enter2LadderA" exitTap="false"/>
+      </behaviors>
+   </EnterStaffCenter6>  
+   <UseStaffCenter6>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom>
+            <randomAnims>
+               <Stand_Idle weight="80"/>
+               <Stand_TapGlass weight="2"/>
+               <Stand_ScratchHead weight="2"/>
+            </randomAnims>
+         </BFBehAnimateRandom> 
+      </behaviors>
+   </UseStaffCenter6> 
+
+   <UseStaffCenter6>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom>
+            <randomAnims>
+               <Binoculars_Idle weight="90"/>
+               <Stand_ScratchHead weight="5"/>
+               <Stand_Idle weight="5"/>
+            </randomAnims>
+         </BFBehAnimateRandom> 
+      </behaviors>
+   </UseStaffCenter6>       
+   <ExitStaffCenter6>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="Platform2Ladder" exitTAP="true"/>
+      </behaviors>
+   </ExitStaffCenter6>
+   <TreadWater_Idle>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate interruptible="true" interruptFlag="true" loopFlag="true" targetAnim="TreadWater_Idle"/>
+      </behaviors>
+   </TreadWater_Idle>
+   <Stand_Idle>
+      <subjects>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate interruptible="true" interruptFlag="true" loopFlag="true" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </Stand_Idle>
+</BehaviorSets>

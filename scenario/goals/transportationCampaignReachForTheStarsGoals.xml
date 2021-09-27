@@ -1,0 +1,50 @@
+<ZTScenarioMgr interval="2" name="mgr" state="0" chain="true" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="setinitialzoostate" state="0" sticky="true">
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="setinitialzoostate" />
+			</evaluate>
+		</BFScenarioRule>
+		<BFScenarioGroup hidden="0" name="MainGoals" state="0" chain="false" allsuccess="true" sticky="true">
+			<info type="primary">
+				<neutral locid="TransportationCampaign:ReachForStarsIntro" overview="TransportationCampaign:ReachForStarsOverview" />
+				<success overview="TransportationCampaign:ReachForStarsSuccessOverview" />
+			</info>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="completereachforthestars" />
+			</success>		
+			<children>
+				<BFScenarioRule name="FiveStarZoo" hidden="0" state="0" sticky="true">
+					<info type="primary">
+						<neutral locid="TransportationCampaign:ReachForStarsFameGoal" />
+						<success locid="TransportationCampaign:ReachForStarsFameGoalDone" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="evalfivestarzoo" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="completefivestarzoo" />
+					</success>
+					<failure>
+						<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="failfivestarzoo" />
+					</failure>						
+				</BFScenarioRule>
+				<BFScenarioRule name="FourStarTour" hidden="0" state="0" sticky="true">
+					<info type="primary">
+						<neutral locid="TransportationCampaign:ReachForStarsTourGoal" />
+						<success locid="TransportationCampaign:ReachForStarsTourGoalDone" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="evalfourstartour" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="completefourstartour" />
+					</success>
+					<failure>
+						<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="failfourstartour" />
+					</failure>					
+				</BFScenarioRule>
+			</children>
+		</BFScenarioGroup>
+	</children>
+</ZTScenarioMgr>

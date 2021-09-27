@@ -1,0 +1,111 @@
+<BFTypedBinder binderType="skytower" abstract="true">
+   <types>
+      <entity>
+         <transportation>
+            <track>
+               <skytower/>
+            </track>
+         </transportation>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <BFGCollisionData isTraversable="true" isStatic="false"/>
+      <BFAIEntityDataShared b_CanLookUpByGlobalID="true" s_TransportationMode="Sky" b_ReceiveUpdates="true" f_maxTowerHeight="40.0f"/>
+      <ZTPlacementData moveable="false" minimumHeadroom="25" protectedPlacement="true" applyHeightModifier="false" maxDistanceToConnect="27.5f">
+         <draggableData>
+            <topObj_T/>
+            <topObj_L/>
+            <topObj_UTurn/>
+         </draggableData>
+         <clickableObjData>
+            <constructionMarker1 locid="transportation:skycircuit_incomplete"/>
+            <constructionMarker2 locid="transportation:skycircuit_incomplete"/>
+            <constructionMarker3 locid="transportation:skycircuit_incomplete"/>
+            <constructionMarker4 locid="transportation:skycircuit_incomplete"/>
+         </clickableObjData>
+         <stompData>
+            <delete>
+               <bush/>
+               <grass/>
+               <wildflowers/>
+               <fungi/>
+               <b_SmallRock>true</b_SmallRock>
+            </delete>
+            <allow>
+               <groundstation/>
+               <RedwoodTunnel/>
+               <CrystalTunnel/>
+               <PathArch/>
+            </allow>
+            <prevent/>
+         </stompData>
+      </ZTPlacementData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="1" length="4" offwidth="0" offlength="0.5" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="firstTrip" required="1">
+         <instance>
+            <ZTTransportSkyTrack ropeClearance="4.0f"/>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="returnTrip" required="0">
+         <instance>
+            <ZTTransportSkyTrack ropeClearance="4.0f"/>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="75">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTExpandoComponent height="10" heightAbsolute="false" rotateTop="false" minHeight="5.0f">
+               <Base binderName="mainObj" height="1.0f" attachSelfNode="" attachOthersNode="Link_Base01"/>
+               <Top>
+                  <TopPiece1 binderName="topObj_L" height="1.0f" attachSelfNode="Link_Pole" attachOthersNode=""/>
+                  <TopPiece2 binderName="topObj_T" height="1.0f" attachSelfNode="Link_Pole" attachOthersNode=""/>
+                  <TopPiece3 binderName="topObj_UTurn" height="1.4f" attachSelfNode="Link_Pole01" attachOthersNode=""/>
+               </Top>
+               <Expando>
+                  <Piece1 binderName="expandoPiece1" height="1.0f" attachSelfNode="Link_Segment01" attachOthersNode="Link_Segment02"/>
+               </Expando>
+            </ZTExpandoComponent>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="constructionMarker1" required="1">
+         <instance>
+            <BFPhysObj allowHighlight="false">
+               <BFSimpleLODComponent modelfile="UI/fx/underconstruction/underconstruction_sky.nif" switch="0 10" scale="1.0"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="5.0" loop="true"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="constructionMarker2" required="1">
+         <instance>
+            <BFPhysObj allowHighlight="false">
+               <BFSimpleLODComponent modelfile="UI/fx/underconstruction/underconstruction_sky.nif" switch="0 10" scale="1.0"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="5.0" loop="true"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

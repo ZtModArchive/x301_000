@@ -1,0 +1,74 @@
+<BFTypedBinder binderType="MonkeyBars">
+   <types>
+      <entity>
+         <enrichment>
+            <stationary_enrichment>
+               <MonkeyBars/>
+            </stationary_enrichment>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\MonkeyBars\MonkeyBars_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:MonkeyBars"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="MonkeyBars"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\enrichment\MonkeyBars\MonkeyBars_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="MonkeyBars"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData randomRotate="false" gridSnap="true" autoFootprint="true" terrainFlatten="true" dockArrowStyle="special" dockArrowSize="1.0" minimumHeadroom="5.0" protectedPlacement="false"/>
+      <BFAIEntityDataShared b_Researchable="true" s_uisort="ix" s_Zoopedia="zoopedia:zoopedia_monkeybars:entry" f_researchUnlockTime="120" f_researchCost="1000" f_FameReq="80"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/MonkeyBars/MonkeyBars" scale="1.2" switch="0 18" minSwitch="0 18"/>
+               <BFTravAnimPathComponent actorfile="entities/objects/enrichment/MonkeyBars/MonkeyBars_TAP.bfm"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="1500">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="Climb" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterMonkeyBars1" useBehSet="UseMonkeyBars" exitBehSet="ExitMonkeyBars" targetNode="Dock_01" exclusiveID="MonkeyBars1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterMonkeyBars2" useBehSet="UseMonkeyBars" exitBehSet="ExitMonkeyBars" targetNode="Dock_02" exclusiveID="MonkeyBars1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP_Gibbon" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterMonkeyBars1" useBehSet="UseMonkeyBars" exitBehSet="ExitMonkeyBars1" targetNode="Gibbon_EnterA" exclusiveID="MonkeyBars1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterMonkeyBars2" useBehSet="UseMonkeyBars" exitBehSet="ExitMonkeyBars2" targetNode="Gibbon_EnterB" exclusiveID="MonkeyBars2"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

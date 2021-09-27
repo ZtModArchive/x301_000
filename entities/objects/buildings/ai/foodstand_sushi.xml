@@ -1,0 +1,79 @@
+<BFTypedBinder binderType="foodstand_sushi" abstract="true">
+   <types>
+      <entity>
+         <building>
+            <Foodstand>
+               <foodstand_sushi/>
+            </Foodstand>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting mergeKey="child">
+            <parentObj parent="mainObj" child="mist01" rottype="ignore" postype="use" attachnode="Link_Mist01"/>
+            <parentObj parent="mainObj" child="mist02" rottype="ignore" postype="use" attachnode="Link_Mist02"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared s_uisort="h"/>
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <BFGPhysAnimController currState="idle" defaultState="idle">
+               <stateList>
+                  <idle parent="mainObj" child="signidle" rottype="use" postype="use" attachnode="Link_Sign"/>
+                  <used parent="mainObj" child="signused" rottype="use" postype="use" attachnode="Link_Sign"/>
+               </stateList>
+            </BFGPhysAnimController>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="signidle">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/buildings/Foodstand/Sushi_idle.nif" switch="0 7 20 40" minSwitch="0 0 0 20"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="signused" required="0">
+         <instance>
+            <BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/objects/buildings/Foodstand/Sushi_used.nif" switch="0 7 20 40" minSwitch="0 0 0 20" initialTextKey="snd &quot;sushi_amb&quot; &quot;sushi&quot; looping"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1.32"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="counter">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/Foodstand/Chopsticks_df"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_Stand">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult" capacity="1"/>
+               </slots>
+               <queue>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult" capacity="5"/>
+               </queue>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1" physObj="Vendor">
+               <subBehaviors>
+                  <BFBehAnimate interruptible="true" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true"/>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

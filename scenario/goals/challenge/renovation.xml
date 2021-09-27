@@ -1,0 +1,20 @@
+<BFScenarioGroup name="renovationrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="renovation" state="0" sticky="true" optional="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHRenovationInitiativeShort" overview="Challengetext:CHRenovationInitiative" />
+				<success locid="Challengetext:CHRenovationInitiativeSuccessShort" overview="Challengetext:CHRenovationInitiativeSuccess" />
+				<failure locid="Challengetext:CHRenovationInitiativeFailureShort" overview="Challengetext:CHRenovationInitiativeFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/renovation.lua" entry="evalrenovation" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/renovation.lua" entry="completerenovation" />
+			</success>		
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/renovation.lua" entry="failrenovation" />
+			</failure>	
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

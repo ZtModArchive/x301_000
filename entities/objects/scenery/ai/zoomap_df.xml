@@ -1,0 +1,65 @@
+<BFTypedBinder binderType="zoomap_df">
+   <types>
+      <entity>
+         <scenery>
+            <zoomap_df/>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\zoomap_df\zoomap_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:zoomap"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="zoomap_df"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared f_FameReq="60" s_uisort="fz" s_Zoopedia="zoopedia:zoopedia_zoomap:entry"/>
+      <ZTPlacementData terrainFlatten="true" dockArrowStyle="special" dockArrowSize="1.0" icon3Doffset="0 -0.041187 0.347826" icon3Dscale="0.786014"/>
+      <BFGCollisionData isStatic="false"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="ShadowNode_01" width="3.5" length="2" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/zoomap_df/zoomap_df"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="250">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="LookAtZooMap">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_01" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_02" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

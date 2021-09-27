@@ -1,0 +1,32 @@
+<BFTypedBinder binderType="vehiclegate" abstract="true">
+   <types>
+      <entity>
+         <fence>
+            <vehiclegate/>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared b_ReceiveUpdates="true"/>
+      <ZTPlacementData placeable="true" s_GatePlacementRules="vehiclegate"/>
+      <BFGCollisionData>
+         <typeScores groundvehicle="0"/>
+      </BFGCollisionData>
+      <ZTUserStaffAction>
+         <SetAttribute name="f_timeToClose" value="2.0f" locid="superstaff:gate"/>
+      </ZTUserStaffAction>
+   </shared>
+   <suppressed>
+      <BFGEntitySndComponent suppressed="false"/>
+   </suppressed>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTFence hasCurves="false"/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,52 @@
+<BFTypedBinder binderType="bench" abstract="true">
+   <types>
+      <entity>
+         <scenery>
+            <bench/>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 -0.046191 0.482759" icon3Dscale="0.628040"/>
+      <BFGCollisionData isStatic="false" isPassable="false"/>
+      <BFAIEntityDataShared s_ObjectType="Seating" b_ViewingArea="true" f_ViewingDistance="9.0" f_ViewPriority="1" f_ViewCone="180"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="4" length="1.5" intensity="0.25"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_Seating">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="DockBench" useBehSet="RestBench" exitBehSet="ExitBench" targetNode="Dock_Adult_01" exclusiveID="Bench1"/>
+                  <BFGEntityContainerSlot enterBehSet="DockBench" useBehSet="RestBench" exitBehSet="ExitBench" targetNode="Dock_Adult_02" exclusiveID="Bench2"/>
+                  <BFGEntityContainerSlot enterBehSet="DockBench" useBehSet="RestBench" exitBehSet="ExitBench" targetNode="Dock_Adult_03" exclusiveID="Bench3"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_Seating_WatchShow" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="DockBench" useBehSet="WatchShow_Bench" exitBehSet="ExitBench" targetNode="Dock_Adult_01" exclusiveID="Bench1"/>
+                  <BFGEntityContainerSlot enterBehSet="DockBench" useBehSet="WatchShow_Bench" exitBehSet="ExitBench" targetNode="Dock_Adult_02" exclusiveID="Bench2"/>
+                  <BFGEntityContainerSlot enterBehSet="DockBench" useBehSet="WatchShow_Bench" exitBehSet="ExitBench" targetNode="Dock_Adult_03" exclusiveID="Bench3"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

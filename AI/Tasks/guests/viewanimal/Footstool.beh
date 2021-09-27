@@ -1,0 +1,56 @@
+<BehaviorSets>
+   <DockFootstool>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Stand_Idle" subjectNode="Floor" targetTAP="EnterA"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="EnterA" exitTAP="false"/>  
+      </behaviors>
+   </DockFootstool>
+   
+   
+   <UseFootstool>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <ZTBehViewAnimals viewMeterStart="200" viewMeterStartMin="150" viewMeterStartMax="250">
+            <emoteSets>
+               <VA_Path_Neg_10 min="-1000" max="-85"/>
+               <VA_Path_Neg_9 min="-85" max="-75"/>
+               <VA_Path_Neg_8 min="-75" max="-65"/>
+               <VA_Path_Neg_7 min="-65" max="-55"/>
+               <VA_Path_Neg_6 min="-55" max="-45"/>
+               <VA_Path_Neg_5 min="-45" max="-35"/>
+               <VA_Path_Neg_4 min="-35" max="-25"/>
+               <VA_Path_Neg_3 min="-25" max="-15"/>
+               <VA_Path_Neg_2 min="-15" max="-8"/>
+               <VA_Path_Neg_1 min="-8" max="-1"/>
+               <VA_Path_Midpoint min="-1" max="1"/>
+               <VA_Path_Pos_1 min="1" max="2"/>
+               <VA_Path_Pos_2 min="2" max="3"/>
+               <VA_Path_Pos_3 min="3" max="8"/>
+               <VA_Path_Pos_4 min="8" max="12"/>
+               <VA_Path_Pos_5 min="12" max="18"/>
+               <VA_Path_Pos_6 min="18" max="25"/>
+               <VA_Path_Pos_7 min="25" max="35"/>
+               <VA_Path_Pos_8 min="35" max="45"/>
+               <VA_Path_Pos_9 min="45" max="55"/>
+               <VA_Path_Pos_10 min="55" max="1000"/>
+            </emoteSets>
+         </ZTBehViewAnimals>
+      </behaviors>
+   </UseFootstool>
+   
+   
+   <ExitFootstool>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="ExitA" exitTAP="true"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </ExitFootstool>
+</BehaviorSets>

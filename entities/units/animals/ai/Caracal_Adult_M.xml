@@ -1,0 +1,35 @@
+<BFTypedBinder binderType="Caracal_Adult_M">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Carnivora>
+                     <Felidae>
+                        <Caracal>
+                           <Caracal_Adult>
+                              <Caracal_Adult_M/>
+                           </Caracal_Adult>
+                        </Caracal>
+                     </Felidae>
+                  </Carnivora>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+	    <default image="entities/units/animals/Caracal/Caracal_Adult_F_icon.dds" />
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Caracal_Adult_M"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Male="1" f_adoptCount="rand(1,1)" b_TreeScratcher="true"/>
+   </shared>
+</BFTypedBinder>

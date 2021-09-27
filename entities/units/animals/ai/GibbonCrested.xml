@@ -1,0 +1,196 @@
+<BFTypedBinder binderType="GibbonCrested" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Primata>
+							<Hylobatidae>
+								<GibbonCrested />
+							</Hylobatidae>
+						</Primata>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\units\animals\GibbonCrested\GibbonCrested_F_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo ids="entityname:GibbonCrested" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="GibbonCrested_Adult_F" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_Product="EndangeredSpecies" f_MaxTourValue="70" f_BaseDonationAmount="100" s_DonateToken="t_DonateGibbonCrested" p_FightOffset="0 -0.75 180" p_PreyOffset="0 .5 0" s_Species="GibbonCrested" b_Advanced="true" b_Folivore="true" b_Frugivore="true" b_Insectivore="true" b_HoneyEater="true" s_KeeperEatType="Terrain_Bananas" b_SmallAnimal="true" b_FoodDishEater="true" s_KeeperDrinkType="FoodDish_Water" b_ElevatedFoodDishEater="true" b_SubstratePileEater="true" f_adoptRarity="80" s_Zoopedia="zoopedia:zoopedia_gibboncrested:entry" f_RequiredInitialSpace="200" f_RequiredAdditionalSpace="12" p_FenceClimbNode="0 -1.5 180" p_HollowLogDock=".5 -.5 180" p_PursuitBallNode2="0 -1.5 180" p_PursuitBallNode="0 -1.75 180" p_NursingNode="0 -1 180" b_ClimbsOrchidTree="true" b_TropicalRainforestAnimal="true" p_GroomOtherNode="0 -0.5 180" p_GroomOtherDock=".075 .15 0" s_Endangerment="Endangered" b_AppleTreatEater="true" b_FigEater="true" b_EatsFromFeederBall="true" b_RubberToyUser="true" b_RattleBallUser="true" b_PursuitBallUser="true" b_CarTireUser="true" b_ShadeStructureUser="true" b_RaisedSleepingPlatformUser="true" b_SmallPrey="true" />
+		<BFGBiomeData location="tropicalrainforest_southeastasia" locationSensitivity="10">
+			<alpine sensitivity="-10" />
+			<benthic sensitivity="-10" />
+			<borealforest sensitivity="-5" />
+			<coastal sensitivity="-10" />
+			<desert sensitivity="-10" />
+			<grassland sensitivity="-5" />
+			<reef sensitivity="-10" />
+			<pelagic sensitivity="-10" />
+			<temperateforest sensitivity="-10" />
+			<tropicalrainforest sensitivity="10" primary="true" />
+			<tundra sensitivity="-10" />
+			<savannah sensitivity="-10" />
+			<scrub sensitivity="-10" />
+			<wetlands sensitivity="-5" />
+		</BFGBiomeData>
+		<ZTPlacementData icon3Doffset="0 0 1.1" icon3Dscale="1.722728" />
+		<ZTUserStaffAction>
+			<SetAttribute name="hygiene" value="0" threshold="20" locid="superstaff:animal_groom" effect="SuperStaffGroom" />
+			<SetAttribute name="health" value="0" threshold="20" locid="superstaff:animal_heal" effect="SuperStaffHeal" />
+		</ZTUserStaffAction>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFShadowLODComponent numLevels="1" switchingDists="60.0" />
+					<BFActorComponent actorfile="entities/units/animals/GibbonCrested/GibbonCrested_Adult_F.bfm" scale="1.0" switch="0 5000 5001" />
+					<BF2LegsGroundFitComponent heightOffset="0.0" rightAnkleJoint="Bip01 R Foot" leftAnkleJoint="Bip01 L Foot" ankleRotVectorLeft="0 0 -1" ankleRotVectorRight="0 0 -1" fitRadius="0.15" frontBuoyancyNode="Bip01 Neck" />
+					<BFForwardMovingComponent />
+					<BFRotYawMovingComponent />
+					<BFCollisionComponent grid="Bip01 Spine1" />
+					<BFGridCollisionComponent />
+					<BFDecalTextureCycleComponent materialName="8 - Default">
+						<Step imageName="entities/units/animals/shared/tiger_blink_blank.dds" hold="3.0" variance="0.5" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink.dds" hold="0.1" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+					</BFDecalTextureCycleComponent>
+					<BFHeadLookComponent leftRightAnimName="Secondary_Headlook" lookDirNode="Bip01 Head" lookDirVector="0 1 0" gain_z="-2" fov_extreme_lr="90.0" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFTextTagMacrosComponent>
+					<MACROS>
+						<macro name="ClimbAcacia" text="!anim &apos;Climb_Up&apos; blend .3 advance_cur_t, anim &apos;Climb_2SitTree&apos;, anim &apos;SitTree_Idle&apos;, dis, exit" />
+						<macro name="ClimbBananaTree" text="!anim &apos;Climb_Idle&apos; blend .3 advance_cur_t, anim &apos;Climb_Idle&apos;, dis, exit" />
+						<macro name="ClimbBaobob180" text="!anim &apos;Climb_Idle&apos; blend .3 advance_cur_t, anim &apos;Climb_Idle&apos;, dis, anim &apos;Climb_Turn180Right&apos;, exit" />
+						<macro name="ClimbElephantEar" text="!anim &apos;Climb_Idle&apos; blend 0.5 advance_cur_t, dis, exit" />
+						<macro name="ClimbKily" text="!anim &apos;Climb_Idle&apos; blend .2 advance_cur_t, anim &apos;Climb_2Stand&apos;, anim &apos;Stand_2Walk&apos;, anim &apos;Walk_Ahead&apos;, anim &apos;Walk_2Stand&apos;, dis, TurnLeft180,  anim &apos;Stand_2SitTree&apos;, anim &apos;SitTree_Idle&apos;,  exit" />
+						<macro name="ClimbTreeFernA" text="!anim &apos;Climb_Idle&apos; blend .3 advance_cur_t, dis, Climb2Walk, exit" />
+						<macro name="ClimbThing" text="anim &apos;JumpUp_2Climb&apos;, anim &apos;Climb_Up&apos;" />
+						<macro name="Climb2Sit" text="anim &apos;Climb_2SitTree&apos;, anim &apos;SitTree_Idle&apos;" />
+						<macro name="Walk2Climb" text="anim &apos;Run_2JumpUp&apos;, anim &apos;JumpUp_2Climb&apos;" />
+						<macro name="Sit2Climb" text="anim &apos;SitTree_2Climb&apos;, anim &apos;Climb_Down&apos;" />
+						<macro name="Climb2Walk" text="!anim &apos;Climb_Idle&apos; blend .3 advance_cur_t, dis, anim &apos;Climb_2Stand&apos;" />
+						<macro name="ClimbDown" text="anim &apos;Climb_Down&apos;" />
+						<macro name="JumpOnRock" text="as 100 1, anim &apos;Stand_Jump&apos;" />
+						<macro name="TurnLeft180" text="anim &apos;Stand_Turn180&apos;" />
+						<macro name="TurnRight180" text="anim &apos;Stand_Turn180&apos;" />
+						<macro name="Stand2Sit" text="anim &apos;Stand_2Lie&apos;, anim &apos;Lie_Idle&apos;" />
+						<macro name="PlatformEat" text="anim &apos;Stand_2Eat&apos;, anim &apos;Eat_2Stand&apos;" />
+						<macro name="Walky" text="anim &apos;Walk_Ahead&apos;" />
+						<macro name="Walky2Standy" text="anim &apos;Walk_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+						<macro name="Standy2Walky" text="anim &apos;Stand_2Walk&apos;, anim &apos;Walk_Ahead&apos;" />
+						<macro name="TurnLeft90" text="anim &apos;Stand_TurnLeft90&apos;" />
+						<macro name="TurnRight90" text="anim &apos;Stand_TurnRight90&apos;" />
+						<macro name="Stand2LieBelly" text="anim &apos;Stand_2Lie&apos;, anim &apos;Lie_Idle&apos;" />
+						<macro name="LieBelly2Stand" text="anim &apos;Lie_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+						<macro name="LieOnBelly" text="anim &apos;Lie_Idle&apos;" />
+						<macro name="Standy2MonkeyBars" text="anim &apos;Stand_2HangOne&apos;, anim &apos;HangOne_2BrachiateInner&apos;, anim &apos;BrachiateInner_Idle&apos;" />
+						<macro name="SwingOnMonkeyBars" text="anim &apos;BrachiateInner_2HangOne&apos;, anim &apos;HangOne_2Swing&apos;, anim &apos;Swing_Idle&apos;" />
+						<macro name="Swing2ExitMonkeyBars" text="anim &apos;Swing_2HangOne&apos;, anim &apos;HangOne_2BrachiateInner&apos;, anim &apos;BrachiateInner_Idle&apos;, anim &apos;BrachiateInner_2HangOne&apos;, anim &apos;HangOne_2Stand&apos;" />
+						<macro name="RedPandaWalk" text="anim &apos;Walk_2Stand&apos;, anim &apos;Stand_2JumpUp&apos;, anim &apos;JumpUp_2Climb&apos;, anim &apos;Climb_Up&apos;" />
+						<macro name="RedPandaTailWalk" text="anim &apos;Walk_Ahead&apos;" />
+						<macro name="RedPandaClimb180" text="anim &apos;Stand_TurnRight90&apos;, anim &apos;Stand_TurnRight90&apos;" />
+						<macro name="RedPandaCurl" text="anim &apos;Stand_2Lie&apos;, anim &apos;Lie_Idle&apos;" />
+						<macro name="RedPandaCurl2Descend" text="anim &apos;Lie_2Stand&apos;, anim &apos;Stand_Idle&apos;, anim &apos;Stand_2Walk&apos;,  anim &apos;Walk_Ahead&apos;" />
+						<macro name="HangingFall" text="!anim &apos;HangOn_Idle&apos;, anim &apos;HangOn_2Fall&apos;, dis, fall &apos;Fall_Idle&apos; &apos;Fall_2Stand&apos;" />
+						<macro name="Land_2Stand" text="!anim &apos;Fall_Idle&apos; blend .3 advance_cur_t, anim &apos;Fall_2Stand&apos;" />
+						<macro name="Land_2Lie" text="!anim &apos;Fall_Idle&apos; blend .3    advance_cur_t, anim &apos;Fall_2Lie&apos;" />
+						<macro name="SitTreeHang" text="anim &apos;SitTree_Idle&apos;, anim &apos;SitTree_2HangOn&apos;, anim &apos;HangOn_Idle&apos;" />
+						<macro name="Climb2Brachiate" text="!anim &apos;Climb_Up&apos; blend .3 advance_cur_t, anim &apos;Climb_2HangOn_A&apos;" />
+						<macro name="Brachiate2Fall" text="anim Brachiate_2Fall, dis, fall &apos;Fall_Idle&apos; &apos;Fall_2Stand&apos;" />
+						<macro name="Climb2Stand" text="!anim &apos;Climb_2SitTree&apos; blend .3 advance_cur_t, dis, anim &apos;SitTree_2Stand&apos;, exit" />
+						<macro name="NestJumpFall" text="!anim &apos;Stand_2JumpUp&apos;, anim &apos;JumpUp_2Fall&apos;, dis, fall &apos;Fall_Idle&apos; &apos;Fall_2Stand&apos;" />
+						<macro name="ClimbNestLie" text="!anim &apos;Climb_2SitTree&apos; blend .3 advance_cur_t, dis, anim &apos;SitTree_2Stand&apos;, anim &apos;Stand_TurnRight90&apos;, anim &apos;Stand_2Lie&apos;, exit" />
+						<macro name="Jump2Brachiate" text="anim &apos;JumpUp_2Climb&apos;, anim &apos;Climb_2HangOn_B&apos;, dis, anim &apos;HangOn_2Brachiate&apos;, anim &apos;Brachiate_Right180&apos;, anim &apos;Brachiate_Ahead&apos;, anim &apos;Brachiate_Right180&apos;,  anim &apos;Brachiate_Ahead&apos;,anim &apos;Brachiate_2HangOn&apos;,  anim &apos;HangOn_Idle&apos;, exit" />
+						<macro name="Lie2Stand" text="anim &apos;Lie_2Stand&apos;  " />
+						<macro name="BrachiateAhead" text="anim &apos;Brachiate_Ahead&apos;" />
+						<macro name="Brachiate180" text="anim &apos;Brachiate_Right180&apos;" />
+						<macro name="BrachiateHang" text="anim &apos;Brachiate_2Hang&apos;" />
+						<macro name="Hang2SwingOff" text="anim &apos;HangOn_2Swing&apos;, anim &apos;Swing_Idle&apos;, anim &apos;Swing_Idle&apos;, dis,  anim &apos;Swing_2Fall&apos;, fall &apos;Fall_Idle&apos; &apos;Fall_2Stand&apos;" />
+						<macro name="Jump2HangB" text="anim &apos;JumpUp_2Climb&apos;, anim &apos;Climb_2HangOn_B&apos;, anim &apos;HangOn_Idle&apos;, exit" />
+						<macro name="Jump2HangA" text="anim &apos;JumpUp_2Climb&apos;, anim &apos;Climb_2HangOn_A&apos;, dis, anim &apos;HangOn_2Brachiate&apos;, anim &apos;Brachiate_2HangOn&apos;,  anim &apos;HangOn_Idle&apos;" />
+						<macro name="SitTreeFall" text="anim &apos;SitTree_Idle&apos;, dis, anim &apos;SitTree_2HangOn&apos;, anim &apos;HangOn_Idle&apos;, anim &apos;HangOn_2Fall&apos;, fall &apos;Fall_Idle&apos; &apos;Fall_2Stand&apos;" />
+						<macro name="JumpHangB2SitTree" text="anim &apos;JumpUp_2Climb&apos;, anim &apos;Climb_2HangOn_B&apos;, exit, anim &apos;HangOn_Idle&apos;, anim &apos;HangOn_2SitTree&apos;" />
+						<macro name="Hang2LegSwingOff" text="anim &apos;HangOn_Idle&apos;, dis, anim &apos;HangOn_2LegSwing&apos;, anim &apos;LegSwing_Idle&apos;, anim &apos;LegSwing_Idle&apos;, anim &apos;LegSwing_2Fall&apos;, fall &apos;Fall_Idle&apos; &apos;Fall_2Stand&apos;" />
+						<macro name="Climb2SitB" text="anim &apos;Climb_2SitTree&apos;, anim &apos;SitTree_Idle&apos;, dis, anim &apos;SitTree_2HangOn&apos;, anim &apos;HangOn_Idle&apos;, exit" />
+						<macro name="ElevatedDishEnter" text="as 100 1, anim 'JumpUp_2Stand', dis, anim 'Stand_Idle', exit" />
+					</MACROS>
+				</BFTextTagMacrosComponent>
+			</shared>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehAnimate interruptible="true" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true" />
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="groundcarry" required="1">
+					<instance>
+						<BFLocoAnimate version="1" stationaryAnim="StandObject_Idle">
+							<stop name="StandObject" />
+							<slow name="WalkObject" />
+							<medium name="WalkObject" />
+							<fast name="RunObject" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFNamedBinder binderName="lefthandobject" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" exclusiveID="lefthand" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="lefthandyoung" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" exclusiveID="lefthand" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="foodprop" repopulateMethod="byName" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" exclusiveID="lefthand" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="20000">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

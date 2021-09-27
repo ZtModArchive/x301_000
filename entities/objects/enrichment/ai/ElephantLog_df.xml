@@ -1,0 +1,85 @@
+<BFTypedBinder binderType="ElephantLog_df">
+   <types>
+      <entity>
+         <enrichment>
+            <stationary_enrichment>
+               <ElephantLog_df/>
+            </stationary_enrichment>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\ElephantLog_df\ElephantLog_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:ElephantLog"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ElephantLog_df"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\enrichment\ElephantLog_df\ElephantLog_df_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ElephantLog_df"/>
+         </on>
+      </UIToggleButton>      
+      <BFAIEntityDataShared b_Researchable="true" s_Product="EndangeredSpecies" s_uisort="he" s_Zoopedia="zoopedia:zoopedia_elephantlog:entry" f_researchUnlockTime="100" f_researchCost="800" f_FameReq="80"/>
+      <BFGDetachInfo>
+         <detachActionTable>
+            <dropitem destination="drop"/>
+            <killitem destination="kill"/>
+            <inventory destination="inventory"/>
+            <maketrash destination="kill"/>
+         </detachActionTable>
+      </BFGDetachInfo>
+      <ZTPlacementData randomRotate="false" gridSnap="true" autoFootprint="true" terrainFlatten="true" icon3Doffset="0 0 0.5" icon3Dscale="0.5" protectedPlacement="false">
+         <cfootprint width="1" height="1"/>
+         <dfootprint width="1" height="1"/>
+      </ZTPlacementData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="3" length="1" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/ElephantLog_df/ElephantLog_df" switch="0 18 36" minSwitch="0 18 36"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+		<BFNamedBinder binderName="General">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterElephantLog" useBehSet="UseElephantLog1" exitBehSet="ExitElephantLog" targetNode="Dock_01" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterElephantLog" useBehSet="UseElephantLog2" exitBehSet="ExitElephantLog" targetNode="Dock_02" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="440">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

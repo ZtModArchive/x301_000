@@ -1,0 +1,19 @@
+<BFScenarioGroup name="animalcarequarterlyrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="animalcarequarterlyphoto" state="0" sticky="true" optional="true">
+			<info type="photo">
+				<neutral locid="PhotoChallengetext:PHAnimalCareQuarterlyShort" overview="PhotoChallengetext:PHAnimalCareQuarterly" />
+				<success locid="PhotoChallengetext:PHAnimalCareQuarterlySuccessShort" overview="PhotoChallengetext:PHAnimalCareQuarterlySuccess" />
+			</info>
+			<evaluate>
+			 	<BFScenarioScriptAction script="scenario/scripts/challenge/instant/animalcarequarterly.lua" entry="evalanimalcarequarterly" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/animalcarequarterly.lua" entry="completeanimalcarequarterly" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/animalcarequarterly.lua" entry="failanimalcarequarterly" />
+			</failure>	
+		</BFScenarioRule>		
+	 </children>
+</BFScenarioGroup>

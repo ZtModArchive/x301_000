@@ -1,0 +1,82 @@
+<BFTypedBinder binderType="Guest_Young_M" abstract="true">
+   <types>
+      <entity>
+         <actor>
+            <people>
+               <Guest>
+                  <Guest_Young>
+                     <Guest_Young_M/>
+                  </Guest_Young>
+               </Guest>
+            </people>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="headObj" rottype="use" postype="use" attachnode="Link_Head"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\units\guests\YoungMale\Guest_Young_M_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Guest_Young_M"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData gridSnap="false" randomRotate="false"/>
+      <BFAIEntityDataShared b_Male="1" s_Torso="guest_m"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFShadowLODComponent numLevels="1" switchingDists="30.0"/>
+               <BFActorComponent actorfile="entities\units\guests\YoungMale\Guest_Young_M.bfm" scale="1.0"/>
+               <BF2LegsGroundFitComponent rightAnkleJoint="Bip01 R Foot" leftAnkleJoint="Bip01 L Foot" ankleRotVectorLeft="0 0 1" ankleRotVectorRight="0 0 1" heightOffset="0" fitRadius=".15"/>
+               <BFForwardMovingComponent/>
+               <BFRotYawMovingComponent/>
+               <BFBoundedObjectComponent>
+                  <minPoint x="0" y="0" z="-100"/>
+                  <maxPoint x="300" y="300" z="100"/>
+               </BFBoundedObjectComponent>
+               <BFCollisionComponent grid="Grid"/>
+               <BFGridCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="headObj">
+         <instance>
+            <BFPhysObj useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities\units\guests\YoungMale\Head_Young_M.nif" scale="1.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\guest_blob.tga" baseNode="Bip01" width=".7" minLength=".7" maxLength="3.0" minOffset="0" maxOffset="1.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1">
+               <subBehaviors>
+                  <BFBehLocoSwitchSet loopFlag="true">
+                     <behaviorTable>
+                        <ground behSet="Stand_Idle"/>
+                        <water behSet="TreadWater_Idle"/>
+                     </behaviorTable>
+                  </BFBehLocoSwitchSet>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

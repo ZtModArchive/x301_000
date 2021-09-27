@@ -1,0 +1,49 @@
+<UILayout>
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <children>
+      <UILayout>
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <children>
+            <UILayout name="fpt zoopedia layout" template="blankna">
+               <UIRegion x="0" y="568" w="45" h="48" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIShowHideAnim time=".2f">
+                  <start x="-50" y="568" w="45" h="48"/>
+                  <end x="0" y="568" w="45" h="48"/>
+               </UIShowHideAnim>
+               <UIAspect>
+                  <default image=""/>
+               </UIAspect>
+               <children>
+                  <UIButton name="zoopedia link">
+                     <UIRegion x="-2" y="0" w="48" h="48" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="entityinfo:zoopedia_button"/>
+                     <UIAspect string="">
+                        <default image="ui/shared/button_zoopedia.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="uiclick">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

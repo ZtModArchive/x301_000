@@ -1,0 +1,168 @@
+<BFTypedBinder binderType="KomodoDragon" abstract="true">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Reptilia>
+                  <Squamata>
+                     <Varanidae>
+                        <KomodoDragon/>
+                     </Varanidae>
+                  </Squamata>
+               </Reptilia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\units\animals\KomodoDragon\KomodoDragon_M_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo ids="entityname:KomodoDragon"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="KomodoDragon_Adult_M"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData waterPlacement="true" icon3Doffset="0 0 0.5" icon3Dscale="0.5">
+         <cfootprint width="1" height="1"/>
+         <dfootprint width="1" height="1"/>
+      </ZTPlacementData>
+      <BFAIEntityDataShared s_Product="EndangeredSpecies" f_BaseDonationAmount="80" f_MaxTourValue="40" s_DonateToken="t_DonateKomodoDragon" s_Species="KomodoDragon" s_Endangerment="Vulnerable" b_Basic="true" b_Carnivore="true" b_Piscivore="true" s_KeeperEatType="Terrain_Meat" b_FoodDishEater="true" s_KeeperDrinkType="FoodDish_Water" b_LargeAnimal="true" f_adoptRarity="40" s_Zoopedia="zoopedia:zoopedia_komododragon:entry" f_RequiredInitialSpace="150" f_RequiredAdditionalSpace="50" b_WetlandsAnimal="true" b_BeefShankEater="true" p_FightOffset="0 -4 180" p_GreetNode="0 -2 180" p_GroomNode="0 -2 180" b_SmallScrubBurrowUser="true" b_LargeScrubBurrowUser="true" b_HeatedRockUser="true" b_WetlandsOdd="true" b_TropicalRainforestOdd="true" b_TundraOdd="true" b_TemperateForestOdd="true" b_SavannahOdd="true" b_GrasslandOdd="true" b_DesertOdd="true" b_BorealForestOdd="true" b_AlpineOdd="true" b_ScrubAnimal="true" b_LookoutPostUser="true" p_PreyOffset="0 1 0" b_ReptilePoolUser="true" b_HeatLampUser="true" p_AttackGuestNode="0 -1.8 180">
+         <BFAINeedAdjusts privacy="0.1"/>
+      </BFAIEntityDataShared>
+      <BFGBiomeData location="scrub_southeastasia_komodoisland" locationSensitivity="10">
+         <alpine sensitivity="-10"/>
+	 <benthic sensitivity="-10" />
+         <borealforest sensitivity="-10"/>
+	 <coastal sensitivity="0" />
+         <desert sensitivity="0"/>
+         <grassland sensitivity="0"/>
+         <reef sensitivity="-10" />
+	 <pelagic sensitivity="-10" />
+	 <temperateforest sensitivity="-10"/>
+         <tropicalrainforest sensitivity="-10"/>
+         <tundra sensitivity="-10"/>
+         <savannah sensitivity="0"/>
+         <scrub sensitivity="10" primary="true"/>
+         <wetlands sensitivity="-10"/>
+      </BFGBiomeData>
+      <ZTUserStaffAction>
+         <SetAttribute name="hygiene" value="0" threshold="20" locid="superstaff:animal_wash" effect="SuperStaffWashLarge"/>
+         <SetAttribute name="health" value="0" threshold="20" locid="superstaff:animal_heal"/>
+      </ZTUserStaffAction>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFShadowLODComponent numLevels="1" switchingDists="60.0"/>
+               <BFActorComponent actorfile="entities/units/animals/KomodoDragon/KomodoDragon_Adult_M.bfm" scale="1.0"/>
+               <BF4LegsGroundFitComponent heightOffset="0" maxRollError="0.2" maxPitchError="0.1" maxHeightError="0.5" pitchGain="1.0" heightGain="6.0" rollGain="1.0" bicyclePointBack="Bip01 Pelvis" bicyclePointFront="Floor_Head" backBuoyancyNode="Node_Buoy_Back" frontBuoyancyNode="Node_Buoy" maxLOD="1" heightOffsetScale="0.0"/>
+               <BFSwimComponent waterInDistance="0.50" waterOutDistance="0.0"/>
+               <BFManipSensorComponent maxAngle="0.4" minAngle="-0.4" targetJoint="Bip01 Head" sensorNode="Floor_Head" rotVector="0 0 1" gain="0.1"/>
+               <BFManipSensorComponent maxAngle="0.4" minAngle="-0.4" targetJoint="Bip01 Tail" sensorNode="Floor_Tail1" rotVector="0 0 -1" gain="0.1" z_offset="0"/>
+               <BFManipSensorComponent maxAngle="0.4" minAngle="-0.4" targetJoint="Bip01 Tail1" sensorNode="Floor_Tail2" rotVector="0 0 -1" gain="0.05" z_offset="0"/>
+               <BFManipSensorComponent maxAngle="0.4" minAngle="-0.4" targetJoint="Bip01 Tail2" sensorNode="Floor_Tail3" rotVector="0 0 -1" gain="0.025" z_offset="0"/>
+               <BFManipSensorComponent maxAngle="0.4" minAngle="-0.4" targetJoint="Bip01 Tail3" sensorNode="Floor_Tail4" rotVector="0 0 -1" gain="0.0125" z_offset="0"/>
+               <BFRotYawMovingComponent/>
+               <BFCollisionComponent grid="Bip01 Spine1"/>
+               <BFGridCollisionComponent/>
+               <BFDecalTextureCycleComponent materialName="defaultMat14" textureSet="2">
+                  <Step imageName="entities/units/animals/shared/komodo_blink_blank.dds" hold="3.0" variance="0.5"/>
+                  <Step imageName="entities/units/animals/shared/komodo_blink02.dds" hold="0.08" variance=""/>
+                  <Step imageName="entities/units/animals/shared/komodo_blink.dds" hold="0.1" variance=""/>
+                  <Step imageName="entities/units/animals/shared/komodo_blink02.dds" hold="0.08" variance=""/>
+               </BFDecalTextureCycleComponent>
+               <BFHeadLookComponent leftRightAnimName="Secondary_HeadLook" lookDirNode="Bip01 Head" lookDirVector="0 1 0" gain_z="-2" fov_extreme_lr="90.0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFTextTagMacrosComponent>
+               <MACROS>
+                  <macro name="JumpOnHeatedRock" text="anim 'Run_Ahead' !anim 'Stand_Idle' blend .2 advance_cur_t, anim 'Stand_Idle'"/>
+                  <macro name="JumpOnRock" text="as 100 1, anim 'Stand_JumpUp'"/>
+                  <macro name="TurnLeft180" text="!anim 'Stand_Idle' blend .2 advance_cur_t, anim 'Stand_TurnLeft90', anim 'Stand_TurnLeft90'"/>
+                  <macro name="TurnRight180" text="!anim 'Stand_Idle' blend .2 advance_cur_t, anim 'Stand_TurnRight180'"/>
+                  <macro name="TurnRight90" text="anim 'Stand_TurnRight90'"/>
+                  <macro name="TurnLeft90" text="anim 'Stand_TurnLeft90'"/>
+                  <macro name="Walky" text="anim 'Walk_Ahead'"/>
+                  <macro name="Stand2LieBelly" text="anim 'Stand_2Lie'"/>
+                  <macro name="LieBelly2Stand" text="anim 'Lie_2Stand', anim 'Stand_Idle'"/>
+                  <macro name="Standy2Walky" text="anim 'Stand_2Walk', anim 'Walk_Ahead'"/>
+                  <macro name="Walky2Standy" text="anim 'Walk_2Stand', anim 'Stand_Idle'"/>
+                  <macro name="RedPandaWalk" text="anim 'Walk_Ahead'"/>
+                  <macro name="RedPandaClimb180" text="anim 'Stand_TurnRight90', anim 'Stand_TurnRight90'"/>
+                  <macro name="RedPandaCurl" text="anim 'Stand_Idle'"/>
+                  <macro name="RedPandaCurl2Descend" text="anim 'Stand_2Walk', anim 'Walk_Ahead'"/>
+                  <macro name="UsePool" text="anim 'Stand_2Lie'"/>
+               </MACROS>
+            </BFTextTagMacrosComponent>
+         </shared>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1">
+               <subBehaviors>
+                  <BFBehLocoSwitchSet loopFlag="true">
+                     <behaviorTable>
+                        <ground behSet="Stand_Idle"/>
+                        <water behSet="TreadWater_Idle"/>
+                     </behaviorTable>
+                  </BFBehLocoSwitchSet>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr/>
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="ground" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="Stand_Idle">
+                     <stop name="Stand"/>
+                     <slow name="Walk"/>
+                     <medium name="Walk"/>
+                     <fast name="Run"/>
+                     <stalk name="Stalk"/>
+                     <evade name="Run" minAnimSpeed="0.6" maxAnimSpeed="1.5"/>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="water" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+                     <stop name="TreadWater"/>
+                     <slow name="Swim"/>
+                     <medium name="Swim"/>
+                     <fast name="Swim"/>
+                     <stalk name="Swim"/>
+                     <evade name="Swim" minAnimSpeed="0.6" maxAnimSpeed="1.5"/>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>
+      <BFNamedBinder binderName="foodprop" repopulateMethod="byName" required="1">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="5500">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

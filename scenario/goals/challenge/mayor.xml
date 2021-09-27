@@ -1,0 +1,20 @@
+<BFScenarioGroup name="mayorrules" state="0" chain="true" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="mayor" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHMayorsChallengeShort" overview="Challengetext:CHMayorsChallenge" />
+				<success locid="Challengetext:CHMayorsChallengeSuccessShort" overview="Challengetext:CHMayorsChallengeSuccess" />
+				<failure locid="Challengetext:CHMayorsChallengeFailureShort" overview="Challengetext:CHMayorsChallengeFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/mayor.lua" entry="evalmayor" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/mayor.lua" entry="completemayor" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/mayor.lua" entry="failmayor" />
+			</failure>			
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

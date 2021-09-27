@@ -1,0 +1,134 @@
+<BFTypedBinder binderType="Fountain_St">
+   <types>
+      <entity>
+         <scenery>
+            <Fountain>
+               <Fountain_St/>
+            </Fountain>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="fire01" rottype="ignore" postype="use" attachnode="Link_Fire01"/>
+            <parentObj parent="mainObj" child="fire02" rottype="ignore" postype="use" attachnode="Link_Fire02"/>
+            <parentObj parent="mainObj" child="fire03" rottype="ignore" postype="use" attachnode="Link_Fire03"/>
+            <parentObj parent="mainObj" child="fire04" rottype="ignore" postype="use" attachnode="Link_Fire04"/>
+            <parentObj parent="mainObj" child="mist01" rottype="ignore" postype="use" attachnode="Link_Mist01"/>
+            <parentObj parent="mainObj" child="mist02" rottype="ignore" postype="use" attachnode="Link_Mist02"/>
+            <parentObj parent="mainObj" child="mist03" rottype="ignore" postype="use" attachnode="Link_Mist03"/>
+            <parentObj parent="mainObj" child="mist04" rottype="ignore" postype="use" attachnode="Link_Mist04"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0.002026 0.636810" icon3Dscale="0.196030"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\Fountain_St\Fountain_St_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Fountain_St"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Fountain_St"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_uisort="p" s_ProfileLock="safarilock" s_Zoopedia="zoopedia:zoopedia_themedfountains:entry" s_Theme="safari"/>
+      <ZTTourData>
+         <theme_safari value="7"/>
+         <fountain value="7"/>
+         <cool value="4"/>
+      </ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/scenery/Fountain_St/Fountain_St.nif" switch="0 20 50" minSwitch="0 0 30"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fire01">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Fire.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fire02">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Fire.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fire03">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Fire.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fire04">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Fire.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist01">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist02">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist03">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist04">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="560">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

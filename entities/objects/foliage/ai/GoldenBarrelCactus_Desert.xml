@@ -1,0 +1,57 @@
+﻿<BFTypedBinder binderType="GoldenBarrelCactus_Desert">
+	<types>
+		<entity>
+			<foliage>
+				<plant>
+					<bush>
+						<GoldenBarrelCactus_Desert />
+					</bush>
+				</plant>
+			</foliage>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<ZTPlacementData autoFootprint="false" icon3Doffset="0 -0.070264 0.523747" icon3Dscale="0.6">
+			<cfootprint width="1" height="1" />
+			<dfootprint width="1" height="1" />
+		</ZTPlacementData>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\foliage\GoldenBarrelCactus\GoldenBarrelCactus_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:GoldenBarrelCactus_Desert" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="GoldenBarrelCactus_Desert" />
+			</on>
+		</UIToggleButton>
+		<BFGBiomeData location="desert_northamerica">
+			<desert />
+		</BFGBiomeData>
+		<BFAIEntityDataShared s_Product="EndangeredSpecies" b_GrazeGrass="false" s_prop="Grass_Prop" s_Zoopedia="zoopedia:zoopedia_goldenbarrelcactus:entry" f_FameReq="40" />
+		<ZTTourData>
+			<biome_desert value="3" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\foliage\GoldenBarrelCactus\GoldenBarrelCactus_Desert" scale="0.4" switch="0 15 25 35 60" />
+					<BFMultiGroundFitComponent heightOffset="0.0" maxTilt="50" />
+					<BFTerrainPaintComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="10">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

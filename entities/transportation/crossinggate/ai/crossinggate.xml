@@ -1,0 +1,55 @@
+<BFTypedBinder binderType="crossinggate" abstract="true">
+	<types>
+		<entity>
+			<transportation>
+				<crossinggate />
+			</transportation>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<BFAIEntityDataShared s_TransportationMode="Ground" f_trackOffsetAngle="90" f_CollisionDetectionRadius="4" b_ReceiveUpdates="true" b_SeeThrough="true" />
+		<BFGCollisionData isPassable="true" isTraversable="true" />
+		<ZTPlacementData autoFootprint="false" gridSnap="true" Rotatable="false">
+			<cfootprint width="1" height="1" />
+			<dfootprint width="2" height="2" />
+			<stompData>
+				<allow>
+					<groundtrack />
+				</allow>
+			</stompData>
+		</ZTPlacementData>
+		<ZTEntitySelector>
+			<BFPhysObj>
+				<BFTerrainDecalComponent imageName="UI/fx/selection/object.tga" alphaBlend="true">
+					<lighting emmisiveColor="255 255 255" specularColor="255 255 255" diffuseColor="255 255 255" ambientColor="255 255 255" />
+				</BFTerrainDecalComponent>
+			</BFPhysObj>
+		</ZTEntitySelector>
+	</shared>
+	<binder>
+		<BFBinder>
+			<instance>
+				<ZTTransportCrossingGate openState="true" pollFreq="0.1" physObj="gate_animation" openAnim="Bip01_close" closeAnim="Bip01_open" />
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="gate_animation">
+			<instance>
+				<BFPhysObj>
+					<BFActorComponent updateWhenNotVisible="true" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars seeThrough="false" />
+			</shared>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<BFAIEntityDataInstance f_timeToClose="0.0" f_FenceStrength="10" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

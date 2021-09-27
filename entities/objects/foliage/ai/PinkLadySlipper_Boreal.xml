@@ -1,0 +1,54 @@
+<BFTypedBinder binderType="PinkLadySlipper_Boreal">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <wildflowers>
+                  <PinkLadySlipper_Boreal/>
+               </wildflowers>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 -0.070264 0.523747" icon3Dscale="0.5" />
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\PinkLadySlipper\PinkLadySlipper_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:PinkLadySlipper_Boreal"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PinkLadySlipper_Boreal"/>
+         </on>
+      </UIToggleButton>
+      <BFGBiomeData location="borealforest_northamerica">
+         <borealforest/>
+      </BFGBiomeData>
+      <BFAIEntityDataShared s_Product="EndangeredSpecies" s_Zoopedia="zoopedia:zoopedia_pinkladyslipper:entry" f_FameReq="40"/>
+   		<ZTTourData>
+ 				<biome_boreal value="1"/>
+		</ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\foliage\PinkLadySlipper\PinkLadySlipper_Boreal"  switch="0 15 25 35 60"/>
+               <BFMultiGroundFitComponent heightOffset="0.0" maxTilt="75"/>
+               <BFTerrainPaintComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="10">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

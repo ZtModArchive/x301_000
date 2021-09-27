@@ -1,0 +1,73 @@
+<BFTypedBinder binderType="KomodoDragon_Egg">
+   <types>
+      <entity>
+         <egg>
+            <KomodoDragon_Egg/>
+         </egg>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.3" icon3Dscale="5.0"/>
+      <UIToggleButton template="adopt">
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:KomodoDragon_Egg"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="KomodoDragon_Egg"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Species="KomodoDragon" s_Zoopedia="zoopedia:zoopedia_KomodoDragon:entry" s_Endangerment="Vulnerable"/>
+      <BFGBiomeData location="scrub_southeastasia_komodoisland" locationSensitivity="10">
+         <alpine sensitivity="-10" />
+         <borealforest sensitivity="-10" />
+         <desert sensitivity="0" />
+         <grassland sensitivity="0" />
+         <temperateforest sensitivity="-10" />
+         <tropicalrainforest sensitivity="-10" />
+         <tundra sensitivity="-10" />
+         <savannah sensitivity="0" />
+         <scrub sensitivity="10" primary="true" />
+         <wetlands sensitivity="-10" />
+      </BFGBiomeData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFCollisionComponent grid="Bip01"/>
+               <BFActorComponent actorfile="entities/objects/eggs/TortoiseGalapagos_Egg/TortoiseGalapagos_Egg.bfm" activeSequenceName="Stand_Idle" activeSequenceAccumulate="false" scale="1.0"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFGridCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+	<BFBinder required="1">
+		<instance>
+			<BFAICognitiveMgr>
+				<Sensors>
+					<ZTAISensor />
+					<BFAISensorSelf />
+				</Sensors>
+				<StateThinkers>
+					<ZTAIStateThinker>
+						<BFAIStateVar Name="incubation" Value="" ValueMin=".0075" ValueMax="" CessationThreshold="0" DisplayThreshold="0" PressingThreshold="1.3" TriggerThreshold="3.48" CriticalThreshold="3.48" Advanced="true" />
+					</ZTAIStateThinker>
+				</StateThinkers>
+				<TaskThinkers>
+					<ZTAITaskThinker />
+				</TaskThinkers>
+			</BFAICognitiveMgr>
+		</instance>
+		<shared>
+			<BFAICogShared>
+				<BFAINoPerceive>
+					<fence />
+					<path />
+					<entrance />
+				</BFAINoPerceive>
+			</BFAICogShared>
+		</shared>
+	</BFBinder>
+   </binder>
+</BFTypedBinder>

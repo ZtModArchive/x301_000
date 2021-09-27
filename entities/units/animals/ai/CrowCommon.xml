@@ -1,0 +1,85 @@
+<BFTypedBinder binderType="CrowCommon">
+   <types>
+      <entity>
+         <actor>
+            <ambient>
+               <ambient_air>
+                  <CrowCommon/>
+               </ambient_air>
+            </ambient>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared s_Species="CrowCommon" b_Caller="true"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <position x="0" y="0" z="0"/>
+               <BFActorComponent actorfile="entities/units/animals/CrowCommon/CrowCommon.bfm" switch="0 20 40"/>
+               <BFBirdGroundFitComponent heightOffset="15" ignoreElevatedPath="false" minHeightOffset="10" desiredClimbRate="0.5" desiredDiveRate="2.0"/>
+               <BFForwardMovingComponent/>
+               <BFRotYawMovingComponent/>
+               <BFGridCollisionComponent/>
+               <BFBoundedObjectComponent worldBounded="0">
+                  <minPoint x="-1000000" y="-100000" z="-100000"/>
+                  <maxPoint x="1000000" y="100000" z="100000"/>
+               </BFBoundedObjectComponent>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\blob_animal_final.tga" baseNode="Bip01 Head" width="1.5" minLength="1.5" maxLength="3.0" minOffset="0" maxOffset=".75"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_Glider="true"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1">
+               <subBehaviors>
+                  <BFBehAnimate interruptible="true" targetAnim="Fly_Ahead" interruptFlag="true" loopFlag="true" animSpeed="0.3"/>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr/>
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="ground" required="1">
+               <instance>
+                  <BFLocoAnimate version="1">
+                     <stop name="Fly" minAnimSpeed="0.6" maxAnimSpeed="0.7"/>
+                     <slow name="Fly" minAnimSpeed="0.6" maxAnimSpeed="0.7">
+                        <waggle name="Fly_Ahead" wag="0.3"/>
+                     </slow>
+                     <medium name="Fly" minAnimSpeed="0.6" maxAnimSpeed="0.7">
+                        <waggle name="Fly_Ahead" wag="0.3"/>
+                     </medium>
+                     <fast name="Fly" minAnimSpeed="0.6" maxAnimSpeed="0.7">
+                        <waggle name="Fly_Ahead" wag="0.3"/>
+                     </fast>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

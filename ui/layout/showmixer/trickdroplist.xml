@@ -1,0 +1,85 @@
+<UILayout name="The Droplist Layout">
+   <UIRegion x="285" y="0" w="70" h="200" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect locid="">
+      <default image="" sound="">
+         <BFRect x="0" y="0" w="512" h="512"/>
+         <BFColor r="255" g="255" b="255" a="255"/>
+      </default>
+      <normal/>
+   </UIAspect>
+   <children>
+      <UILayout name="background" template="blankna">
+         <UIRegion x="0" y="0" w="72" h="200" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState visible="hidden"/>
+         <UIAspect>
+            <default image="">
+               <BFRect x="0" y="0" w="-1" h="-1"/>
+            </default>
+         </UIAspect>
+         <UIShowHideAnim time=".2f">
+            <start x="0" y="-158" w="-1" h="0"/>
+            <end x="0" y="0" w="-1" h="-1"/>
+         </UIShowHideAnim>
+      </UILayout>
+      <UIDropList name="triclkfilter" opener="opener" droplist="FilterList" alwayshit="true">
+         <UIRegion x="4" y="-45" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+         <children>
+            <UIToggleSet name="FilterList" template="panel_thin" rows="-1" yspacer="5">
+               <UIRegion x="6" y="0" w="-3" h="185" yalign="min" walign="max" halign="len"/>
+               <UIState visible="hidden"/>
+               <UIShowHideAnim time=".2f">
+                  <start x="0" y="-98" w="-1" h="-1"/>
+                  <end x="0" y="50" w="-1" h="-1"/>
+               </UIShowHideAnim>
+            </UIToggleSet>
+            <UIToggleButton name="opener">
+               <UIRegion x="-30" y="27" w="18" h="18" xalign="max" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIHelpInfo name="" short="" long="" help="" ids=""/>
+               <UIAspect>
+                  <default image="ui/tricks/trick_sequencer_asset.dds"/>
+                  <standard>
+                     <normal>
+                        <BFRect x="150" y="0" w="17" h="17"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="150" y="18" w="17" h="17"/>
+                     </highlighted>
+                     <activated sound="collapse">
+                        <BFRect x="150" y="36" w="17" h="17"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="150" y="54" w="17" h="17"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="150" y="36" w="17" h="17"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="150" y="18" w="17" h="17"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="150" y="36" w="17" h="17"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="150" y="54" w="17" h="17"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <on>
+                  <event msg="UI_CHILD" data="UIChildData" name="background">
+                     <child msg="UI_SHOW"/>
+                  </event>
+               </on>
+               <off>
+                  <event msg="UI_CHILD" data="UIChildData" name="dropdown background">
+                     <child msg="UI_HIDE"/>
+                  </event>
+               </off>
+            </UIToggleButton>
+         </children>
+      </UIDropList>
+   </children>
+</UILayout>

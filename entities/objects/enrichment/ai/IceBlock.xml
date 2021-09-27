@@ -1,0 +1,91 @@
+<BFTypedBinder binderType="IceBlock">
+	<types>
+		<entity>
+			<enrichment>
+				<toy>
+					<IceBlock />
+				</toy>
+			</enrichment>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\enrichment\IceBlock\IceBlock_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:IceBlock" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="IceBlock" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData waterPlacement="true" tankPlacement="true" moveable="true" randomRotate="false" gridSnap="true" autoFootprint="false" icon3Dscale="1.98" icon3Doffset="0 0 .78" minimumHeadroom="0.4">
+			<cfootprint width="0" height="0" />
+			<dfootprint width="1" height="1" />
+		</ZTPlacementData>
+		<BFAIEntityDataShared s_ObjectType="Treat" s_uisort="fa" s_Zoopedia="zoopedia:zoopedia_iceblock:entry" f_FameReq="40" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="1.4" length="1" intensity="0.25" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/IceBlock/IceBlock_Phys" switch="0 18 36" />
+					<BFGroundFitComponent heightOffset="0.2" maxTilt="50" floatOnWater="true" waterOffset="-0.07f" />
+					<BFRealPhysicsComponent shapeType="box" shapeRadius="0.42" shapeHeight="0.4" rollFrictionCoef="1.0" bounceCoef="0.0" waterDragCoef="1.2" />
+					<BFCollisionComponent grid="footprint" />
+					<BFGridCollisionComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Play">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall" exitBehSet="ExitBall" targetNode="Dock_01" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall" exitBehSet="ExitBall" targetNode="Dock_02" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall" exitBehSet="ExitBall" targetNode="Dock_03" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall" exitBehSet="ExitBall" targetNode="Dock_04" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Eat">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterIceBlock" useBehSet="UseIceBlock" exitBehSet="ExitIceBlock" targetNode="Dock_01" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceBlock" useBehSet="UseIceBlock" exitBehSet="ExitIceBlock" targetNode="Dock_02" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceBlock" useBehSet="UseIceBlock" exitBehSet="ExitIceBlock" targetNode="Dock_03" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceBlock" useBehSet="UseIceBlock" exitBehSet="ExitIceBlock" targetNode="Dock_04" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance b_Moving="false" />
+			</instance>
+		</BFBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="320">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

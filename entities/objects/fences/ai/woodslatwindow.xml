@@ -1,0 +1,75 @@
+<BFTypedBinder binderType="woodslatwindow">
+   <types>
+      <entity>
+         <fence>
+            <woodslatwindow/>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="fence">
+         <UIAspect>
+            <default image="entities\objects\fences\woodslatwindow_df\woodslatwindow_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:woodslatwindow"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="woodslatwindow"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchfence">
+         <UIAspect>
+            <default image="entities\objects\fences\woodslatwindow_df\woodslatwindow_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="woodslatwindow"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Researchable="true" s_uisort="nf" f_FenceStrength="5" s_Zoopedia="zoopedia:zoopedia_woodslatwindow:entry" f_researchUnlockTime="100" f_researchCost="700" f_FameReq="60" b_SeeThrough="true" s_Broken="woodslatwindow_broken" b_TunnelFence="true" b_ClimbFence="true"/>
+  </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTFence gate="woodslatgate" hasCurves="false"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="start_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\woodslatwindow_df\woodslatwindow_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\fences\woodslatwindow_df\woodslatwindow_df_vert" switch="0 140"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\fences\woodslatwindow_df\woodslatwindow_df_diag" switch="0 140"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="end_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\woodslatwindow_df\woodslatwindow_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="150">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

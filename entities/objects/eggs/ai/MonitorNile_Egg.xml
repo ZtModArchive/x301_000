@@ -1,0 +1,73 @@
+<BFTypedBinder binderType="MonitorNile_Egg">
+   <types>
+      <entity>
+         <egg>
+            <MonitorNile_Egg/>
+         </egg>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.3" icon3Dscale="5.0"/>
+      <UIToggleButton template="adopt">
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:MonitorNile_Egg"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="MonitorNile_Egg"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Species="MonitorNile" s_Zoopedia="zoopedia:zoopedia_MonitorNile:entry" s_Endangerment="LowRisk"/>
+		<BFGBiomeData location="savannah_africa" locationSensitivity="10">
+			<alpine sensitivity="-5" />
+			<borealforest sensitivity="0" />
+			<desert sensitivity="-10" />
+			<grassland sensitivity="2" />
+			<temperateforest sensitivity="0" />
+			<tropicalrainforest sensitivity="0" />
+			<tundra sensitivity="-10" />
+			<savannah sensitivity="2" />
+			<scrub sensitivity="0" />
+			<wetlands sensitivity="10" primary="true" />
+		</BFGBiomeData>
+   </shared>	
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFCollisionComponent grid="Bip01"/>
+               <BFActorComponent actorfile="entities/objects/eggs/TortoiseGalapagos_Egg/TortoiseGalapagos_Egg.bfm" activeSequenceName="Stand_Idle" activeSequenceAccumulate="false" scale="0.6"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFGridCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+	<BFBinder required="1">
+		<instance>
+			<BFAICognitiveMgr>
+				<Sensors>
+					<ZTAISensor />
+					<BFAISensorSelf />
+				</Sensors>
+				<StateThinkers>
+					<ZTAIStateThinker>
+						<BFAIStateVar Name="incubation" Value="" ValueMin=".0075" ValueMax="" CessationThreshold="0" DisplayThreshold="0" PressingThreshold="1.3" TriggerThreshold="3.48" CriticalThreshold="3.48" Advanced="true" />
+					</ZTAIStateThinker>
+				</StateThinkers>
+				<TaskThinkers>
+					<ZTAITaskThinker />
+				</TaskThinkers>
+			</BFAICognitiveMgr>
+		</instance>
+		<shared>
+			<BFAICogShared>
+				<BFAINoPerceive>
+					<fence />
+					<path />
+					<entrance />
+				</BFAINoPerceive>
+			</BFAICogShared>
+		</shared>
+	</BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,43 @@
+<BehaviorSets>
+   <BuyPretzel>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToBuyFood" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Queue"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:BuyingFood" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehScript context="behavior" file="scripts/kickoffanim.lua" function="kickoffanim"/>
+         <BFBehSyncSet subjectBehSet="GuestBuyPretzel" targetBehSet="BuildingSellPretzel" resetPhase="true"/>
+         <BFBehAnimate targetAnim="StandItem_Turn180"/>
+         <BFBehAnimate targetAnim="WalkItem_Ahead"/>
+      </behaviors>
+   </BuyPretzel>
+   <GuestBuyPretzel>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="Money" targetAnim="Stand_ShopGiveMoney" detachAction="killitem"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+         <BFBehAttachObject attachEntity="Pretzel" targetAnim="Stand_2StandItem" locoMod="carry" detachAction="inventory"/>
+      </behaviors>
+   </GuestBuyPretzel>
+   <BuildingSellPretzel>
+      <subjects>
+         <snackcart_pretzel/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="Money" targetAnim="Stand_ShopReceiveItem" detachAction="killitem"/>
+         <BFBehAttachObject attachEntity="Pretzel" targetAnim="Stand_ShopGiveMoney" detachAction="killitem"/>
+      </behaviors>
+   </BuildingSellPretzel>
+</BehaviorSets>

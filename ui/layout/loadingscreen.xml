@@ -1,0 +1,87 @@
+<UILayout name="Loading Screen" modal="true">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect string="">
+      <default image="" sound="">
+         <BFRect x="0" y="0" w="0" h="0"/>
+         <BFColor r="255" g="255" b="255" a="255"/>
+      </default>
+   </UIAspect>
+   <children>
+      <UIStatic name="">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect>
+            <default image="ui\shared\white1x1.dds">
+               <BFRect x="0" y="0" w="1" h="1"/>
+               <BFColor r="0" g="0" b="0" a="255"/>
+            </default>
+         </UIAspect>
+      </UIStatic>
+      <UIStatic name="Loading Bar Back">
+         <UIRegion x="256" y="300" w="512" h="128" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect>
+            <default image="ui/loading/loading01.dds">
+               <BFRect x="0" y="0" w="512" h="128"/>
+               <BFColor r="96" g="255" b="96" a="255"/>
+            </default>
+         </UIAspect>
+      </UIStatic>
+      <UIStatic name="Loading Bar Overlay">
+         <UIRegion x="256" y="300" w="512" h="128" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect>
+            <default image="ui/shared/loader_overlay.dds">
+               <BFRect x="0" y="0" w="512" h="128"/>
+               <BFColor r="255" g="255" b="255" a="192"/>
+            </default>
+         </UIAspect>
+      </UIStatic>
+      <UILayout name="Loading Bar">
+         <UIRegion x="256" y="300" w="256" h="128" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIAspect>
+            <default/>
+         </UIAspect>
+         <children>
+            <UIStatic name="Loading Bar Front">
+               <UIRegion x="0" y="0" w="512" h="128" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default image="ui/loading/loading01.dds">
+                     <BFRect x="0" y="128" w="512" h="128"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+         </children>
+      </UILayout>
+      <UIText name="Loading Status Text">
+         <UIRegion x="0" y="430" w="0" h="50" walign="max"/>
+         <UIAspect>
+            <default>
+               <BFFont align="center">
+                  <BFColor r="222" g="211" b="35" a="255"/>
+               </BFFont>
+            </default>
+         </UIAspect>
+         <text format="loadstatus:format"/>
+      </UIText>
+      <UIText name="Loading Status Number">
+         <UIRegion x="484" y="460" w="256" h="50"/>
+         <UIAspect>
+            <default>
+               <BFFont align="left">
+                  <BFColor r="222" g="211" b="35" a="255"/>
+               </BFFont>
+            </default>
+         </UIAspect>
+         <text format="loadstatus:format"/>
+      </UIText>
+   </children>
+   <replacement>
+      <skin name="loading bar" replaceType="file" dir="ui/loading/">
+         <replace name="Loading Bar Back"/>
+         <replace name="Loading Bar Front"/>
+      </skin>
+   </replacement>
+</UILayout>

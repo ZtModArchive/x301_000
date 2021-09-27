@@ -1,0 +1,20 @@
+<BFScenarioGroup name="unboundrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="UngulatesUnbound" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHUngulatesUnboundShort" overview="Challengetext:CHUngulatesUnbound" />
+				<success locid="Challengetext:CHUngulatesUnboundSuccessShort" overview="Challengetext:CHUngulatesUnboundSuccess" />
+				<failure locid="Challengetext:CHUngulatesUnboundFailureShort" overview="Challengetext:CHUngulatesUnboundFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/ungulatesunbound.lua" entry="unboundchallenge" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/ungulatesunbound.lua" entry="completeunboundchallenge" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/instant/ungulatesunbound.lua" entry="failunboundchallenge" />
+			</failure>			
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

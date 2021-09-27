@@ -1,0 +1,404 @@
+<hotkeys>
+   <escreturn>
+      <!-- ESC -->
+      <down code="27" msg="UI_CHILD" data="UIChildData" name="return">
+         <child msg="UI_ACTIVATE"/>
+      </down>
+   </escreturn>
+   <escclose>
+      <!-- ESC -->
+      <down code="27" msg="UI_CHILD" data="UIChildData" name="close">
+         <child msg="UI_ACTIVATE"/>
+      </down>
+   </escclose>
+   <esccancel>
+      <!-- ESC -->
+      <down code="27" msg="UI_CHILD" data="UIChildData" name="cancel">
+         <child msg="UI_ACTIVATE"/>
+      </down>
+   </esccancel>
+   <esctextcancel>
+      <!-- ESC -->
+      <down code="27" msg="UI_CHILD" data="UIChildData" name="TextButton Cancel">
+         <child msg="UI_ACTIVATE"/>
+      </down>
+   </esctextcancel>
+   <ZTUIFullscreenButton>
+      <!-- ESC -->
+      <down code="27" msg="UI_HIDE"/>
+   </ZTUIFullscreenButton>
+   <mainmode>
+      <!-- F1 -->
+      <down code="112" msg="UI_HYPERLINK" data="BFString" string=""/>
+      <!-- F2 -->
+      <down code="113" msg="ZT_CLEAR_MEMTRACKING"/>
+      <!-- F3 -->
+      <down code="114" msg="ZT_DUMP_MEMTRACKING"/>
+      <!-- F8 -->
+      <down code="119" msg="ZT_SET_DEVMODE"/>
+      <!-- Ctrl-L -->
+      <char code="12" ctrlState="1" msg="ZT_RUN_LOP"/>
+   </mainmode>
+   <layoutmode>
+      <!-- tab -->
+      <down code="9" msg="ZT_SET_SPRITE_DEBUG_MODE" data="bool" value="true"/>
+      <up code="9" msg="ZT_SET_SPRITE_DEBUG_MODE" data="bool" value="false"/>
+      <!-- F1 -->
+      <down code="112" msg="ZT_EDITOR_SET_TARGET"/>
+      <!-- F2 -->
+      <down code="113" msg="ZT_EDITOR_MODIFY_TARGET"/>
+   </layoutmode>
+   <overheadcamera>
+      <!-- Ctrl -->
+      <down code="17" msg="ZT_SET_COMMAND_STATE" data="BFString" string="mouselook"/>
+      <up code="17" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="mouselook"/>
+      <!-- - -->
+      <down code="109" msg="ZT_SET_COMMAND_STATE" data="BFString" string="up"/>
+      <up code="109" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="up"/>
+      <!-- + -->
+      <down code="107" msg="ZT_SET_COMMAND_STATE" data="BFString" string="down"/>
+      <up code="107" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="down"/>
+      <!-- - -->
+      <down code="189" msg="ZT_SET_COMMAND_STATE" data="BFString" string="up"/>
+      <up code="189" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="up"/>
+      <!-- + -->
+      <down code="187" msg="ZT_SET_COMMAND_STATE" data="BFString" string="down"/>
+      <up code="187" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="down"/>
+      <!-- Left -->
+      <down code="37" msg="ZT_SET_COMMAND_STATE" data="BFString" string="rleft"/>
+      <up code="37" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="rleft"/>
+      <!-- Right -->
+      <down code="39" msg="ZT_SET_COMMAND_STATE" data="BFString" string="rright"/>
+      <up code="39" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="rright"/>
+      <!-- Up -->
+      <down code="38" msg="ZT_SET_COMMAND_STATE" data="BFString" string="rforward"/>
+      <up code="38" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="rforward"/>
+      <!-- Down -->
+      <down code="40" msg="ZT_SET_COMMAND_STATE" data="BFString" string="rbackward"/>
+      <up code="40" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="rbackward"/>
+   </overheadcamera>
+   <fencemode/>
+   <pathmode>
+      <char key="1" msg="ZT_SETPATHPLACEMETNMODE" data="BFString" string="paint"/>
+      <char key="2" msg="ZT_SETPATHPLACEMETNMODE" data="BFString" string="small_path"/>
+   </pathmode>
+   <elevatedpathmode>
+      <char key="r" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="ramp up"/>
+      <char key="R" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="ramp up"/>
+      <char key="f" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="flat"/>
+      <char key="F" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="flat"/>
+      <char key="v" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="ramp down"/>
+      <char key="V" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="ramp down"/>
+      <char key="t" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="elevated path raise"/>
+      <char key="T" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="elevated path raise"/>
+      <char key="b" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="elevated path lower"/>
+      <char key="B" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="elevated path lower"/>
+      <char key="j" msg="ZT_TOGGLE_SNAP_TO_ADJACENT"/>
+      <char key="J" msg="ZT_TOGGLE_SNAP_TO_ADJACENT"/>
+   </elevatedpathmode>
+   <skytrackplacementmode>
+      <!-- Ctrl-A to auto-adjust -->
+      <char key="h" msg="ZT_TOGGLE_SKYTOWER_AUTOADJUST"/>
+      <char key="H" msg="ZT_TOGGLE_SKYTOWER_AUTOADJUST"/>
+      <char key="t" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="skytower raise"/>
+      <char key="T" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="skytower raise"/>
+      <char key="b" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="skytower lower"/>
+      <char key="B" msg="ZT_ACTIVATE_ON_UI_BUTTON" data="BFString" string="skytower lower"/>
+   </skytrackplacementmode>
+   <biomemode>
+      <char key="[" msg="ZT_TERRAINCURSOR_SIZE" data="BFString" string="-"/>
+      <char key="]" msg="ZT_TERRAINCURSOR_SIZE" data="BFString" string="+"/>
+      <!-- Shift -->
+      <down code="16" msg="ZT_SET_STOP_AT_FENCES" data="bool" value="false"/>
+      <up code="16" msg="ZT_SET_STOP_AT_FENCES" data="bool" value="true"/>
+   </biomemode>
+   <terraincommands>
+      <char key="[" msg="ZT_TERRAINCURSOR_SIZE" data="BFString" string="-"/>
+      <char key="]" msg="ZT_TERRAINCURSOR_SIZE" data="BFString" string="+"/>
+      <!-- Shift -->
+      <down code="16" msg="ZT_SET_STOP_AT_FENCES" data="bool" value="false"/>
+      <up code="16" msg="ZT_SET_STOP_AT_FENCES" data="bool" value="true"/>
+   </terraincommands>
+   <deletemode>
+      <char key="1" msg="ZT_SET_DELETION_MODE" data="int" value="1"/>
+      <char key="2" msg="ZT_SET_DELETION_MODE" data="int" value="2"/>
+   </deletemode>
+   <overheadmode>
+      <!-- Tab -->
+      <char code="9" ctrlState="-1" msg="ZT_ACTIVATE_UI_BUTTON" data="BFString" string="overviewmap"/>
+      <!-- Ctrl-M -->
+      <char code="13" ctrlState="1" msg="ZT_ACTIVATE_UI_BUTTON" data="BFString" string="animals"/>
+      <!-- Ctrl-C -->
+      <char code="3" ctrlState="1" msg="ZT_ACTIVATE_UI_BUTTON" data="BFString" string="construction"/>
+      <!-- Ctrl-F -->
+      <char code="6" ctrlState="1" msg="ZT_ACTIVATE_UI_BUTTON" data="BFString" string="Zoofinance"/>
+      <!-- Ctrl-G -->
+      <char code="7" ctrlState="1" msg="ZT_ACTIVATE_UI_BUTTON" data="BFString" string="scenariogoals"/>
+      <!-- F6 -->
+      <down code="117" msg="UI_ROOT_CHILD" data="UIChildData" name="save current game">
+         <child msg="UI_SHOW"/>
+      </down>
+      <!-- Ctrl-P -->
+      <char code="16" ctrlState="1" msg="ZT_ACTIVATE_UI_BUTTON" data="BFString" string="Photo Album"/>
+      <!-- Ctrl-Q -->
+      <char code="17" ctrlState="1" msg="ZT_ACTIVATE_UI_BUTTON" data="BFString" string="multinfo button"/>
+      <!-- F5 -->
+      <down code="116" msg="ZT_SETMODE" data="BFString" string="mode_save"/>
+      <!-- Ctrl-T -->
+      <char code="20" ctrlState="1" msg="ZT_ACTIVATE_UI_BUTTON" data="BFString" string="terraform"/>
+      <!-- Ctrl-H -->
+      <char code="8" ctrlState="1" msg="ZT_ACTIVATE_UI_BUTTON" data="BFString" string="staff"/>
+      <!-- Ctrl-Z -->
+      <char code="26" ctrlState="1" msg="ZT_UNDOACTION"/>
+      <!-- Del -->
+      <down code="46" msg="ZT_ACTIVATE_UI_BUTTON" data="BFString" string="delete"/>
+      <!-- Ctrl-R -->
+      <char code="18" msg="ZT_RESET_GUI"/>
+      <!-- ESC -->
+      <down code="27" msg="ZT_ESCAPE_KEY"/>
+      <!-- G -->
+      <up code="71" msg="ZT_SETMODE" data="BFString" string="mode_first_person"/>
+      <!-- C -->
+      <char key="c" msg="ZT_SETMODE" data="BFString" string="mode_photo_safari"/>
+      <char key="C" msg="ZT_SETMODE" data="BFString" string="mode_photo_safari"/>
+      <!-- Z -->
+      <down code="90" msg="ZT_SET_COMMAND_STATE" data="BFString" string="iconScaleDown"/>
+      <up code="90" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="iconScaleDown"/>
+      <!-- X -->
+      <down code="88" msg="ZT_SET_COMMAND_STATE" data="BFString" string="iconScaleUp"/>
+      <up code="88" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="iconScaleUp"/>
+      <!-- I -->
+      <down code="73" msg="ZT_SET_COMMAND_STATE" data="BFString" string="iconAddZ"/>
+      <up code="73" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="iconAddZ"/>
+      <!-- K -->
+      <down code="75" msg="ZT_SET_COMMAND_STATE" data="BFString" string="iconSubtractZ"/>
+      <up code="75" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="iconSubtractZ"/>
+      <!-- J -->
+      <down code="74" msg="ZT_SET_COMMAND_STATE" data="BFString" string="iconAddY"/>
+      <up code="74" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="iconAddY"/>
+      <!-- L -->
+      <down code="76" msg="ZT_SET_COMMAND_STATE" data="BFString" string="iconSubtractY"/>
+      <up code="76" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="iconSubtractY"/>
+      <!-- F12-->
+      <down code="123" msg="ZT_TOOL_SAVE_ICON_OFFSET"/>
+      <!-- F10 -->
+      <down code="121" msg="ZT_SETMODE" data="BFString" string="mode_gesture_creation"/>
+      <!-- 1 -->
+      <char key="1" msg="ZT_QUICKGESTURETEST" data="BFString" string="Easy"/>
+      <!-- 2 -->
+      <char key="2" msg="ZT_QUICKGESTURETEST" data="BFString" string="Medium"/>
+      <!-- 3 -->
+      <char key="3" msg="ZT_QUICKGESTURETEST" data="BFString" string="Hard"/>
+   </overheadmode>
+   <photomode>
+      <!-- Space -->
+      <char key=" " msg="ZT_PHOTOEVENT_TAKE_PHOTO"/>
+      <!-- ESC -->
+      <down code="27" msg="ZT_SETMODE" data="BFString" string="mode_super_staff"/>
+      <!-- C -->
+      <char key="c" msg="ZT_SETMODE" data="BFString" string="mode_super_staff"/>
+      <char key="C" msg="ZT_SETMODE" data="BFString" string="mode_super_staff"/>
+      <!-- + -->
+      <down code="189" msg="ZT_SET_COMMAND_STATE" data="BFString" string="photoZoomIn"/>
+      <up code="189" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="photoZoomIn"/>
+      <down code="109" msg="ZT_SET_COMMAND_STATE" data="BFString" string="photoZoomIn"/>
+      <up code="109" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="photoZoomIn"/>
+      <!-- - -->
+      <down code="187" msg="ZT_SET_COMMAND_STATE" data="BFString" string="photoZoomOut"/>
+      <up code="187" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="photoZoomOut"/>
+      <down code="107" msg="ZT_SET_COMMAND_STATE" data="BFString" string="photoZoomOut"/>
+      <up code="107" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="photoZoomOut"/>
+   </photomode>
+   <superstaffmode>
+      <!-- Space -->
+      <char key=" " msg="ZT_USE_OBJECT"/>
+      <!-- E -->
+      <char key="e" msg="ZT_USE_OBJECT"/>
+      <char key="E" msg="ZT_USE_OBJECT"/>
+      <!-- C -->
+      <char key="c" msg="ZT_SETMODE" data="BFString" string="mode_photo_safari"/>
+      <char key="C" msg="ZT_SETMODE" data="BFString" string="mode_photo_safari"/>
+   </superstaffmode>
+   <fptrainingmode>
+      <!-- T -->
+      <down code="84" msg="ZT_SPLINE_DEMOTRACE"/>
+      <!-- O -->
+      <down code="79" msg="ZT_SPLINE_PLAYGESTURE"/>
+      <!-- Space -->
+      <char key=" " msg="ZT_SPACEBAR_ACTION"/>
+      <!-- Left -->
+      <down code="37" msg="ZT_KEYBOARD_ACTION_PRESS" data="BFString" string="leftarrow"/>
+      <up code="37" msg="ZT_KEYBOARD_ACTION_RELEASE" data="BFString" string="leftarrow"/>
+      <!-- Right -->
+      <down code="39" msg="ZT_KEYBOARD_ACTION_PRESS" data="BFString" string="rightarrow"/>
+      <up code="39" msg="ZT_KEYBOARD_ACTION_RELEASE" data="BFString" string="rightarrow"/>
+      <!-- Up -->
+      <down code="38" msg="ZT_KEYBOARD_ACTION_PRESS" data="BFString" string="uparrow"/>
+      <up code="38" msg="ZT_KEYBOARD_ACTION_RELEASE" data="BFString" string="uparrow"/>
+      <!-- Down -->
+      <down code="40" msg="ZT_KEYBOARD_ACTION_PRESS" data="BFString" string="downarrow"/>
+      <up code="40" msg="ZT_KEYBOARD_ACTION_RELEASE" data="BFString" string="downarrow"/>
+   </fptrainingmode>
+   <firstpersonmode>
+      <!-- ESC -->
+      <down code="27" msg="ZT_EXITMODE"/>
+      <!-- G -->
+      <up code="71" msg="ZT_EXITMODE"/>
+      <!-- X -->
+      <down code="88" msg="ZT_SET_COMMAND_STATE" data="BFString" string="crouch"/>
+      <up code="88" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="crouch"/>
+      <!-- Ins -->
+      <down code="45" msg="ZT_SET_COMMAND_STATE" data="BFString" string="crouch"/>
+      <up code="45" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="crouch"/>
+      <!-- kp 0 -->
+      <down code="96" msg="ZT_SET_COMMAND_STATE" data="BFString" string="crouch"/>
+      <up code="96" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="crouch"/>
+      <!-- 1 -->
+      <char key="1" msg="ZT_SET_USERSEATNUMBER" data="int" value="1"/>
+      <!-- 2 -->
+      <char key="2" msg="ZT_SET_USERSEATNUMBER" data="int" value="2"/>
+      <!-- 3 -->
+      <char key="3" msg="ZT_SET_USERSEATNUMBER" data="int" value="3"/>
+      <!-- 4 -->
+      <char key="4" msg="ZT_SET_USERSEATNUMBER" data="int" value="4"/>
+      <!-- 5 -->
+      <char key="5" msg="ZT_SET_USERSEATNUMBER" data="int" value="5"/>
+      <!-- 6 -->
+      <char key="6" msg="ZT_SET_USERSEATNUMBER" data="int" value="6"/>
+      <!-- 7 -->
+      <char key="7" msg="ZT_SET_USERSEATNUMBER" data="int" value="7"/>
+      <!-- 8 -->
+      <char key="8" msg="ZT_SET_USERSEATNUMBER" data="int" value="8"/>
+      <!-- 9 -->
+      <char key="9" msg="ZT_SET_USERSEATNUMBER" data="int" value="9"/>
+      <!-- Ctrl -->
+      <down code="17" msg="ZT_SET_COMMAND_STATE" data="BFString" string="freemouselook"/>
+      <up code="17" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="freemouselook"/>
+      <!-- Left -->
+      <down code="37" msg="ZT_SET_COMMAND_STATE" data="BFString" string="rleft"/>
+      <up code="37" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="rleft"/>
+      <!-- Right -->
+      <down code="39" msg="ZT_SET_COMMAND_STATE" data="BFString" string="rright"/>
+      <up code="39" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="rright"/>
+      <!-- Up -->
+      <down code="38" msg="ZT_SET_COMMAND_STATE" data="BFString" string="rforward"/>
+      <up code="38" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="rforward"/>
+      <!-- Down -->
+      <down code="40" msg="ZT_SET_COMMAND_STATE" data="BFString" string="rbackward"/>
+      <up code="40" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="rbackward"/>
+   </firstpersonmode>
+   <gamemode>
+      <!-- F1 -->
+      <down code="112" msg="UI_HYPERLINK" data="BFString" string=""/>
+      <!-- F2 -->
+      <down code="113" msg="ZT_CLEAR_MEMTRACKING"/>
+      <!-- F3 -->
+      <down code="114" msg="ZT_DUMP_MEMTRACKING"/>
+      <!-- F4 -->
+      <down code="115" msg="ZT_DUMP_PERFORMANCE_STATS"/>
+      <!-- F8 -->
+      <down code="119" msg="ZT_SET_DEVMODE"/>
+      <!-- . (period) -->
+      <char key="." msg="ZT_OBJECT_ROTATE" data="BFString" string="right"/>
+      <!-- , (comma) -->
+      <char key="," msg="ZT_OBJECT_ROTATE" data="BFString" string="left"/>
+      <!-- P -->
+      <down code="80" msg="ZT_PAUSE_KEY"/>
+      <!-- Pause -->
+      <down code="19" msg="ZT_PAUSE_KEY"/>
+      <!-- SHIFT -->
+      <down code="16" msg="ZT_SET_COMMAND_STATE" data="BFString" string="run"/>
+      <up code="16" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="run"/>
+      <!-- A -->
+      <down code="65" msg="ZT_SET_COMMAND_STATE" data="BFString" string="left"/>
+      <up code="65" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="left"/>
+      <!-- D -->
+      <down code="68" msg="ZT_SET_COMMAND_STATE" data="BFString" string="right"/>
+      <up code="68" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="right"/>
+      <!-- W -->
+      <down code="87" msg="ZT_SET_COMMAND_STATE" data="BFString" string="forward"/>
+      <up code="87" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="forward"/>
+      <!-- S -->
+      <down code="83" msg="ZT_SET_COMMAND_STATE" data="BFString" string="backward"/>
+      <up code="83" msg="ZT_CLEAR_COMMAND_STATE" data="BFString" string="backward"/>
+      <char key="$" msg="ZT_MONEY_CHEAT"/>
+      <char key="M" msg="ZT_TOGGLE_TERRAIN_WIREFRAME"/>
+      <char key="N" msg="ZT_TOGGLE_OBJECT_WIREFRAME"/>
+      <char key="R" msg="ZT_RESET_TERRAIN"/>
+      <char key="U" msg="ZT_TOGGLE_UI_DRAW"/>
+      <!-- F9 -->
+      <down code="120" msg="ZT_CYCLEBFRDEBUG_EVENT"/>
+      <!-- F11-->
+      <down code="122" msg="ZT_TOGGLE_DEBUGSOUND"/>
+      <!-- Ctrl-; -->
+      <down code="186" ctrlState="1" msg="ZT_START_RECORDING"/>
+      <!-- Ctrl-+ -->
+      <down code="107" ctrlState="1" msg="ZT_TOGGLE_OPTIMIZATION"/>      
+      <!-- Ctrl-' -->
+      <down code="222" ctrlState="1" msg="ZT_STOP_RECORDING"/>
+   </gamemode>
+   <overview>
+      <!-- ESC -->
+      <down code="27" msg="UI_CHILD" data="UIChildData" name="return">
+         <child msg="UI_ACTIVATE"/>
+      </down>
+      <!-- Tab -->
+      <char code="9" ctrlState="-1" msg="UI_CHILD" data="UIChildData" name="return">
+         <child msg="UI_ACTIVATE"/>
+      </char>
+   </overview>
+   <gesturecreationmode>
+      <!-- N -->
+      <down code="78" msg="ZT_CREATE_NEW_SPLINE"/>
+      <!-- T -->
+      <down code="84" msg="ZT_SPLINEMODE_TESTPLAYSPLINE"/>
+      <!-- P -->
+      <down code="80" msg="ZT_SPLINEMODE_TESTFROMTRAINERMODE"/>
+      <!-- Ctrl-E -->
+      <char code="5" ctrlState="1" msg="ZT_ADDSPLINEPOINT" data="BFString" string="end"/>
+      <!-- Ctrl-F -->
+      <char code="6" ctrlState="1" msg="ZT_ADDSPLINEPOINT" data="BFString" string="front"/>
+      <!-- Ctrl-I -->
+      <char code="9" ctrlState="1" msg="ZT_ADDSPLINEPOINT" data="BFString" string="middle"/>
+      <!-- Ctrl-R -->
+      <char code="18" ctrlState="1" msg="ZT_REMOVESPLINEPOINT"/>
+      <!-- Ctrl-Z -->
+      <char code="26" ctrlState="1" msg="ZT_SPLINEMODEUNDO"/>
+      <!-- Ctrl-S -->
+      <char code="19" ctrlState="1" msg="ZT_SPLINEMODE_SAVESPLINE"/>
+      <!-- Ctrl-L -->
+      <char code="12" ctrlState="1" msg="ZT_SPLINEMODE_LOADSPLINE"/>
+      <!-- Ctrl-V -->
+      <char code="22" ctrlState="1" msg="ZT_SPLINEMODE_PLACEEVENT"/>
+      <!-- Ctrl-T -->
+      <char code="20" ctrlState="1" msg="ZT_SPLINEMODE_SETSPLINERADIUS"/>
+      <!-- Ctrl-C -->
+      <char code="3" ctrlState="1" msg="ZT_SPLINEMODE_ADJUSTSCORINGPROXIMITIES"/>
+      <!-- Ctrl-W -->
+      <char code="23" ctrlState="1" msg="ZT_SPLINEMODE_ADJUSTEVENTWINDOWS"/>
+      <!-- . (period) -->
+      <char key="." msg="ZT_SPLINEMODE_SLIDEVALUE" data="int" value="1"/>
+      <!-- , (comma) -->
+      <char key="," msg="ZT_SPLINEMODE_SLIDEVALUE" data="int" value="-1"/>
+      <!-- [ (Open Bracket) -->
+      <char key="[" msg="ZT_SPLINEMODE_CHANGESELECTION" data="int" value="-1"/>
+      <!-- ] (Close Bracket) -->
+      <char key="]" msg="ZT_SPLINEMODE_CHANGESELECTION" data="int" value="1"/>
+      <!-- Page Up -->
+      <down code="33" msg="ZT_SPLINEMODE_MOVECAMPITCH" data="float" value="1.0f"/>
+      <!-- Page Down -->
+      <down code="34" msg="ZT_SPLINEMODE_MOVECAMPITCH" data="float" value="-1.0f"/>
+      <!-- 1 -->
+      <char key="1" msg="ZT_CHANGEGESTUREBB_SCALE_Z" data="float" value="1"/>
+      <!-- 2 -->
+      <char key="2" msg="ZT_CHANGEGESTUREBB_SCALE_Y" data="float" value="1"/>
+      <!-- 4 -->
+      <char key="4" msg="ZT_CHANGEGESTUREBB_SCALE_X" data="float" value="1"/>
+      <!-- 6 -->
+      <char key="6" msg="ZT_CHANGEGESTUREBB_SCALE_X" data="float" value="-1"/>
+      <!-- 8 -->
+      <char key="8" msg="ZT_CHANGEGESTUREBB_SCALE_Y" data="float" value="-1"/>
+      <!-- 9 -->
+      <char key="9" msg="ZT_CHANGEGESTUREBB_SCALE_Z" data="float" value="-1"/>
+   </gesturecreationmode>
+</hotkeys>

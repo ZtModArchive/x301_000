@@ -1,0 +1,427 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="BuySoda" CursorTask="false" reserveTag="Use_Stand" objectName="entityname:Soda_lower" UniqueID="soda:BuySoda">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <foodstand_soda/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-8"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuySoda"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFAISubjectData happiness="price_effect(-5,0,5)" f_AteNonFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchDrinkSoda" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:SitBenchDrinkSoda">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchSip"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-5" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableDrinkSoda" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:SitTableDrinkSoda">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableSip"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-10" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableDrinkSoda" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:SitTableDrinkSoda:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicSip"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-7" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandDrinkSoda" CursorTask="false" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:StandDrinkSoda">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandDrink"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" happiness="10" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <!--Female Guest-->
+   <BFAITaskTemplate Name="BuySoda" CursorTask="false" reserveTag="Use_Stand" objectName="entityname:Soda_lower" UniqueID="soda:BuySoda:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <foodstand_soda/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-8"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuySoda"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFAISubjectData happiness="price_effect(-5,0,5)" f_AteNonFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchDrinkSoda" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:SitBenchDrinkSoda:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchSip"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-5" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableDrinkSoda" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:SitTableDrinkSoda:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableSip"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-10" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableDrinkSoda" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:SitPicnicTableDrinkSoda">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicSip"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-7" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandDrinkSoda" CursorTask="false" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:StandDrinkSoda:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandDrink"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" happiness="10" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <!--Young Guest-->
+   <BFAITaskTemplate Name="BuySoda" CursorTask="false" reserveTag="Use_Stand" objectName="entityname:Soda_lower" UniqueID="soda:BuySoda:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <foodstand_soda/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-15"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuySoda"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFAISubjectData happiness="price_effect(-10,-5,0)" f_AteFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchDrinkSoda" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:SitBenchDrinkSoda:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchSip"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-5" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableDrinkSoda" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:SitTableDrinkSoda:3">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableSip"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-10" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableDrinkSoda" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:SitPicnicTableDrinkSoda:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicSip"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" rest="-20" happiness="-7" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandDrinkSoda" CursorTask="false" Priority="1" objectName="entityname:Soda_lower" UniqueID="soda:StandDrinkSoda:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <Soda/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap thirst="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandDrink"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DrinkSodaLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalThirstGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap thirst="-100" happiness="10" bathroom="rand(25,50,.5)"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

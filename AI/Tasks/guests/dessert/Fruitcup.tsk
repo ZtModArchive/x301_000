@@ -1,0 +1,434 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="BuyFruitcup" CursorTask="false" reserveTag="Use_Cart" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:BuyFruitcup">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+            <Qualifiers_AND inWater_OR_onLand="true" hunger="L 50" bathroom="L 50" thirst="L 50"/>
+         </Subjects>
+         <Targets>
+            <snackcart_fruitcup/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-8"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuyFruitcup"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFAISubjectData happiness="price_effect(-5,0,5)" f_AteNonFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatFruitcup" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:SitBenchEatFruitcup">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcupNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatFruitcup" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:SitTableEatFruitcup">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcupNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatFruitcup" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:SitPicnicTableEatFruitcup">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcup" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-7"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatFruitcup" CursorTask="false" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:StandEatFruitcup">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcupNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" f_departurePoints="-10" dessert="-100" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <!--Female Guest-->
+   <BFAITaskTemplate Name="BuyFruitcup" CursorTask="false" reserveTag="Use_Cart" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:BuyFruitcup:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+            <Qualifiers_AND inWater_OR_onLand="true" hunger="L 50" bathroom="L 50" thirst="L 50"/>
+         </Subjects>
+         <Targets>
+            <snackcart_fruitcup/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-15"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuyFruitcup"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteHappy"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFAISubjectData happiness="price_effect(-10,-5,0)" f_AteFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatFruitcup" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:SitBenchEatFruitcup:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <bench_st/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcupLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatFruitcup" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:SitTableEatFruitcup:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcupLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatFruitcup" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:SitPicnicTableEatFruitcup:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcupLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-7"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatFruitcup" CursorTask="false" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:StandEatFruitcup:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcupLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" f_departurePoints="-10" dessert="-100" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <!--Young Guest-->
+   <BFAITaskTemplate Name="BuyFruitcup" CursorTask="false" reserveTag="Use_Cart" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:BuyFruitcup:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+            <Qualifiers_AND inWater_OR_onLand="true" hunger="L 50" bathroom="L 50" thirst="L 50"/>
+         </Subjects>
+         <Targets>
+            <snackcart_fruitcup/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-8"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuyFruitcup"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+         <BFAISubjectData happiness="price_effect(-5,0,5)" f_AteNonFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatFruitcup" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:SitBenchEatFruitcup:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <bench_st/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcupNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatFruitcup" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:SitTableEatFruitcup:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcupNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatFruitcup" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:SitPicnicTableEatFruitcup:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcupNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" dessert="-100" rest="-20" happiness="-7"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatFruitcup" CursorTask="false" Priority="1" objectName="entityname:FruitCup_lower" UniqueID="fruitcup:StandEatFruitcup:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <FruitCup/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap dessert="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatFruitcupNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteDessertgood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap amusement="rand(1,10,.5)" f_departurePoints="-10" dessert="-100" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

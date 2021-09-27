@@ -1,0 +1,20 @@
+<BFScenarioGroup name="zoofanrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="zoofan" state="0" sticky="true" optional="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHZooFanQuarterlyShort" overview="Challengetext:CHZooFanQuarterly" />
+				<success locid="Challengetext:CHZooFanQuarterlySuccessShort" overview="Challengetext:CHZooFanQuarterlySuccess" />
+				<failure locid="Challengetext:CHZooFanQuarterlyFailureShort" overview="Challengetext:CHZooFanQuarterlyFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/zoofan.lua" entry="evalzoofan" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/zoofan.lua" entry="completezoofan" />
+			</success>		
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/zoofan.lua" entry="failzoofan" />
+			</failure>	
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

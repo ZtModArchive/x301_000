@@ -1,0 +1,58 @@
+<ZTScenarioMgr interval="2" name="mgr" state="0" chain="true" allsuccess="true" sticky="true" optional="false">
+	<info locid="PhotoSafari:CatSanctuaryIntro"/>
+	<children>
+		<BFScenarioRule hidden="1" name="setinitialzoostate" state="0" sticky="true">
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="setinitialzoostate" />
+			</evaluate>
+		</BFScenarioRule>
+		<BFScenarioRule name="HealthyAnimalPhotos" hidden="0" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="PhotoSafari:HealthyAnimalsGoal" overview="PhotoSafari:CatSanctuaryOverview" />
+				<success locid="PhotoSafari:HealthyAnimalsGoalDone" overview="PhotoSafari:CatSanctuaryOverview" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="evalhealthyanimalphotos" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="completehealthyanimalphotos" />
+			</success>
+		</BFScenarioRule>
+		<BFScenarioRule name="SeventyFiveGuests" hidden="1" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="PhotoSafari:CatSanctuaryGuestsGoal" overview="PhotoSafari:CatSanctuaryGuests" />
+				<success locid="PhotoSafari:CatSanctuaryGuestsGoalDone" overview="PhotoSafari:CatSanctuaryGuests" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="evalseventyfiveguests" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="completeseventyfiveguests" />
+			</success>
+		</BFScenarioRule>
+		<BFScenarioRule name="LynxPhotos" hidden="1" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="PhotoSafari:CatSanctuaryLynxGoal" overview="PhotoSafari:CatSanctuaryLynx" />
+				<success locid="PhotoSafari:CatSanctuaryLynxGoalDone" overview="PhotoSafari:CatSanctuaryLynx" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="evallynxphotos" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="completelynxphotos" />
+			</success>
+		</BFScenarioRule>
+		<BFScenarioRule name="PantherPhotos" hidden="1" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="PhotoSafari:CatSanctuaryPantherGoal" overview="PhotoSafari:CatSanctuaryPanther" />
+				<success locid="PhotoSafari:CatSanctuaryPantherGoalDone" overview="PhotoSafari:CatSanctuaryPanther" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="evalpantherphotos" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="completepantherphotos" />
+			</success>
+		</BFScenarioRule>
+	</children>
+</ZTScenarioMgr>

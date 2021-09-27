@@ -1,0 +1,224 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="HungryGuest" CursorTask="false" TaskDelayMin="20" TaskDelayMax="25" Priority="1" UniqueID="guestemotes:HungryGuest">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+            <Qualifiers_AND inWater_OR_onLand="true" hunger="GE 90"/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteGuestHunger"/>
+               <ZTThoughtInfo locID="guestthoughts:Hungry" priority="-1" timeout="60" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData f_departurePoints="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="ThirstyGuest" CursorTask="false" TaskDelayMin="20" TaskDelayMax="25" Priority="1" UniqueID="guestemotes:ThirstyGuest">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+            <Qualifiers_AND thirst="GE 90"/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteGuestThirst"/>
+               <ZTThoughtInfo locID="guestthoughts:Thirsty" priority="-1" timeout="60" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData f_departurePoints="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+
+
+   <BFAITaskTemplate Name="BathroomBadGuestAdult" CursorTask="false" TaskDelayMin="20" TaskDelayMax="25" Priority="1" UniqueID="guestemotes:BathroomBadGuestAdult">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult/>
+            <Qualifiers_AND inWater_OR_onLand="true" bathroom="GE 90"/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteBathroombad"/>
+               <ZTThoughtInfo locID="guestthoughts:Bathroom" priority="-1" timeout="60" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData f_departurePoints="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+
+   <BFAITaskTemplate Name="BathroomBadGuestYoung" CursorTask="false" TaskDelayMin="20" TaskDelayMax="25" Priority="1" UniqueID="guestemotes:BathroomBadGuestYoung">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+            <Qualifiers_AND inWater_OR_onLand="true" bathroom="GE 90"/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteBathroombad"/>
+               <ZTThoughtInfo locID="guestthoughts:Bathroom" priority="-1" timeout="60" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_PeePeeDance"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData f_departurePoints="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+
+   
+   <BFAITaskTemplate Name="DessertBadGuest" CursorTask="false" TaskDelayMin="20" TaskDelayMax="25" Priority="1" UniqueID="guestemotes:DessertBadGuest">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+            <Qualifiers_AND inWater_OR_onLand="true" dessert="GE 90"/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteDessertbad"/>
+               <ZTThoughtInfo locID="guestthoughts:DessertBad" priority="-1" timeout="60" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData f_departurePoints="-.1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="TiredGuest" CursorTask="false" TaskDelayMin="20" TaskDelayMax="25" Priority="1" UniqueID="guestemotes:TiredGuest">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+            <Qualifiers_AND inWater_OR_onLand="true" rest="GE 90"/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteRestbad"/>
+               <ZTThoughtInfo locID="guestthoughts:Tired" priority="-1" timeout="60" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Yawn"/>         
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData f_departurePoints="-5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="AmusementBadGuest" CursorTask="false" TaskDelayMin="20" TaskDelayMax="25" Priority="1" UniqueID="guestemotes:AmusementBadGuest">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+            <Qualifiers_AND inWater_OR_onLand="true" amusement="GE 90"/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteAmusementbad"/>
+               <ZTThoughtInfo locID="guestthoughts:AmusementBad" priority="-1" timeout="60" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData f_departurePoints="-1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+
+
+   <BFAITaskTemplate Name="GuestHappy" CursorTask="false" TaskDelayMin="120" TaskDelayMax="180" Priority="1" UniqueID="guestemotes:GuestHappy">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+            <Qualifiers_AND inWater_OR_onLand="true" happiness="LE 20"/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GuestHappy" priority="1" timeout="60" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+
+   <BFAITaskTemplate Name="GuestAngry" CursorTask="false" TaskDelayMin="120" TaskDelayMax="180" Priority="1" UniqueID="guestemotes:GuestAngry">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+            <Qualifiers_AND inWater_OR_onLand="true" happiness="GE 80"/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore="1000"/>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GuestAngry" priority="-1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+
+
+</BFAITaskTemplateList>

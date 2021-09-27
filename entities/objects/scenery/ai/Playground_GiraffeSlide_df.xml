@@ -1,0 +1,76 @@
+<BFTypedBinder binderType="Playground_GiraffeSlide_df" version="2" versionReplace="true">
+   <types>
+      <entity>
+         <scenery>
+            <Playground>
+               <Playground_GiraffeSlide_df/>
+            </Playground>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="2">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\Playground_GiraffeSlide_df\Playground_GiraffeSlide_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Playground_GiraffeSlide_df"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Playground_GiraffeSlide_df"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\scenery\Playground_GiraffeSlide_df\Playground_GiraffeSlide_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Playground_GiraffeSlide_df"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData terrainFlatten="true" dockArrowStyle="special" dockArrowSize=".75" icon3Doffset="0 -0.060864 0.496787" icon3Dscale="0.339811"/>
+      <BFAIEntityDataShared b_Researchable="true" f_FameReq="80" s_uisort="sb" f_researchUnlockTime="120" f_researchCost="1000" s_Zoopedia="zoopedia:zoopedia_giraffeslide:entry"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="5" length="3" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/scenery/Playground_GiraffeSlide_df/Playground_GiraffeSlide_df.nif" switch="0 10 40"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="300">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="Use_Ride">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="Dock_Young" capacity="1"/>
+               </slots>
+               <queue>
+                  <BFGEntityContainerSlot targetNode="Dock_Young" capacity="5"/>
+               </queue>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

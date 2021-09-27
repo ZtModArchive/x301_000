@@ -1,0 +1,48 @@
+<BFTypedBinder binderType="bench_st">
+   <types>
+      <entity>
+         <scenery>
+            <bench>
+               <bench_st/>
+            </bench>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\bench_st\bench_st_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:bench_st"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="bench_st"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData terrainFlatten="true" dockArrowStyle="standard" dockArrowSize=".75"/>
+      <BFAIEntityDataShared s_uisort="e" s_ProfileLock="safarilock" s_Zoopedia="zoopedia:zoopedia_themedbench:entry" s_Theme="safari"/>
+   		<ZTTourData>
+	 			<theme_safari value="4"/>
+		</ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/bench_st/bench_st" switch="0 20 40"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="175">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

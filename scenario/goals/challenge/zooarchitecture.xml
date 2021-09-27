@@ -1,0 +1,19 @@
+<BFScenarioGroup name="zooarchitecturerules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="zooarchitecturephoto" state="0" sticky="true" optional="true">
+			<info type="photo">
+				<neutral locid="PhotoChallengetext:PHZooArchitectureShort" overview="PhotoChallengetext:PHZooArchitecture" />
+				<success locid="PhotoChallengetext:PHZooArchitectureSuccessShort" overview="PhotoChallengetext:PHZooArchitectureSuccess" />
+			</info>
+			<evaluate>
+			 	<BFScenarioScriptAction script="scenario/scripts/challenge/zooarchitecture.lua" entry="evalzooarchitecture" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/zooarchitecture.lua" entry="completezooarchitecture" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/zooarchitecture.lua" entry="failzooarchitecture" />
+			</failure>	
+		</BFScenarioRule>		
+	 </children>
+</BFScenarioGroup>

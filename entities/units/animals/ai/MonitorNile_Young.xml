@@ -1,0 +1,189 @@
+<BFTypedBinder binderType="MonitorNile_Young" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Reptilia>
+						<Squamata>
+							<Varanidae>
+								<MonitorNile>
+									<MonitorNile_Young />
+								</MonitorNile>
+							</Varanidae>
+						</Squamata>
+					</Reptilia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj3" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<ZTDevComponent />
+		<BFAIEntityDataShared f_viewBonus="5" b_Adult="0" p_PreyOffset="0 1 0" f_LocoSearchHorizon="25" s_MorphMessage="zoomessages:AnimalHatchEgg" f_MorphMessagePriority="1" f_MorphMessageDuration="30" p_PredatorOffset="0 -2 0" b_HeatedRockUser="false">
+			<BFAINeedAdjusts health="0.25" stimulation="0.33" exercise="0.33" reproduction="0" />
+		</BFAIEntityDataShared>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Spine2" width="0.7" length="0.7" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj2">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Head" width="0.2" length="0.5" offlength="-0.25" intensity="0.25" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj3">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Tail" width="0.2" length="0.6" offlength="0.25" intensity="0.25" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFDecalTextureCycleComponent materialName="MonitorNile_Young_F" textureSet="2">
+						<Step imageName="entities/units/animals/shared/komodo_blink_blank.dds" hold="3.0" variance="0.5" />
+						<Step imageName="entities/units/animals/shared/komodo_blink02.dds" hold="0.08" variance="" />
+						<Step imageName="entities/units/animals/shared/komodo_blink.dds" hold="0.1" variance="" />
+						<Step imageName="entities/units/animals/shared/komodo_blink02.dds" hold="0.08" variance="" />
+					</BFDecalTextureCycleComponent>
+					<BFActorComponent actorfile="entities/units/animals/MonitorNile/MonitorNile_Young_F.bfm" scale="0.35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester escapeBuffer="0.1875" radius=".375" motionClass="swimmer" waterScore="0" landScore="0" maxSlope=".50" />
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="texController" required="1">
+			<instance>
+				<BFAITextureController currState="well" defaultState="well">
+					<attribList>
+						<health />
+						<hygiene />
+					</attribList>
+					<stateList>
+						<sickanddirty>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="MonitorNile_Young_F" image="entities\units\animals\MonitorNile\MonitorNile_Adult_F_Sick_Dirty.dds" />
+							</textureData>
+						</sickanddirty>
+						<sick>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="MonitorNile_Young_F" image="entities\units\animals\MonitorNile\MonitorNile_Adult_F_Sick.dds" />
+							</textureData>
+						</sick>
+						<dirty>
+							<attribData>
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="MonitorNile_Young_F" image="entities\units\animals\MonitorNile\MonitorNile_Adult_F_Dirty.dds" />
+							</textureData>
+						</dirty>
+						<well>
+							<textureData>
+								<mainObj material="MonitorNile_Young_F" image="entities\units\animals\MonitorNile\MonitorNile_Young_F.dds" />
+							</textureData>
+						</well>
+					</stateList>
+				</BFAITextureController>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAICognitiveMgr>
+					<Sensors>
+						<ZTAISensor />
+						<BFAISensorSelf />
+						<ZTAISensorLand />
+						<ZTAISensorTA sensorTag="habitat" />
+					</Sensors>
+					<StateThinkers>
+						<ZTAIStateThinker mergeKey="Name">
+							<BFAIStateVar Name="reproduction" Value="" ValueMin="0" ValueMax="0" CessationThreshold="90" TriggerThreshold="90" CriticalThreshold="90" Advanced="true" />
+						</ZTAIStateThinker>
+					</StateThinkers>
+					<TaskThinkers>
+						<ZTAITaskThinker />
+					</TaskThinkers>
+				</BFAICognitiveMgr>
+			</instance>
+			<shared>
+				<BFAICogShared>
+					<BFAINoPerceive>
+						<fence />
+						<path />
+						<entrance />
+					</BFAINoPerceive>
+				</BFAICogShared>
+			</shared>
+		</BFBinder>
+		<BFNamedBinder binderName="checkup" required="1">
+			<instance>
+				<ZTAIStaffRequestController attribName="health" thresholdValue="30" testType="4" cancelThresholdValue="20" cancelTestType="1">
+					<ZTStaffRequestData tokenKey="t_CheckupBaby" subjectType="Keeper" priority="5" />
+				</ZTAIStaffRequestController>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance f_needPointsGood="50" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="ground" required="1">
+					<instance>
+						<BFLocoAnimate version="1" stationaryAnim="Stand_Idle">
+							<stop name="Stand" minAnimSpeed="1.3" maxAnimSpeed="1.5" />
+							<slow name="Walk" minAnimSpeed="1.3" maxAnimSpeed="1.5" />
+							<medium name="Walk" minAnimSpeed="1.3" maxAnimSpeed="1.5" />
+							<fast name="Run" minAnimSpeed="1.3" maxAnimSpeed="1.5" />
+							<stalk name="Stalk" minAnimSpeed="1.3" maxAnimSpeed="1.5" />
+							<evade name="Run" minAnimSpeed="0.6" maxAnimSpeed="1.5" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="water" required="1">
+					<instance>
+						<BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+							<stop name="TreadWater" minAnimSpeed="1.3" maxAnimSpeed="1.5" />
+							<slow name="Swim" minAnimSpeed="1.3" maxAnimSpeed="1.5" />
+							<medium name="Swim" minAnimSpeed="1.3" maxAnimSpeed="1.5" />
+							<fast name="Swim" minAnimSpeed="1.3" maxAnimSpeed="1.5" />
+							<stalk name="Swim" minAnimSpeed="1.3" maxAnimSpeed="1.5"  />
+							<evade name="Swim" minAnimSpeed="1.0" maxAnimSpeed="1.8" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

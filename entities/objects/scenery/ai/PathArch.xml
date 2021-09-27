@@ -1,0 +1,52 @@
+﻿<BFTypedBinder binderType="PathArch" abstract="true">
+	<types>
+		<entity>
+			<scenery>
+				<PathArch />
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<ZTPlacementData terrainFlatten="true" moveable="false" autoFootprint="false" icon3Doffset="0 -0.045020 0.421560" icon3Dscale="0.269404" minimumHeadroom="6.0">
+			<attachObj>
+				<entity nodeName="ShadowNode_01" binderType="arch_collision_proxy" />
+				<entity nodeName="ShadowNode_02" binderType="arch_collision_proxy" />
+			</attachObj>
+			<stompData>
+				<allow>
+					<groundtrack />
+				</allow>
+			</stompData>
+		</ZTPlacementData>
+		<BFAIEntityDataShared s_ObjectType="Arch" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="ShadowNode_01" width="3.5" length="1.5" offwidth="-0.5" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj2">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="ShadowNode_02" width="3.5" length="1.5" offwidth="-0.5" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder repopulateMethod="byType">
+			<instance>
+				<ZTPlaceEntityComponent />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

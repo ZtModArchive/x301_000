@@ -1,0 +1,135 @@
+﻿<BFTypedBinder binderType="Gerenuk" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Artiodactyla>
+							<Bovidae>
+								<Gerenuk />
+							</Bovidae>
+						</Artiodactyla>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities/units/animals/Gerenuk/Gerenuk_Adult_F_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo ids="entityname:Gerenuk" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Gerenuk_Adult_F" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_Product="CP1" f_BaseDonationAmount="80" f_MaxTourValue="40" s_DonateToken="t_DonateGerenuk" p_NurseNode=".10 -.5 90" p_AttackGuestNode="0 -2.5 0" p_SaltLickNode="0 -1.8 180" s_Endangerment="LowRisk" p_PreyOffset="0 1 0" s_Species="Gerenuk" b_Medium="true" b_Folivore="true" s_KeeperEatType="Terrain_Branches" b_SmallAnimal="true" b_MetalTroughEater="true" b_BrowseHolderEater="true" b_FoodDishEater="true" s_KeeperDrinkType="FoodDish_Water" b_SubstratePileEater="true" f_adoptRemoveTime="0" f_adoptRarity="40" s_Zoopedia="zoopedia:zoopedia_gerenuk:entry" f_RequiredInitialSpace="175" f_RequiredAdditionalSpace="50" b_ShadeStructureUser="true" b_SmallWoodenShelterUser="true" b_LargeWoodenShelterUser="true" b_ScrubAnimal="true" b_Grazer="true" b_Browser="true" b_SaltLickUser="true" p_GreetNode="0 -2.5 160" p_FenceJumpNode="0 -10 180" p_AttackGuest="0 -3 180" p_FightOffset="0 -3.08 180" />
+		<BFGBiomeData location="savannah_africa" locationSensitivity="10">
+			<alpine sensitivity="-10" />
+			<borealforest sensitivity="-10" />
+			<desert sensitivity="-5" />
+			<grassland sensitivity="2" />
+			<temperateforest sensitivity="-5" />
+			<tropicalrainforest sensitivity="-10" />
+			<tundra sensitivity="-10" />
+			<savannah sensitivity="2" />
+			<scrub sensitivity="10" primary="true" />
+			<wetlands sensitivity="-5" />
+		</BFGBiomeData>
+		<ZTPlacementData icon3Doffset="-2.4 0.73 1.93" icon3Dscale="0.37" />
+		<ZTUserStaffAction>
+			<SetAttribute name="hygiene" value="0" threshold="20" locid="superstaff:animal_groom" effect="SuperStaffGroom" />
+			<SetAttribute name="health" value="0" threshold="20" locid="superstaff:animal_heal" effect="SuperStaffHeal" />
+		</ZTUserStaffAction>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFShadowLODComponent numLevels="1" switchingDists="60.0" />
+					<BFActorComponent actorfile="entities/units/animals/Gerenuk/Gerenuk_Adult_F.bfm" scale=".55" />
+					<BF4LegsGroundFitComponent heightOffset="0" maxRollError=".2" maxPitchError=".1" maxHeightError=".5" pitchGain="1.00" heightGain="6.0" rollGain="1.0" bicyclePointBack="Bip01" bicyclePointFront="Bip01 Neck" frontBuoyancyNode="Node_Buoy" backBuoyancyNode="Node_Buoy_Back" />
+					<BFSecondaryAnimComponent animName="Secondary_EarA" frequency="1.5" chance="40" validAnims="Stand_Idle,Stand_Sniff,Stand_TurnRight180,Stand_TurnRight90,Stand_TurnLeft90,Stand_Yawn,Stand_Scratch,Stand_Sneeze,Stand_MarkScent,Rest_Idle,Graze_Idle,Lie_Idle,Lie_Sneeze,Lie_Yawn,Sit_Idle" />
+					<BFSecondaryAnimComponent animName="Secondary_TailA" frequency="1.5" chance="40" validAnims="Stand_Sniff,Stand_TurnRight180,Stand_TurnRight90,Stand_TurnLeft90,Stand_Yawn,Lie_Idle" />
+					<BFLegFitComponent maxLegRaise="2.0" leftFrontHipJoint="Bip01 L Forearm" leftFrontKneeJoint="Bip01 L Hand" leftFrontAnkleJoint="Bip01 L Finger0" rightFrontHipJoint="Bip01 R Forearm" rightFrontKneeJoint="Bip01 R Hand" rightFrontAnkleJoint="Bip01 R Finger0" leftBackHipJoint="Bip01 L Thigh" leftBackKneeJoint="Bip01 L Calf" leftBackAnkleJoint="Bip01 L Foot" rightBackHipJoint="Bip01 R Thigh" rightBackKneeJoint="Bip01 R Calf" rightBackAnkleJoint="Bip01 R Foot" ankleRotVectorLeftFront="0 -1 0" ankleRotVectorRightFront="0 1 0" ankleRotVectorRightBack="0 0 -1" ankleRotVectorLeftBack="0 0 -1" hipRaiseVectorLeftFront="0 0 1" hipRaiseVectorRightFront="0 0 1" hipRaiseVectorLeftBack="0 0 1" hipRaiseVectorRightBack="0 0 1" kneeRaiseVectorLeftFront="0 0 1" kneeRaiseVectorRightFront="0 0 1" kneeRaiseVectorLeftBack="0 0 1" kneeRaiseVectorRightBack="0 0 1" legFitModeLeftFront="0" legFitModeRightFront="0" legFitModeRightBack="1" legFitModeLeftBack="1" anklePitchVector="0 -1 0" maxLOD="2" />
+					<BFForwardMovingComponent />
+					<BFRotYawMovingComponent />
+					<BFCollisionComponent grid="Bip01 Spine1" />
+					<BFGridCollisionComponent />
+					<BFHeadLookComponent leftRightAnimName="Secondary_HeadLook" lookDirNode="Bip01 Head" lookDirVector="0 1 0" gain_z="-2" fov_extreme_lr="90.0" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFTextTagMacrosComponent>
+					<MACROS>
+						<macro name="Walky" text="anim &apos;Walk_Ahead&apos;" />
+						<macro name="Walky2Standy" text="anim &apos;Walk_2Stand&apos;, anim&apos;Stand_Idle&apos;" />
+						<macro name="Stand2LieBelly" text="anim &apos;Stand_2Lie&apos;, anim &apos;Lie_Idle&apos;" />
+						<macro name="LieBelly2Stand" text="anim &apos;Lie_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+						<macro name="Standy2Walky" text="anim &apos;Stand_2Walk&apos;, anim &apos;Walk_TurnLeftA&apos;" />
+						<macro name="LieOnBelly" text="anim &apos;Lie_Idle&apos;" />
+						<macro name="TurnLeft180" text="anim &apos;Stand_TurnRight180&apos;" />
+						<macro name="TurnRight180" text="anim &apos;Stand_TurnRight90&apos;, anim &apos;Stand_TurnRight90&apos;" />
+						<macro name="WalkBack" text="anim &apos;Backup_Ahead&apos;" />
+						<macro name="Standy2WalkBack" text="anim &apos;Stand_2Backup&apos;, anim &apos;Backup_Ahead&apos;" />
+						<macro name="WalkBack2Stand" text="anim &apos;Backup_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+					</MACROS>
+				</BFTextTagMacrosComponent>
+			</shared>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehAnimate interruptible="true" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true" />
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="ground" required="1">
+					<instance>
+						<BFLocoAnimate version="1">
+							<stop name="Stand" />
+							<slow name="Walk" />
+							<medium name="Run" minAnimSpeed="1.2" maxAnimSpeed="1.5" />
+							<fast name="Charge">
+								<waggle name="Charge_Ahead" wag="1" />
+							</fast>
+							<evade name="Run" minAnimSpeed=".8" maxAnimSpeed="1.6" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFNamedBinder binderName="foodprop" repopulateMethod="byName" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="5500">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

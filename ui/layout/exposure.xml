@@ -1,0 +1,75 @@
+<UIToggleSet>
+   <UIRegion x="0" y="0" w="108" h="82"/>
+   <children>
+      <UIStatic name="button">
+         <UIRegion x="4" y="3" w="96" h="72"/>
+         <UIAspect>
+            <default>
+               <BFRect x="0" y="0" w="192" h="144"/>
+            </default>
+         </UIAspect>
+      </UIStatic>
+      <UIToggleButton name="frame" sticky="1" repress="1">
+         <UIRegion x="0" y="0" w="104" h="78"/>
+         <UIHelpInfo name="" short="" long="" help="" ids="photoalbum:large_pic"/>
+         <UIAspect string="" alwayshit="true">
+            <default image="ui/photosaf/select.dds">
+               <BFRect x="0" y="0" w="217" h="169"/>
+               <BFColor r="255" g="255" b="255" a="255"/>
+            </default>
+            <standard>
+               <normal>
+                  <BFRect x="0" y="0" w="217" h="169"/>
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="0" y="171" w="217" h="169"/>
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="0" y="343" w="217" h="169"/>
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </activated>
+               <disabled>
+                  <BFRect x="0" y="0" w="217" h="169"/>
+                  <BFColor r="128" g="128" b="128" a="180"/>
+               </disabled>
+            </standard>
+            <alternate>
+               <normal>
+                  <BFRect x="0" y="343" w="217" h="169"/>
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="0" y="343" w="217" h="169"/>
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="0" y="343" w="217" h="169"/>
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </activated>
+               <disabled>
+                  <BFRect x="0" y="0" w="217" h="169"/>
+                  <BFColor r="128" g="128" b="128" a="180"/>
+               </disabled>
+            </alternate>
+         </UIAspect>
+         <on>
+            <event msg="UI_CHILD" data="UIChildData" name="grab selected camera photo">
+               <child msg="UI_ENABLE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="delete selected camera photo">
+               <child msg="UI_ENABLE"/>
+            </event>
+         </on>
+         <off>
+            <event msg="UI_CHILD" data="UIChildData" name="grab selected camera photo">
+               <child msg="UI_DISABLE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="delete selected camera photo">
+               <child msg="UI_DISABLE"/>
+            </event>
+         </off>
+      </UIToggleButton>
+   </children>
+</UIToggleSet>

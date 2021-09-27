@@ -1,0 +1,52 @@
+<BFTypedBinder binderType="Mandrill_Adult_F">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Primata>
+                     <Circopithecidae>
+                        <Mandrill>
+                          <Mandrill_Adult>
+                              <Mandrill_Adult_F/>
+                           </Mandrill_Adult>
+                        </Mandrill>
+                     </Circopithecidae>
+                  </Primata>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared b_Male="0" f_adoptCount="rand(1,2)"/>
+   </shared>
+   <binder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_Pregnant="false"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr />
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="groundcarrybaby" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="StandYoung_Idle">
+                     <stop name="StandYoung" />
+                     <slow name="WalkYoung" />
+                     <medium name="WalkYoung" />
+                     <fast name="WalkYoung"  minAnimSpeed="1.2" maxAnimSpeed="1.2" />
+                     <evade name="WalkYoung"  minAnimSpeed="0.6" maxAnimSpeed="1.5" />
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

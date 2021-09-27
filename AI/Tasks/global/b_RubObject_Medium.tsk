@@ -1,0 +1,135 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="RubTree" reserveTag="Rub" UniqueID="b_rubobject_medium:RubTree">
+      <BFAICreateData>
+         <Subjects_AND>
+            <b_TreeRubber/>
+            <b_SmallAnimal/>
+            <b_SavannahAnimal/>
+            <Qualifiers inWater_OR_onLand="true"/>
+         </Subjects_AND>
+         <Targets>
+            <b_RubObject_Large/>
+            <b_RubObject_Medium/>
+            <Qualifiers inHabitat="true"/>
+            <tree/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="10">
+         <BFAIAttributeFloatMap hygiene="-30"/>
+         <BFAIBiomeMap alpine=".25" borealforest=".50" temperateforest=".75" desert=".25" grassland=".75" savannah="1.00" tropicalrainforest=".50" scrub=".25" tundra=".25" wetlands=".75"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalRubAgainstGood" priority="1" timeout="60" global="false" useTargetTarget="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehEnter/>
+         <BFBehPlaySet behSet="useContainer"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hygiene="-20" stimulation="-10"/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAnimalHygieneGood"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="RubTreeBoreal_Medium" reserveTag="Rub" UniqueID="b_rubobject_medium:RubTreeBoreal_Medium">
+      <BFAICreateData>
+         <Subjects_AND>
+            <b_TreeRubber/>
+            <b_LargeAnimal/>
+            <b_BorealForestAnimal/>
+            <Qualifiers inWater_OR_onLand="true"/>
+         </Subjects_AND>
+         <Targets_AND>
+            <b_RubObject_Medium/>
+            <tree/>
+            <Qualifiers inHabitat="true"/>
+         </Targets_AND>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="10">
+         <BFAIAttributeFloatMap hygiene="-30"/>
+         <BFAIBiomeMap alpine=".75" borealforest="1.00" temperateforest=".50" desert=".25" grassland=".50" savannah=".50" tropicalrainforest=".25" scrub=".25" tundra=".50" wetlands=".25"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalRubAgainstGood" priority="1" timeout="60" global="false" useTargetTarget="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehEnter/>
+         <BFBehPlaySet behSet="useContainer"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hygiene="-20" stimulation="-10"/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAnimalHygieneGood"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="RubTreeBoreal_Large" reserveTag="Rub" UniqueID="b_rubobject_medium:RubTreeBoreal_Large">
+      <BFAICreateData>
+         <Subjects_AND>
+            <b_TreeRubber/>
+            <b_LargeAnimal/>
+            <b_BorealForestAnimal/>
+            <Qualifiers inWater_OR_onLand="true"/>
+         </Subjects_AND>
+         <Targets_AND>
+            <b_RubObject_Large/>
+            <tree/>
+            <Qualifiers inHabitat="true"/>
+         </Targets_AND>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="10">
+         <BFAIAttributeFloatMap hygiene="-30"/>
+         <BFAIBiomeMap alpine=".75" borealforest="1.00" temperateforest=".50" desert=".25" grassland=".50" savannah=".50" tropicalrainforest=".25" scrub=".25" tundra=".50" wetlands=".25"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehViewEvent viewKey="Pos_3">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:AnimalRubAgainstGood" priority="1" timeout="60" global="false" useTargetTarget="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehViewEvent>
+         <BFBehEnter/>
+         <BFBehPlaySet behSet="useContainer"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hygiene="-20" stimulation="-10"/>
+         <BFBehExecTask>
+            <ZTBehFeedback>
+               <ZTFeedbackData>
+                  <ZTEmoticonInfo emoticonName="EmoteAnimalHygieneGood"/>
+               </ZTFeedbackData>
+            </ZTBehFeedback>
+         </BFBehExecTask>
+      </BFAICompletionData>
+      <BFAIFailureData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="FailureSet"/>
+         </BFBehExecTask>
+      </BFAIFailureData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

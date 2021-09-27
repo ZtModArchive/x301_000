@@ -1,0 +1,175 @@
+<BFTypedBinder binderType="frontgate_fame05">
+   <types>
+      <entity>
+         <building>
+            <entrance>
+               <frontgate_fame05/>
+            </entrance>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="flagleft" rottype="ignore" postype="use" attachnode="Link_FlagLeft"/>
+            <parentObj parent="mainObj" child="flagright" rottype="ignore" postype="use" attachnode="Link_FlagRight"/>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="shadowObj3" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="shadowObj4" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="mist01" rottype="ignore" postype="use" attachnode="Link_Mist01"/>
+            <parentObj parent="mainObj" child="mist02" rottype="ignore" postype="use" attachnode="Link_Mist02"/>
+            <parentObj parent="mainObj" child="mist03" rottype="ignore" postype="use" attachnode="Link_Mist03"/>
+            <parentObj parent="mainObj" child="mist04" rottype="ignore" postype="use" attachnode="Link_Mist04"/>
+            <parentObj parent="mainObj" child="mist05" rottype="ignore" postype="use" attachnode="Link_Mist05"/>
+            <parentObj parent="mainObj" child="mist06" rottype="ignore" postype="use" attachnode="Link_Mist06"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTDevComponent/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\buildings\frontgate_df\frontgate_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:frontgate"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="frontgate_fame05"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_uisort="ze" s_Zoopedia="zoopedia:zoopedia_frontgate:entry"/>
+      <ZTPlacementData autoFootprint="false" deletable="false" moveable="false" icon3Dscale="0.05">
+         <cfootprint width="8" height="4"/>
+         <dfootprint width="12" height="4"/>
+      </ZTPlacementData>
+      <BFGCollisionData>
+         <typeScores Guest="0"/>
+      </BFGCollisionData>
+      <ZTTriggeredEventsComponent>
+         <entity_selected>
+            <broadcast>
+               <event msg="UI_CHILD" data="UIChildData" name="zoo status layout">
+                  <child msg="UI_SHOW"/>
+               </event>
+               <event msg="UI_CHILD" data="UIChildData" name="zoo info tab">
+                  <child msg="UI_ACTIVATE_ON"/>
+               </event>
+               <event msg="UI_CHILD" data="UIChildData" name="Main Game Buttons">
+                  <child msg="UI_ACTIVATE_OFF"/>
+               </event>
+            </broadcast>
+         </entity_selected>
+      </ZTTriggeredEventsComponent>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob.tga" baseNode="ShadowNode_01" ignoreLights="true" width="15" minLength="12" maxLength="4" minOffset="0" maxOffset=".5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="shadowObj2">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob.tga" baseNode="ShadowNode_02" ignoreLights="true" width="15" minLength="12" maxLength="4" minOffset="0" maxOffset=".5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="shadowObj3">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob.tga" baseNode="ShadowNode_03" ignoreLights="false" width="10" minLength="10" maxLength="14" minOffset="0" maxOffset="3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="shadowObj4">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob.tga" baseNode="ShadowNode_04" ignoreLights="false" width="10" minLength="10" maxLength="14" minOffset="0" maxOffset="3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/buildings/frontgate_df/frontgate_fame05.nif" switch="0 20 35 75" minSwitch="0 0 0 150"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFCollisionComponent/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="200"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist01">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist02">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif" scale="2.0"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist03">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif" scale="2.0"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist04">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist05">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif" scale="1.5"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist06">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif" scale="1.5"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="flagleft">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/objects/buildings/components/ZooFlag_df.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="flagright">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/objects/buildings/components/ZooFlag_df.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

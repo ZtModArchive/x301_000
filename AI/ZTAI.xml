@@ -1,0 +1,1160 @@
+<ZTAIMgr>
+   <General AI_On="1" DebugAI="0" DebugAITrace="0" DebugAIScoreTrace="0" DebugAITourTrace="0" DebugAIViewTrace="0" DebugAIQualifyTrace="0" DebugAIUpdate="80" Need_Adjust_On="1" Update_Count="0" Activate_Count="0" Activate_Interval="0" LowScore="0" StateThinkerInterval="30" CriticalAdjustInterval="50" NoTaskWait="100" OutsideRangeNeedValue="0" DefaultSensorsRadius="25" BadEntityClearInterval="2" BadEntityClearIntervalCap="5" BadDataClearInterval="50" NumTargetsPerTerrainRegion="3" NumTargetsPerShoreRegion="10" NeedPointUpdateInterval="5" ScoreMomentum="1" Slap_On="true" ExportTaskData="false" Optimization="false" Instrumentation="false" InstrumentationLogFull="false" InstrumentationProblemsOnly="false" InstrumentationKillHogs="false"/>
+   <ZTAIShowMgr>
+      <General ShowScoreUpdateFactor="0.5" TimeslotsPerShow="8" MCSpawnNodeName="Dock_Staff" MCFadeInTime="1" BetweenShowsTimeBlock="60" PreShowTime="30" PostShowTime="10" MaxAdmittingGuestsTime="60" MaxTravelDistPerSecond="5" SummonDismissTimeout="30" DoTrickGetTreatTimeout="90" FailureTreatTokenName="t_DockPlatform"/>
+      <ShowSongs>
+         <Entry songName="show_music" />
+      </ShowSongs>
+      <ShowSizeTable>
+         <Entry MinShowScore="0.5" NumGuests="10"/>
+         <Entry MinShowScore="1.0" NumGuests="15"/>
+         <Entry MinShowScore="1.5" NumGuests="20"/>
+         <Entry MinShowScore="2.0" NumGuests="25"/>
+         <Entry MinShowScore="2.5" NumGuests="30"/>
+         <Entry MinShowScore="3.0" NumGuests="40"/>
+         <Entry MinShowScore="3.5" NumGuests="50"/>
+         <Entry MinShowScore="4.0" NumGuests="70"/>
+         <Entry MinShowScore="4.5" NumGuests="90"/>
+         <Entry MinShowScore="5.0" NumGuests="120"/>
+      </ShowSizeTable>
+      <DefaultFeedback>
+         <Feedback Weight="10" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowDecent1" priority="0" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </Feedback>
+         <Feedback Weight="10" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowDecent2" priority="0" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </Feedback>
+         <Feedback Weight="10" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowDecent3" priority="0" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </Feedback>
+         <Feedback Weight="10" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowDecent4" priority="0" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </Feedback>
+      </DefaultFeedback>
+      <ShowCancelledFeedback>
+         <Feedback Weight="50" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="0">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTruncated1" priority="-1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </Feedback>
+         <Feedback Weight="50" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="0">
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTruncated2" priority="-1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </Feedback>
+      </ShowCancelledFeedback>
+      <ScoreTable>
+         <Row MinTricks="0">
+            <Entry MinScore="-10000" ShowScore="0.0">
+               <Feedback Weight="50" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowTruncated1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="50" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowTruncated2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+         </Row>
+         <Row MinTricks="1">
+            <Entry MinScore="-10000" ShowScore="0.0">
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="0" ShowScore="0.5">
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="50" ShowScore="1.0">
+               <Feedback Weight="10" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="70" ShowScore="1.5">
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="90" ShowScore="2.0">
+               <Feedback Weight="10" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent1" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent2" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent3" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent4" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+         </Row>
+         <Row MinTricks="5">
+            <Entry MinScore="-10000" ShowScore="0.0">
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="0" ShowScore="0.5">
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="30" ShowScore="1.0">
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="50" ShowScore="1.5">
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="60" ShowScore="2.0">
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent1" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent2" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent3" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent4" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="70" ShowScore="2.5">
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent1" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent2" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent3" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent4" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="90" ShowScore="3.0">
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent1" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent2" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent3" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent4" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+         </Row>
+         <Row MinTricks="10">
+            <Entry MinScore="-10000" ShowScore="0.0">
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="0" ShowScore="0.5">
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="30" ShowScore="1.0">
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="40" ShowScore="1.5">
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="50" ShowScore="2.0">
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="60" ShowScore="2.5">
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent1" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent2" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent3" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent4" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="70" ShowScore="3.0">
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent1" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent2" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent3" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent4" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="80" ShowScore="3.5">
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood1" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood2" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood3" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood4" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood5" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood6" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="90" ShowScore="4.0">
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood1" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood2" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood3" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood4" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood5" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood6" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+         </Row>
+         <Row MinTricks="20">
+            <Entry MinScore="-10000" ShowScore="0.0">
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="0" DonateMax="0" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBad4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="0" ShowScore="0.5">
+               <Feedback Weight="25" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="1" DonateMax="20" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="20" ShowScore="1.0">
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="20" DonateMax="40" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="30" ShowScore="1.5">
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="40" DonateMax="60" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="40" ShowScore="2.0">
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring1" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring2" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring3" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring4" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring5" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring6" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring7" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="25" DonateMin="60" DonateMax="80" FavoriteAnimalBonus="0" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowBoring8" priority="-1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="50" ShowScore="2.5">
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent1" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent2" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent3" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="80" DonateMax="100" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent4" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="55" ShowScore="3.0">
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent1" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent2" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent3" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="100" DonateMax="120" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowDecent4" priority="0" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="60" ShowScore="3.5">
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood1" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood2" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood3" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood4" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood5" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="120" DonateMax="140" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood6" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="65" ShowScore="4.0">
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood1" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood2" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood3" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood4" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood5" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="140" DonateMax="160" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGood6" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="70" ShowScore="4.5">
+               <Feedback Weight="10" DonateMin="160" DonateMax="180" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat1" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="160" DonateMax="180" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat2" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="160" DonateMax="180" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat3" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="160" DonateMax="180" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat4" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="160" DonateMax="180" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat5" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="160" DonateMax="180" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat6" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+            <Entry MinScore="80" ShowScore="5.0">
+               <Feedback Weight="10" DonateMin="180" DonateMax="200" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat1" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="180" DonateMax="200" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat2" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="180" DonateMax="200" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat3" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="180" DonateMax="200" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat4" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="180" DonateMax="200" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat5" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+               <Feedback Weight="10" DonateMin="180" DonateMax="200" FavoriteAnimalBonus="10" ShowNeedUpdate="100">
+                  <ZTFeedbackData>
+                     <ZTThoughtInfo locID="guestthoughts:ShowGreat6" priority="1" timeout="60" global="false"/>
+                  </ZTFeedbackData>
+               </Feedback>
+            </Entry>
+         </Row>
+      </ScoreTable>
+   </ZTAIShowMgr>
+   <ZTAITrickMgr>
+      <General maxTrickScore="100" forceActionPriority="100" DefaultTrickTokenTimeout="30" FPTSummonTokenName="" FPTInteractTimeout="0.5" FPTMinScoreForFailure="30" FPTMinScoreForSuccess="60" FPTMinScoreForCritical="90" FPTConfusedLearningDeltaMultiplier="-0.1" FPTFailureLearningDeltaMultiplier="-0.1" FPTSuccessLearningDeltaMultiplier="1" FPTCriticalLearningDeltaMultiplier="3" />
+      <TrickScores CriticalSuccessMultiplier="1.5" SuccessMultiplier="1.0" FailureMultiplier="0.25" FailuresToIgnore="0"/>
+      <trickpaths>
+         <path path="ai/tricks"/>
+         <path path="ai/tricks/defaults"/>
+         <path path="ai/tricks/animals"/>
+      </trickpaths>
+   </ZTAITrickMgr>
+   <BFBehSetMap>
+      <behaviorpath path="ai/tasks"/>
+      <behaviorpath path="ai/tasks/animals"/>
+      <behaviorpath path="ai/tasks/buildings"/>
+      <behaviorpath path="ai/tasks/enrichment"/>
+      <behaviorpath path="ai/tasks/foliage"/>
+      <behaviorpath path="ai/tasks/food"/>
+      <behaviorpath path="ai/tasks/guests"/>
+      <behaviorpath path="ai/tasks/guests/food"/>
+      <behaviorpath path="ai/tasks/guests/drink"/>
+      <behaviorpath path="ai/tasks/guests/dessert"/>
+      <behaviorpath path="ai/tasks/guests/restaurant"/>
+      <behaviorpath path="ai/tasks/guests/gift"/>
+      <behaviorpath path="ai/tasks/guests/bathroom"/>
+      <behaviorpath path="ai/tasks/guests/seating"/>
+      <behaviorpath path="ai/tasks/guests/trash"/>
+      <behaviorpath path="ai/tasks/guests/attack"/>
+      <behaviorpath path="ai/tasks/guests/viewanimal"/>
+      <behaviorpath path="ai/tasks/guests/amusement"/>
+      <behaviorpath path="ai/tasks/guests/tour"/>
+      <behaviorpath path="ai/tasks/guests/watchshow"/>
+      <behaviorpath path="ai/tasks/rocks"/>
+      <behaviorpath path="ai/tasks/scenery"/>
+      <behaviorpath path="ai/tasks/staff"/>
+      <behaviorpath path="ai/tasks/global"/>
+      <behaviorpath path="ai/tasks/debug"/>
+      <behaviorpath path="ai/tasks/props"/>
+   </BFBehSetMap>
+</ZTAIMgr>

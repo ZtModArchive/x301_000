@@ -1,0 +1,152 @@
+<BFTypedBinder binderType="Orangutan" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Primata>
+							<Pongidae>
+								<Orangutan />
+							</Pongidae>
+						</Primata>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity/>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\units\animals\Orangutan\Orangutan_Adult_F_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo ids="entityname:Orangutan" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Orangutan_Adult_F" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_Product="EndangeredSpecies" f_MaxTourValue="80" f_BaseDonationAmount="110" s_DonateToken="t_DonateOrangutan" p_FightOffset="0 -1 180" p_PreyOffset="0 .5 0" s_Endangerment="Endangered" s_Species="Orangutan" b_Advanced="true" b_Folivore="true" b_Frugivore="true" b_Ambivore="true" b_Insectivore="true" b_HoneyEater="true" s_KeeperEatType="Terrain_Bananas" b_SmallAnimal="true" b_FoodDishEater="true" s_KeeperDrinkType="FoodDish_Water" b_ElevatedFoodDishEater="true" b_SubstratePileEater="true" f_adoptRarity="90" s_Zoopedia="zoopedia:zoopedia_orangutan:entry" f_RequiredInitialSpace="200" f_RequiredAdditionalSpace="12" p_FenceClimbNode="0 -1 180" p_NodeFront="0 -1 180" p_HollowLogDock=".5 -.5 180" p_PursuitBallNode2="0 -1.5 180" p_PursuitBallNode="0 -1 180" p_NursingNode="0 -1 180" b_GroundNestUser="true" b_HollowTreeStumpUser="true" b_RaisedSleepingPlatformUser="true" b_ShadeStructureUser="true" b_SleepingBasketUser="true" b_SmallWoodenShelterUser="true" b_SmallSnowCaveOddUser="true" b_SmallRockCaveUser="true" b_SmallConcreteShelterUser="true" b_LargeWoodenShelterUser="true" b_LargeSnowCaveOddUser="true" b_LargeRockCaveUser="true" b_TropicalRainforestAnimal="true" b_TreePounder="true" b_ClimbsLogsOdd="true" b_ClimbsMediumWetlandsRockSmall="true" b_WetlandsOdd="true" b_ClimbsLargeWetlandsRockLarge="true" b_ClimbsMediumTundraRockLarge="true" b_TundraOdd="true" b_ClimbsLargeTundraRockLarge="true" b_ClimbsMediumTropicalRainforestRockLarge="true" b_ClimbsLargeTropicalRainforestRockSmall="true" b_ClimbsLargeTropicalRainforestRockLarge="true" b_ClimbsMediumTemperateForestRockLarge="true" b_TemperateForestOdd="true" b_ClimbsLargeTemperateForestRockSmall="true" b_ClimbsLargeTemperateForestRockLarge="true" b_ClimbsMediumScrubRockLarge="true" b_ScrubOdd="true" b_ClimbsLargeScrubRockSmall="true" b_ClimbsLargeScrubRockLarge="true" b_ClimbsMediumSavannahRockLarge="true" b_SavannahOdd="true" b_ClimbsLargeSavannahRockLarge="true" b_ClimbsMediumGrasslandRockLarge="true" b_GrasslandOdd="true" b_ClimbsLargeGrasslandRockSmall="true" b_ClimbsLargeGrasslandRockLarge="true" b_ClimbsMediumDesertRockLarge="true" b_DesertOdd="true" b_ClimbsLargeDesertRockSmall="true" b_ClimbsLargeDesertRockLarge="true" b_ClimbsMediumBorealForestRockLarge="true" b_BorealForestOdd="true" b_ClimbsLargeBorealForestRockSmall="true" b_ClimbsLargeBorealForestRockLarge="true" b_ClimbsMediumAlpineRockLarge="true" b_AlpineOdd="true" b_ClimbsLargeAlpineRockLarge="true" b_ClimbsLargeAlpineRockSmall="true" b_ClimbsBirchTree="true" b_ClimbsWeepingMyallTree="true" b_ClimbsYellowFeverAcaciaTree="true" b_ClimbsTremblingAspenTree="true" b_ClimbsUmbrellaAcaciaTree="true" b_ClimbsOrchidTree="true" b_ClimbsTreeFern="true" b_ClimbsKilyTree="true" b_ClimbsMapleTree="true" b_ClimbsKapokTree="true" b_ClimbsFoxtailPalmTree="true" b_ClimbsDatePalmTree="true" b_ClimbsElephantEarTree="true" b_ClimbsAcaciaCaffraTree="true" b_ClimbsBananaTree="true" b_PicksFruitFromBananaTree="true" b_ClimbsBaobabTree="true" b_AppleTreatEater="true" b_FigEater="true" b_EatsFromFeederBall="true" b_ClimbsEvergreenOak="true" b_BerriesEater="true" b_DurianFruitEater="true" b_ClimbsDurianTree="true" b_ClimbsSydneyBlueGum="true" b_ClimbsShepardsTree="true" b_ClimbsPerepatTree="true" p_PaintNode="0 0.5 180" p_Dock_ChimpEmbrace="0 -.5 180" f_TrickLearningLifespanAdjustment="-0.1"/>
+		<BFGBiomeData location="tropicalrainforest_southeastasia" locationSensitivity="10">
+			<alpine sensitivity="-10" />
+			<benthic sensitivity="-10" />
+			<borealforest sensitivity="-10" />
+			<coastal sensitivity="-10" />
+			<desert sensitivity="-10" />
+			<grassland sensitivity="-5" />
+			<reef sensitivity="-10" />
+			<pelagic sensitivity="-10" />
+			<temperateforest sensitivity="-5" />
+			<tropicalrainforest sensitivity="10" primary="true" />
+			<tundra sensitivity="-10" />
+			<savannah sensitivity="-10" />
+			<scrub sensitivity="-10" />
+			<wetlands sensitivity="-5" />
+		</BFGBiomeData>
+		<ZTPlacementData icon3Doffset="0 0 1.3" icon3Dscale="1.5" />
+		<ZTUserStaffAction>
+			<SetAttribute name="hygiene" value="0" threshold="20" locid="superstaff:animal_groom" effect="SuperStaffGroom" />
+			<SetAttribute name="health" value="0" threshold="20" locid="superstaff:animal_heal" effect="SuperStaffHeal" />
+		</ZTUserStaffAction>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFShadowLODComponent numLevels="1" switchingDists="60.0" />
+					<BFActorComponent actorfile="entities/units/animals/Orangutan/Orangutan_Adult_F.bfm" scale="1.35" switch="0 5000 5001" />
+					<BF4LegsGroundFitComponent heightOffset="-.10" maxRollError=".2" maxPitchError=".1" maxHeightError=".5" pitchGain="2.00" heightGain="6.0" rollGain="1.0" bicyclePointBack="Bip01 Pelvis" bicyclePointFront="bp1" frontBuoyancyNode="Node_Buoy" backBuoyancyNode="Node_Buoy_Back" />
+					<BFSecondaryAnimComponent animName="Secondary_MouthA" frequency="1.5" chance="40" validAnims="Stand_Idle,Sit_Idle,Pee_Idle,Climb_Idle,Climb_LookLeft,Climb_LookRight,Climb_Scratch,Climb_Swingout,Stand_PonderA,Stand_PonderB,Stand_Poop,Stand_TurnLeft90,Stand_TurnRight90,StandBiObject_Idle,StandBiObject_PokeStickInFeeder,StandBiObject_TurnLeft90,StandBiObject_TurnRight90" />
+					<BFSecondaryAnimComponent animName="Secondary_MouthB" frequency="1.5" chance="40" validAnims="Stand_Idle,Sit_Idle,Pee_Idle,Climb_Idle,Climb_LookLeft,Climb_LookRight,Climb_Scratch,Climb_Swingout,Stand_PonderA,Stand_PonderB,Stand_Poop,Stand_TurnLeft90,Stand_TurnRight90,StandBiObject_Idle,StandBiObject_PokeStickInFeeder,StandBiObject_TurnLeft90,StandBiObject_TurnRight90" />
+					<BFForwardMovingComponent />
+					<BFRotYawMovingComponent />
+					<BFCollisionComponent grid="Bip01 Spine1" />
+					<BFGridCollisionComponent />
+					<BFDecalTextureCycleComponent materialName="Orangutan_Adult_F_Body_Mat">
+						<Step imageName="entities/units/animals/shared/tiger_blink_blank.dds" hold="3.0" variance="0.5" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink.dds" hold="0.1" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+					</BFDecalTextureCycleComponent>
+					<BFHeadLookComponent leftRightAnimName="Secondary_HeadLook" lookDirNode="Bip01 Head" lookDirVector="0 1 0" gain_z="-2" fov_extreme_lr="90.0" />
+				</BFPhysObj>
+			</instance>
+			<shared />
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehAnimate interruptible="true" targetAnim="Sit_Idle" interruptFlag="true" loopFlag="true" />
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="ground" required="1">
+					<instance>
+						<BFLocoAnimate version="1">
+							<stop name="Stand" />
+							<slow name="Walk" />
+							<medium name="Walk" />
+							<fast name="Run" />
+							<upright name="WalkBi" />
+							<evade name="Run" minAnimSpeed="0.6" maxAnimSpeed="1.5" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="groundcarry" required="1">
+					<instance>
+						<BFLocoAnimate version="1" stationaryAnim="SitObject_Idle">
+							<stop name="StandBiObject" />
+							<slow name="WalkBiObject" />
+							<medium name="WalkBiObject" />
+							<fast name="WalkBiObject" />
+							<upright name="WalkBiObject" />
+							<evade name="WalkBiObject" minAnimSpeed="0.6" maxAnimSpeed="1.2" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFNamedBinder binderName="righthand" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="true" hideContents="false" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="back" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="true" hideContents="false" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="foodprop" repopulateMethod="byName" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="35000">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

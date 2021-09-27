@@ -1,0 +1,140 @@
+<BFTypedBinder binderType="TurtleSeaGreen_Young" abstract="true">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Reptilia>
+                  <Testudines>
+                     <Cheloniidae>
+                        <TurtleSeaGreen>
+                           <TurtleSeaGreen_Young/>
+                        </TurtleSeaGreen>
+                     </Cheloniidae>
+                  </Testudines>
+               </Reptilia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared b_Adult="0" f_viewBonus="5" b_Cancrivorous="true" b_Piscivore="false" b_JellyfishEater="true" b_SmallPrey="true">
+         <BFAINeedAdjusts health="0.25" stimulation="0.33" exercise="0.33" reproduction="0"/>
+      </BFAIEntityDataShared>
+      <ZTDevComponent />
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/units/animals/TurtleSeaGreen/TurtleSeaGreen_Young_F.bfm" scale="0.4" switch="0 15 30 60"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Head" width="0.75" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="shadowObj2">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Spine2" width="2.2" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFGCollisionTester escapeBuffer="0.375" radius=".75" motionClass="swimmer" waterScore="0" landScore="0" maxSlope=".75"/>
+         </instance>
+      </BFBinder>
+	<BFBinder required="1">
+		<instance>
+			<BFLocomotionMgr />
+		</instance>
+		<binder>
+			<BFNamedBinder binderName="ground" required="1">
+				<instance>
+					<BFLocoAnimate version="1" stationaryAnim="Stand_Idle">
+						<stop name="Stand" minAnimSpeed="2.0" maxAnimSpeed="2.25" />
+						<slow name="Walk" minAnimSpeed="1.5" maxAnimSpeed="1.75" />
+						<medium name="Walk" minAnimSpeed="1.75" maxAnimSpeed="2.0" />
+						<fast name="Walk" minAnimSpeed="2.0" maxAnimSpeed="2.25" />
+						<glide name="Walk" minAnimSpeed="2.0" maxAnimSpeed="2.25" />
+						<evade name="Walk" minAnimSpeed="1.5" maxAnimSpeed="2.25" />
+					</BFLocoAnimate>
+				</instance>
+			</BFNamedBinder>
+			<BFNamedBinder binderName="water" required="1">
+				<instance>
+					<BFLocoAnimate version="1">
+						<stop name="Swim" minAnimSpeed="3.0" maxAnimSpeed="3.5">
+							<anim name="Swim_Ahead" yaw="1.0" roll="0.5" />
+							<anim name="SwimSub_2Swim" yaw="1.0" />
+						</stop>
+						<slow name="Swim" minAnimSpeed="3.0" maxAnimSpeed="3.5" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="Swim_Ahead" yaw="1.0" roll="0.5" />
+							<anim name="SwimSub_2Swim" yaw="1.0" />
+						</slow>
+						<medium name="Swim" minAnimSpeed="3.5" maxAnimSpeed="4.0" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="Swim_Ahead" yaw="1.0" roll="0.5" />
+							<anim name="SwimSub_2Swim" yaw="1.0" />
+						</medium>
+						<fast name="Swim" minAnimSpeed="4.0" maxAnimSpeed="4.5" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="Swim_Ahead" yaw="1.0" roll="0.5" />
+							<anim name="SwimSub_2Swim" yaw="1.0" />
+						</fast>
+						<evade name="Swim" minAnimSpeed="3.25" maxAnimSpeed="4.5" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="Swim_Ahead" yaw="1.0" roll="0.5" />
+							<anim name="SwimSub_2Swim" yaw="1.0" />
+						</evade>
+						<glide name="SwimGlide" flapAnim="Swim_2SwimGlide" minFlapPeriod="4" maxFlapPeriod="6" minAnimSpeed="2.0" maxAnimSpeed="2.5">
+							<anim name="SwimGlide_Ahead" yaw="1.0" roll="0.5" acceleration="-0.1" minSpeed="1.0" maxSpeed="2.0" />
+							<anim name="Swim_2SwimGlide" yaw="1.0" roll="0.5" />
+						</glide>
+					</BFLocoAnimate>
+				</instance>
+			</BFNamedBinder>
+			<BFNamedBinder binderName="underwater" required="1">
+				<instance>
+					<BFLocoAnimate version="1">
+						<stop name="SwimSub" minAnimSpeed="3.0" maxAnimSpeed="3.5">
+							<anim name="SwimSub_Ahead" yaw="1.0" pitch="0.5" roll="0.5" />
+							<anim name="Swim_2SwimSub" yaw="1.0" />
+						</stop>
+						<slow name="SwimSub" minAnimSpeed="3.0" maxAnimSpeed="3.5" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="SwimSub_Ahead" yaw="1.0" pitch="0.5" roll="0.5" />
+							<anim name="Swim_2SwimSub" yaw="1.0" />
+						</slow>
+						<medium name="SwimSub" minAnimSpeed="3.5" maxAnimSpeed="4.0" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="SwimSub_Ahead" yaw="1.0" pitch="0.5" roll="0.5" />
+							<anim name="Swim_2SwimSub" yaw="1.0" />
+						</medium>
+						<fast name="SwimSub" minAnimSpeed="4.0" maxAnimSpeed="4.5" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="SwimSub_Ahead" yaw="1.0" pitch="0.5" roll="0.5" />
+							<anim name="Swim_2SwimSub" yaw="1.0" />
+						</fast>
+						<evade name="SwimSub" minAnimSpeed="3.5" maxAnimSpeed="4.5" minResetPeriod="4" maxResetPeriod="6">
+							<anim name="SwimSub_Ahead" yaw="1.0" pitch="0.5" roll="0.5" />
+							<anim name="Swim_2SwimSub" yaw="1.0" />
+						</evade>
+						<glide name="SwimSubGlide" flapAnim="SwimSub_2SwimSubGlide" minFlapPeriod="4" maxFlapPeriod="6" minAnimSpeed="2.0" maxAnimSpeed="2.5">
+							<anim name="SwimSubGlide_Ahead" yaw="1.0" pitch="0.5" roll="0.5" acceleration="-0.1" minSpeed="1.0" maxSpeed="2.0" />
+							<anim name="SwimSub_2SwimSubGlide" yaw="1.0" pitch="0.5" />
+						</glide>
+					</BFLocoAnimate>
+				</instance>
+			</BFNamedBinder>
+		</binder>
+	</BFBinder>
+   </binder>
+</BFTypedBinder>

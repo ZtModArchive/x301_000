@@ -1,0 +1,86 @@
+<BFTypedBinder binderType="Educator" abstract="true">
+   <types>
+      <entity>
+         <actor>
+            <people>
+               <Staff>
+                 <Educator/>
+               </Staff>
+            </people>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared f_sensorRadius="48" s_Species="people" f_EdNormal="6" f_EdDonNormal="40"/>
+      <ZTAIViewComponent>
+         <viewDataTable>
+            <ZTAIViewData name="Educator_Event" viewScore="5" donateScore="10"/>
+         </viewDataTable>
+      </ZTAIViewComponent>
+      <UIToggleButton template="adopt">
+               <UIAspect>
+                  <default image="entities\units\staff\Educator\Educator_M_icon.dds"/>
+               </UIAspect>
+               <UIHelpInfo ids="entityname:Educator"/>
+               <on>
+                  <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Educator"/>
+               </on>
+      </UIToggleButton>
+   </shared>
+	<binder>
+	  <BFBinder required="1">
+		 <instance>
+			<BFAICognitiveMgr>
+			   <Sensors>
+				  <ZTAISensor/>
+				  <BFAISensorSelf/>
+			   </Sensors>
+			   <TaskThinkers>
+				  <ZTAITaskThinker/>
+			   </TaskThinkers>
+			</BFAICognitiveMgr>
+		 </instance>
+		 <shared>
+			<BFAICogShared>
+			   <BFAINoPerceive>
+				  <fence/>
+				  <path/>
+				  <foliage/>
+			   </BFAINoPerceive>
+			</BFAICogShared>
+		 </shared>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr/>
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="ground" required="1">
+               <instance>
+                  <BFLocoAnimate version="1">
+                     <stop name="Stand"/>
+                     <slow name="Walk" minAnimSpeed="1.0" maxAnimSpeed="1.4">
+                        <waggle name="Walk_Ahead" wag="0.1"/>
+                     </slow>
+                     <medium name="Walk" minAnimSpeed="1.4" maxAnimSpeed="1.6"/>
+                     <fast name="Run"/>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="water" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+                     <stop name="TreadWater"/>
+                     <slow name="Swim"/>
+                     <medium name="Swim"/>
+                     <fast name="Swim"/>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>      
+	</binder>
+</BFTypedBinder>

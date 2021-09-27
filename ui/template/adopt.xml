@@ -1,0 +1,14 @@
+<UIButton templateName="adopt" template="purchaseicon" name="icon" toggle="0" sticky="1" broadcast="1">
+   <on>
+      <event msg="ZT_SETMODE" data="BFString" string="mode_placement"/>
+      <event msg="UI_CHILD" data="UIChildData" name="Decline Button">
+         <child msg="UI_ENABLE"/>
+      </event>
+   </on>
+   <off>
+      <event msg="ZT_SETMODE" data="BFString" string="mode_selection"/>
+      <event msg="UI_CHILD" data="UIChildData" name="Decline Button">
+         <child msg="UI_DISABLE"/>
+      </event>
+   </off>
+</UIButton>

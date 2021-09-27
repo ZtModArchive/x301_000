@@ -1,0 +1,115 @@
+<ZTScenarioMgr interval="2" name="mgr" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<info locid="AfricaCampaign:MeerkatsIntro"/>
+	<children>
+		<BFScenarioRule hidden="1" name="setinitialzoostate" state="0" sticky="true">
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="setinitialzoostate" />
+			</evaluate>
+		</BFScenarioRule>
+		<BFScenarioGroup name="MeerkatMobScenario" state="0" chain="true" allsuccess="true" sticky="true">
+			<info type="primary">
+				<success locid="AfricaCampaign:MeerkatsResult" />
+			</info>
+			<children>
+				<BFScenarioRule name="adoptMeerkat" state="0" sticky="true">
+					<info type="primary" >
+						<neutral locid="AfricaCampaign:MeerkatsAdoptFirst" overview="AfricaCampaign:MeerkatsOverview"/>
+						<success locid="AfricaCampaign:MeerkatsFinishAdoptFirst" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="evalcratedMeerkat" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="completecratedMeerkat" />
+					</success>
+				</BFScenarioRule>
+				<BFScenarioRule name="meetMeerkatNeeds" hidden="1" state="0" sticky="true">
+					<info type="primary" >
+						<neutral locid="AfricaCampaign:MeerkatsMeetNeeds" overview="AfricaCampaign:MeerkatsOverview"/>
+						<success locid="AfricaCampaign:MeerkatsFinishMeetNeeds" overview="AfricaCampaign:MeerkatsOverview" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="evalMeetBasicNeeds" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="completeMeetBasicNeeds" />
+					</success>
+					<failure>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="failMeerkats" />
+					</failure>					
+				</BFScenarioRule>
+				<BFScenarioRule name="get6MoreMeerkats" hidden="1" state="0" sticky="true">
+					<info type="primary" >
+						<neutral locid="AfricaCampaign:MeerkatsAdoptMore" overview="AfricaCampaign:MeerkatsPart1SuccessOverview"/>
+						<success locid="AfricaCampaign:MeerkatsFinishAdoptMore" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="eval6MoreMeerkats" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/ui.lua" entry="showprimarygoals" />
+					</success>							
+				</BFScenarioRule>
+				<BFScenarioRule name="meetEnvironment" hidden="1" state="0" sticky="true">
+					<info type="primary" >
+						<neutral locid="AfricaCampaign:MeerkatsMeetEnvironmentMore" />
+						<success locid="AfricaCampaign:MeerkatsFinishMeetEnvironmentMore"/>
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="evalMeetEnvironment8Meerkats" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/ui.lua" entry="showprimarygoals" />
+					</success>							
+				</BFScenarioRule>
+				<BFScenarioRule name="happyMeerkats" hidden="1" state="0" sticky="true">
+					<info type="primary">
+						<neutral locid="AfricaCampaign:MeerkatsMeetAllNeeds" />
+						<success locid="AfricaCampaign:MeerkatsFinishMeetAllNeeds" />
+						<failure locid="AfricaCampaign:MeerkatsFailedMeetNeeds" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="evalHappyMeerkats" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="complete6MoreMeerkats" />
+					</success>
+					<failure>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="failMeerkats" />
+					</failure>
+				</BFScenarioRule>						
+			</children>
+		</BFScenarioGroup>
+		<BFScenarioGroup name="OptionalMeerkat" state="0" chain="true" allsuccess="true" sticky="true">
+			<info type="primary" >
+				<neutral overview="AfricaCampaign:MeerkatsPart1SuccessOverview"/>
+			</info>			
+			<children>	
+				<BFScenarioRule name="getDonations" hidden="1" state="0" sticky="true">
+					<info type="primary" >
+						<neutral locid="AfricaCampaign:MeerkatsDonationsGoal" overview="AfricaCampaign:MeerkatsDonations"/>
+						<success locid="AfricaCampaign:MeerkatsDonationsGoalDone" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="evalMeerkatDonations" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="completeMeerkatDonations"  />
+					</success>							
+				</BFScenarioRule>
+				<BFScenarioRule name="MeerkatPhoto" hidden="1" state="0" sticky="true">
+					<info type="primary" >
+						<neutral locid="AfricaCampaign:MeerkatsSentryPostGoal" overview="AfricaCampaign:MeerkatsSentryPost"/>
+						<success locid="AfricaCampaign:MeerkatsSentryPostGoalDone" overview="AfricaCampaign:MeerkatsSentryPostSuccess"/>
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="evalMeerkatPhoto" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen1.lua" entry="completeMeerkatPhoto"  />
+					</success>							
+				</BFScenarioRule>
+			</children>
+		</BFScenarioGroup>
+	</children>
+</ZTScenarioMgr>

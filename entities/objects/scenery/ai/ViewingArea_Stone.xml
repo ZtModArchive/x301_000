@@ -1,0 +1,54 @@
+<BFTypedBinder binderType="ViewingArea_Stone">
+   <types>
+      <entity>
+         <scenery>
+            <ViewingArea>
+               <ViewingArea_Stone/>
+            </ViewingArea>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\ViewingArea_Stone\ViewingArea_Stone_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:ViewingArea_Stone"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ViewingArea_Stone"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\scenery\ViewingArea_Stone\ViewingArea_Stone_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ViewingArea_Stone"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData terrainFlatten="true"/>
+      <BFGCollisionData isPassable="true"/>
+      <BFAIEntityDataShared b_Researchable="true" s_Theme="default" f_FameReq="80" s_uisort="kd" s_Zoopedia="zoopedia:zoopedia_viewingareas:entry" f_researchUnlockTime="120" f_researchCost="1000"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/ViewingArea_Stone/ViewingArea_Stone" />
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="200">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

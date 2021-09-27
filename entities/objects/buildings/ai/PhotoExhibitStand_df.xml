@@ -1,0 +1,76 @@
+<BFTypedBinder binderType="PhotoExhibitStand_df">
+   <types>
+      <entity>
+         <building>
+            <PhotoExhibitStand_df/>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData dockArrowStyle="standard" dockArrowSize="1.5" icon3Doffset="0 0 0.2" icon3Dscale="0.325"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\buildings\PhotoExhibitStand_df\PhotoExhibitStand_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:PhotoExhibitStand_df"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PhotoExhibitStand_df"/>
+         </on>
+      </UIToggleButton>
+      <UIButton name="overviewicon">
+         <UIAspect>
+            <default image="ui/zoomap/icon_attractions.dds"/>
+         </UIAspect>
+      </UIButton>
+      <BFAIEntityDataShared s_ObjectType="Misc" s_GameLock="photostandlock" s_Product="EndangeredSpecies" s_uisort="ef" b_DonationAcceptor="false" s_Zoopedia="zoopedia:zoopedia_photokiosk:entry" b_wantLifetimeUsers="true" b_lockFromCampaigns="true" />
+      <ZTTourData>
+         <reward value="5"/>
+      </ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="5" length="5" intensity="0.2"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/PhotoExhibitStand_df/PhotoExhibitStand_df" switch="0 18 36" minSwitch="0 0 20"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_Kiosk">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest01"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest02"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest03"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest04"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="500">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="upkeep" cost="100" period="monthly" type="debit" category="upkeep"/>
+               <ZTTransaction name="add_user" cost="1" type="addUser" category="user"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

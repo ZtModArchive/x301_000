@@ -1,0 +1,45 @@
+<BFTypedBinder binderType="Poop" abstract="true" versionReplace="true">
+   <types>
+      <entity>
+         <item>
+            <Poop/>
+         </item>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <BFGInfluenceComponent defaultRadius="6.0" defaultGroupFactor="0.0" defaultRadiusDropoff="linear" defaultGroupDropoff="none">
+         <smell key="bad" value=".2"/>
+      </BFGInfluenceComponent>
+      <ZTPlacementData moveable="false" randomRotate="false" gridSnap="true" autoFootprint="true" deletable="false" selectable="true"/>
+      <BFGCollisionData isTraversable="true" isPassable="true"/>
+      <BFAIEntityDataShared b_Sniffable="true"/>
+      <ZTUserStaffAction>
+	      <RemoveObject locid="superstaff:animal_poop" effect="SuperStaffRake" delay="2.0" prescript="behavior:scripts/CompostPoo.lua:CompostPoo"/>
+      </ZTUserStaffAction>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/Items/Poop_Bird/Poop_Bird" switch="0 15 30"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <ZTAIStaffRequestController triggerOnCreation="true">
+               <ZTStaffRequestData tokenKey="t_RakePoo" subjectType="Keeper" priority="6"/>
+            </ZTAIStaffRequestController>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_ScentEmitter="true"/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

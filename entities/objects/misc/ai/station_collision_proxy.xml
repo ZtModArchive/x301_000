@@ -1,0 +1,40 @@
+﻿<BFTypedBinder binderType="station_collision_proxy">
+	<types>
+		<entity>
+			<collision_proxy>
+				<station_collision_proxy />
+			</collision_proxy>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<ZTPlacementData>
+			<stompData>
+				<allow>
+					<groundstation />
+					<bush />
+					<grass />
+					<thicket />
+					<wildflowers />
+					<fungi />
+					<watersurfacefoliage />
+					<b_SmallRock>
+						<true />
+					</b_SmallRock>
+				</allow>
+			</stompData>
+		</ZTPlacementData>
+		<BFGCollisionData isPassable="true" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent modelfile="entities\objects\misc\GroundStation_ABV.nif" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+	</binder>
+</BFTypedBinder>

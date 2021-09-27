@@ -1,0 +1,94 @@
+<BFTypedBinder binderType="Gelada_Adult_F">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Primata>
+                     <Circopithecidae>
+                        <Gelada>
+                          <Gelada_Adult>
+                              <Gelada_Adult_F/>
+                           </Gelada_Adult>
+                        </Gelada>
+                     </Circopithecidae>
+                  </Primata>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared b_Male="0" f_adoptCount="rand(1,2)"/>
+   </shared>
+   <binder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_Pregnant="false"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr />
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="groundcarrybaby" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="StandYoung_Idle">
+                     <stop name="StandYoung" />
+                     <slow name="WalkYoung" />
+                     <medium name="WalkYoung" />
+                     <fast name="WalkYoung"  minAnimSpeed="1.2" maxAnimSpeed="1.2" />
+                     <evade name="WalkYoung"  minAnimSpeed="0.6" maxAnimSpeed="1.5" />
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>
+		<BFNamedBinder binderName="texController" required="1">
+			<instance>
+				<BFAITextureController currState="well" defaultState="well">
+					<attribList>
+						<health />
+						<hygiene />
+					</attribList>
+					<stateList>
+						<sickanddirty>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="Gelada_Adult_F" image="entities\units\animals\Gelada\Gelada_Adult_F_Sick_Dirty.dds" />
+							</textureData>
+						</sickanddirty>
+						<sick>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+							</attribData>
+							<textureData >
+								<mainObj material="Gelada_Adult_F" image="entities\units\animals\Gelada\Gelada_Adult_F_Sick.dds" />
+							</textureData>
+						</sick>
+						<dirty>
+							<attribData>
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData >
+								<mainObj material="Gelada_Adult_F" image="entities\units\animals\Gelada\Gelada_Adult_F_Dirty.dds" />
+							</textureData>
+						</dirty>
+						<well>
+							<textureData >
+								<mainObj material="Gelada_Adult_F" image="entities\units\animals\Gelada\Gelada_Adult_F.dds" />
+							</textureData>
+						</well>
+					</stateList>
+				</BFAITextureController>
+			</instance>
+		</BFNamedBinder>      
+   </binder>
+</BFTypedBinder>

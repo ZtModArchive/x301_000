@@ -1,0 +1,70 @@
+<ZTScenarioMgr interval="2" name="mgr" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<info locid="EndangeredAnimals:EndangeredAnimalsZooIntro"/>
+	<children>
+		<BFScenarioRule hidden="1" name="setinitialzoostate" state="0" sticky="true">
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="setinitialzoostate" />
+			</evaluate>
+		</BFScenarioRule>
+		<BFScenarioRule name="TotalWin" hidden="0" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="EndangeredAnimals:EndangeredAnimalsZooOverallGoal" overview="EndangeredAnimals:EndangeredAnimalsZooOverview" />
+				<success locid="EndangeredAnimals:EndangeredAnimalsZooOverallGoalDone" overview="EndangeredAnimals:EndangeredAnimalsZooSuccessOverview" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalzoototalwin" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completezoototalwin" />
+			</success>
+		</BFScenarioRule>
+		<BFScenarioGroup hidden="1" name="CatchUp" state="0" chain="false" allsuccess="true" sticky="true">
+			<info type="primary">
+				<neutral overview="EndangeredAnimals:EndangeredAnimalsZooCatchUp" />
+			</info>
+			<children>
+				<BFScenarioRule hidden="1" name="initialcatchup" state="0" sticky="true">
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completegoal" />
+					</evaluate>
+				</BFScenarioRule>
+				<BFScenarioRule name="CatchUpPart1" hidden="0" state="0" sticky="false">
+					<info type="primary">
+						<neutral locid="EndangeredAnimals:EndangeredAnimalsZooCatchUpGoalOne" />
+						<success locid="EndangeredAnimals:EndangeredAnimalsZooCatchUpGoalOneDone" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalcatchup1" />
+					</evaluate>
+				</BFScenarioRule>
+				<BFScenarioRule name="CatchUpPart2" hidden="0" state="0" sticky="false">
+					<info type="primary">
+						<neutral locid="EndangeredAnimals:EndangeredAnimalsZooCatchUpGoalTwo" />
+						<success locid="EndangeredAnimals:EndangeredAnimalsZooCatchUpGoalTwoDone" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalcatchup2" />
+					</evaluate>
+				</BFScenarioRule>				
+			</children>
+		</BFScenarioGroup>
+		<BFScenarioRule name="FirstForcedAdoption" hidden="1" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="EndangeredAnimals:EndangeredAnimalsZooForcedAdoption" />
+				<success locid="EndangeredAnimals:EndangeredAnimalsZooDonationSuccess" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalfirstforcedadoption" />
+			</evaluate>
+		</BFScenarioRule>
+		<BFScenarioRule name="SecondForcedAdoption" hidden="1" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="EndangeredAnimals:EndangeredAnimalsZooForcedAdoption" />
+				<success locid="EndangeredAnimals:EndangeredAnimalsZooDonationSuccess" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalsecondforcedadoption" />
+			</evaluate>
+		</BFScenarioRule>
+	</children>
+</ZTScenarioMgr>

@@ -1,0 +1,45 @@
+<BFTypedBinder binderType="PicnicTable_df">
+   <types>
+      <entity>
+         <scenery>
+            <PicnicTable>
+               <PicnicTable_df/>
+            </PicnicTable>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\PicnicTable_df\PicnicTable_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:PicnicTable"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PicnicTable_df"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_uisort="ed" s_Zoopedia="zoopedia:zoopedia_picnictable:entry"/>
+      <ZTPlacementData terrainFlatten="true" autoFootprint="true" dockArrowStyle="none"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/PicnicTable_df/PicnicTable_df" switch="0 18 36" minSwitch="0 0 35"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="150">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

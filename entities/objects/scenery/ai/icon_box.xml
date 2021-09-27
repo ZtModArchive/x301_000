@@ -1,0 +1,44 @@
+<BFTypedBinder binderType="icon_box">
+   <types>
+      <entity>
+         <scenery>
+            <icon_box/>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\icon_box\icon_box.tga"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:icon_box"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="icon_box"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData terrainFlatten="false"/>
+      <ZTDevComponent/>
+      <BFAIEntityDataShared s_uisort="oe"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities\objects\scenery\icon_box\icon_box.nif" />
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="10">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

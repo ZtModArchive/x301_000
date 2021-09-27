@@ -1,0 +1,54 @@
+<ZTScenarioMgr interval="2" name="mgr" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<info locid="TransportationCampaign:GreatSavannahIntro"/>
+	<children>
+		<BFScenarioRule hidden="1" name="setinitialzoostate" state="0" sticky="true">
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="setinitialzoostate" />
+			</evaluate>
+		</BFScenarioRule>
+		<BFScenarioGroup hidden="0" name="MainGoals" state="0" chain="true" allsuccess="true" sticky="true" optional="false">
+			<children>
+				<BFScenarioRule name="BuildTram" hidden="0" state="0" sticky="true">
+					<info type="primary">
+						<neutral locid="TransportationCampaign:GreatSavannahSkyTramGoal" overview="TransportationCampaign:GreatSavannahOverview" />
+						<success locid="TransportationCampaign:GreatSavannahSkyTramGoalDone" overview="TransportationCampaign:GreatSavannahOverview" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="evalbuildtram" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="completebuildtram" />
+					</success>
+				</BFScenarioRule>
+				<BFScenarioRule name="FourStars" hidden="1" state="0" sticky="true">
+					<info type="primary">
+						<neutral locid="TransportationCampaign:GreatSavannahFameGoal" overview="TransportationCampaign:GreatSavannahFame" />
+						<success locid="TransportationCampaign:GreatSavannahFameGoalDone" overview="TransportationCampaign:GreatSavannahSuccessOverview" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="evalfourstars" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="completefourstars" />
+					</success>
+				</BFScenarioRule>
+			</children>
+		</BFScenarioGroup>
+		<BFScenarioRule name="BonusAntelope" hidden="1" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="TransportationCampaign:GreatSavannahGiantSableAntelopeGoal" />
+				<success locid="TransportationCampaign:GreatSavannahGiantSableAntelopeGoalDone" />
+				<failure locid="TransportationCampaign:GreatSavannahGiantSableAntelopeFailureNoAntelope" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="evalantelope" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="completeantelope" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="failantelope" />
+			</failure>
+		</BFScenarioRule>
+	</children>
+</ZTScenarioMgr>

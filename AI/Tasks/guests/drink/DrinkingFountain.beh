@@ -1,0 +1,27 @@
+<BehaviorSets>
+   <UseDrinkingFountain>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestpackactions:GoToDrinkingFountain" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestpackthoughts:GoToDrinkingFountain" priority="1" timeout="60" global="false" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Queue"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestpackactions:UseDrinkingFountain" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>         
+         <BFBehAnimate targetAnim="Stand_DrinkFountain"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </UseDrinkingFountain>
+</BehaviorSets>

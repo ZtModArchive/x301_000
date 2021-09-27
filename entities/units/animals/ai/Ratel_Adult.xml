@@ -1,0 +1,68 @@
+﻿<BFTypedBinder binderType="Ratel_Adult" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Carnivora>
+							<Mustelidae>
+								<Ratel>
+									<Ratel_Adult />
+								</Ratel>
+							</Mustelidae>
+						</Carnivora>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<ZTPlacementData icon3Doffset="0 0 1" icon3Dscale="1.5" />
+		<BFAIEntityDataShared f_viewBonus="10" b_Adult="1" s_MorphMessage="zoomessages:AnimalPuberty" f_MorphMessagePriority="1" f_MorphMessageDuration="30" b_MediumPredator="true" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Head" width="0.75" length="1" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj2">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Spine" width="0.75" length="1" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSecondaryAnimComponent animName="Secondary_Angry" loop="true" frequency="0" chance="100" validAnims="Stand_Idle,Stand_TurnRight90,Stand_TurnLeft90,Stand_TurnRight180,Stand_Dig,Stand_Growl,Stand_MarkScent,Stand_ScratchSelf,Stand_Sneeze,Stand_Stretch,Stand_Sniff,Stand_Yawn,Stand_Poop,Stand_Pee">
+						<validAttribs>
+							<f_needPointsBad minValue=".05" maxValue="100" />
+						</validAttribs>
+					</BFSecondaryAnimComponent>
+					<BFSecondaryAnimComponent animName="Secondary_Happy" loop="true" frequency="0" chance="100" validAnims="Stand_Idle,Stand_TurnRight90,Stand_TurnLeft90,Stand_TurnRight180,Stand_Dig,Stand_Growl,Stand_MarkScent,Stand_ScratchSelf,Stand_Sneeze,Stand_Stretch,Stand_Sniff,Stand_Yawn,Stand_Poop,Stand_Pee">
+						<validAttribs>
+							<f_needPointsGood minValue=".05" maxValue="100" />
+						</validAttribs>
+					</BFSecondaryAnimComponent>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester escapeBuffer="0.125" radius=".25" waterScore="0" motionClass="swimmer" maxSlope=".90" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

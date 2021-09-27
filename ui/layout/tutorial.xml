@@ -1,0 +1,834 @@
+<UILayout name="tutorial layout">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect alwayshit="never">
+      <default/>
+   </UIAspect>
+   <children>
+      <UILayout name="tutorial block out">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect alwayshit="true">
+            <default image="ui/shared/white1x1.dds">
+               <BFColor r="0" g="0" b="0" a="96"/>
+            </default>
+         </UIAspect>
+      </UILayout>
+      <UILayout name="tutorial info">
+         <UIRegion x="218" y="50" w="587" h="205" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect alwayshit="never">
+            <default image="">
+               <BFColor r="0" g="0" b="0" a="128"/>
+               <BFRect x="0" y="0" w="-1" h="-1"/>
+            </default>
+         </UIAspect>
+         <UIShowHideAnim time=".5" bob="1.4">
+            <start x="0" y="0" w="0" h="0"/>
+            <end x="0" y="0" w="0" h="0"/>
+         </UIShowHideAnim>
+         <children>
+            <UILayout name="tutorial background" template="blank">
+               <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="">
+                     <BFColor r="255" g="255" b="255" a="192"/>
+                     <BFRect x="0" y="0" w="512" h="256"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="header background" template="header">
+               <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="">
+                     <BFColor r="255" g="255" b="255" a="192"/>
+                     <BFRect x="0" y="0" w="512" h="256"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UIText name="panel label">
+               <UIRegion x="37" y="2" w="0" h="35" walign="max"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect locid="photochal:tutorial_label" alwayshit="never">
+                  <default sound="">
+                     <BFFont>
+                        <BFColor r="255" g="255" b="255" a="255"/>
+                     </BFFont>
+                  </default>
+                  <standard>
+                     <normal/>
+                     <highlighted/>
+                     <activated/>
+                     <disabled/>
+                  </standard>
+               </UIAspect>
+            </UIText>
+            <UILayout name="well background" template="panelwell">
+               <UIRegion x="10" y="35" w="-10" h="-64" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="">
+                     <BFColor r="255" g="255" b="255" a="192"/>
+                     <BFRect x="0" y="0" w="512" h="256"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="tutorial content">
+               <UIRegion x="15" y="40" w="-15" h="-70" xalign="min" yalign="min" walign="max" halign="max"/>
+               <children>
+                  <UILayout name="tutorial icon container">
+                     <UIRegion x="0" y="0" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <children>
+                        <UIMultiIcon name="tutorial image">
+                           <UIRegion x="0" y="0" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect alwayshit="never">
+                              <default image="">
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                              </default>
+                           </UIAspect>
+                           <images>
+                              <!--Tutorial 1-->
+                              <image key="blank" image="ui/shared/zoo2logo.dds">
+                                 <BFRect x="0" y="42" w="256" h="196"/>
+                              </image>
+                              <image key="scenariogoals" image="ui/maingame/buttons.dds">
+                                 <BFRect x="256" y="256" w="64" h="64"/>
+                              </image>
+                              <image key="zoom" image="ui\infopan\windowbutts.dds">
+                                 <BFRect x="0" y="68" w="33" h="33"/>
+                              </image>
+                              <image key="rotate" image="ui\infopan\windowbutts.dds">
+                                 <BFRect x="0" y="204" w="33" h="33"/>
+                              </image>
+                              <image key="firstperson" image="ui/maingame/button_firstperson.dds">
+                                 <BFRect x="0" y="0" w="55" h="55"/>
+                              </image>
+                              <image key="photosafari" image="ui/maingame/photo.dds">
+                                 <BFRect x="0" y="0" w="55" h="55"/>
+                              </image>
+                              <image key="overhead" image="ui/maingame/button_overhead.dds">
+                                 <BFRect x="0" y="0" w="55" h="55"/>
+                              </image>
+                              <image key="overviewmap" image="ui/maingame/overview.dds">
+                                 <BFRect x="0" y="0" w="55" h="55"/>
+                              </image>
+                              <image key="options" image="ui/maingame/buttons.dds">
+                                 <BFRect x="256" y="384" w="64" h="64"/>
+                              </image>
+                              <image key="zoopedia" image="ui/shared/button_zoopedia.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <!--Tutorial 2-->
+                              <image key="construction" image="ui/maingame/buttons.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="rectangle" image="UI\maingame\buttons_filtertypes.dds">
+                                 <BFRect x="128" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="chainlink" image="entities\objects\fences\chainlink_df\chainlink_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="staffgate" image="entities\objects\fences\staffgate_df\staffgate_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="scenerytab" image="ui/shared/tabobjects.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="donationbox_df" image="entities\objects\scenery\DonationBox_df\DonationBox_df_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="pathtab" image="ui/shared/tabpaths.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="asphalt" image="entities\objects\paths\asphalt\path_asphalt_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="buildingtab" image="ui/shared/tabbuild.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="snackcartpretzeldf" image="entities\objects\buildings\Snackcart\snackcart_pretzel_df_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="adoptanimals" image="ui/maingame/buttons.dds">
+                                 <BFRect x="0" y="128" w="64" h="64"/>
+                              </image>
+                              <image key="elephantafricanadultf" image="entities\units\animals\ElephantAfrican\ElephantAfrican_Adult_F_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="animalfoodtab" image="ui/shared/tabfood.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="trough" image="entities\objects\food\Trough\Trough_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="animalsheltertab" image="ui/shared/tabshelters.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="startresearchbutton" image="ui/maingame/buttons.dds">
+                                 <BFRect x="0" y="256" w="64" h="64"/>
+                              </image>
+                              <image key="elephanthouseshelter" image="entities\objects\shelters\ElephantHouse_Shelter\ElephantHouse_Shelter_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="terraform" image="ui/maingame/buttons.dds">
+                                 <BFRect x="0" y="384" w="64" h="64"/>
+                              </image>
+                              <image key="animalenrichmenttab" image="ui/shared/tabenrich.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="pursuitball" image="entities\objects\enrichment\PursuitBall\PursuitBall_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="savannah" image="ui/biome/biome_sav.dds">
+                                 <BFRect x="0" y="273" w="103" h="90"/>
+                              </image>
+                              <image key="staff" image="ui/maingame/buttons.dds">
+                                 <BFRect x="128" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="keeper" image="entities\units\staff\Keeper\Keeper_F_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="pause" image="ui\maingame\pauseplay.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="undo" image="ui/maingame/buttons.dds">
+                                 <BFRect x="128" y="256" w="64" h="64"/>
+                              </image>
+                              <image key="delete" image="ui/maingame/buttons.dds">
+                                 <BFRect x="128" y="128" w="64" h="64"/>
+                              </image>
+                              <image key="tree" image="entities\objects\foliage\Baobob\Baobob_Savannah_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <!--Tutorial 3-->
+                              <image key="animalneeds" image="ui/infopan/tab_status.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="animalgeneral" image="ui/infopan/tab_info.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="recommendations" image="ui/maingame/buttons.dds">
+                                 <BFRect x="384" y="256" w="64" h="64"/>
+                              </image>
+                              <image key="recommendationsclose" image="ui/maingame/buttons.dds">
+                                 <BFRect x="448" y="256" w="64" h="64"/>
+                              </image>
+                              <image key="assignments" image="ui/infopan/tab_assign.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="addassignment" image="ui/infopan/button_assign.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="staffthoughts" image="ui/infopan/tab_thoughts.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="staffsalary" image="ui/infopan/tab_finances.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="gueststatus" image="ui/infopan/tab_status.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="guestfavorites" image="ui/infopan/tab_favorites.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="guestthoughts" image="ui/infopan/tab_thoughts.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="buildingfinance" image="ui/infopan/tab_finances.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="zoostatus" image="ui/maingame/buttons.dds">
+                                 <BFRect x="384" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="zoofinances" image="ui/zooinfo/tab_finance.dds">
+                                 <BFRect x="8" y="0" w="48" h="64"/>
+                              </image>
+                              <image key="zoostatusclose" image="ui\shared\button_close.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="quickstats" image="ui/maingame/buttons.dds">
+                                 <BFRect x="128" y="384" w="64" h="64"/>
+                              </image>
+                              <image key="guestlist" image="ui/shared/tabguest.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="stafflist" image="ui/shared/tab_staff_keeper.dds">
+                                 <BFRect x="8" y="0" w="48" h="64"/>
+                              </image>
+                              <image key="quickstatsclose" image="ui\shared\button_close.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="photoalbum" image="ui/maingame/buttons.dds">
+                                 <BFRect x="384" y="128" w="64" h="64"/>
+                              </image>
+                              <image key="photoalbumclose" image="ui\shared\button_back.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="animalneeds1" image="ui\icon_needs\animal_exercise_display.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="animalneeds2" image="ui\icon_needs\all_thirst_display.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="animalneeds3" image="ui\icon_needs\all_hunger_display.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="zoofame" image="ui/zooinfo/tab_survey.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <!--Xpack 1 Tutorial 1-->
+                              <image key="PandaRed" image="entities\units\animals\PandaRed\PandaRed_Adult_F_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="Endangered" image="UI\infopan\endangered.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="BreedingCenter" image="entities\objects\buildings\ConservationBreedingCenter_end\ConservationBreedingCenter_end_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="ElevatedPath" image="entities\objects\paths\elevatedpaths\ElevatedPath_Wood_end\ElevatedPath_Wood_end_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="ElevatedPathTab" image="ui/shared/elevatedpaths_tab.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="RampUpTool" image="UI\maingame\button_ramp_up.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="FlatTool" image="UI\maingame\button_level.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="filter opener" image="ui/maingame/viewfilter.dds">
+                                 <BFRect x="82" y="33" w="41" h="21"/>
+                              </image>
+                              <image key="StatueRhino" image="entities\objects\scenery\Statue_Rhino\Statue_Rhino_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key=" filter_maximize" image="ui/maingame/viewfilter.dds">
+                                 <BFRect x="82" y="0" w="41" h="27"/>
+                              </image>
+                              <image key="guestviewbutton" image="UI\maingame\viewfilter_guestview_button.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <!--Xpack 1 Tutorial 2-->
+                              <image key="TransportationTab" image="ui/shared/transportation_tab.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="SkyStation" image="entities\transportation\stations\SkyStation\SkyStation_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="SkyTower" image="entities\transportation\track\skytower\skytower_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="Gondola4Seatsend" image="entities\transportation\vehicles\gondola\Gondola_4Seats_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="SkyStationInfo" image="ui/infopan/tab_status.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="DonationStationInfo" image="ui/zooinfo/tab_donations.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="Bat_Cave" image="entities\objects\scenery\BatCave\BatCave_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <!--Xpack 1 Tutorial 3-->
+                              <image key="GroundStation" image="entities\transportation\stations\GroundStation\GroundStation_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="GroundTrack" image="entities\transportation\track\ground\ground_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="SixSeater" image="entities\transportation\vehicles\Jeep_Wrangler\Jeep_Wrangler_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="CrossingGate" image="entities\transportation\crossinggate\crossinggate_end\crossinggate_end_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="Awards" image="ui/zooinfo/tab_awards.dds">
+                                 <BFRect x="8" y="0" w="48" h="64"/>
+                              </image>
+                              <image key="PersistantAwards" image="ui/zooinfo/button_awards_persistent.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <!--Xpack 2 Tutorial 1-->
+                              <image key="tanktoolstab" image="ui/shared/tabtank.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="tankicon" image="entities\objects\fences\BasicTank\basictank_transparent_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="tankgateicon" image="entities\objects\fences\Tank_Gate\Tank_Gate_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="raisewallbutton" image="ui/shared/button_tank_raisewalls.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="raisewallpreview" image="UI\maingame\raisetankwall_preview.dds">
+                                 <BFRect x="0" y="0" w="128" h="128"/>
+                              </image>
+                              <image key="lowerwallbutton" image="ui/shared/button_tank_lowerwalls.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="lowerwallpreview" image="UI\maingame\lowertankwall_preview.dds">
+                                 <BFRect x="0" y="0" w="128" h="128"/>
+                              </image>
+                              <image key="tabfoliage" image="ui/shared/tabfoliage.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="BlueGreenCoral_icon" image="entities\objects\foliage\BlueGreenCoral\BlueGreenCoral_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="ray" image="entities\units\animals\RayManta\RayManta_Adult_F_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="showtab" image="UI\shared\tab_showplatform.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="WaterFilter" image="entities\objects\misc\Water_Filter\Water_Filter_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <!--Xpack 2 Tutorial 1-->
+                              <image key="Water" image="ui/biome/biome_coastal.DDS">
+                                 <BFRect x="0" y="252" w="77" h="60"/>
+                              </image>
+                              <image key="terraindef" image="ui/shared/tabterra.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="ditch" image="ui/shared/terra_valley.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="dolphin" image="entities\units\animals\DolphinBottlenose\DolphinBottlenose_Adult_M_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="button_firstpersontrainer" image="UI\shared\button_firstpersontrainer.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="TrainingArea" image="entities\objects\props\TrainingArea\TrainingArea_mm_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="trick_icon_jump" image="UI\trick_icons\trick_icon_jump.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="training_tab" image="ui/shared/tab_training.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="Add_Animal_Assignment" image="ui/shared/button_addanimal.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="assignmentbutton" image="ui/infopan/button_trainerassignments.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="ShowObjects" image="UI\shared\tab_showplatform.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="showplatform" image="entities\objects\buildings\Platform_Show_mm\Platform_Show_mm_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="showportal" image="entities\objects\fences\AnimalTank_Gate\AnimalTank_Gate_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="grandstand3" image="entities\objects\scenery\Grandstand_III_mm\Grandstand_III_mm_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="addanimal" image="UI\tricks\button_chooseanimal.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="addtrick" image="UI\trick_icons\trick_icon_add.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="saveshow" image="ui\shared\button_ok.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="rocksfilter" image="UI\biome\button_filter_rocks.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="treetype" image="entities\objects\foliage\BalsamFir\BalsamFir_Boreal_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="eyedropper" image="ui/shared/button_eyedropper.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="mantaray" image="entities\units\animals\RayManta\RayManta_Adult_M_icon.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                              <image key="swimwith" image="ui/shared/button_rideanimal.dds">
+                                 <BFRect x="0" y="0" w="64" h="64"/>
+                              </image>
+                           </images>
+                        </UIMultiIcon>
+                     </children>
+                  </UILayout>
+                  <UIText autosize="true" name="tutorial heading text">
+                     <UIRegion x="58" y="3" w="162" h="50" xalign="min" walign="len"/>
+                     <UIAspect autosize="true" alwayshit="never"/>
+                     <text format="Tutoriallabels:labelformat" type="multi"/>
+                  </UIText>
+                  <UIText autosize="true" name="tutorial text">
+                     <!--region data is in lua-->
+                     <UIRegion x="3" y="56" w="216" h="0" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect locid="" autosize="true" alwayshit="never">
+                        <default image="" sound="">
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <text autosize="true" format="Tutoriallabels:textformat" type="multi"/>
+                  </UIText>
+               </children>
+            </UILayout>
+            <UIButton name="continue tutorial">
+               <UIRegion x="-32" y="-64" w="64" h="64" xalign="mid" yalign="max" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect string="">
+                  <default image="ui\shared\button_ok.dds" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="0" w="64" h="64"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="64" w="64" h="64"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="64" y="0" w="64" h="64"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="64" y="64" w="64" h="64"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <UIHelpInfo name="" short="" long="" help="" ids="tutorial:continue_tutorial_button"/>
+               <activate>
+                  <event msg="UI_SELF">
+                     <child msg="UI_HIDE"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="tutorial info">
+                     <child msg="UI_HIDE"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="tutorial info">
+                     <child msg="UI_WIND_ANIMATION"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="tutorial block out">
+                     <child msg="UI_HIDE"/>
+                  </event>
+               </activate>
+            </UIButton>
+            <UIDrag bounded="true" cursor="movebox.cur">
+               <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_POS"/>
+               </drag>
+               <dragevents>
+                  <event msg="ZT_RUN_SCRIPT" data="BFString" string="global scenario/scripts/tutorial.lua dumpPanelPosition"/>
+               </dragevents>
+            </UIDrag>
+         </children>
+      </UILayout>
+      <UILayout name="tutorial ring">
+         <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect alwayshit="never">
+            <default/>
+         </UIAspect>
+         <children>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="243"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="230"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="218"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="205"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="193"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="180"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="168"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="155"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="143"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="130"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="118"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="105"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="93"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="80"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="68"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="55"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="43"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="30"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="26" h="26" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="normal" active="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/circlegradient.tga">
+                     <BFColor r="255" g="0" b="0" a="18"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+         </children>
+      </UILayout>
+      <ZTUITimedEvents name="ring timer">
+         <UIRegion x="0" y="0" w="0" h="0"/>
+         <timedEvents>
+            <event time="0" msg="ZT_RUN_SCRIPT" data="BFString" string="scenario scenario/scripts/tutorial.lua updateTutorialRing"/>
+            <event time=".02" msg="UI_ACTIVATE_ON"/>
+         </timedEvents>
+      </ZTUITimedEvents>
+      <UILayout name="Edge Arrow Layout">
+         <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect>
+            <default/>
+         </UIAspect>
+         <UIHotKeys/>
+         <UIShowHideAnim time="1" exitRate="1000" delay=".6" initialDir="false">
+            <start x="352" y="264" w="320" h="240"/>
+            <end x="0" y="0" w="1024" h="768"/>
+         </UIShowHideAnim>
+         <children>
+            <UIStatic>
+               <UIRegion x="-13" y="8" w="25" h="25" xalign="mid" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/scrollarrows.dds">
+                     <BFRect x="0" y="0" w="30" h="30"/>
+                     <BFColor r="255" g="255" b="0" a="164"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="-33" y="8" w="25" h="25" xalign="max" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/scrollarrows.dds">
+                     <BFRect x="60" y="0" w="30" h="30"/>
+                     <BFColor r="255" g="255" b="0" a="164"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="-33" y="-12" w="25" h="25" xalign="max" yalign="mid" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/scrollarrows.dds">
+                     <BFRect x="30" y="30" w="30" h="30"/>
+                     <BFColor r="255" g="255" b="0" a="164"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="-33" y="-33" w="25" h="25" xalign="max" yalign="max" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/scrollarrows.dds">
+                     <BFRect x="60" y="30" w="30" h="30"/>
+                     <BFColor r="255" g="255" b="0" a="164"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="-13" y="-33" w="25" h="25" xalign="mid" yalign="max" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/scrollarrows.dds">
+                     <BFRect x="0" y="30" w="30" h="30"/>
+                     <BFColor r="255" g="255" b="0" a="164"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="3" y="-33" w="25" h="25" xalign="min" yalign="max" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/scrollarrows.dds">
+                     <BFRect x="90" y="30" w="30" h="30"/>
+                     <BFColor r="255" g="255" b="0" a="164"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="8" y="-12" w="25" h="25" xalign="min" yalign="mid" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/scrollarrows.dds">
+                     <BFRect x="30" y="0" w="30" h="30"/>
+                     <BFColor r="255" g="255" b="0" a="164"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="8" y="8" w="25" h="25" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIRegion x="0" y="0" w="25" h="25" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/scrollarrows.dds">
+                     <BFRect x="90" y="0" w="30" h="30"/>
+                     <BFColor r="255" g="255" b="0" a="164"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

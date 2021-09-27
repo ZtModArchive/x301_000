@@ -1,0 +1,157 @@
+<BFTypedBinder binderType="TapirBairds" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Perissodactyla>
+							<Tapiridae>
+								<TapirBairds />
+							</Tapiridae>
+						</Perissodactyla>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\units\animals\TapirBairds\TapirBairds_Adult_F_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo ids="entityname:TapirBairds" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="TapirBairds_Adult_F" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData waterPlacement="true" icon3Dscale="1" />
+		<BFAIEntityDataShared s_Product="EndangeredSpecies" f_BaseDonationAmount="80" f_MaxTourValue="35" s_DonateToken="t_DonateTapirBairds" s_Species="TapirBairds" p_PreyOffset="0 1 0" p_NurseNode="0 -.4 90" s_Endangerment="Endangered" b_Medium="true" b_Ambivore="true" b_Granivore="true" b_Graminivore="true" b_Frugivore="true" s_KeeperEatType="Terrain_Hay" b_SmallAnimal="true" b_TroughEater="true" b_MetalTroughEater="true" b_FoodDishEater="true" s_KeeperDrinkType="FoodDish_Water" b_SubstratePileEater="true" b_Grazer="true" b_Browser="true" f_adoptRarity="30" s_Zoopedia="zoopedia:zoopedia_tapirbairds:entry" f_RequiredInitialSpace="280" f_RequiredAdditionalSpace="40" p_HollowLogNode="0 -1.45 180" p_PursuitBallNode="0 -1.85 180" b_SmallRockCaveUser="true" b_LargeRockCaveUser="true" b_CubbingDenUser="true" b_LargeWoodenShelterUser="true" b_LargeConcreteShelterUser="true" b_SmallWoodenShelterUser="true" b_SmallConcreteShelterUser="true" b_TropicalRainforestAnimal="true" WetlandsOdd="true" b_TreeRubber="true" b_ScratchPostRubber="true" b_RubberToyUser="true" b_RattleBallUser="true" b_PursuitBallUser="true" b_PlasticBarrelUser="true" b_CarTireUser="true" b_BallUser="true" b_SaltLickUser="true" b_FeederBallUser="true" p_FightOffset="0 -2.25 180" p_TreeRubNode=".4 -.25 270" p_HollowLogDock="0 -2.75 180" b_AppleTreatEater="true" b_CarrotEater="true">
+			<BFAINeedAdjusts privacy="0" exercise="0.15" />
+		</BFAIEntityDataShared>
+		<BFGBiomeData location="tropicalrainforest_america_central" locationSensitivity="10">
+			<alpine sensitivity="-10" />
+			<benthic sensitivity="-10" />
+			<borealforest sensitivity="-5" />
+			<coastal sensitivity="-10" />
+			<desert sensitivity="-10" />
+			<grassland sensitivity="-5" />
+			<reef sensitivity="-10" />
+			<pelagic sensitivity="-10" />
+			<temperateforest sensitivity="-5" />
+			<tropicalrainforest sensitivity="10" primary="true" />
+			<tundra sensitivity="-10" />
+			<savannah sensitivity="-10" />
+			<scrub sensitivity="-10" />
+			<wetlands sensitivity="-5" />
+		</BFGBiomeData>
+		<ZTUserStaffAction>
+			<SetAttribute name="hygiene" value="0" threshold="20" locid="superstaff:animal_wash" effect="SuperStaffWashLarge" />
+			<SetAttribute name="health" value="0" threshold="20" locid="superstaff:animal_heal" effect="SuperStaffHeal" />
+		</ZTUserStaffAction>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFShadowLODComponent numLevels="1" switchingDists="60.0" />
+					<BFActorComponent actorfile="entities\units\animals\TapirBairds\TapirBairds_Adult_F.bfm" scale="1.5" />
+					<BF4LegsGroundFitComponent heightOffset="0" maxRollError=".2" maxPitchError=".1" maxHeightError=".5" pitchGain="0.5" heightGain="10.0" rollGain="1.0" bicyclePointBack="Bip01 Spine1" bicyclePointFront="Bip01 Neck" backBuoyancyNode="Node_Buoy_Back" frontBuoyancyNode="Node_Buoy" />
+					<BFSwimComponent waterInDistance="0.50" waterOutDistance="0.1" />
+					<BFSecondaryAnimComponent animName="Secondary_EarA" frequency="1.5" chance="40" validAnims="Browse_Idle,Chew_Idle,Eat_Idle,Eat_Drink,EatTrough_Idle,EatTrough_Drink,Graze_IdleA,Graze_IdleB,Graze_Drink,Lie_Idle,Lie_Sneeze,Lie_Yawn,LieSide_Idle,Run_Ahead,Run_LeftA,Run_LeftB,Run_RightA,Run_RightB,Sit_Idle,Slide_Ahead,Slide_LeftA,Slide_LeftB,Slide_RightA,Slide_RightB,Stand_AttackGuest,Stand_Bite,Stand_Browse,Stand_Groom,Stand_Idle,Stand_ListenLeft,Stand_ListenRight,Stand_Nudge,Stand_Pee,Stand_Poop,Stand_RubTree,Stand_Sneeze,Stand_Sniff,Stand_Stamp,Stand_TurnLeft90,Stand_TurnRight180,Stand_TurnRight90,Stand_Whistle,Stand_Yawn,Swim_Ahead,Swim_LeftA,Swim_RightA,TreadWater_Idle,TreadWater_TurnLeft90,TreadWater_TurnRight90,Walk_Ahead,Walk_LeftA,Walk_LeftB,Walk_RightA,Walk_RightB,Wallow_Idle" />
+					<BFSecondaryAnimComponent animName="Secondary_EarB" frequency="1.5" chance="40" validAnims="Browse_Idle,Chew_Idle,Eat_Idle,Eat_Drink,EatTrough_Idle,EatTrough_Drink,Graze_IdleA,Graze_IdleB,Graze_Drink,Lie_Idle,Lie_Sneeze,Lie_Yawn,LieSide_Idle,Run_Ahead,Run_LeftA,Run_LeftB,Run_RightA,Run_RightB,Sit_Idle,Slide_Ahead,Slide_LeftA,Slide_LeftB,Slide_RightA,Slide_RightB,Stand_AttackGuest,Stand_Bite,Stand_Browse,Stand_Groom,Stand_Idle,Stand_ListenLeft,Stand_ListenRight,Stand_Nudge,Stand_Pee,Stand_Poop,Stand_RubTree,Stand_Sneeze,Stand_Sniff,Stand_Stamp,Stand_TurnLeft90,Stand_TurnRight180,Stand_TurnRight90,Stand_Whistle,Stand_Yawn,Swim_Ahead,Swim_LeftA,Swim_RightA,TreadWater_Idle,TreadWater_TurnLeft90,TreadWater_TurnRight90,Walk_Ahead,Walk_LeftA,Walk_LeftB,Walk_RightA,Walk_RightB,Wallow_Idle" />
+					<BFSecondaryAnimComponent animName="Secondary_TailA" frequency="1.5" chance="40" validAnims="Browse_Idle,Chew_Idle,Eat_Idle,Eat_Drink,EatTrough_Idle,EatTrough_Drink,Graze_IdleA,Graze_IdleB,Graze_Drink,Lie_Idle,Lie_Sneeze,Lie_Yawn,LieSide_Idle,Run_Ahead,Run_LeftA,Run_LeftB,Run_RightA,Run_RightB,Sit_Idle,Slide_Ahead,Slide_LeftA,Slide_LeftB,Slide_RightA,Slide_RightB,Stand_AttackGuest,Stand_Bite,Stand_Browse,Stand_Groom,Stand_Idle,Stand_ListenLeft,Stand_ListenRight,Stand_Nudge,Stand_Pee,Stand_Poop,Stand_RubTree,Stand_Sneeze,Stand_Sniff,Stand_Stamp,Stand_TurnLeft90,Stand_TurnRight180,Stand_TurnRight90,Stand_Whistle,Stand_Yawn,Swim_Ahead,Swim_LeftA,Swim_RightA,TreadWater_Idle,TreadWater_TurnLeft90,TreadWater_TurnRight90,Walk_Ahead,Walk_LeftA,Walk_LeftB,Walk_RightA,Walk_RightB,Wallow_Idle" />
+					<BFLegFitComponent maxLegRaise="0.6" leftFrontHipJoint="Bip01 L Forearm" leftFrontKneeJoint="Bip01 L Hand" leftFrontAnkleJoint="Bip01 L Finger0" rightFrontHipJoint="Bip01 R Forearm" rightFrontKneeJoint="Bip01 R Hand" rightFrontAnkleJoint="Bip01 R Finger0" leftBackHipJoint="Bip01 L Thigh" leftBackKneeJoint="Bip01 L Calf" leftBackAnkleJoint="Bip01 L Foot" rightBackHipJoint="Bip01 R Thigh" rightBackKneeJoint="Bip01 R Calf" rightBackAnkleJoint="Bip01 R Foot" ankleRotVectorLeftFront="0 0 1" ankleRotVectorRightFront="0 0 1" ankleRotVectorRightBack="0 0 -1" ankleRotVectorLeftBack="0 0 -1" hipRaiseVectorLeftFront="0 0 1" hipRaiseVectorRightFront="0 0 1" hipRaiseVectorLeftBack="0 0 1" hipRaiseVectorRightBack="0 0 1" kneeRaiseVectorLeftFront="0 0 1" kneeRaiseVectorRightFront="0 0 1" kneeRaiseVectorLeftBack="0 0 1" kneeRaiseVectorRightBack="0 0 1" legFitModeLeftFront="0" legFitModeRightFront="0" legFitModeRightBack="1" legFitModeLeftBack="1" anklePitchVector="0 -1 0" maxLOD="1" />
+					<BFForwardMovingComponent />
+					<BFRotYawMovingComponent />
+					<BFCollisionComponent grid="Bip01 Spine1" />
+					<BFGridCollisionComponent waterTestNode="Bip01 Pelvis" />
+					<BFDecalTextureCycleComponent materialName="TapirBairds_MTL" textureSet="2">
+						<Step imageName="entities/units/animals/shared/tiger_blink_blank.dds" hold="3.0" variance="0.5" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink.dds" hold="0.1" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+					</BFDecalTextureCycleComponent>
+					<BFHeadLookComponent leftRightAnimName="Secondary_HeadLook" lookDirNode="Bip01 Head" lookDirVector="0 1 0" gain_z="-2" fov_extreme_lr="90.0" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFTextTagMacrosComponent>
+					<MACROS>
+						<macro name="Walky" text="anim &apos;Walk_Ahead&apos;" />
+						<macro name="Walky2Standy" text="anim &apos;Walk_2Stand&apos;, anim&apos;Stand_Idle&apos;" />
+						<macro name="Stand2LieBelly" text="anim &apos;Stand_2Lie&apos;, anim &apos;Lie_Idle&apos;" />
+						<macro name="LieBelly2Stand" text="anim &apos;Lie_2Stand&apos;, anim &apos;Stand_Idle&apos;" />
+						<macro name="Standy2Walky" text="anim &apos;Stand_2Walk&apos;, anim &apos;Walk_TurnLeftA&apos;" />
+						<macro name="LieOnBelly" text="anim &apos;Lie_Idle&apos;" />
+						<macro name="TurnLeft180" text="anim &apos;Stand_TurnLeft90&apos;, anim &apos;Stand_TurnLeft90" />
+						<macro name="TurnRight180" text="anim &apos;Stand_TurnRight90&apos;, anim &apos;Stand_TurnRight90&apos;" />
+					</MACROS>
+				</BFTextTagMacrosComponent>
+			</shared>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehLocoSwitchSet loopFlag="true">
+							<behaviorTable>
+								<ground behSet="Stand_Idle" />
+								<water behSet="TreadWater_Idle" />
+							</behaviorTable>
+						</BFBehLocoSwitchSet>
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="ground" required="1">
+					<instance>
+						<BFLocoAnimate version="1">
+							<stop name="Stand" />
+							<slow name="Walk" />
+							<medium name="Walk" />
+							<fast name="Run" />
+							<slide name="Slide" />
+							<evade name="Run" minAnimSpeed="0.6" maxAnimSpeed="1.5" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="water" required="1">
+					<instance>
+						<BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+							<stop name="TreadWater" />
+							<slow name="Swim" />
+							<medium name="Swim" />
+							<fast name="Swim" />
+							<slide name="Swim" />
+							<evade name="Swim" minAnimSpeed="0.6" maxAnimSpeed="1.5" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFNamedBinder binderName="foodprop" repopulateMethod="byName" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="3000">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,53 @@
+<BFTypedBinder binderType="elevatedpath" abstract="true">
+   <types>
+      <entity>
+         <path>
+            <elevatedpath/>
+         </path>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared s_Product="EndangeredSpecies" b_IsElevatedPath="true" s_mainObjName="main_physobj"/>
+      <BFGCollisionData limitsHeadroom="true"/>
+      <ZTPlacementData>
+         <stompData>
+            <delete>
+               <plant/>
+            </delete>
+            <allow>
+               <tankwallsegment/>
+            </allow>
+         </stompData>
+      </ZTPlacementData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="highlight_decal" required="1">
+         <instance>
+            <ZTElevatedTriangleGraphic doubleSided="false" drawingOrder="5" textureName="entities\objects\paths\shared\elevated_path_highlight.tga" alphaBlend="true"/>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="main_physobj" required="1">
+         <instance>
+            <BFPhysObj/>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="path_decal" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFTerrainDecalComponent alphaBlend="true" radius="3.0f" floatOnWater="true"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="4">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

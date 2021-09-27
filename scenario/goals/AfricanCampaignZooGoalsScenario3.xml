@@ -1,0 +1,85 @@
+<ZTScenarioMgr interval="2" name="mgr" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<info locid="AfricaCampaign:AfricanDiversityIntro"/>
+	<children>
+		<BFScenarioRule hidden="1" name="setinitialzoostate" state="0" sticky="true">
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="setinitialzoostate" />
+			</evaluate>
+		</BFScenarioRule>
+		<BFScenarioGroup hidden="0" name="Scrub" state="0" chain="false" allsuccess="false" sticky="true">
+  	    	<children>		
+				 <BFScenarioRule name="ScrubAnimals" hidden="0" state="0" sticky="true">
+					<info type="primary">
+						<neutral locid="AfricaCampaign:AfricanDiversityTwoScrubGoal" overview="AfricaCampaign:AfricanDiversityTwoScrub"/>
+						<success locid="AfricaCampaign:AfricanDiversityTwoScrubGoalDone" overview="AfricaCampaign:AfricanDiversityTwoScrub"/>
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="evalScrub" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="completeScrub" />
+					</success>
+				</BFScenarioRule>   
+			</children>
+		</BFScenarioGroup>
+		<BFScenarioGroup hidden="0" name="TotalWin" state="0" chain="false" allsuccess="true" sticky="true">
+		   <success>
+			<BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="completetotalwin" />
+		   </success>
+		 <children>
+			<BFScenarioRule name="Have4Species" hidden="0" state="0" sticky="true">
+				<info type="primary">
+				       <neutral locid="AfricaCampaign:AfricanDiversityFourSpeciesGoal" overview="AfricaCampaign:AfricanDiversityFourSpecies"/>
+				       <success locid="AfricaCampaign:AfricanDiversityFourSpeciesGoalDone" overview="AfricaCampaign:AfricanDiversityFourSpecies"/>
+				</info>
+				<evaluate>
+				       <BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="eval4Species" />
+				</evaluate>
+				<success>
+				       <BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="complete4Species" />
+				</success>
+			</BFScenarioRule>          		
+			<BFScenarioRule name="Have14Species" hidden="0" state="0" sticky="true">
+				<info type="primary">
+					<neutral locid="AfricaCampaign:AfricanDiversityOverallGoal" overview="AfricaCampaign:AfricanDiversityOverview"/>
+					<success locid="AfricaCampaign:AfricanDiversityOverallGoalDone" overview="AfricaCampaign:AfricanDiversitySuccessOverview"/>
+				</info>
+				<evaluate>
+				       <BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="eval14Species" />
+				</evaluate>
+				<success>
+				       <BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="complete14Species" />
+				</success>
+			</BFScenarioRule>   				
+			<BFScenarioRule name="Have8Species" hidden="1" state="0" sticky="true">
+			       <info type="primary">
+				      <neutral locid="AfricaCampaign:AfricanDiversityEightSpeciesGoal" overview="AfricaCampaign:AfricanDiversityFourSpeciesSuccess"/>
+				      <success locid="AfricaCampaign:AfricanDiversityEightSpeciesGoalDone" overview="AfricaCampaign:AfricanDiversityEightSpeciesSuccess"/>
+			       </info>
+			       <evaluate>
+				     <BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="eval8Species" />
+			       </evaluate>
+			       <success>
+				     <BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="complete8Species" />
+			       </success>
+			</BFScenarioRule>				
+		</children>
+		</BFScenarioGroup>	
+		<BFScenarioGroup hidden="0" name="Grass" state="0" chain="false" allsuccess="false" sticky="true">
+	    	<children>		
+				<BFScenarioRule name="GrassAnimals" hidden="1" state="0" sticky="true">
+				<info type="primary">
+					<neutral locid="AfricaCampaign:AfricanDiversityTwoGrasslandsGoal" overview="AfricaCampaign:AfricanDiversityTwoScrubSuccess"/>
+					<success locid="AfricaCampaign:AfricanDiversityTwoGrasslandsGoalDone"overview="AfricaCampaign:AfricanDiversityTwoGrasslandsSuccess"/>
+				</info>
+				<evaluate>
+					<BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="evalGrass" />
+				</evaluate>
+				<success>
+					<BFScenarioScriptAction script="scenario/scripts/africancampaignscen3.lua" entry="completeGrass" />
+				</success>
+			   </BFScenarioRule>       
+			</children>
+		</BFScenarioGroup>	       
+	</children>
+</ZTScenarioMgr>

@@ -1,0 +1,42 @@
+<BFContext>
+   <!--Elements can have initData or not-->
+   <ZTAITrickPopularityMgr saveable="true" PopularityPerSecond="0.05" DecrementMultiplier="20"/>
+   <ZTMapData name="" size="" biome="" location=""/>
+   <ZTUndoMgr saveable="false"/>
+   <ZTStatus configData="config/status.xml"/>
+   <!--ZTEconomyMgr must come after ZTStatus and before the BFGManager-->
+   <ZTEconomyMgr configData="config/economy_freeform.xml" initialCash="10000"/>
+   <ZTWorldMgr configData="config/worldmgr.xml" defaultWorldSize="288.0f"/>
+   <ZTWorldSndMgr configData="config/worldSndMgrConfig.xml" saveable="1" ambientSound="ambient" kQuietCrowdHighTrigger="2" kSmallCrowdLowTrigger="5" kSmallCrowdHighTrigger="75" kMediumCrowdLowTrigger="85" kMediumCrowdHighTrigger="150" kLargeCrowdLowTrigger="160" crowdSounds="crowd_quiet crowd_small crowd_medium crowd_large">
+      <ambients>
+         <snds/>
+      </ambients>
+   </ZTWorldSndMgr>
+   <BFGPlacementGrid saveable="false"/>
+   <BFGElevatedTileSerializer/>
+   <BFGInfluenceMgr saveable="true" configData="config/influence.xml"/>
+   <BFGCollisionMgr saveable="false"/>
+   <BFGTraversabilityMgr configData="config/traversability.xml"/>
+   <ZTViewableObjectMgr saveable="false"/>
+   <ZTTransportationMgr saveable="false"/>
+   <BFGManager initData="config/gameConfig.xml"/>
+   <BFGPathFinderMgr saveable="false"/>
+   <ZTFeedbackMgr configData="config/feedback.xml"/>
+   <ZTAIStaffMgr configData="AI/staffmgr.xml" cleanupInterval="10.0f"/>
+   <ZTAIStaffWaterCleaningMgr saveable="true" DirtThreshold="50">
+      <ZTStaffRequestData tokenKey="t_CleanTank" subjectType="Keeper" priority="6"/>
+   </ZTAIStaffWaterCleaningMgr>
+   <ZTAIGuestMgr configData="AI/guestMgr.xml"/>
+   <ZTAdoptionMgr saveable="true" configData="config/buyanimal.xml"/>
+   <ZTPhotoChallengesComponent/>
+   <ZTFavoriteAnimalMgr configData="config/favorite.xml"/>
+   <ZTAwardMgr uipanel="ZTAwardPanel"/>
+   <ZTScenarioMgr/>
+   <ZTTourData configData="tourdata/tourdata.xml"/>
+   <ZTTourDataAttr configData="tourdata/tourdataattr.xml"/>
+   <ZTTourDataFeedback configData="tourdata/tourdatafeedback.xml"/>
+   <ZTTourRecorderData configData="tourdata/tourrecorderdata.xml"/>
+   <ZTAIAmbientsMgr configData="AI/ambientsmgr.xml"/>
+   <ZTTankMgr configData="config/tankmgr.xml"/>
+   <ZTAITrickMgrData saveable="true"/>
+</BFContext>

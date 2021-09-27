@@ -1,0 +1,96 @@
+﻿<BFTypedBinder binderType="skytram" abstract="true">
+	<types>
+		<entity>
+			<transportation>
+				<vehicle>
+					<skytram />
+				</vehicle>
+			</transportation>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<BFAIEntityDataShared b_DoNotFall="true" f_BaseSpeed="2.75" s_TransportationMode="Sky" f_Acceleration="4.0" f_Deceleration="4.0" f_MinFollowDistance="8.0" f_RotSpeed="2.5" s_MoveAnimation="Drive_Ahead" s_StoppedAnim="Stop_Idle" s_LoadPassengerAnim="Open_Idle" s_UnloadPassengerAnim="Open_Idle" s_PoleAnim="Bumpy_Idle" s_ConnectNodeName="Link_Rope" f_VehicleLength="2.0" s_PassengerIdleAnim="SitCar_Idle" />
+		<ZTAIVehicleData>
+			<seat isBackFacing="false">
+				<ViewLimit LeftForward="0" LeftBack="120" RightForward="0" RightBack="45" />
+				<emoteSets>
+					<VA_SkyTransport_Neg_2 min="-1000" max="-5" />
+					<VA_SkyTransport_Neg_1 min="-5" max="-1" />
+					<VA_SkyTransport_Midpoint min="-1" max="1" />
+					<VA_SkyTransport_Pos_1 min="1" max="5" />
+					<VA_SkyTransport_Pos_2 min="5" max="15" />
+					<VA_SkyTransport_Pos_3 min="15" max="1000" />
+				</emoteSets>
+				<animStates>
+					<state StateName="SitCar_" LeftForward="0" LeftBack="30" RightForward="0" RightBack="30" />
+					<state LeftForward="30" LeftBack="180" StateName="SitCarLookLeft_" />
+					<state RightForward="30" RightBack="180" StateName="SitCarLookRight_" />
+				</animStates>
+			</seat>
+			<seat isBackFacing="false">
+				<ViewLimit LeftForward="0" LeftBack="45" RightForward="0" RightBack="120" />
+				<emoteSets>
+					<VA_SkyTransport_Neg_2 min="-1000" max="-5" />
+					<VA_SkyTransport_Neg_1 min="-5" max="-1" />
+					<VA_SkyTransport_Midpoint min="-1" max="1" />
+					<VA_SkyTransport_Pos_1 min="1" max="5" />
+					<VA_SkyTransport_Pos_2 min="5" max="15" />
+					<VA_SkyTransport_Pos_3 min="15" max="1000" />
+				</emoteSets>
+				<animStates>
+					<state LeftForward="0" LeftBack="30" RightForward="0" RightBack="30" StateName="SitCar_" />
+					<state LeftForward="30" LeftBack="180" StateName="SitCarLookLeft_" />
+					<state RightForward="30" RightBack="180" StateName="SitCarLookRight_" />
+				</animStates>
+			</seat>
+			<seat isBackFacing="true">
+				<ViewLimit LeftForward="60" LeftBack="180" RightForward="135" RightBack="180" />
+				<emoteSets>
+					<VA_SkyTransport_Neg_2 min="-1000" max="-5" />
+					<VA_SkyTransport_Neg_1 min="-5" max="-1" />
+					<VA_SkyTransport_Midpoint min="-1" max="1" />
+					<VA_SkyTransport_Pos_1 min="1" max="5" />
+					<VA_SkyTransport_Pos_2 min="5" max="15" />
+					<VA_SkyTransport_Pos_3 min="15" max="1000" />
+				</emoteSets>
+				<animStates>
+					<state LeftForward="150" LeftBack="180" RightForward="150" RightBack="180" StateName="SitCar_" />
+					<state LeftForward="0" LeftBack="150" StateName="SitCarLookRight_" />
+					<state RightForward="0" RightBack="150" StateName="SitCarLookLeft_" />
+				</animStates>
+			</seat>
+			<seat isBackFacing="true">
+				<ViewLimit LeftForward="135" LeftBack="180" RightForward="60" RightBack="180" />
+				<emoteSets>
+					<VA_SkyTransport_Neg_2 min="-1000" max="-5" />
+					<VA_SkyTransport_Neg_1 min="-5" max="-1" />
+					<VA_SkyTransport_Midpoint min="-1" max="1" />
+					<VA_SkyTransport_Pos_1 min="1" max="5" />
+					<VA_SkyTransport_Pos_2 min="5" max="15" />
+					<VA_SkyTransport_Pos_3 min="15" max="1000" />
+				</emoteSets>
+				<animStates>
+					<state LeftForward="150" LeftBack="180" RightForward="150" RightBack="180" StateName="SitCar_" />
+					<state LeftForward="0" LeftBack="150" StateName="SitCarLookRight_" />
+					<state RightForward="0" RightBack="150" StateName="SitCarLookLeft_" />
+				</animStates>
+			</seat>
+		</ZTAIVehicleData>
+		<ZTPlacementData sound="place_vehicle_sky" />
+		<ZTEntitySelector nodeName="Selection" size="2.0">
+			<BFPhysObj>
+				<BFRSceneGraphComponent modelfile="ui/fx/selection/skytram" />
+			</BFPhysObj>
+		</ZTEntitySelector>
+	</shared>
+	<binder>
+		<BFBinder required="1">
+			<instance>
+				<ZTVehicleSky />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

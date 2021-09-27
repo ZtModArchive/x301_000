@@ -1,0 +1,33 @@
+﻿<BFTypedBinder binderType="entrance" abstract="true">
+	<types>
+		<entity>
+			<building>
+				<entrance />
+			</building>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<UIButton name="overviewicon">
+			<UIAspect>
+				<default image="ui/zoomap/icon_zoogate.tga" />
+			</UIAspect>
+		</UIButton>
+		<ZTPlacementData terrainLock="true" minimumHeadroom="11.0">
+			<attachObj>
+				<entity nodeName="Link_ABV_01" binderType="frontgate_collision_proxy" />
+				<entity nodeName="Link_ABV_02" binderType="frontgate_collision_proxy" />
+			</attachObj>
+		</ZTPlacementData>
+		<BFAIEntityDataShared s_GenerateName="frontGate" />
+	</shared>
+	<binder>
+		<BFBinder repopulateMethod="byType">
+			<instance>
+				<ZTPlaceEntityComponent />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

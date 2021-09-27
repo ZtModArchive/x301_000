@@ -1,0 +1,93 @@
+<UILayout name="Zoo Bucks Layout">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect string="">
+      <default image="" sound="">
+         <BFRect x="0" y="0" w="0" h="0"/>
+         <BFColor r="0" g="0" b="0" a="0"/>
+      </default>
+   </UIAspect>
+   <UIHotKeys/>
+   <children>
+        <UILayout name="zoo_bucks">
+        <UIRegion x="730" y="8" w="290" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+        <UIState active="normal" visible="normal"/>
+        <UIAspect string="">
+            <default image="" sound="">
+               <BFRect x="0" y="0" w="0" h="0"/>
+               <BFColor r="0" g="0" b="0" a="0"/>
+            </default>
+        </UIAspect>
+        <UIHotKeys/>
+        <children>
+            <UILayout name="background" template="topbars">
+               <UIRegion x="35" y="3" w="256" h="44" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect string="">
+                  <default image="">
+                     <BFRect x="0" y="4" w="256" h="44"/>
+                  </default>
+               </UIAspect>
+               <UIHotKeys/>
+            </UILayout>
+            <ZTMoneyText name="zoo_bucks_static_display" posformat="shell:posformat" negformat="shell:negformat" nocents="true" nominus="false">
+               <UIRegion x="75" y="13" w="170" h="20" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect locid="">
+                  <default image="" sound="">
+                     <BFFont align="center"/>
+                     <BFRect x="175" y="130" w="100" h="16"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <normal/>
+               </UIAspect>
+            </ZTMoneyText>
+            <ZTMoneyText name="zoo_bucks_moving_display" posformat="shell:posmovingformat" negformat="shell:negmovingformat" nocents="true" nominus="false">
+               <UIRegion x="75" y="11" w="170" h="20" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect locid="">
+                  <default image="" sound="">
+                     <BFFont align="center"/>
+                     <BFRect x="175" y="130" w="100" h="16"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <normal/>
+               </UIAspect>
+            </ZTMoneyText>
+            <UIButton name="money">
+               <UIRegion x="0" y="0" w="53" h="53" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="shell:zoo_money_button"/>
+               <UIAspect string="">
+                  <default image="ui/maingame/button_finances.dds" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="0" w="64" h="64"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="64" w="64" h="64"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="64" y="0" w="64" h="64"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="64" y="64" w="64" h="64"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <activate>
+                  <event msg="UI_CHILD" data="UIChildData" name="zoo status layout">
+                     <child msg="UI_SHOW"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="balance sheet tab">
+                     <child msg="UI_ACTIVATE_ON"/>
+                  </event>
+               </activate>
+               <UIHotKeys/>
+            </UIButton>
+        </children>
+      </UILayout>
+   </children>
+</UILayout>

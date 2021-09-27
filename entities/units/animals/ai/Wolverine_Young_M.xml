@@ -1,0 +1,36 @@
+<BFTypedBinder binderType="Wolverine_Young_M">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Carnivora>
+                     <Mustelidae>
+                        <Wolverine>
+                           <Wolverine_Young>
+                              <Wolverine_Young_M/>
+                           </Wolverine_Young>
+                        </Wolverine>
+                     </Mustelidae>
+                  </Carnivora>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities/units/animals/Wolverine/Wolverine_Adult_M_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo ids="entityname:Wolverine"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Wolverine_Young_M"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Male="1"/>
+   </shared>
+</BFTypedBinder>

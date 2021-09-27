@@ -1,0 +1,925 @@
+<UIListBox name="birth awards group" columns="-1" autosize="false">
+   <UIRegion x="0" y="0" w="0" h="305" walign="max"/>
+   <UIAspect>
+      <default image="ui/shared/white1X1.dds">
+         <BFColor r="64" g="64" b="64" a="255"/>
+      </default>
+   </UIAspect>
+   <children>
+      <UIListBox rows="-1" autosize="true" name="awardslist">
+         <UIRegion x="0" y="0" w="250" h="0"/>
+         <children>
+            <UILayout name="chimp">
+               <UIRegion x="10" y="0" w="0" h="60"/>
+               <children>
+                  <UIStatic template="awardsicon">
+                     <UIAspect>
+                        <default image="awards/AnimalBirth.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIText template="awardstext">
+                     <UIAspect locid="awards:AnimalBirthChimp_name"/>
+                     <text type="multi"/>
+                     <children>
+                        <UILayout name="bar clipper">
+                           <UIRegion x="11" y="6" w="-11" h="-6" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UILayout name="bar">
+                                 <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="% min" halign="max"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui/shared/white1X1.dds">
+                                       <BFColor r="0" g="255" b="0" a="150"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UIText>
+                  <UIHoverButton name="pre">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthChimp_pre_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UIHoverButton name="post">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthChimp_post_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UILayout template="highlight" name="highlightbar">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="elephant">
+               <UIRegion x="10" y="0" w="0" h="60"/>
+               <children>
+                  <UIStatic template="awardsicon">
+                     <UIAspect>
+                        <default image="awards/AnimalBirth.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIText template="awardstext">
+                     <UIAspect locid="awards:AnimalBirthElephant_name"/>
+                     <text type="multi"/>
+                     <children>
+                        <UILayout name="bar clipper">
+                           <UIRegion x="11" y="6" w="-11" h="-6" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UILayout name="bar">
+                                 <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="% min" halign="max"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui/shared/white1X1.dds">
+                                       <BFColor r="0" g="255" b="0" a="150"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UIText>
+                  <UIHoverButton name="pre">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthElephant_pre_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UIHoverButton name="post">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthElephant_post_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UILayout template="highlight" name="highlightbar">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="giantpanda">
+               <UIRegion x="10" y="0" w="0" h="60"/>
+               <children>
+                  <UIStatic template="awardsicon">
+                     <UIAspect>
+                        <default image="awards/AnimalBirth.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIText template="awardstext">
+                     <UIAspect locid="awards:AnimalBirthGiantPanda_name"/>
+                     <text type="multi"/>
+                     <children>
+                        <UILayout name="bar clipper">
+                           <UIRegion x="11" y="6" w="-11" h="-6" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UILayout name="bar">
+                                 <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="% min" halign="max"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui/shared/white1X1.dds">
+                                       <BFColor r="0" g="255" b="0" a="150"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UIText>
+                  <UIHoverButton name="pre">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthGiantPanda_pre_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UIHoverButton name="post">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthGiantPanda_post_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UILayout template="highlight" name="highlightbar">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="gorilla">
+               <UIRegion x="10" y="0" w="0" h="60" walign="max"/>
+               <children>
+                  <UIStatic template="awardsicon">
+                     <UIAspect>
+                        <default image="awards/AnimalBirth.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIText template="awardstext">
+                     <UIAspect locid="awards:AnimalBirthGorilla_name"/>
+                     <text type="multi"/>
+                     <children>
+                        <UILayout name="bar clipper">
+                           <UIRegion x="11" y="6" w="-11" h="-6" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UILayout name="bar">
+                                 <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="% min" halign="max"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui/shared/white1X1.dds">
+                                       <BFColor r="0" g="255" b="0" a="150"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UIText>
+                  <UIHoverButton name="pre">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthGorilla_pre_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UIHoverButton name="post">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthGorilla_post_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UILayout template="highlight" name="highlightbar">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="grizzly">
+               <UIRegion x="10" y="0" w="0" h="60"/>
+               <children>
+                  <UIStatic template="awardsicon">
+                     <UIAspect>
+                        <default image="awards/AnimalBirth.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIText template="awardstext">
+                     <UIAspect locid="awards:AnimalBirthGrizzly_name"/>
+                     <text type="multi"/>
+                     <children>
+                        <UILayout name="bar clipper">
+                           <UIRegion x="11" y="6" w="-11" h="-6" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UILayout name="bar">
+                                 <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="% min" halign="max"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui/shared/white1X1.dds">
+                                       <BFColor r="0" g="255" b="0" a="150"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UIText>
+                  <UIHoverButton name="pre">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthGrizzly_pre_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UIHoverButton name="post">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthGrizzly_post_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UILayout template="highlight" name="highlightbar">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="kangaroo">
+               <UIRegion x="10" y="0" w="0" h="60"/>
+               <children>
+                  <UIStatic template="awardsicon">
+                     <UIAspect>
+                        <default image="awards/AnimalBirth.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIText template="awardstext">
+                     <UIAspect locid="awards:AnimalBirthKangaroo_name"/>
+                     <text type="multi"/>
+                     <children>
+                        <UILayout name="bar clipper">
+                           <UIRegion x="11" y="6" w="-11" h="-6" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UILayout name="bar">
+                                 <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="% min" halign="max"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui/shared/white1X1.dds">
+                                       <BFColor r="0" g="255" b="0" a="150"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UIText>
+                  <UIHoverButton name="pre">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthKangaroo_pre_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UIHoverButton name="post">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthKangaroo_post_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UILayout template="highlight" name="highlightbar">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="red panda">
+               <UIRegion x="10" y="0" w="0" h="60"/>
+               <children>
+                  <UIStatic template="awardsicon">
+                     <UIAspect>
+                        <default image="awards/AnimalBirth.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIText template="awardstext">
+                     <UIAspect locid="awards:AnimalBirthRedPanda_name"/>
+                     <text type="multi"/>
+                     <children>
+                        <UILayout name="bar clipper">
+                           <UIRegion x="11" y="6" w="-11" h="-6" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UILayout name="bar">
+                                 <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="% min" halign="max"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui/shared/white1X1.dds">
+                                       <BFColor r="0" g="255" b="0" a="150"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UIText>
+                  <UIHoverButton name="pre">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthRedPanda_pre_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UIHoverButton name="post">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthRedPanda_post_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UILayout template="highlight" name="highlightbar">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="rhino">
+               <UIRegion x="10" y="0" w="0" h="60"/>
+               <children>
+                  <UIStatic template="awardsicon">
+                     <UIAspect>
+                        <default image="awards/AnimalBirth.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIText template="awardstext">
+                     <UIAspect locid="awards:AnimalBirthRhino_name"/>
+                     <text type="multi"/>
+                     <children>
+                        <UILayout name="bar clipper">
+                           <UIRegion x="11" y="6" w="-11" h="-6" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UILayout name="bar">
+                                 <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="% min" halign="max"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui/shared/white1X1.dds">
+                                       <BFColor r="0" g="255" b="0" a="150"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UIText>
+                  <UIHoverButton name="pre">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthRhino_pre_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UIHoverButton name="post">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthRhino_post_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UILayout template="highlight" name="highlightbar">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="snow leopard">
+               <UIRegion x="10" y="0" w="0" h="60"/>
+               <children>
+                  <UIStatic template="awardsicon">
+                     <UIAspect>
+                        <default image="awards/AnimalBirth.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIText template="awardstext">
+                     <UIAspect locid="awards:AnimalBirthSnowLeopard_name"/>
+                     <text type="multi"/>
+                     <children>
+                        <UILayout name="bar clipper">
+                           <UIRegion x="11" y="6" w="-11" h="-6" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UILayout name="bar">
+                                 <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="% min" halign="max"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui/shared/white1X1.dds">
+                                       <BFColor r="0" g="255" b="0" a="150"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UIText>
+                  <UIHoverButton name="pre">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthSnowLeopard_pre_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UIHoverButton name="post">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthSnowLeopard_post_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UILayout template="highlight" name="highlightbar">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="tiger">
+               <UIRegion x="10" y="0" w="0" h="60"/>
+               <children>
+                  <UIStatic template="awardsicon">
+                     <UIAspect>
+                        <default image="awards/AnimalBirth.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIText template="awardstext">
+                     <UIAspect locid="awards:AnimalBirthTiger_name"/>
+                     <text type="multi"/>
+                     <children>
+                        <UILayout name="bar clipper">
+                           <UIRegion x="11" y="6" w="-11" h="-6" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UILayout name="bar">
+                                 <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="% min" halign="max"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect>
+                                    <default image="ui/shared/white1X1.dds">
+                                       <BFColor r="0" g="255" b="0" a="150"/>
+                                    </default>
+                                 </UIAspect>
+                              </UILayout>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UIText>
+                  <UIHoverButton name="pre">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthTiger_pre_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UIHoverButton name="post">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\white1x1.dds">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <enter>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string="awards:AnimalBirthTiger_post_ltt"/>
+                        </event>
+                     </enter>
+                     <leave>
+                        <event msg="UI_CHILD" data="UIChildData" name="awards description">
+                           <child msg="UI_SET_LOCID" data="BFString" string=""/>
+                        </event>
+                     </leave>
+                  </UIHoverButton>
+                  <UILayout template="highlight" name="highlightbar">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+         </children>
+      </UIListBox>
+   </children>
+</UIListBox>

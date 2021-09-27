@@ -1,0 +1,220 @@
+<UICompositeHoverButton name="" button="assignment description">
+   <UIRegion x="0" w="0" h="30" walign="max"/>
+   <UIAspect>
+      <default image=""/>
+   </UIAspect>
+   <enter>
+      <child msg="UI_SELF">
+         <event msg="UI_CHILD" data="UIChildData" name="border">
+            <child msg="UI_SHOW"/>
+         </event>
+      </child>
+   </enter>
+   <leave>
+      <child msg="UI_SELF">
+         <event msg="UI_CHILD" data="UIChildData" name="border">
+            <child msg="UI_HIDE"/>
+         </event>
+      </child>
+   </leave>
+   <children>
+      <UIToggleButton name="assignment button">
+         <UIRegion x="0" y="0" w="30" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityinfo:choose_training"/>
+         <UIAspect alwayshit="never">
+            <default image="ui/infopan/button_trainerassignments.dds"/>
+            <standard>
+               <normal>
+                  <BFRect x="12" y="11" w="39" h="41"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="12" y="75" w="39" h="41"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="76" y="11" w="39" h="41"/>
+               </activated>
+               <disabled>
+                  <BFRect x="76" y="75" w="39" h="41"/>
+               </disabled>
+            </standard>
+            <alternate>
+               <normal>
+                  <BFRect x="76" y="11" w="39" h="41"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="76" y="11" w="39" h="41"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="76" y="11" w="39" h="41"/>
+               </activated>
+               <disabled>
+                  <BFRect x="76" y="75" w="39" h="41"/>
+               </disabled>
+            </alternate>
+         </UIAspect>
+      </UIToggleButton>
+      <UIToggleHoverButton name="assignment description" sticky="0">
+         <UIRegion x="35" y="5" w="-18" h="30" walign="max"/>
+         <UIAspect alwayshit="true">
+            <default>
+               <BFFont>
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </BFFont>
+            </default>
+            <standard>
+               <normal>
+                  <BFFont>
+                     <BFColor r="247" g="239" b="198" a="255"/>
+                  </BFFont>
+               </normal>
+               <highlighted image="">
+                  <BFFont>
+                     <BFColor r="148" g="239" b="255" a="255"/>
+                  </BFFont>
+               </highlighted>
+               <activated image="">
+                  <BFFont>
+                     <BFColor r="255" g="255" b="160" a="255"/>
+                  </BFFont>
+               </activated>
+               <disabled/>
+            </standard>
+         </UIAspect>
+         <text format="entityinfo:staff_assignment"/>
+         <on>
+            <event msg="UI_CHILD" data="UIChildData" name="highlight">
+               <child msg="UI_SHOW"/>
+            </event>
+            <event msg="UI_ACTIVATE_DATA"/>
+            <event msg="UI_CHILD" data="UIChildData" name="Add Animal Assignment">
+               <child msg="UI_ACTIVATE_OFF"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Remove Animal Assignment">
+               <child msg="UI_ENABLE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Trainer Info">
+               <child msg="UI_CHILD" data="UIChildData" name="track camera button">
+                  <child msg="UI_ACTIVATE_OFF"/>
+               </child>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Add Animal Assignment">
+               <child msg="UI_ACTIVATE_OFF"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Remove Animal Assignment">
+               <child msg="UI_ENABLE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Primary Game Button Panel">
+               <child msg="UI_HIDE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="maximize">
+               <child msg="UI_SHOW"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Trainer Training components">
+               <child msg="UI_SHOW"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="assignment button">
+               <child msg="UI_ACTIVATE_ON"/>
+            </event>
+         </on>
+         <off>
+            <event msg="ZT_TRAINER_ASSIGNMENT_SELECTED" data="int" value="-1"/>
+            <event msg="UI_CHILD" data="UIChildData" name="highlight">
+               <child msg="UI_HIDE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Remove Animal Assignment">
+               <child msg="UI_DISABLE"/>
+            </event>
+
+            <event msg="UI_CHILD" data="UIChildData" name="Trainer Training components">
+               <child msg="UI_HIDE"/>
+            </event>
+            <event msg="ZT_TRAINER_ASSIGNMENT_SELECTED" data="int" value="-1"/>
+            <event msg="UI_CHILD" data="UIChildData" name="Remove Animal Assignment">
+               <child msg="UI_DISABLE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="assignment button">
+               <child msg="UI_ACTIVATE_OFF"/>
+            </event>
+         </off>
+         <enter/>
+         <leave/>
+      </UIToggleHoverButton>
+      <UILayout name="highlight">
+         <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+         <UIState visible="hidden"/>
+         <children>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="0" h="2" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="-2" y="0" w="2" h="0" xalign="max" yalign="min" walign="len" halign="max"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="-2" w="0" h="2" xalign="min" yalign="max" walign="max" halign="len"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="2" h="0" xalign="min" yalign="min" walign="len" halign="max"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+         </children>
+      </UILayout>
+      <UILayout name="border">
+         <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+         <UIState visible="hidden"/>
+         <children>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="0" h="1" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="-1" y="0" w="1" h="0" xalign="max" yalign="min" walign="len" halign="max"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="-1" w="0" h="1" xalign="min" yalign="max" walign="max" halign="len"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="1" h="0" xalign="min" yalign="min" walign="len" halign="max"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+         </children>
+      </UILayout>
+   </children>
+</UICompositeHoverButton>

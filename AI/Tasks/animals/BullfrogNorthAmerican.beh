@@ -1,0 +1,63 @@
+<BehaviorSets>
+   <Idle>
+      <subjects>
+         <ambient_ground/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateSwitch>
+            <animTable>
+               <Walk anim="ShortHop_Ahead"/>
+               <Run anim="Hop_Ahead"/>
+               <Stand anim="Stand_Idle"/>
+               <default anim="Stand_Idle"/>
+            </animTable>
+         </BFBehAnimateSwitch>
+      </behaviors>
+   </Idle>
+   <Ambient>
+      <subjects>
+         <ambient_ground/>
+      </subjects>
+      <behaviors>
+         <BFBehRandomSet>
+            <randomSets>
+               <Wander weight="40"/>
+               <WanderSlow weight="30"/>
+               <Stand weight="30"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </Ambient>
+   <Wander>
+      <subjects>
+         <ambient_ground/>
+      </subjects>
+      <behaviors>
+         <BFBehWander playTime="20" locoSpeed="fast" avoidLand="true"/>
+      </behaviors>
+   </Wander>
+   <WanderSlow>
+      <subjects>
+         <ambient_ground/>
+      </subjects>
+      <behaviors>
+         <BFBehWander playTime="20" locoSpeed="slow" avoidLand="true"/>
+      </behaviors>
+   </WanderSlow>
+   <Stand>
+      <subjects>
+         <ambient_ground/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Idle" playTime="10"/>
+      </behaviors>
+   </Stand>
+   <RunStraight>
+      <subjects>
+         <ambient_ground/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Run_Ahead" playTime="30"/>
+      </behaviors>
+   </RunStraight>
+</BehaviorSets>

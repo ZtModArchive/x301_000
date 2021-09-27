@@ -1,0 +1,52 @@
+<BFTypedBinder binderType="WhiteLillies_Temperate">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <wildflowers>
+                  <WhiteLillies_Temperate/>
+               </wildflowers>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\WhiteLillies\WhiteLillies_Temperate_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:WhiteLillies_Temperate"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="WhiteLillies_Temperate"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_whitelillies:entry" f_FameReq="60"/>
+      <BFGBiomeData location="temperateforest_northamerica">
+         <temperateforest/>
+      </BFGBiomeData>
+   		<ZTTourData>
+	 			<biome_temperate value="1"/>
+		</ZTTourData> 
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\foliage\WhiteLillies\WhiteLillies_Temperate" switch="0 3 8 15"/>
+               <BFMultiGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="10">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

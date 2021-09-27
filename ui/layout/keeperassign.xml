@@ -1,0 +1,71 @@
+<UILayout name="">
+   <UIRegion x="0" y="0" w="190" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+   <children>
+      <UIToggleButton name="assignment button">
+         <UIRegion x="0" y="0" w="30" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect>
+            <default image="ui/infopan/button_keeperassignments.dds"/>
+            <standard>
+               <normal>
+                  <BFRect x="12" y="11" w="39" h="41"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="12" y="75" w="39" h="41"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="76" y="11" w="39" h="41"/>
+               </activated>
+               <disabled>
+                  <BFRect x="76" y="75" w="39" h="41"/>
+               </disabled>
+            </standard>
+            <alternate>
+               <normal>
+                  <BFRect x="76" y="11" w="39" h="41"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="76" y="11" w="39" h="41"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="76" y="11" w="39" h="41"/>
+               </activated>
+               <disabled>
+                  <BFRect x="76" y="75" w="39" h="41"/>
+               </disabled>
+            </alternate>
+         </UIAspect>
+         <on>
+            <event msg="UI_CHILD" data="UIChildData" name="Keeper Info">
+               <child msg="UI_CHILD" data="UIChildData" name="track camera button">
+                  <child msg="UI_ACTIVATE_OFF"/>
+               </child>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Add Assignment">
+               <child msg="UI_ACTIVATE_OFF"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Remove Assignment">
+               <child msg="UI_ENABLE"/>
+            </event>
+         </on>
+         <off>
+            <event msg="ZT_KEEPER_ASSIGNMENT_SELECTED" data="int" value="-1"/>
+            <event msg="UI_CHILD" data="UIChildData" name="Remove Assignment">
+               <child msg="UI_DISABLE"/>
+            </event>
+         </off>
+      </UIToggleButton>
+      <!--<UITextEdit name="assignment description" template="textedit" cursor="edit.cur" maxlength="30" alwayshit="true">-->
+      <UIText name="assignment description">
+         <UIRegion x="50" y="5" w="140" h="20" xalign="min" yalign="min" walign="len" halign="max"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect>
+            <default>
+               <BFFont align="left"/>
+            </default>
+         </UIAspect>
+         <text format="entityinfo:staff_assignment"/>
+      </UIText>
+      <!--</UITextEdit>-->
+   </children>
+</UILayout>

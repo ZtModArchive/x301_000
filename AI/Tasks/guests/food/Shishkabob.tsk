@@ -1,0 +1,428 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="BuyShishkabob" CursorTask="false" reserveTag="Use_Stand" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:BuyShishkabob">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <foodstand_shishkabob/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-15"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuyShishkabob"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteHappy"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData happiness="price_effect(-10,-5,0)" f_AteFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatShishkabob" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:SitBenchEatShishkabob">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-5" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatShishkabob" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:SitTableEatShishkabob">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-10" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatShishkabob" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:SitPicnicTableEatShishkabob">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-7" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatShishkabob" CursorTask="false" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:StandEatShishkabob">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_M/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobLove" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap f_departurePoints="-20" hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <!--Female Guest-->
+   <BFAITaskTemplate Name="BuyShishkabob" CursorTask="false" reserveTag="Use_Stand" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:BuyShishkabob:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <foodstand_shishkabob/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-8"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuyShishkabob"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData happiness="price_effect(-5,0,5)" f_AteNonFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatShishkabob" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:SitBenchEatShishkabob:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-5" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatShishkabob" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:SitTableEatShishkabob:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-10" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatShishkabob" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:SitPicnicTableEatShishkabob:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-7" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatShishkabob" CursorTask="false" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:StandEatShishkabob:1">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult_F/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap f_departurePoints="-20" hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <!--Young Guest-->
+   <BFAITaskTemplate Name="BuyShishkabob" CursorTask="false" reserveTag="Use_Stand" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:BuyShishkabob:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <foodstand_shishkabob/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-8"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BuyShishkabob"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAISubjectData happiness="price_effect(-5,0,5)" f_AteNonFavoriteFood="1"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitBenchEatShishkabob" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:SitBenchEatShishkabob:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-40"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="BenchEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-5" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitTableEatShishkabob" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:SitTableEatShishkabob:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <umbrellatable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="TableEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-10" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="SitPicnicTableEatShishkabob" CursorTask="false" reserveTag="Use_Seating" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:SitPicnicTableEatShishkabob:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <PicnicTable/>
+            <Qualifiers inSight="40"/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" rest="-20" happiness="-45"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="PicnicEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="-7" rest="-20"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StandEatShishkabob" CursorTask="false" Priority="1" objectName="entityname:ShishKaBob_lower" UniqueID="shishkabob:StandEatShishkabob:2">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects>
+            <ShishKaBob/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehPlaySet behSet="StandEatFinger"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatShishkabobNotLike" priority="1" timeout="60" global="false"/>
+               <ZTEmoticonInfo emoticonName="EmoteAnimalHungerGood"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap f_departurePoints="-20" hunger="-100" thirst="rand(15,25,.5)" dessert="rand(25,35,.5)" happiness="+10"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

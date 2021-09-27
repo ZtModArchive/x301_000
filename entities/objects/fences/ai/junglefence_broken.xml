@@ -1,0 +1,73 @@
+<BFTypedBinder binderType="junglefence_broken">
+   <types>
+      <entity>
+         <fence>
+            <junglefence_broken/>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <ZTDevComponent/>
+      <UIToggleButton template="fence">
+         <UIAspect>
+            <default image="entities\objects\fences\junglefence_jt\junglefence_jt_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:junglefence"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="junglefence_broken"/>
+         </on>
+      </UIToggleButton>
+      <BFGCollisionData score="0"/>
+      <BFAIEntityDataShared s_uisort="mb" f_FenceStrength="0" s_ProfileLock="junglelock" b_SeeThrough="true" s_Zoopedia="zoopedia:zoopedia_junglefence:entry" s_Theme="jungle"/>
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTFence gate="junglefencegate" hasCurves="false"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="start_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\junglefence_jt\junglefence_jt_post"/>
+            </BFPhysObj>
+         </instance>
+	  <shared>
+	      <BFSharedPhysVars seeThrough="false"/>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\junglefence_jt\junglefence_jt_vert_broken"/>
+            </BFPhysObj>
+         </instance>
+	  <shared>
+	      <BFSharedPhysVars seeThrough="false"/>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\junglefence_jt\junglefence_jt_diag_broken"/>
+            </BFPhysObj>
+         </instance>
+	  <shared>
+	      <BFSharedPhysVars seeThrough="false"/>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="end_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\junglefence_jt\junglefence_jt_post"/>
+            </BFPhysObj>
+         </instance>
+	  <shared>
+	      <BFSharedPhysVars seeThrough="false"/>
+         </shared>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

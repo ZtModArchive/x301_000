@@ -1,0 +1,50 @@
+<BFTypedBinder binderType="Caribou_Adult_F">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Artiodactyla>
+                     <Cervidae>
+                        <Caribou>
+                           <Caribou_Adult>
+                              <Caribou_Adult_F/>
+                           </Caribou_Adult>
+                        </Caribou>
+                     </Cervidae>
+                  </Artiodactyla>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared b_Male="0" f_adoptCount="rand(1,1)"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\units\animals\Caribou\Caribou_F_icon.dds" />
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Caribou_Adult_F" />
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData icon3Dscale="0.35"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/units/animals/Caribou/Caribou_Adult_F.bfm" scale="0.8"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_Pregnant="false"/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

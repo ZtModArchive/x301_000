@@ -1,0 +1,40 @@
+<UICompositeButton name="Timer Entry">
+   <UIRegion x="0" w="0" h="34" walign="max"/>
+   <UIAspect>
+      <default image="ui/shared/white1x1.dds"/>
+   </UIAspect>
+   <children>
+      <UIButton name="Show Name" autosize="true">
+         <UIRegion x="0" y="0" w="117" h="34" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIAspect string="" alwayshit="true">
+            <standard>
+               <normal>
+                  <BFFont>
+                     <BFColor r="247" g="239" b="198" a="255"/>
+                  </BFFont>
+               </normal>
+               <highlighted image="">
+                  <BFFont>
+                     <BFColor r="148" g="239" b="255" a="255"/>
+                  </BFFont>
+               </highlighted>
+               <activated image="">
+                  <BFFont>
+                     <BFColor r="255" g="255" b="160" a="255"/>
+                  </BFFont>
+               </activated>
+               <disabled/>
+            </standard>
+         </UIAspect>
+         <text format="timer:show_name" type="multi"/>
+      </UIButton>
+      <UIText name="Show Time">
+         <UIRegion x="-47" y="0" w="50" h="25" xalign="max" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect string="">
+            <default image=""/>
+         </UIAspect>
+         <text format="timer:stage_number_format" type="multi"/>
+      </UIText>
+   </children>
+</UICompositeButton>

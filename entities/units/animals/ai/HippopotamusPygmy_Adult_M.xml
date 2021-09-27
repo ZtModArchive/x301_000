@@ -1,0 +1,41 @@
+<BFTypedBinder binderType="HippopotamusPygmy_Adult_M">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Artiodactyla>
+                     <Hippopotamidae>
+                        <HippopotamusPygmy>
+                           <HippopotamusPygmy_Adult>
+                              <HippopotamusPygmy_Adult_M/>
+                           </HippopotamusPygmy_Adult>
+                        </HippopotamusPygmy>
+                     </Hippopotamidae>
+                  </Artiodactyla>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="HippopotamusPygmy_Adult_M"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Male="1" f_adoptCount="rand(1,1)"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/units/animals/HippopotamusPygmy/HippopotamusPygmy_Adult_F.bfm" scale="0.65"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

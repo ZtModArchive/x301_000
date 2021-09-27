@@ -1,0 +1,2025 @@
+<UILayout>
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect alwayshit="never">
+      <default/>
+   </UIAspect>
+   <children>
+      <UILayout name="Screen Flash">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect alwayshit="never">
+            <default/>
+         </UIAspect>
+         <children>
+            <UILayout name="Screen Flash Opaque">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect>
+                  <default image="ui/shared/white1x1.dds" sound="">
+                     <BFRect x="0" y="0" w="256" h="32"/>
+                     <BFColor r="255" g="255" b="159" a="0"/>
+                  </default>
+               </UIAspect>
+               <UIShowHideAnim time="1.0" function="sin" bob="5.0" initialDir="true">
+                  <colors>
+                     <start r="255" g="255" b="159" a="255"/>
+                     <end r="255" g="255" b="159" a="0"/>
+                  </colors>
+               </UIShowHideAnim>
+            </UILayout>
+         </children>
+      </UILayout>
+      <UILayout alwayshit="true" name="branch layout" modal="1">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIHotKeys>
+            <!-- ESC -->
+            <down code="27" msg="UI_CHILD" data="UIChildData" name="decline">
+               <child msg="UI_ACTIVATE"/>
+            </down>
+         </UIHotKeys>
+         <show>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="pause"/>
+         </show>
+         <hide>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="unpause"/>
+         </hide>
+         <children>
+            <UILayout name="dither">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="branch info layout" template="blank">
+               <UIRegion x="225" y="80" w="600" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default image=""/>
+               </UIAspect>
+               <children>
+                  <UILayout name="branch background" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="branch text listbox background" template="panelwell">
+                     <UIRegion x="5" y="40" w="590" h="238" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="branch text listbox">
+                     <UIRegion x="15" y="45" w="576" h="230" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UIText name="branch text" autosize="true">
+                                 <UIRegion x="7" w="550"/>
+                                 <text format="scenario:instant_format" type="multi"/>
+                              </UIText>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIText name="challenge_label">
+                     <UIRegion x="20" y="1" w="707" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:branch_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UILayout name="PathA listbox background" template="blank">
+                     <UIRegion x="5" y="280" w="290" h="110" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="PathA listbox">
+                     <UIRegion x="20" y="290" w="290" h="80" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UIToggleButton name="PathA text" sticky="1">
+                                 <UIRegion x="0" w="220" h="80"/>
+                                 <text format="photochal:choice_text_format" type="multi"/>
+                                 <UIHelpInfo name="" short="photochal:choice_button_stt" long="photochal:choice_button_ltt" help=""/>
+                                 <UIAspect alwayshit="true">
+                                    <default>
+                                       <BFFont>
+                                          <BFColor r="255" g="255" b="255" a="255"/>
+                                       </BFFont>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFFont>
+                                             <BFColor r="59" g="83" b="66" a="255"/>
+                                          </BFFont>
+                                       </normal>
+                                       <highlighted image="">
+                                          <BFFont>
+                                             <BFColor r="255" g="255" b="201" a="255"/>
+                                          </BFFont>
+                                       </highlighted>
+                                       <activated image="">
+                                          <BFFont>
+                                             <BFColor r="255" g="255" b="0" a="255"/>
+                                          </BFFont>
+                                       </activated>
+                                       <disabled/>
+                                    </standard>
+                                 </UIAspect>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="PathB text">
+                                       <child msg="UI_ACTIVATE_OFF"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="accept">
+                                       <child msg="UI_ENABLE"/>
+                                    </event>
+                                    <event msg="ZT_APPMSG" data="BFXMLObj">
+                                       <BFXMLObjEvent msgtype="BFS_SETGLOBALVAR">
+                                          <BFKeyValObj key="path" val="PathA"/>
+                                       </BFXMLObjEvent>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UILayout name="PathB listbox background" template="blank">
+                     <UIRegion x="305" y="280" w="290" h="110" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="PathB listbox">
+                     <UIRegion x="355" y="290" w="290" h="80" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UIToggleButton name="PathB text" sticky="1">
+                                 <UIRegion x="0" w="220" h="80"/>
+                                 <text format="photochal:choice_text_format" type="multi"/>
+                                 <UIHelpInfo name="" short="photochal:choice_button_stt" long="photochal:choice_button_ltt" help=""/>
+                                 <UIAspect alwayshit="true">
+                                    <default>
+                                       <BFFont>
+                                          <BFColor r="255" g="255" b="255" a="255"/>
+                                       </BFFont>
+                                    </default>
+                                    <standard>
+                                       <normal>
+                                          <BFFont>
+                                             <BFColor r="59" g="83" b="66" a="255"/>
+                                          </BFFont>
+                                       </normal>
+                                       <highlighted image="">
+                                          <BFFont>
+                                             <BFColor r="255" g="255" b="201" a="255"/>
+                                          </BFFont>
+                                       </highlighted>
+                                       <activated image="">
+                                          <BFFont>
+                                             <BFColor r="255" g="255" b="0" a="255"/>
+                                          </BFFont>
+                                       </activated>
+                                       <disabled/>
+                                    </standard>
+                                 </UIAspect>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="PathA text">
+                                       <child msg="UI_ACTIVATE_OFF"/>
+                                    </event>
+                                    <event msg="UI_CHILD" data="UIChildData" name="accept">
+                                       <child msg="UI_ENABLE"/>
+                                    </event>
+                                    <event msg="ZT_APPMSG" data="BFXMLObj">
+                                       <BFXMLObjEvent msgtype="BFS_SETGLOBALVAR">
+                                          <BFKeyValObj key="path" val="PathB"/>
+                                       </BFXMLObjEvent>
+                                    </event>
+                                 </on>
+                              </UIToggleButton>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIStatic name="button background">
+                     <UIRegion x="252" y="314" w="100" h="75" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackcenter.dds">
+                           <BFRect x="9" y="27" w="128" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="accept">
+                     <UIRegion x="265" y="320" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="disabled" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:confirm_choice_label"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="ZT_APPMSG" data="BFXMLObj">
+                           <BFXMLObjEvent msgtype="BFS_SETGLOBALVAR">
+                              <BFKeyValObj key="challenge" val="accept"/>
+                           </BFXMLObjEvent>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="branch layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+      <UILayout alwayshit="true" name="instant challenge layout" modal="1">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIHotKeys>
+            <!-- ESC -->
+            <down code="27" msg="UI_CHILD" data="UIChildData" name="decline">
+               <child msg="UI_ACTIVATE"/>
+            </down>
+         </UIHotKeys>
+         <show>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="pause"/>
+         </show>
+         <hide>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="unpause"/>
+         </hide>
+         <children>
+            <UILayout name="dither">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="instant challenge info layout" template="blank">
+               <UIRegion x="225" y="80" w="600" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default image=""/>
+               </UIAspect>
+               <children>
+                  <UILayout name="instant challenge background" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="challenge description background" template="blank">
+                     <UIRegion x="5" y="40" w="590" h="110" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="instant challenges description listbox">
+                     <UIRegion x="15" y="45" w="576" h="100" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UIText name="instant challenge description text" autosize="true">
+                                 <UIRegion x="7" w="550"/>
+                                 <text format="scenario:instant_format" type="multi"/>
+                              </UIText>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UILayout name="instant challenges text listbox background" template="panelwell">
+                     <UIRegion x="5" y="160" w="590" h="138" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="instant challenges text listbox">
+                     <UIRegion x="15" y="164" w="576" h="130" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UIText name="instant challenge text" autosize="true">
+                                 <UIRegion x="7" w="550"/>
+                                 <text format="photochal:intro_text_format" type="multi"/>
+                              </UIText>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIText name="challenge_label">
+                     <UIRegion x="20" y="1" w="707" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:goals_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIText name="accept_label">
+                     <UIRegion x="0" y="340" w="600" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:accept_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont align="center">
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIStatic name="button background">
+                     <UIRegion x="515" y="320" w="80" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackright.dds">
+                           <BFRect x="9" y="27" w="128" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="accept">
+                     <UIRegion x="525" y="320" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:accept_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="ZT_APPMSG" data="BFXMLObj">
+                           <BFXMLObjEvent msgtype="BFS_SETGLOBALVAR">
+                              <BFKeyValObj key="challenge" val="accept"/>
+                           </BFXMLObjEvent>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="instant challenge layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+                  <UIStatic name="button background">
+                     <UIRegion x="7" y="320" w="70" h=" 70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackleft.dds">
+                           <BFRect x="0" y="27" w="104" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="decline">
+                     <UIRegion x="5" y="320" w="70" h=" 70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:decline_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_back.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="ZT_APPMSG" data="BFXMLObj">
+                           <BFXMLObjEvent msgtype="BFS_SETGLOBALVAR">
+                              <BFKeyValObj key="challenge" val="decline"/>
+                           </BFXMLObjEvent>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="instant challenge layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+      <UILayout alwayshit="true" name="challenge layout" modal="1">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIHotKeys>
+            <!-- ESC -->
+            <down code="27" msg="UI_CHILD" data="UIChildData" name="decline">
+               <child msg="UI_ACTIVATE"/>
+            </down>
+         </UIHotKeys>
+         <show>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="pause"/>
+         </show>
+         <hide>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="unpause"/>
+         </hide>
+         <children>
+            <UILayout name="dither">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="challenge info" template="blank">
+               <UIRegion x="225" y="80" w="600" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default image=""/>
+               </UIAspect>
+               <children>
+                  <UILayout name="challenge_ header background" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="challenge_ well background" template="panelwell">
+                     <UIRegion x="5" y="50" w="590" h="254" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="challenges listbox">
+                     <UIRegion x="15" y="54" w="576" h="247" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UIText name="challenge text" autosize="true">
+                                 <UIRegion x="7" w="550"/>
+                                 <text format="photochal:intro_text_format" type="multi"/>
+                              </UIText>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIText name="challenge_label">
+                     <UIRegion x="20" y="1" w="707" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:goals_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIText name="accept_label">
+                     <UIRegion x="0" y="340" w="600" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:accept_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont align="center">
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIStatic name="button background">
+                     <UIRegion x="515" y="320" w="80" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackright.dds">
+                           <BFRect x="9" y="27" w="128" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="accept">
+                     <UIRegion x="525" y="320" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:accept_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="ZT_APPMSG" data="BFXMLObj">
+                           <BFXMLObjEvent msgtype="BFS_SETGLOBALVAR">
+                              <BFKeyValObj key="challenge" val="accept"/>
+                           </BFXMLObjEvent>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="challenge layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+                  <UIStatic name="button background">
+                     <UIRegion x="7" y="320" w="70" h=" 70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackleft.dds">
+                           <BFRect x="0" y="27" w="104" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="decline">
+                     <UIRegion x="5" y="320" w="70" h=" 70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:decline_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_back.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="ZT_APPMSG" data="BFXMLObj">
+                           <BFXMLObjEvent msgtype="BFS_SETGLOBALVAR">
+                              <BFKeyValObj key="challenge" val="decline"/>
+                           </BFXMLObjEvent>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="challenge layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+      <UILayout alwayshit="true" name="Scenario Win  Layout" modal="1" canBeCachedWhenCalledFromLua="true">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <show>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="pause"/>
+         </show>
+         <hide>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="unpause"/>
+            <event msg="UI_NEXT_CACHED_MSG"/>
+         </hide>
+         <children>
+            <UILayout name="dither">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="Scenario Win Info" template="blank">
+               <UIRegion x="225" y="80" w="600" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default image=""/>
+               </UIAspect>
+               <children>
+                  <UILayout name="scenario header background" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="scenario well background" template="panelwell">
+                     <UIRegion x="5" y="50" w="590" h="254" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="scenario win listbox layout">
+                     <UIRegion x="15" y="54" w="576" h="247" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="210" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <children>
+                              <UIText name="challenge text" autosize="true">
+                                 <UIRegion x="7" w="550"/>
+                                 <text format="photochal:intro_text_format" type="multi"/>
+                              </UIText>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIText name="scenario win label">
+                     <UIRegion x="20" y="1" w="707" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:scenario_win_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIText name="continue_label">
+                     <UIRegion x="0" y="275" w="600" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:continue_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont align="center">
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIStatic name="button background">
+                     <UIRegion x="515" y="320" w="80" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackright.dds">
+                           <BFRect x="9" y="27" w="128" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="continue">
+                     <UIRegion x="-35" y="320" w="70" h="70" xalign="mid" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:continue_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="Scenario Win  Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+                  <UIButton name="play next">
+                     <UIRegion x="525" y="320" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:continue_next_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_nextcamp.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="Scenario Win  Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="Grant Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="Generic OK Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="goals layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="ZT_PLAY_NEXT_SCENARIO"/>
+                     </activate>
+                  </UIButton>
+                  <UIStatic name="button background">
+                     <UIRegion x="7" y="320" w="70" h=" 70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackleft.dds">
+                           <BFRect x="0" y="27" w="104" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="no_continue_button">
+                     <UIRegion x="5" y="320" w="70" h=" 70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:no_continue_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_back.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="ZT_EXITTOMAINMENU"/>
+                        <event msg="UI_CHILD" data="UIChildData" name="Scenario Win  Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="Grant Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="Generic OK Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="goals layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+      <UILayout alwayshit="true" name="Scenario Failed Layout" modal="1" canBeCachedWhenCalledFromLua="true">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <show>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="pause"/>
+         </show>
+         <hide>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="unpause"/>
+            <event msg="UI_NEXT_CACHED_MSG"/>
+         </hide>
+         <children>
+            <UILayout name="dither">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="Scenario Lost Info" template="blank">
+               <UIRegion x="225" y="80" w="600" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default image=""/>
+               </UIAspect>
+               <children>
+                  <UILayout name="Scenario Failed header background" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="Scenario Failed well background" template="panelwell">
+                     <UIRegion x="5" y="50" w="590" h="254" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="scenariofailed listbox layout">
+                     <UIRegion x="15" y="54" w="576" h="247" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="210" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <children>
+                              <UIText name="challenge text" autosize="true">
+                                 <UIRegion x="7" w="550"/>
+                                 <text format="photochal:intro_text_format" type="multi"/>
+                              </UIText>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIText name="scenario failed label">
+                     <UIRegion x="20" y="1" w="707" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:scenario_failed_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIText name="failed replay label">
+                     <UIRegion x="0" y="275" w="600" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:scenario_failed_replay_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont align="center">
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIStatic name="button background">
+                     <UIRegion x="515" y="320" w="80" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackright.dds">
+                           <BFRect x="9" y="27" w="128" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="replay">
+                     <UIRegion x="525" y="320" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:scenario_failed_replay_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="Scenario Failed Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="ZT_PLAY_NEXT_SCENARIO"/>
+                     </activate>
+                  </UIButton>
+                  <UIButton name="load">
+                     <UIRegion x="-35" y="320" w="70" h="70" xalign="mid" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:load_game_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_loadgame.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="Scenario Failed Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="ZT_SETMODE" data="BFString" string="mode_load"/>
+                     </activate>
+                  </UIButton>
+                  <UIStatic name="button background">
+                     <UIRegion x="7" y="320" w="70" h=" 70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackleft.dds">
+                           <BFRect x="0" y="27" w="104" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="no_continue_button">
+                     <UIRegion x="5" y="320" w="70" h=" 70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:no_continue_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_back.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="Scenario Failed Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="ZT_EXITTOMAINMENU"/>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+      <UILayout alwayshit="true" name="Challenge Failed Layout" modal="1" canBeCachedWhenCalledFromLua="true">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIHotKeys>
+            <!-- ESC -->
+            <down code="27" msg="UI_CHILD" data="UIChildData" name="ok button">
+               <child msg="UI_ACTIVATE"/>
+            </down>
+         </UIHotKeys>
+         <show>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="pause"/>
+         </show>
+         <hide>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="unpause"/>
+            <event msg="UI_NEXT_CACHED_MSG"/>
+         </hide>
+         <children>
+            <UILayout name="dither">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="Challenge Failed Info" template="blank">
+               <UIRegion x="225" y="80" w="600" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default image=""/>
+               </UIAspect>
+               <children>
+                  <UILayout name="Challenge Failed header background" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="Challenge Failed well background" template="panelwell">
+                     <UIRegion x="5" y="50" w="590" h="254" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="challenge failed listbox layout">
+                     <UIRegion x="15" y="54" w="576" h="247" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UIText name="challenge text" autosize="true">
+                                 <UIRegion x="7" w="550"/>
+                                 <text format="photochal:intro_text_format" type="multi"/>
+                              </UIText>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIText name="Challenge failed label">
+                     <UIRegion x="20" y="1" w="707" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:challenge_failed_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIStatic name="button background">
+                     <UIRegion x="515" y="320" w="80" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackright.dds">
+                           <BFRect x="9" y="27" w="128" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="ok button">
+                     <UIRegion x="525" y="320" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:challenge_failed_ok_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="Challenge Failed Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+      <UILayout alwayshit="true" name="Challenge Won Layout" modal="1" canBeCachedWhenCalledFromLua="true">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIHotKeys>
+            <!-- ESC -->
+            <down code="27" msg="UI_CHILD" data="UIChildData" name="ok button">
+               <child msg="UI_ACTIVATE"/>
+            </down>
+         </UIHotKeys>
+         <show>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="pause"/>
+         </show>
+         <hide>
+            <event msg="UI_SEND_NAMED_EVENTS" data="BFString" string="unpause"/>
+            <event msg="UI_NEXT_CACHED_MSG"/>
+         </hide>
+         <children>
+            <UILayout name="dither">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="Challenge Won Info" template="blank">
+               <UIRegion x="225" y="80" w="600" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default image=""/>
+               </UIAspect>
+               <children>
+                  <UILayout name="Challenge won header background" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="Challenge won well background" template="panelwell">
+                     <UIRegion x="5" y="50" w="590" h="254" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="challenge won listbox layout">
+                     <UIRegion x="15" y="54" w="576" h="247" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UIText name="challenge text" autosize="true">
+                                 <UIRegion x="7" w="550"/>
+                                 <text format="photochal:intro_text_format" type="multi"/>
+                              </UIText>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIText name="Challenge won label">
+                     <UIRegion x="20" y="1" w="707" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:challenge_won_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIStatic name="button background">
+                     <UIRegion x="515" y="320" w="80" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackright.dds">
+                           <BFRect x="9" y="27" w="128" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="ok button">
+                     <UIRegion x="525" y="320" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:challenge_won_ok_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="Challenge Won Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+      <UILayout alwayshit="true" name="Grant Layout" modal="1" canBeCachedWhenCalledFromLua="true">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIHotKeys>
+            <!-- ESC -->
+            <down code="27" msg="UI_CHILD" data="UIChildData" name="ok button">
+               <child msg="UI_ACTIVATE"/>
+            </down>
+         </UIHotKeys>
+         <hide>
+            <event msg="UI_NEXT_CACHED_MSG"/>
+         </hide>
+         <children>
+            <UILayout name="dither">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="Grant Layout Info" template="blank">
+               <UIRegion x="225" y="80" w="600" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default image=""/>
+               </UIAspect>
+               <children>
+                  <UILayout name="Challenge won header background" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="Challenge won well background" template="panelwell">
+                     <UIRegion x="5" y="50" w="590" h="254" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="cash grant list box layout">
+                     <UIRegion x="5" y="60" w="565" h="250" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UIText name="challenge text" autosize="true">
+                                 <UIRegion x="7" walign="max"/>
+                                 <text format="photochal:intro_text_format" type="multi"/>
+                              </UIText>
+                              <ZTMoneyText name="zoo_bucks_display" posformat="shell:posformat" negformat="shell:negformat" nocents="true" nominus="false">
+                                 <UIRegion x="35" y="12" w="170" h="20" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect locid="">
+                                    <default image="" sound="">
+                                       <BFFont align="center"/>
+                                       <BFRect x="175" y="130" w="100" h="16"/>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                    <normal/>
+                                 </UIAspect>
+                              </ZTMoneyText>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIText name="Grant Layout label">
+                     <UIRegion x="20" y="1" w="707" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:cash_grant_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIStatic name="button background">
+                     <UIRegion x="515" y="320" w="80" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackright.dds">
+                           <BFRect x="9" y="27" w="128" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="ok button">
+                     <UIRegion x="525" y="320" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:challenge_won_ok_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="Grant Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+      <UILayout alwayshit="true" name="Generic OK Layout" modal="1">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <children>
+            <UILayout name="dither">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="Generic OK Info" template="blank">
+               <UIRegion x="225" y="80" w="600" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default image=""/>
+               </UIAspect>
+               <children>
+                  <UILayout name="Generic OK header background" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="Generic OK well background" template="panelwell">
+                     <UIRegion x="5" y="50" w="590" h="254" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="Generic OK listbox layout">
+                     <UIRegion x="15" y="54" w="576" h="247" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UIText name="Generic OK text" autosize="true">
+                                 <UIRegion x="7" w="550"/>
+                                 <text format="photochal:intro_text_format" type="multi"/>
+                              </UIText>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIText name="Generic OK label">
+                     <UIRegion x="20" y="1" w="707" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIStatic name="Generic OK button background">
+                     <UIRegion x="515" y="320" w="80" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackright.dds">
+                           <BFRect x="9" y="27" w="128" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="Generic OK ok button">
+                     <UIRegion x="525" y="320" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:challenge_won_ok_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="Generic OK Layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+      <UILayout alwayshit="true" name="tutorial complete" modal="1">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <children>
+            <UILayout name="dither">
+               <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="0" b="0" a="128"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="tutorial complete info" template="blank">
+               <UIRegion x="225" y="80" w="600" h="400" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default image=""/>
+               </UIAspect>
+               <children>
+                  <UILayout name="scenario header background" template="header">
+                     <UIRegion x="0" y="0" w="0" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="scenario well background" template="panelwell">
+                     <UIRegion x="5" y="50" w="590" h="254" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UILayout>
+                  <UILayout name="scenario win listbox layout">
+                     <UIRegion x="15" y="54" w="576" h="247" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox template="panel" rows="-1">
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <children>
+                              <UIText name="challenge text" autosize="true">
+                                 <UIRegion x="7" w="550"/>
+                                 <text format="photochal:intro_text_format" type="multi"/>
+                              </UIText>
+                           </children>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIText name="tutorial_complete_label">
+                     <UIRegion x="20" y="1" w="707" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="photochal:tutorial_complete_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="25" w="200" h="40"/>
+                           <BFFont>
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIStatic name="button background">
+                     <UIRegion x="515" y="320" w="80" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackright.dds">
+                           <BFRect x="9" y="27" w="128" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="play next">
+                     <UIRegion x="525" y="320" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:continue_next_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="tutorial complete">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="ZT_PLAY_NEXT_SCENARIO"/>
+                     </activate>
+                  </UIButton>
+                  <UIStatic name="button background">
+                     <UIRegion x="7" y="320" w="70" h=" 70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui\shared\buttonbackleft.dds">
+                           <BFRect x="0" y="27" w="104" h="100"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIButton name="no_continue_button">
+                     <UIRegion x="5" y="320" w="70" h=" 70" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="photochal:no_continue_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_back.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="tutorial complete">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="ZT_SETMODE" data="BFString" string="mode_overhead"/>
+                        <event msg="ZT_EXITTOMAINMENU"/>
+                     </activate>
+                  </UIButton>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

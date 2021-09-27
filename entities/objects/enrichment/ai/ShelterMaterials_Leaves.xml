@@ -1,0 +1,49 @@
+﻿<BFTypedBinder binderType="ShelterMaterials_Leaves">
+	<types>
+		<entity>
+			<enrichment>
+				<toy>
+					<ShelterMaterials_Leaves />
+				</toy>
+			</enrichment>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\enrichment\ShelterMaterials\ShelterMaterials_Leaves_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:ShelterMaterials_Leaves" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ShelterMaterials_Leaves" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_uisort="dn" s_contents="Leaf" s_Zoopedia="zoopedia:zoopedia_pileofleaves:entry" f_FameReq="80" />
+		<ZTPlacementData randomRotate="false" gridSnap="true" icon3Doffset="0 0 0.840458" icon3Dscale="0.719591" autoFootprint="false">
+			<cfootprint height="1" width="1" />
+			<dfootprint height="1" width="1" />
+		</ZTPlacementData>
+		<BFGCollisionData isPassable="true" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/ShelterMaterials/ShelterMaterials_Leaves" switch="0 18 36" />
+					<BFGroundFitComponent heightOffset="0.0" maxTilt="50" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="200">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,949 @@
+<BehaviorSets>
+   <DockBench>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>	
+				<BFBehDock targetAnim="Stand_Idle"/>
+      </behaviors>
+   </DockBench>		
+   <RestBench>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>	
+				<BFBehAnimate targetAnim="SitBench_Idle"/>
+      </behaviors>
+   </RestBench>
+    <ExitBench>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehSetAttribute>
+            <BFAISubjectData rest="-40"/>
+         </BFBehSetAttribute>      
+				<BFBehAnimate targetAnim="Walk_Ahead"/>
+      </behaviors>
+   </ExitBench>  
+   
+   
+   
+   <BenchEat>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitBench"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock subjectNode="Bip01" targetAnim="StandItem_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatBench" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitBenchItem_Idle"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Eat"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Eat"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Idle"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Eat"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </BenchEat>
+   <BenchEatFinger>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitBench"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock subjectNode="Bip01" targetAnim="StandItem_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatBench" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitBenchItem_Idle"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Eat"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Eat"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Idle"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Eat"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </BenchEatFinger>
+   <BenchLick>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitBench"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock subjectNode="Bip01" targetAnim="StandItem_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatBench" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitBenchItem_Idle"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Lick"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Lick"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Idle"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Lick"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </BenchLick>
+   <BenchDrink>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitBench"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock subjectNode="Bip01" targetAnim="StandItem_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:DrinkBench" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitBenchItem_Idle"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Drink"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Drink"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Idle"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Drink"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </BenchDrink>
+   <BenchSip>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitBench"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock subjectNode="Bip01" targetAnim="StandItem_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:DrinkBench" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitBenchItem_Idle"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Sip"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Sip"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Idle"/>
+         <BFBehAnimate targetAnim="SitBenchItem_Sip"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </BenchSip>
+   <TableDock1>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Adult_01" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </TableDock1>
+   <TableDock2>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Adult_02" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </TableDock2>
+   <TableDock3>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Adult_03" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </TableDock3>
+   <TableDock4>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Adult_04" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </TableDock4>
+   <TableDock1>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Young_01" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </TableDock1>
+   <TableDock2>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Young_02" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </TableDock2>
+   <TableDock3>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Young_03" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </TableDock3>
+   <TableDock4>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Young_04" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </TableDock4>
+   <PicnicTableDock1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Adult" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </PicnicTableDock1>
+   <PicnicTableDock2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Adult01" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </PicnicTableDock2>
+   <PicnicTableDock3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Adult02" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </PicnicTableDock3>
+   <PicnicTableDock4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Adult03" targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </PicnicTableDock4>
+   
+   
+   
+   <RestUTableDock1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Rest_01" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </RestUTableDock1>
+   <RestUTableDock2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Rest_02" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </RestUTableDock2>
+   <RestUTableDock3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Rest_03" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </RestUTableDock3>
+   <RestUTableDock4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Rest_04" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </RestUTableDock4>      
+   <RestUTable>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>	
+				<BFBehAnimate targetAnim="SitBench_Idle"/>
+      </behaviors>
+   </RestUTable>   
+    <ExitUTable>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehSetAttribute>
+            <BFAISubjectData rest="-40"/>
+         </BFBehSetAttribute>       
+				<BFBehAnimate targetAnim="Walk_Ahead"/>
+      </behaviors>
+   </ExitUTable>     
+   
+   
+   
+   <RestPTableDock1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Rest" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </RestPTableDock1>
+   <RestPTableDock2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Rest01" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </RestPTableDock2>
+   <RestPTableDock3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Rest02" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </RestPTableDock3>
+   <RestPTableDock4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDock subjectNode="Bip01" targetNode="Dock_Rest03" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </RestPTableDock4>   
+   <RestPTable>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>	
+				<BFBehAnimate targetAnim="SitBench_Idle"/>
+      </behaviors>
+   </RestPTable>     
+    <ExitPTable>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehSetAttribute>
+            <BFAISubjectData rest="-40"/>
+         </BFBehSetAttribute>       
+				<BFBehAnimate targetAnim="Walk_Ahead"/>
+      </behaviors>
+   </ExitPTable>    
+   
+   
+   
+   
+   <TableEatHand>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_Eat"/>
+         <BFBehAnimate targetAnim="SitTableItem_Eat"/>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_Eat"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </TableEatHand>
+   <TableEat>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_Eat"/>
+         <BFBehAnimate targetAnim="SitTableItem_Eat"/>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_Eat"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </TableEat>
+   <TableEatFinger>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_EatFingerFood"/>
+         <BFBehAnimate targetAnim="SitTableItem_EatFingerFood"/>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_EatFingerFood"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </TableEatFinger>
+   <TableLick>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_Lick"/>
+         <BFBehAnimate targetAnim="SitTableItem_Lick"/>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_Lick"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </TableLick>
+   <TableSip>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:DrinkTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_Sip"/>
+         <BFBehAnimate targetAnim="SitTableItem_Sip"/>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_Sip"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </TableSip>
+   <TableDrink>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:DrinkTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_Drink"/>
+         <BFBehAnimate targetAnim="SitTableItem_Drink"/>
+         <BFBehAnimate targetAnim="SitTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitTableItem_Drink"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </TableDrink>
+   <StandEat>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoStandEat" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatStand" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="StandItem_Eat"/>
+         <BFBehAnimate targetAnim="StandItem_Eat"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatStanding" priority="-1" timeout="30" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </StandEat>
+   <StandDrink>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoStandDrink"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:DrinkStand"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="StandItem_Drink"/>
+         <BFBehAnimate targetAnim="StandItem_Drink"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatStanding" priority="-1" timeout="30" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </StandDrink>
+   <StandEatFinger>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoStandEat" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatStand" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="StandItem_Eat"/>
+         <BFBehAnimate targetAnim="StandItem_Eat"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:EatStanding" priority="-1" timeout="30" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </StandEatFinger>
+   <PicnicEatHand>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Eat"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Eat"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Eat"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </PicnicEatHand>
+   <PicnicEat>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Eat"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Eat"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Eat"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </PicnicEat>
+   <PicnicEatFinger>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_EatFingerFood"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_EatFingerFood"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_EatFingerFood"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </PicnicEatFinger>
+   <PicnicLick>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:EatTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Lick"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Lick"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Lick"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </PicnicLick>
+   <PicnicSip>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:DrinkTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Sip"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Sip"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Sip"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </PicnicSip>
+   <PicnicDrink>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" locoMod="carry" detachAction="inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoSitTable"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoSit" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:DrinkTable" useObjectName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Drink"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Drink"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Idle"/>
+         <BFBehAnimate targetAnim="SitPicnicTableItem_Drink"/>
+         <BFBehDetachObject detachEntity="object" detachAction="maketrash"/>
+      </behaviors>
+   </PicnicDrink>
+   
+   <EnterGazebo1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="EnterA"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="EnterA" exitTap="false"/>
+      </behaviors>
+   </EnterGazebo1>  
+   <ExitGazebo1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+		<BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="ExitA" exitTAP="true"/>
+	  </behaviors>
+   </ExitGazebo1>
+
+
+   <EnterGazebo2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="EnterB"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="EnterB" exitTap="false"/>
+      </behaviors>
+   </EnterGazebo2>  
+   <ExitGazebo2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+		<BFBehAnimate targetAnim="Stand_Turn180"/>
+		<BFBehAnimateTAP subjectNode="Floor" targetTAP="ExitB" exitTAP="true"/>
+      </behaviors>
+   </ExitGazebo2>
+   
+   
+   <EnterGazebo3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="EnterC"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="EnterC" exitTap="false"/>
+      </behaviors>
+   </EnterGazebo3>  
+   <ExitGazebo3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+		<BFBehAnimate targetAnim="Stand_Turn180"/>         
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="ExitC" exitTAP="true"/>
+      </behaviors>
+   </ExitGazebo3>
+   
+   
+   
+   <EnterGazebo4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="EnterD"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="EnterD" exitTap="false"/>
+      </behaviors>
+   </EnterGazebo4>  
+   <ExitGazebo4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+		<BFBehAnimate targetAnim="Stand_Turn180"/>
+		<BFBehAnimateTAP subjectNode="Floor" targetTAP="ExitD" exitTAP="true"/>
+      </behaviors>
+   </ExitGazebo4>
+
+
+   <EnterGazebo5>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockTAP targetAnim="Walk_Ahead" subjectNode="Floor" targetTAP="EnterE"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="EnterE" exitTap="false"/>
+      </behaviors>
+   </EnterGazebo5>  
+   <ExitGazebo5>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+  		<BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimateTAP subjectNode="Floor" targetTAP="ExitE" exitTAP="true"/>
+      </behaviors>
+   </ExitGazebo5>
+   
+   <UseGazebo>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:UseGazebo" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:UseGazebo" priority="1" timeout="60" global="false"/>               
+            </ZTFeedbackData>
+         </ZTBehFeedback>      
+	    <BFBehAnimate targetAnim="Stand_Idle"/>
+	    <BFBehAnimate targetAnim="Stand_Idle"/>
+	    <BFBehAnimate targetAnim="Stand_Idle"/>
+      </behaviors>
+   </UseGazebo>       
+   
+   
+   
+   
+</BehaviorSets>

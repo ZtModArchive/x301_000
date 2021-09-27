@@ -1,0 +1,96 @@
+<BFTypedBinder binderType="vehiclegate_reward_end">
+   <types>
+      <entity>
+         <fence>
+            <vehiclegate>
+               <vehiclegate_reward_end/>
+            </vehiclegate>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="fence">
+         <UIAspect>
+            <default image="entities\objects\fences\vehiclegate_reward_end\vehiclegate_end_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:vehiclegate_reward_end"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="vehiclegate_reward_end"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_ProfileLock="vehiclegatelock" s_Product="EndangeredSpecies" b_ReceiveUpdates="true" s_uisort="a" f_FenceStrength="10" s_Zoopedia="zoopedia:zoopedia_vehiclegate_reward:entry" s_Broken="postrail_broken"/>
+      <ZTTourData>
+         <tour value="7"/>
+         <cool value="6"/>
+         <reward value="5"/>
+      </ZTTourData>
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTFence hasCurves="false"/>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTTransportVehicleGate pollFreq="0.1" physObj="gate_animation" openAnim="Bip01_open" closeAnim="Bip01_close" formerFenceType="vehiclegate_reward_end"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="start_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities\objects\fences\vehiclegate_reward_end\vehiclegate_end_post.nif"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fence90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\vehiclegate_reward_end\vehiclegate_end_vert"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fence45">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\vehiclegate_reward_end\vehiclegate_end_diag"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="end_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities\objects\fences\vehiclegate_reward_end\vehiclegate_end_post.nif"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="gate_animation">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities\objects\fences\vehiclegate_reward_end\vehiclegate_end.bfm" updateWhenNotVisible="true"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFSkewComponent axis="0" updatePriority="10"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFSharedPhysVars seeThrough="false"/>
+         </shared>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="160">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance f_FenceStrength="10" f_timeToClose="0.0"/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

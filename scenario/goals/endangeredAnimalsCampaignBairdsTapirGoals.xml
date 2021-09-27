@@ -1,0 +1,50 @@
+<ZTScenarioMgr interval="2" name="mgr" state="0" chain="true" allsuccess="true" sticky="true" optional="false">
+	<info locid="EndangeredAnimals:BairdsTapirIntro"/>
+	<children>
+		<BFScenarioRule hidden="1" name="setinitialzoostate" state="0" sticky="true">
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="setinitialzoostate" />
+			</evaluate>
+		</BFScenarioRule>
+		<BFScenarioGroup hidden="0" name="BairdsTapir" state="0" chain="true" allsuccess="true" sticky="true">
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completebairdstapir" />
+			</success>			
+			<children>
+			<BFScenarioRule name="BairdsTapirNeeds" hidden="0" state="0" sticky="true">
+				<info type="primary" locid="EndangeredAnimals:BairdsTapirOverallGoal">
+					<neutral locid="EndangeredAnimals:BairdsTapirWellBeingGoal" overview="EndangeredAnimals:BairdsTapirOverview" />
+					<success locid="EndangeredAnimals:BairdsTapirWellBeingGoalDone" overview="EndangeredAnimals:BairdsTapirOverview" />
+				</info>
+				<evaluate>
+					<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbairdstapirneeds" />
+				</evaluate>
+				<success>
+					<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completebairdstapirneeds" />
+				</success>
+			</BFScenarioRule>
+			<BFScenarioRule name="BairdsTapirDonations" hidden="1" state="0" sticky="true">
+				<info type="primary" locid="EndangeredAnimals:BairdsTapirOverallGoal">
+					<neutral locid="EndangeredAnimals:BairdsTapirDonationsGoal" overview = "EndangeredAnimals:BairdsTapirDonations" />
+					<success locid="EndangeredAnimals:BairdsTapirDonationsGoalDone" overview="EndangeredAnimals:BairdsTapirDonations" />
+				</info>
+				<evaluate>
+					<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbairdstapirdonations" />
+				</evaluate>
+				<success>
+					<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="completebairdstapirdonations" />
+				</success>
+			</BFScenarioRule>
+			<BFScenarioRule name="BairdsTapirColony" hidden="1" state="0" sticky="true">
+				<info type="primary" locid="EndangeredAnimals:BairdsTapirOverallGoal">
+					<neutral locid="EndangeredAnimals:BairdsTapirOverallGoal" overview = "EndangeredAnimals:BairdsTapirColony" />
+					<success locid="EndangeredAnimals:BairdsTapirOverallGoalDone" overview="EndangeredAnimals:BairdsTapirSuccessOverview" />
+				</info>
+				<evaluate>
+					<BFScenarioScriptAction script="scenario/scripts/endangeredcampaign.lua" entry="evalbairdstapircolony" />
+				</evaluate>
+			</BFScenarioRule>
+		</children>
+		</BFScenarioGroup>	
+	</children>
+</ZTScenarioMgr>

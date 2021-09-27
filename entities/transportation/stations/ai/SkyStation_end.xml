@@ -1,0 +1,201 @@
+<BFTypedBinder binderType="SkyStation_end">
+   <types>
+      <entity>
+         <transportation>
+            <station>
+               <skystation>
+                  <SkyStation_end/>
+               </skystation>
+            </station>
+         </transportation>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="signright1" rottype="use" postype="use" attachnode="Link_Sign1"/>
+            <parentObj parent="mainObj" child="signright2" rottype="use" postype="use" attachnode="Link_Sign2"/>
+            <parentObj parent="mainObj" child="closed" rottype="use" postype="use" attachnode="Link_State"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared s_uisort="b" s_StopNodeName_Forward="TravelPoint_04" s_StopNodeName_Reverse="TravelPoint_04" s_ReturnStopNodeName_Forward="ReturnTravelPoint_03" s_ReturnStopNodeName_Reverse="ReturnTravelPoint_03" s_Zoopedia="zoopedia:zoopedia_skystation:entry" f_FameReq="40"/>
+      <UIToggleButton template="skyplacement">
+         <UIAspect>
+            <default image="entities\transportation\stations\SkyStation\SkyStation_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:SkyStation_end"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="SkyStation_end"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData icon3Doffset="0 0 0.4" waterPlacement="true" icon3Dscale="0.15" terrainLock="true" dockArrowStyle="special" dockArrowSize="1.5" minimumHeadroom="7.5"/>
+      <ZTEntitySelector useFootprint="false" size="6"/>
+   </shared>
+   <binder>     
+	  <BFNamedBinder binderName="sign1controller" repopulateMethod="byName">
+         <instance>
+            <BFGPhysAnimController currState="right" defaultState="right">
+               <stateList>
+                  <right parent="mainObj" child="signright1" rottype="use" postype="use" attachnode="Link_Sign1"/>
+                  <right2left parent="mainObj" child="signright2left1" rottype="use" postype="use" attachnode="Link_Sign1"/>
+                  <left parent="mainObj" child="signleft1" rottype="use" postype="use" attachnode="Link_Sign1"/>
+                  <left2right parent="mainObj" child="signleft2right1" rottype="use" postype="use" attachnode="Link_Sign1"/>
+               </stateList>
+            </BFGPhysAnimController>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="sign2controller" repopulateMethod="byName">
+         <instance>
+            <BFGPhysAnimController currState="right" defaultState="right">
+               <stateList>
+                  <right parent="mainObj" child="signright2" rottype="use" postype="use" attachnode="Link_Sign2"/>
+                  <right2left parent="mainObj" child="signright2left2" rottype="use" postype="use" attachnode="Link_Sign2"/>
+                  <left parent="mainObj" child="signleft2" rottype="use" postype="use" attachnode="Link_Sign2"/>
+                  <left2right parent="mainObj" child="signleft2right2" rottype="use" postype="use" attachnode="Link_Sign2"/>
+               </stateList>
+            </BFGPhysAnimController>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="signright1">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Left.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="signright2">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Right.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="signright2left1" required="0">
+         <instance>
+            <BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Left2Right.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="signright2left2" required="0">
+         <instance>
+            <BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Right2Left.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="signleft1" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Right.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="signleft2" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Left.nif"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="signleft2right1" required="0">
+         <instance>
+            <BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Right2Left.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="signleft2right2" required="0">
+         <instance>
+            <BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Left2Right.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="statecontroller" repopulateMethod="byName">
+         <instance>
+            <BFGPhysAnimController currState="closed" defaultState="closed">
+               <stateList>
+                  <closed parent="mainObj" child="closed" rottype="use" postype="use" attachnode="Link_State"/>
+                  <closed2open parent="mainObj" child="closed2open" rottype="use" postype="use" attachnode="Link_State"/>
+                  <open parent="mainObj" child="open" rottype="use" postype="use" attachnode="Link_State"/>
+                  <open2closed parent="mainObj" child="open2closed" rottype="use" postype="use" attachnode="Link_State"/>
+               </stateList>
+            </BFGPhysAnimController>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="closed" required="1">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities/transportation/stations/SkyStation/SkyStation_State_Closed"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="closed2open" required="0">
+         <instance>
+            <BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/SkyStation/SkyStation_State_Close2Open.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="2"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="open" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities/transportation/stations/SkyStation/SkyStation_State_Open"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="open2closed" required="0">
+         <instance>
+            <BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/SkyStation/SkyStation_State_Open2Close.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\transportation\stations\SkyStation\SkyStation" switch="0 20 40"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="ShadowNode_01" width="12" length="14" offwidth="0" offlength="0" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="1600" mergeKey="name">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="upkeep" cost="25" period="monthly" type="debit" category="upkeep"/>
+               <ZTTransaction name="add_user" cost="1" type="addUser" category="user"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

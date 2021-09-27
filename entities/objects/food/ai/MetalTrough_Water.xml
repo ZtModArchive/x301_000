@@ -1,0 +1,126 @@
+<BFTypedBinder binderType="MetalTrough_Water">
+   <types>
+      <entity>
+         <food>
+            <MetalTrough>
+               <MetalTrough_Water/>
+            </MetalTrough>
+         </food>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\food\MetalTrough\MetalTrough_Water_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:MetalTrough_Water"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="MetalTrough_Water"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_FoodType="Water" s_contents="Terrain_Water" b_Food="false" b_Water="true"/>
+      <ZTUserStaffAction>
+         <SetAttribute effect="SuperStaffPourWater"/>
+      </ZTUserStaffAction>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/food/MetalTrough/MetalTrough"  switch="0 18 36"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="full" required="1">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/food/MetalTrough/MetalTrough_Water_Full.nif"  switch="0 18 36" initialTextKey="snd &quot;MetalTrough_Water&quot; looping"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="10"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="twothird" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/food/MetalTrough/MetalTrough_Water_66.nif"  switch="0 18 36" initialTextKey="snd &quot;MetalTrough_Water&quot; looping"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="onethird" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/food/MetalTrough/MetalTrough_Water_33.nif"  switch="0 18 36" initialTextKey="snd &quot;MetalTrough_Water&quot; looping"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="empty" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/food/MetalTrough/MetalTrough_Water_Empty" />
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance f_FoodLevel="100"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIFadeController attribName="f_FoodLevel" currState="full" fadePeriod="1">
+               <stateList>
+                  <full physObj="full" minRange="66" maxRange="101"/>
+                  <twothird physObj="twothird" minRange="33" maxRange="66"/>
+                  <onethird physObj="onethird" minRange="1" maxRange="33"/>
+                  <empty physObj="empty" minRange="-101" maxRange="1"/>
+               </stateList>
+            </BFAIFadeController>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="450">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="refill" cost="100" type="credit" category="animal_upkeep"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="Eat">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterTrough" useBehSet="DrinkTrough" exitBehSet="ExitTrough" targetNode="Dock_Small_01" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTrough" useBehSet="DrinkTrough" exitBehSet="ExitTrough" targetNode="Dock_Small_02" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTrough" useBehSet="DrinkTrough" exitBehSet="ExitTrough" targetNode="Dock_Small_03" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTrough" useBehSet="DrinkTrough" exitBehSet="ExitTrough" targetNode="Dock_Small_04" capacity="1"/>
+               </slots>
+           </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Eat_Large">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterTrough" useBehSet="DrinkTrough" exitBehSet="ExitTrough" targetNode="Dock_Large_01" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterTrough" useBehSet="DrinkTrough" exitBehSet="ExitTrough" targetNode="Dock_Large_02" capacity="1"/>
+               </slots>
+           </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

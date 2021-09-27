@@ -1,0 +1,117 @@
+<BFTypedBinder binderType="foodstand_salad_et">
+   <types>
+      <entity>
+         <building>
+            <Foodstand>
+               <foodstand_salad>
+                  <foodstand_salad_et/>
+               </foodstand_salad>
+            </Foodstand>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting mergeKey="child">
+            <parentObj parent="mainObj" child="mist03" rottype="ignore" postype="use" attachnode="Link_Mist03"/>
+            <parentObj parent="mainObj" child="mist04" rottype="ignore" postype="use" attachnode="Link_Mist04"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\buildings\foodstand_et\foodstand_salad_et_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:foodstand_salad_et"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="foodstand_salad_et"/>
+         </on>
+      </UIToggleButton>
+      <UIButton name="overviewicon">
+         <UIAspect>
+            <default image="ui/zoomap/icon_food.dds"/>
+         </UIAspect>
+      </UIButton>
+      <BFAIEntityDataShared s_uisort="hk" s_ProfileLock="desertlock" s_ItemsSold="Salad" b_CommerceBuilding="true" b_DonationAcceptor="false" s_Zoopedia="zoopedia:zoopedia_salad:entry" s_Theme="desert" s_Product="CP1" f_FameReq="40"/>
+   		<ZTTourData>
+	 		<theme_desert value="5"/>
+		</ZTTourData>      
+      <ZTTriggeredEventsComponent>
+         <Buy_Item>
+            <nonbroadcast>
+               <event msg="BFSND_PLAY_FROM_ENTITY" data="BFString" string="register_salad"/>
+            </nonbroadcast>
+         </Buy_Item>
+      </ZTTriggeredEventsComponent>
+      <ZTItemFilter>
+         <Include_OR b_Salad="true"/>
+      </ZTItemFilter>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/buildings/Foodstand_et/ColdStand_et.nif" minSwitch="0 30 30 30 30"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist01">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif" scale="0.25"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist02">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif" scale="0.25"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist03">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif" scale="0.25"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mist04">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Mist.nif" scale="0.25"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="600" mergeKey="name">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="upkeep" cost="50" period="monthly" type="debit" category="upkeep"/>
+               <ZTTransaction name="Buy_Item" costIndex="1" costChoice="18 30 40" type="debit" category="concessions_food_drink" nextTransaction="add_user"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1" physObj="Vendor">
+               <subBehaviors>
+                  <BFBehAnimate interruptible="true" physObj="Vendor" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true"/>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

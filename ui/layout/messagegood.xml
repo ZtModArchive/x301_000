@@ -1,0 +1,78 @@
+<UILayout name="MessageEntryGood Layout" columns="-1">
+   <UIRegion x="0" y="0" w="0" h="32" xalign="min" yalign="min" walign="max" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect>
+      <default/>
+   </UIAspect>
+   <children>
+      <UIHoverButton name="selector">
+			<UIRegion x="0" y="-10" w="325" h="32"/>
+			<UIState active="normal" visible="normal"/>
+			<UIHelpInfo name="" short="messages:message_goto_stt" long="messages:message_goto_ltt" help="" ids=""/>			
+			<UIAspect alwayshit="region">
+				<default/>
+				<standard/>
+			</UIAspect>
+			<enter>
+				<event msg="UI_CHILD" data="UIChildData" name="Clickable Icon">
+					<child msg="UI_SET_SRC_RECT" data="BFRect" x="0" y="64" w="64" h="64"/>
+				</event>
+				<event msg="UI_CHILD" data="UIChildData" name="MessageEntry">
+					<child msg="UI_MOUSE_ENTER"/>
+				</event>
+			</enter>
+			<leave>
+				<event msg="UI_CHILD" data="UIChildData" name="Clickable Icon">
+					<child msg="UI_SET_SRC_RECT" data="BFRect" x="0" y="0" w="64" h="64"/>
+				</event>
+				<event msg="UI_CHILD" data="UIChildData" name="MessageEntry">
+					<child msg="UI_MOUSE_LEAVE"/>
+				</event>
+			</leave>
+		</UIHoverButton>
+      <UIText name="MessageEntry" sticky="0" autosize="true">
+         <UIRegion x="32" y="0" w="293" h="0"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect alwayshit="never">
+            <default>
+               <BFFont>
+                  <BFColor r="0" g="255" b="0" a="255"/>
+               </BFFont>
+            </default>
+            <standard>
+               <normal>
+                  <BFFont>
+                     <BFColor r="100" g="255" b="100" a="255"/>
+                  </BFFont>
+               </normal>
+               <highlighted image="">
+                  <BFFont>
+                     <BFColor r="55" g="255" b="55" a="255"/>
+                  </BFFont>
+               </highlighted>
+               <activated image="">
+                  <BFFont>
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </BFFont>
+               </activated>
+               <disabled/>
+            </standard>
+         </UIAspect>
+         <text format="messages:normal_format" type="multi"/>
+      </UIText>	
+      <UIMultiIcon name="Clickable Icon" value="blank">
+         <UIRegion x="0" y="0" w="32" h="32"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect alwayshit="never">
+            <default image="" sound="">
+               <BFRect x="0" y="0" w="64" h="64"/>
+               <BFColor r="255" g="255" b="255" a="255"/>
+            </default>
+         </UIAspect>
+         <images>
+            <image key="blank" image=""/>
+            <image key="click" image="ui/shared/button_message.dds"/>
+         </images>
+      </UIMultiIcon> 
+   </children>
+</UILayout> 

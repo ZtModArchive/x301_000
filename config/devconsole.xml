@@ -1,0 +1,111 @@
+<ZTDevConsole savePath="maps/default">
+   <commands>
+      <exit msg="ZTDEV_EXIT"/>
+      <set msg="ZTDEV_SET"/>
+      <setai msg="ZTDEV_SETAI"/>
+      <get msg="ZTDEV_GET"/>
+      <getai msg="ZTDEV_GETAI"/>
+      <runps msg="ZTDEV_RUNPS"/>
+      <addps msg="ZTDEV_ADDPS"/>
+      <send msg="ZTDEV_SEND_EVENT"/>
+      <sendselected msg="ZTDEV_SEND_SELECTED_EVENT"/>
+      <runscript msg="ZTDEV_RUNSCRIPT"/>
+      <shownode msg="ZTDEV_SHOWNODE"/>
+      <hidenode msg="ZTDEV_HIDENODE"/>
+      <smoothshore msg="ZTDEV_SMOOTHSHORE"/>
+      <viewtiles msg="ZTDEV_VIEWTILES"/>
+      <!--openareas msg="ZTDEV_OPENAREAS"/-->
+      <showcoll msg="ZTDEV_SHOWCOLL"/>
+      <animscale msg="ZTDEV_ANIMSCALE"/>
+      <showgf msg="ZTDEV_SHOWGROUNDFIT"/>
+      <killhumans msg="ZTDEV_KILLHUMANS"/>
+      <cachescripts msg="ZTDEV_CACHESCRIPTS"/>
+      <fame msg="ZTDEV_GETZOOFAME"/>
+      <runslow msg="ZTDEV_RUNSLOW"/>
+      <whap msg="ZTDEV_WHAP"/>
+      <kick msg="ZTDEV_KICK"/>
+      <help msg="ZTDEV_SHOWCOMMANDS"/>
+      <addrel msg="ZTDEV_ADD_RELATIONSHIP"/>
+      <delrel msg="ZTDEV_REMOVE_RELATIONSHIP"/>
+      <tstrel msg="ZTDEV_TEST_RELATIONSHIP"/>
+      <dumptaskdata msg="ZTDEV_DUMPTASKDATA"/>
+      <setsavepath msg="ZTDEV_SET_SAVE_PATH"/>
+      <dry msg="ZTDEV_DRY"/>
+      <xray msg="BFG_TOGGLE_CHECK_VISIBLE"/>
+      <rt msg="BFG_INVALIDATE_ALL_TRAVERSABILITY"/>
+      <reload msg="ZTDEV_RELOAD_FILE"/>
+      <place msg="ZTDEV_PLACE"/>
+      <zoomsg msg="ZT_FEEDBACK_EVENT"/>
+      <dumpscenegraph msg="ZTDEV_DUMPSCENEGRAPH_EVENT"/>
+      <addhl msg="ZTDEV_ADD_HEADLOOK"/>
+      <delhl msg="ZTDEV_REMOVE_HEADLOOK"/>
+      <settime msg="ZTDEV_SET_TIME_OF_DAY"/>
+      <runspeed msg="ZTDEV_RUNSPEED"/>
+      <windspeed msg="ZTDEV_WINDSPEED"/>
+      <gust msg="ZTDEV_GUST"/>
+      <psys msg="ZTDEV_RELOAD_PSYS"/>
+      <minfresnel msg="ZTDEV_MINFRESNEL"/>
+      <splash msg="ZTDEV_SPLASH"/>
+      <spray msg="ZTDEV_SPRAY"/>
+      <psystoggle msg="ZTDEV_PSYSTOGGLE"/>
+      <drawtoggle msg="ZTDEV_DRAWTOGGLE"/>
+      <reloadwater msg="ZTDEV_RELOAD_WATER"/>
+      <mfdevtest msg="ZTDEV_MFDEVTEST"/>
+      <stats msg="ZTDEV_RENDER_STATS"/>
+      <shaders msg="ZTDEV_RELOAD_SHADERS"/>
+      <materials msg="ZTDEV_RELOAD_MATERIALS"/>
+      <trackdebug msg="ZTDEV_TOGGLE_TRACK_DEBUG"/>
+      <limitlights msg="ZTDEV_LIMIT_LIGHTS"/>
+      <protect msg="ZTDEV_SET_PROTECTED_AREA"/>
+      <unprotect msg="ZTDEV_CLEAR_PROTECTED_AREA"/>
+      <map msg="ZTDEV_GENERATE_MAP_INDEX"/>
+      <reloadloc msg="ZTDEV_RELOAD_LOC"/>
+      <savescene msg="ZTDEV_SAVE_SCENE"/>
+      <dotrick msg="ZTDEV_DO_TRICK"/>
+      <trickinfo msg="ZTDEV_GET_TRICK_INFO"/>
+      <spamshowtokens msg="ZTDEV_SPAM_SHOW_TOKENS"/>
+      <settricklevel msg="ZTDEV_SET_TRICK_LEVEL"/>
+      <stripbinders msg="ZTDEV_REMOVE_UNUSED_BINDERS"/>
+      <swd msg="ZTDEV_SET_WATER_DIRTINESS"/>
+      <gwd msg="ZTDEV_GET_WATER_DIRTINESS"/>
+      <displayta msg="ZTDEV_DISPLAY_ENTITY_TA"/>
+   </commands>
+   <alias>
+      <pa cmd="runscript global scripts/playanim.lua exec"/>
+      <gt cmd="runscript global scripts/givetoken.lua exec1"/>
+      <gtnf cmd="runscript global scripts/givetoken.lua exec2"/>
+      <po cmd="runscript scripts/placeobj.lua scripts/placeobj.lua exec"/>
+      <so cmd="runscript scripts/setonly.lua scripts/setonly.lua exec"/>
+      <find cmd="runscript global scripts/findobjects.lua exec"/>
+      <ass cmd="runslow on"/>
+      <noass cmd="runslow off"/>
+      <sd cmd="setsavepath maps/default"/>
+      <ss cmd="setsavepath maps/scenario"/>
+      <su cmd="setsavepath saved"/>
+      <rs cmd="runscript global"/>
+      <rss cmd="runscript BFScenarioScriptAction"/>
+      <sf cmd="runscript BFScenarioScriptAction scripts/zoofame.lua setFamePointsFromConsole"/>
+      <gc cmd="runscript global scripts/challengehooks.lua GetChallenge"/>
+      <ld cmd="send ZTMainMode ZT_SET_LOP_DURATION"/>
+      <getcamera cmd="runscript global tool/tool.lua getCamera"/>
+      <setcamera cmd="runscript global tool/tool.lua setCamera"/>
+      <lights cmd="runscript global tool/lights/lighttool.lua initializeLightTool"/>
+      <resetscenario cmd="runscript global scenario/scripts/misc.lua resetScenarioRules"/>
+      <t cmd="runscript global tool/test.lua run"/>
+      <reloadai cmd="runscript global tool/reloadai.lua run"/>
+      <rebuild cmd="runscript global scripts/rebuild.lua exec"/>
+      <water cmd="runscript global tool/water/watertool.lua initializeWaterTool"/>
+   </alias>
+   <badWords>
+      <!--Add elements here to recognize words.  The element name is the word.-->
+      <xyzzy/>
+      <plugh/>
+      <plover/>
+      <nubefit/>
+   </badWords>
+   <badWordResponses>
+      <!--Add elements here to randomly respond to the above words.  The first attribute value is the response.-->
+      <response text="A hollow voice says, &quot;Fool!&quot;"/>
+      <response text="Wicked awesome!  Let's go to Wista!"/>
+   </badWordResponses>
+</ZTDevConsole>

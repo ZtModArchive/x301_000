@@ -1,0 +1,69 @@
+<ZTScenarioMgr interval="2" name="mgr" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<info locid="AfricaCampaign:SecretaryBirdIntro"/>
+	<children>
+		<BFScenarioRule hidden="1" name="setinitialzoostate" state="0" sticky="true">
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/africancampaignscen2.lua" entry="setinitialzoostate" />
+			</evaluate>
+		</BFScenarioRule>		
+		<BFScenarioGroup hidden="0" name="Guest" state="0" chain="true" allsuccess="true" sticky="true">
+			<children>
+				<BFScenarioRule name="GuestGoal" hidden="0" state="0" sticky="true">
+					<info type="primary">
+						<neutral locid="AfricaCampaign:SecretaryBirdGuestsGoal" overview="AfricaCampaign:SecretaryBirdGuests"/>
+						<success locid="AfricaCampaign:SecretaryBirdGuestsGoalDone" overview="AfricaCampaign:SecretaryBirdGuests"/>
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen2.lua" entry="evalGuest" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen2.lua" entry="completeGuest" />
+					</success>
+				</BFScenarioRule>	
+			</children>	
+		</BFScenarioGroup>			
+		<BFScenarioGroup hidden="0" name="FinalGoals" state="0" chain="true" allsuccess="true" sticky="true">
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/africancampaignscen2.lua" entry="completesecretaryscenario" />
+			</success>
+			<children>
+				<BFScenarioRule name="SecretaryPhotoSet1" hidden="0" state="0" sticky="true">
+					<info type="primary">
+						<neutral locid="AfricaCampaign:SecretaryBirdPart1Goals" overview="AfricaCampaign:SecretaryBirdOverview" />
+						<success locid="AfricaCampaign:SecretaryBirdPart1GoalsDone" overview="AfricaCampaign:SecretaryBirdOverview" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen2.lua" entry="evalsecretaryphotos1" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen2.lua" entry="completesecretaryphotos1" />
+					</success>
+				</BFScenarioRule>			
+				<BFScenarioRule name="SecretaryPhotoSet2" hidden="1" state="0" sticky="true">
+					<info type="primary">
+						<neutral locid="AfricaCampaign:SecretaryBirdPart2Goals" overview="AfricaCampaign:SecretaryBirdBehaviors" />
+						<success locid="AfricaCampaign:SecretaryBirdPart2GoalsDone" overview="AfricaCampaign:SecretaryBirdBehaviors" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen2.lua" entry="evalsecretaryphotos2" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen2.lua" entry="completesecretaryphotos2" />
+					</success>
+				</BFScenarioRule>
+				<BFScenarioRule name="SecretaryPhotoSet3" hidden="1" state="0" sticky="true">
+					<info type="primary">
+						<neutral locid="AfricaCampaign:SecretaryBirdEggGoal" overview="AfricaCampaign:SecretaryBirdBreed" />
+						<success locid="AfricaCampaign:SecretaryBirdEggGoalDone" overview="AfricaCampaign:SecretaryBirdBreed" />
+					</info>
+					<evaluate>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen2.lua" entry="evalsecretaryphotos3" />
+					</evaluate>
+					<success>
+						<BFScenarioScriptAction script="scenario/scripts/africancampaignscen2.lua" entry="completesecretaryphotos3" />
+					</success>
+				</BFScenarioRule>
+			</children>
+		</BFScenarioGroup>			
+	</children>
+</ZTScenarioMgr>

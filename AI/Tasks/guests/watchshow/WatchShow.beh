@@ -1,0 +1,1167 @@
+<BehaviorSets>
+   <WatchShow_Path>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:WatchingShow"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehWatchShow>
+            <EventScoring>
+               <BeforeShow BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="20" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Path_Midpoint"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Path_Midpoint"/>
+               </BeforeShow>
+               <DefaultEvent BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="20" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Path_Neg_1"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Path_Pos_1"/>
+               </DefaultEvent>
+               <TrickSuccess BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="20" TrickPopularityMult="0.3" ShowQualityMult="6">
+                  <Reaction MinScore="0" BehSet="TrickSuccess_Path_Pos_1"/>
+                  <Reaction MinScore="10" BehSet="TrickSuccess_Path_Pos_1"/>
+                  <Reaction MinScore="20" BehSet="TrickSuccess_Path_Pos_2"/>
+                  <Reaction MinScore="30" BehSet="TrickSuccess_Path_Pos_3"/>
+                  <Reaction MinScore="40" BehSet="TrickSuccess_Path_Pos_4"/>
+                  <Reaction MinScore="50" BehSet="TrickSuccess_Path_Pos_5"/>
+                  <Reaction MinScore="60" BehSet="TrickSuccess_Path_Pos_6"/>
+                  <Reaction MinScore="70" BehSet="TrickSuccess_Path_Pos_7"/>
+                  <Reaction MinScore="80" BehSet="TrickSuccess_Path_Pos_8"/>
+                  <Reaction MinScore="90" BehSet="TrickSuccess_Path_Pos_9"/>
+                  <Reaction MinScore="100" BehSet="TrickSuccess_Path_Pos_10"/>
+               </TrickSuccess>
+               <TrickFailure BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="-20" TrickPopularityMult="-0.1" ShowQualityMult="-2" PerPrevious="40" IgnorePrevious="2">
+                  <Reaction MinScore="0" BehSet="TrickFailure_Path_Neg_1"/>
+                  <Reaction MinScore="10" BehSet="TrickFailure_Path_Neg_1"/>
+                  <Reaction MinScore="20" BehSet="TrickFailure_Path_Neg_2"/>
+                  <Reaction MinScore="30" BehSet="TrickFailure_Path_Neg_3"/>
+                  <Reaction MinScore="40" BehSet="TrickFailure_Path_Neg_4"/>
+                  <Reaction MinScore="50" BehSet="TrickFailure_Path_Neg_5"/>
+                  <Reaction MinScore="60" BehSet="TrickFailure_Path_Neg_6"/>
+                  <Reaction MinScore="70" BehSet="TrickFailure_Path_Neg_7"/>
+                  <Reaction MinScore="80" BehSet="TrickFailure_Path_Neg_8"/>
+                  <Reaction MinScore="90" BehSet="TrickFailure_Path_Neg_9"/>
+                  <Reaction MinScore="100" BehSet="TrickFailure_Path_Neg_10"/>
+               </TrickFailure>
+               <TrickCritical BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="20" TrickPopularityMult="0.3" ShowQualityMult="6" PerPrevious="40">
+                  <Reaction MinScore="0" BehSet="TrickCritical_Path_Pos_1"/>
+                  <Reaction MinScore="10" BehSet="TrickCritical_Path_Pos_1"/>
+                  <Reaction MinScore="20" BehSet="TrickCritical_Path_Pos_2"/>
+                  <Reaction MinScore="30" BehSet="TrickCritical_Path_Pos_3"/>
+                  <Reaction MinScore="40" BehSet="TrickCritical_Path_Pos_4"/>
+                  <Reaction MinScore="50" BehSet="TrickCritical_Path_Pos_5"/>
+                  <Reaction MinScore="60" BehSet="TrickCritical_Path_Pos_6"/>
+                  <Reaction MinScore="70" BehSet="TrickCritical_Path_Pos_7"/>
+                  <Reaction MinScore="80" BehSet="TrickCritical_Path_Pos_8"/>
+                  <Reaction MinScore="90" BehSet="TrickCritical_Path_Pos_9"/>
+                  <Reaction MinScore="100" BehSet="TrickCritical_Path_Pos_10"/>
+               </TrickCritical>
+               <AnimalEnters BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="70" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Path_Midpoint"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Path_Pos_1"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Path_Pos_3"/>
+               </AnimalEnters>
+               <AnimalLeaves BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="70" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Path_Midpoint"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Path_Pos_1"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Path_Pos_3"/>
+               </AnimalLeaves>
+               <MCEvent BaseScore="0" FuzzyFactor="50" ShowQualityMult="20">
+                  <Reaction MinScore="0" BehSet="WatchShow_Path_Midpoint"/>
+                  <Reaction MinScore="50" BehSet="WatchShow_Path_Pos_2"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Path_Pos_5"/>
+               </MCEvent>
+               <Splashed Priority="10" BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="20" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="Splashed_Path"/>
+               </Splashed>
+               <WatchingAnimal BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="20" TrickPopularityMult="0.3" ShowQualityMult="6">
+                  <Reaction MinScore="0" BehSet="WatchShow_Path_Pos_1"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Path_Pos_1"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Path_Pos_3"/>
+               </WatchingAnimal>
+               <ShowEnds Priority="100" ShowQualityMult="1">
+                  <Reaction MinScore="0" BehSet="WatchShow_Path_Pos_1"/>
+                  <Reaction MinScore="1" BehSet="WatchShow_Path_Pos_3"/>
+                  <Reaction MinScore="2" BehSet="WatchShow_Path_Pos_5"/>
+                  <Reaction MinScore="3" BehSet="WatchShow_Path_Pos_7"/>
+                  <Reaction MinScore="4" BehSet="WatchShow_Path_Pos_9"/>
+               </ShowEnds>
+               <ShowCancelled Priority="100" ShowQualityMult="1">
+                  <Reaction MinScore="0" BehSet="WatchShow_Path_Neg_5"/>
+                  <Reaction MinScore="1" BehSet="WatchShow_Path_Neg_4"/>
+                  <Reaction MinScore="2" BehSet="WatchShow_Path_Neg_3"/>
+                  <Reaction MinScore="3" BehSet="WatchShow_Path_Neg_2"/>
+                  <Reaction MinScore="4" BehSet="WatchShow_Path_Neg_1"/>
+               </ShowCancelled>
+            </EventScoring>
+         </ZTBehWatchShow>
+      </behaviors>
+   </WatchShow_Path>
+   <TrickFailure_Path_Neg_1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Neg_1"/>
+      </behaviors>
+   </TrickFailure_Path_Neg_1>
+   <TrickFailure_Path_Neg_2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Neg_2"/>
+      </behaviors>
+   </TrickFailure_Path_Neg_2>
+   <TrickFailure_Path_Neg_3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Neg_3"/>
+      </behaviors>
+   </TrickFailure_Path_Neg_3>
+   <TrickFailure_Path_Neg_4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Neg_4"/>
+      </behaviors>
+   </TrickFailure_Path_Neg_4>
+   <TrickFailure_Path_Neg_5>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Neg_5"/>
+      </behaviors>
+   </TrickFailure_Path_Neg_5>
+   <TrickFailure_Path_Neg_6>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Neg_6"/>
+      </behaviors>
+   </TrickFailure_Path_Neg_6>
+   <TrickFailure_Path_Neg_7>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Neg_7"/>
+      </behaviors>
+   </TrickFailure_Path_Neg_7>
+   <TrickFailure_Path_Neg_8>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Neg_8"/>
+      </behaviors>
+   </TrickFailure_Path_Neg_8>
+   <TrickFailure_Path_Neg_9>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Neg_9"/>
+      </behaviors>
+   </TrickFailure_Path_Neg_9>
+   <TrickFailure_Path_Neg_10>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Neg_10"/>
+      </behaviors>
+   </TrickFailure_Path_Neg_10>
+   <TrickSuccess_Path_Pos_1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_1"/>
+      </behaviors>
+   </TrickSuccess_Path_Pos_1>
+   <TrickSuccess_Path_Pos_2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_2"/>
+      </behaviors>
+   </TrickSuccess_Path_Pos_2>
+   <TrickSuccess_Path_Pos_3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_3"/>
+      </behaviors>
+   </TrickSuccess_Path_Pos_3>
+   <TrickSuccess_Path_Pos_4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_4"/>
+      </behaviors>
+   </TrickSuccess_Path_Pos_4>
+   <TrickSuccess_Path_Pos_5>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_5"/>
+      </behaviors>
+   </TrickSuccess_Path_Pos_5>
+   <TrickSuccess_Path_Pos_6>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_6"/>
+      </behaviors>
+   </TrickSuccess_Path_Pos_6>
+   <TrickSuccess_Path_Pos_7>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_7"/>
+      </behaviors>
+   </TrickSuccess_Path_Pos_7>
+   <TrickSuccess_Path_Pos_8>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_8"/>
+      </behaviors>
+   </TrickSuccess_Path_Pos_8>
+   <TrickSuccess_Path_Pos_9>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_9"/>
+      </behaviors>
+   </TrickSuccess_Path_Pos_9>
+   <TrickSuccess_Path_Pos_10>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_10"/>
+      </behaviors>
+   </TrickSuccess_Path_Pos_10>
+   <TrickCritical_Path_Pos_1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_1"/>
+      </behaviors>
+   </TrickCritical_Path_Pos_1>
+   <TrickCritical_Path_Pos_2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_2"/>
+      </behaviors>
+   </TrickCritical_Path_Pos_2>
+   <TrickCritical_Path_Pos_3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_3"/>
+      </behaviors>
+   </TrickCritical_Path_Pos_3>
+   <TrickCritical_Path_Pos_4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_4"/>
+      </behaviors>
+   </TrickCritical_Path_Pos_4>
+   <TrickCritical_Path_Pos_5>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_5"/>
+      </behaviors>
+   </TrickCritical_Path_Pos_5>
+   <TrickCritical_Path_Pos_6>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_6"/>
+      </behaviors>
+   </TrickCritical_Path_Pos_6>
+   <TrickCritical_Path_Pos_7>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_7"/>
+      </behaviors>
+   </TrickCritical_Path_Pos_7>
+   <TrickCritical_Path_Pos_8>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_8"/>
+      </behaviors>
+   </TrickCritical_Path_Pos_8>
+   <TrickCritical_Path_Pos_9>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_9"/>
+      </behaviors>
+   </TrickCritical_Path_Pos_9>
+   <TrickCritical_Path_Pos_10>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Path_Pos_10"/>
+      </behaviors>
+   </TrickCritical_Path_Pos_10>
+   <WatchShow_Bench>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:WatchingShow"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehWatchShow>
+            <EventScoring>
+               <BeforeShow BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="20" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Midpoint"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Bench_Midpoint"/>
+               </BeforeShow>
+               <DefaultEvent BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="20" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Neg_1"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Bench_Pos_1"/>
+               </DefaultEvent>
+               <TrickSuccess BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="20" TrickPopularityMult="0.3" ShowQualityMult="6">
+                  <Reaction MinScore="0" BehSet="TrickSuccess_Bench_Pos_1"/>
+                  <Reaction MinScore="10" BehSet="TrickSuccess_Bench_Pos_1"/>
+                  <Reaction MinScore="20" BehSet="TrickSuccess_Bench_Pos_2"/>
+                  <Reaction MinScore="30" BehSet="TrickSuccess_Bench_Pos_3"/>
+                  <Reaction MinScore="40" BehSet="TrickSuccess_Bench_Pos_4"/>
+                  <Reaction MinScore="50" BehSet="TrickSuccess_Bench_Pos_5"/>
+                  <Reaction MinScore="60" BehSet="TrickSuccess_Bench_Pos_6"/>
+                  <Reaction MinScore="70" BehSet="TrickSuccess_Bench_Pos_7"/>
+                  <Reaction MinScore="80" BehSet="TrickSuccess_Bench_Pos_8"/>
+                  <Reaction MinScore="90" BehSet="TrickSuccess_Bench_Pos_9"/>
+                  <Reaction MinScore="100" BehSet="TrickSuccess_Bench_Pos_10"/>
+               </TrickSuccess>
+               <TrickFailure BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="-20" TrickPopularityMult="-0.1" ShowQualityMult="-2" PerPrevious="40" IgnorePrevious="2">
+                  <Reaction MinScore="0" BehSet="TrickFailure_Bench_Neg_1"/>
+                  <Reaction MinScore="10" BehSet="TrickFailure_Bench_Neg_1"/>
+                  <Reaction MinScore="20" BehSet="TrickFailure_Bench_Neg_2"/>
+                  <Reaction MinScore="30" BehSet="TrickFailure_Bench_Neg_3"/>
+                  <Reaction MinScore="40" BehSet="TrickFailure_Bench_Neg_4"/>
+                  <Reaction MinScore="50" BehSet="TrickFailure_Bench_Neg_5"/>
+                  <Reaction MinScore="60" BehSet="TrickFailure_Bench_Neg_6"/>
+                  <Reaction MinScore="70" BehSet="TrickFailure_Bench_Neg_7"/>
+                  <Reaction MinScore="80" BehSet="TrickFailure_Bench_Neg_8"/>
+                  <Reaction MinScore="90" BehSet="TrickFailure_Bench_Neg_9"/>
+                  <Reaction MinScore="100" BehSet="TrickFailure_Bench_Neg_10"/>
+               </TrickFailure>
+               <TrickCritical BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="20" TrickPopularityMult="0.3" ShowQualityMult="6" PerPrevious="40">
+                  <Reaction MinScore="0" BehSet="TrickCritical_Bench_Pos_1"/>
+                  <Reaction MinScore="10" BehSet="TrickCritical_Bench_Pos_1"/>
+                  <Reaction MinScore="20" BehSet="TrickCritical_Bench_Pos_2"/>
+                  <Reaction MinScore="30" BehSet="TrickCritical_Bench_Pos_3"/>
+                  <Reaction MinScore="40" BehSet="TrickCritical_Bench_Pos_4"/>
+                  <Reaction MinScore="50" BehSet="TrickCritical_Bench_Pos_5"/>
+                  <Reaction MinScore="60" BehSet="TrickCritical_Bench_Pos_6"/>
+                  <Reaction MinScore="70" BehSet="TrickCritical_Bench_Pos_7"/>
+                  <Reaction MinScore="80" BehSet="TrickCritical_Bench_Pos_8"/>
+                  <Reaction MinScore="90" BehSet="TrickCritical_Bench_Pos_9"/>
+                  <Reaction MinScore="100" BehSet="TrickCritical_Bench_Pos_10"/>
+               </TrickCritical>
+               <AnimalEnters BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="70" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Midpoint"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Bench_Pos_1"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Bench_Pos_3"/>
+               </AnimalEnters>
+               <AnimalLeaves BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="70" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Midpoint"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Bench_Pos_1"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Bench_Pos_3"/>
+               </AnimalLeaves>
+               <MCEvent BaseScore="0" FuzzyFactor="50" ShowQualityMult="20">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Midpoint"/>
+                  <Reaction MinScore="50" BehSet="WatchShow_Bench_Pos_2"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Bench_Pos_5"/>
+               </MCEvent>
+               <Splashed Priority="10" BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="20" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="Splashed_Seating"/>
+               </Splashed>
+               <WatchingAnimal BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="20" TrickPopularityMult="0.3" ShowQualityMult="6">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Pos_1"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Bench_Pos_1"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Bench_Pos_3"/>
+               </WatchingAnimal>
+               <ShowEnds Priority="100" ShowQualityMult="1">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Pos_1"/>
+                  <Reaction MinScore="1" BehSet="WatchShow_Bench_Pos_3"/>
+                  <Reaction MinScore="2" BehSet="WatchShow_Bench_Pos_5"/>
+                  <Reaction MinScore="3" BehSet="WatchShow_Bench_Pos_7"/>
+                  <Reaction MinScore="4" BehSet="WatchShow_Bench_Pos_9"/>
+               </ShowEnds>
+               <ShowCancelled Priority="100" ShowQualityMult="1">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Neg_5"/>
+                  <Reaction MinScore="1" BehSet="WatchShow_Bench_Neg_4"/>
+                  <Reaction MinScore="2" BehSet="WatchShow_Bench_Neg_3"/>
+                  <Reaction MinScore="3" BehSet="WatchShow_Bench_Neg_2"/>
+                  <Reaction MinScore="4" BehSet="WatchShow_Bench_Neg_1"/>
+               </ShowCancelled>
+            </EventScoring>
+         </ZTBehWatchShow>
+      </behaviors>
+   </WatchShow_Bench>
+   <TrickFailure_Bench_Neg_1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Neg_1"/>
+      </behaviors>
+   </TrickFailure_Bench_Neg_1>
+   <TrickFailure_Bench_Neg_2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Neg_2"/>
+      </behaviors>
+   </TrickFailure_Bench_Neg_2>
+   <TrickFailure_Bench_Neg_3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Neg_3"/>
+      </behaviors>
+   </TrickFailure_Bench_Neg_3>
+   <TrickFailure_Bench_Neg_4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Neg_4"/>
+      </behaviors>
+   </TrickFailure_Bench_Neg_4>
+   <TrickFailure_Bench_Neg_5>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Neg_5"/>
+      </behaviors>
+   </TrickFailure_Bench_Neg_5>
+   <TrickFailure_Bench_Neg_6>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Neg_6"/>
+      </behaviors>
+   </TrickFailure_Bench_Neg_6>
+   <TrickFailure_Bench_Neg_7>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Neg_7"/>
+      </behaviors>
+   </TrickFailure_Bench_Neg_7>
+   <TrickFailure_Bench_Neg_8>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Neg_8"/>
+      </behaviors>
+   </TrickFailure_Bench_Neg_8>
+   <TrickFailure_Bench_Neg_9>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Neg_9"/>
+      </behaviors>
+   </TrickFailure_Bench_Neg_9>
+   <TrickFailure_Bench_Neg_10>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickFailure" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Neg_10"/>
+      </behaviors>
+   </TrickFailure_Bench_Neg_10>
+   <TrickSuccess_Bench_Pos_1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_1"/>
+      </behaviors>
+   </TrickSuccess_Bench_Pos_1>
+   <TrickSuccess_Bench_Pos_2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_2"/>
+      </behaviors>
+   </TrickSuccess_Bench_Pos_2>
+   <TrickSuccess_Bench_Pos_3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_3"/>
+      </behaviors>
+   </TrickSuccess_Bench_Pos_3>
+   <TrickSuccess_Bench_Pos_4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_4"/>
+      </behaviors>
+   </TrickSuccess_Bench_Pos_4>
+   <TrickSuccess_Bench_Pos_5>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_5"/>
+      </behaviors>
+   </TrickSuccess_Bench_Pos_5>
+   <TrickSuccess_Bench_Pos_6>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_6"/>
+      </behaviors>
+   </TrickSuccess_Bench_Pos_6>
+   <TrickSuccess_Bench_Pos_7>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_7"/>
+      </behaviors>
+   </TrickSuccess_Bench_Pos_7>
+   <TrickSuccess_Bench_Pos_8>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_8"/>
+      </behaviors>
+   </TrickSuccess_Bench_Pos_8>
+   <TrickSuccess_Bench_Pos_9>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_9"/>
+      </behaviors>
+   </TrickSuccess_Bench_Pos_9>
+   <TrickSuccess_Bench_Pos_10>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickSuccess" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_10"/>
+      </behaviors>
+   </TrickSuccess_Bench_Pos_10>
+   <TrickCritical_Bench_Pos_1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_1"/>
+      </behaviors>
+   </TrickCritical_Bench_Pos_1>
+   <TrickCritical_Bench_Pos_2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_2"/>
+      </behaviors>
+   </TrickCritical_Bench_Pos_2>
+   <TrickCritical_Bench_Pos_3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_3"/>
+      </behaviors>
+   </TrickCritical_Bench_Pos_3>
+   <TrickCritical_Bench_Pos_4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_4"/>
+      </behaviors>
+   </TrickCritical_Bench_Pos_4>
+   <TrickCritical_Bench_Pos_5>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_5"/>
+      </behaviors>
+   </TrickCritical_Bench_Pos_5>
+   <TrickCritical_Bench_Pos_6>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_6"/>
+      </behaviors>
+   </TrickCritical_Bench_Pos_6>
+   <TrickCritical_Bench_Pos_7>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_7"/>
+      </behaviors>
+   </TrickCritical_Bench_Pos_7>
+   <TrickCritical_Bench_Pos_8>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_8"/>
+      </behaviors>
+   </TrickCritical_Bench_Pos_8>
+   <TrickCritical_Bench_Pos_9>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_9"/>
+      </behaviors>
+   </TrickCritical_Bench_Pos_9>
+   <TrickCritical_Bench_Pos_10>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:ShowTrickCritical" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="WatchShow_Bench_Pos_10"/>
+      </behaviors>
+   </TrickCritical_Bench_Pos_10>
+   <EnterGrandstand>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToWatchShow"/>
+               <ZTThoughtInfo locID="guestthoughts:GoWatchShow" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehHeadLook/>
+         <BFBehDock targetNode="Dock_Aisle_In" locoSpeed="medium"/>
+         <BFBehHeadLook disengage="true"/>
+         <BFBehDockNow redock="true" parentToTarget="true"/>
+         <BFBehAnimate targetAnim="SitBench_Idle" interruptFlag="true"/>
+      </behaviors>
+   </EnterGrandstand>
+   <UseGrandstand>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:WatchingShow"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehWatchShow>
+            <EventScoring>
+               <BeforeShow BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="20" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Midpoint"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Bench_Midpoint"/>
+               </BeforeShow>
+               <DefaultEvent BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="20" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Neg_1"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Bench_Pos_1"/>
+               </DefaultEvent>
+               <TrickSuccess BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="20" TrickPopularityMult="0.3" ShowQualityMult="6">
+                  <Reaction MinScore="0" BehSet="TrickSuccess_Bench_Pos_1"/>
+                  <Reaction MinScore="10" BehSet="TrickSuccess_Bench_Pos_1"/>
+                  <Reaction MinScore="20" BehSet="TrickSuccess_Bench_Pos_2"/>
+                  <Reaction MinScore="30" BehSet="TrickSuccess_Bench_Pos_3"/>
+                  <Reaction MinScore="40" BehSet="TrickSuccess_Bench_Pos_4"/>
+                  <Reaction MinScore="50" BehSet="TrickSuccess_Bench_Pos_5"/>
+                  <Reaction MinScore="60" BehSet="TrickSuccess_Bench_Pos_6"/>
+                  <Reaction MinScore="70" BehSet="TrickSuccess_Bench_Pos_7"/>
+                  <Reaction MinScore="80" BehSet="TrickSuccess_Bench_Pos_8"/>
+                  <Reaction MinScore="90" BehSet="TrickSuccess_Bench_Pos_9"/>
+                  <Reaction MinScore="100" BehSet="TrickSuccess_Bench_Pos_10"/>
+               </TrickSuccess>
+               <TrickFailure BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="-20" TrickPopularityMult="-0.1" ShowQualityMult="-2" PerPrevious="40" IgnorePrevious="2">
+                  <Reaction MinScore="0" BehSet="TrickFailure_Bench_Neg_1"/>
+                  <Reaction MinScore="10" BehSet="TrickFailure_Bench_Neg_1"/>
+                  <Reaction MinScore="20" BehSet="TrickFailure_Bench_Neg_2"/>
+                  <Reaction MinScore="30" BehSet="TrickFailure_Bench_Neg_3"/>
+                  <Reaction MinScore="40" BehSet="TrickFailure_Bench_Neg_4"/>
+                  <Reaction MinScore="50" BehSet="TrickFailure_Bench_Neg_5"/>
+                  <Reaction MinScore="60" BehSet="TrickFailure_Bench_Neg_6"/>
+                  <Reaction MinScore="70" BehSet="TrickFailure_Bench_Neg_7"/>
+                  <Reaction MinScore="80" BehSet="TrickFailure_Bench_Neg_8"/>
+                  <Reaction MinScore="90" BehSet="TrickFailure_Bench_Neg_9"/>
+                  <Reaction MinScore="100" BehSet="TrickFailure_Bench_Neg_10"/>
+               </TrickFailure>
+               <TrickCritical BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="20" TrickPopularityMult="0.3" ShowQualityMult="6" PerPrevious="40">
+                  <Reaction MinScore="0" BehSet="TrickCritical_Bench_Pos_1"/>
+                  <Reaction MinScore="10" BehSet="TrickCritical_Bench_Pos_1"/>
+                  <Reaction MinScore="20" BehSet="TrickCritical_Bench_Pos_2"/>
+                  <Reaction MinScore="30" BehSet="TrickCritical_Bench_Pos_3"/>
+                  <Reaction MinScore="40" BehSet="TrickCritical_Bench_Pos_4"/>
+                  <Reaction MinScore="50" BehSet="TrickCritical_Bench_Pos_5"/>
+                  <Reaction MinScore="60" BehSet="TrickCritical_Bench_Pos_6"/>
+                  <Reaction MinScore="70" BehSet="TrickCritical_Bench_Pos_7"/>
+                  <Reaction MinScore="80" BehSet="TrickCritical_Bench_Pos_8"/>
+                  <Reaction MinScore="90" BehSet="TrickCritical_Bench_Pos_9"/>
+                  <Reaction MinScore="100" BehSet="TrickCritical_Bench_Pos_10"/>
+               </TrickCritical>
+               <AnimalEnters BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="70" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Midpoint"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Bench_Pos_1"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Bench_Pos_3"/>
+               </AnimalEnters>
+               <AnimalLeaves BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="70" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Midpoint"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Bench_Pos_1"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Bench_Pos_3"/>
+               </AnimalLeaves>
+               <MCEvent BaseScore="0" FuzzyFactor="50" ShowQualityMult="20">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Midpoint"/>
+                  <Reaction MinScore="50" BehSet="WatchShow_Bench_Pos_2"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Bench_Pos_5"/>
+               </MCEvent>
+               <Splashed Priority="10" BaseScore="10" FuzzyFactor="20" FavoriteAnimalBonus="20" ShowQualityMult="4">
+                  <Reaction MinScore="0" BehSet="Splashed_Seating"/>
+               </Splashed>
+               <WatchingAnimal BaseScore="20" FuzzyFactor="20" FavoriteAnimalBonus="20" TrickPopularityMult="0.3" ShowQualityMult="6">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Pos_1"/>
+                  <Reaction MinScore="30" BehSet="WatchShow_Bench_Pos_1"/>
+                  <Reaction MinScore="100" BehSet="WatchShow_Bench_Pos_3"/>
+               </WatchingAnimal>
+               <ShowEnds Priority="100" ShowQualityMult="1">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Pos_1"/>
+                  <Reaction MinScore="1" BehSet="WatchShow_Bench_Pos_3"/>
+                  <Reaction MinScore="2" BehSet="WatchShow_Bench_Pos_5"/>
+                  <Reaction MinScore="3" BehSet="WatchShow_Bench_Pos_7"/>
+                  <Reaction MinScore="4" BehSet="WatchShow_Bench_Pos_9"/>
+               </ShowEnds>
+               <ShowCancelled Priority="100" ShowQualityMult="1">
+                  <Reaction MinScore="0" BehSet="WatchShow_Bench_Neg_5"/>
+                  <Reaction MinScore="1" BehSet="WatchShow_Bench_Neg_4"/>
+                  <Reaction MinScore="2" BehSet="WatchShow_Bench_Neg_3"/>
+                  <Reaction MinScore="3" BehSet="WatchShow_Bench_Neg_2"/>
+                  <Reaction MinScore="4" BehSet="WatchShow_Bench_Neg_1"/>
+               </ShowCancelled>
+            </EventScoring>
+         </ZTBehWatchShow>
+      </behaviors>
+   </UseGrandstand>
+   <ExitGrandstand>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehRandomSet>
+            <randomSets>
+               <TeleportOutGrandstand_1 weight="16.67"/>
+               <TeleportOutGrandstand_2 weight="16.67"/>
+               <TeleportOutGrandstand_3 weight="16.67"/>
+               <TeleportOutGrandstand_4 weight="16.67"/>
+               <TeleportOutGrandstand_5 weight="16.67"/>
+               <TeleportOutGrandstand_6 weight="16.67"/>
+            </randomSets>
+         </BFBehRandomSet>
+         <BFBehAnimate targetAnim="Stand_Idle" interruptFlag="true"/>
+         <BFBehWander minPlayTime="1" maxPlayTime="3" avoidWater="true"/>
+      </behaviors>
+   </ExitGrandstand>
+   <TeleportOutGrandstand_1>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockNow redock="true" unparent="true" targetNode="Dock_Aisle_Out_1"/>
+      </behaviors>
+   </TeleportOutGrandstand_1>
+   <TeleportOutGrandstand_2>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockNow redock="true" unparent="true" targetNode="Dock_Aisle_Out_2"/>
+      </behaviors>
+   </TeleportOutGrandstand_2>
+   <TeleportOutGrandstand_3>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockNow redock="true" unparent="true" targetNode="Dock_Aisle_Out_3"/>
+      </behaviors>
+   </TeleportOutGrandstand_3>
+   <TeleportOutGrandstand_4>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockNow redock="true" unparent="true" targetNode="Dock_Aisle_Out_4"/>
+      </behaviors>
+   </TeleportOutGrandstand_4>
+   <TeleportOutGrandstand_5>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockNow redock="true" unparent="true" targetNode="Dock_Aisle_Out_5"/>
+      </behaviors>
+   </TeleportOutGrandstand_5>
+   <TeleportOutGrandstand_6>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockNow redock="true" unparent="true" targetNode="Dock_Aisle_Out_6"/>
+      </behaviors>
+   </TeleportOutGrandstand_6>
+</BehaviorSets>

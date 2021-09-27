@@ -1,0 +1,55 @@
+<BFTypedBinder binderType="Guest_Adult_M" abstract="true">
+   <types>
+      <entity>
+         <actor>
+            <people>
+               <Guest>
+                  <Guest_Adult>
+                     <Guest_Adult_M/>
+                  </Guest_Adult>
+               </Guest>
+            </people>
+         </actor>
+      </entity>
+   </types>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\units\guests\AdultMale\Guest_Adult_M_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Guest_Adult_M"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData gridSnap="false" randomRotate="false"/>
+      <BFAIEntityDataShared b_Male="1" s_Torso="guest_adult_m_top" s_Waist="guest_adult_m_pants"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj radiusOverride="0.40">
+               <BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\guest_blob.tga" baseNode="Bip01" width="1.0" minLength="1.0" maxLength="4.0" minOffset="0" maxOffset="1.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1">
+               <subBehaviors>
+                  <BFBehLocoSwitchSet loopFlag="true">
+                     <behaviorTable>
+                        <ground behSet="Stand_Idle"/>
+                        <water behSet="TreadWater_Idle"/>
+                     </behaviorTable>
+                  </BFBehLocoSwitchSet>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_Attacked="false"/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

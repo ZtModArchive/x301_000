@@ -1,0 +1,19 @@
+<BFScenarioGroup name="billboardcampaignrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="billboardcampaignphoto" state="0" sticky="true" optional="true">
+			<info type="photo">
+				<neutral locid="PhotoChallengetext:PHBillboardCampaignShort" overview="PhotoChallengetext:PHBillboardCampaign" />
+				<success locid="PhotoChallengetext:PHBillboardCampaignSuccessShort" overview="PhotoChallengetext:PHBillboardCampaignSuccess" />
+			</info>
+			<evaluate>
+			 	<BFScenarioScriptAction script="scenario/scripts/challenge/billboardcampaign.lua" entry="evalbillboardcampaign" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/billboardcampaign.lua" entry="completebillboardcampaign" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/billboardcampaign.lua" entry="failbillboardcampaign" />
+			</failure>	
+		</BFScenarioRule>		
+	 </children>
+</BFScenarioGroup>

@@ -1,0 +1,52 @@
+<BFTypedBinder binderType="CrossingGate_end">
+	<types>
+		<entity>
+			<transportation>
+				<crossinggate>
+					<CrossingGate_end/>
+				</crossinggate>
+			</transportation>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity/>
+	</instance>
+	<shared>
+	   <ZTPlacementData icon3Doffset="0 0 0.4" icon3Dscale="0.5"/>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\transportation\crossinggate\crossinggate_end\crossinggate_end_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:CrossingGate_end"/>
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="CrossingGate_end" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_uisort="a" s_Product="CP1" s_Zoopedia="zoopedia:zoopedia_crossinggate:entry"/>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="gate_animation">
+			<instance>
+				<BFPhysObj>
+					<BFActorComponent actorfile="entities\transportation\crossinggate\crossinggate_end\crossinggate_end_anim.bfm" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="gate_posts">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent modelfile="entities\transportation\crossinggate\crossinggate_end\crossinggate_end_posts.nif" />
+					<BFGroundFitComponent heightOffset="0.0"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+	        <BFBinder>
+		 <instance>
+		    <ZTEconomyComponent cost="100">
+		       <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+		       <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+		    </ZTEconomyComponent>
+		 </instance>
+	        </BFBinder>		
+	</binder>
+</BFTypedBinder>

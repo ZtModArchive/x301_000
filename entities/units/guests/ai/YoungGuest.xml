@@ -1,0 +1,99 @@
+<BFTypedBinder binderType="Guest_Young" abstract="true" version="1">
+   <types>
+      <entity>
+         <actor>
+            <people>
+               <Guest>
+                  <Guest_Young/>
+               </Guest>
+            </people>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared p_BallNode="0 -.9 180" f_vpSwapChance="50" f_vpMaxSwapDistance="21" f_vpMinSwapDistance="3" f_DonationDivisor="10" f_MinDonation="10" f_MaxDonation="1000"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent switch="0 7 14 40 60" minSwitch="0 0 0 23 34" useDecalsInLow="true"/>
+               <BF2LegsGroundFitComponent frontBuoyancyNode="Node_Buoy"/>
+               <BFSwimComponent waterInDistance="0.1" waterOutDistance="0.250"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder> 
+      <BFNamedBinder binderName="Conch" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Touchpool\Conch" scale="1.0" switch="0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="SeaStar" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Touchpool\Starfish" scale="1.0" switch="0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>        
+      <BFNamedBinder binderName="SkyTowerSeat" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities\objects\Items\SkyTower_Reward_Seat_Young\SkyTower_Reward_Seat_Young.bfb" scale="1.0" switch="0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr/>
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="ground" required="1">
+               <instance>
+                  <BFLocoAnimate version="1">
+                     <stop name="Stand"/>
+                     <slow name="Walk" minAnimSpeed="0.9" maxAnimSpeed="1.1">
+                        <waggle name="Walk_Ahead" wag="0.1"/>
+                     </slow>
+                     <medium name="Run" minAnimSpeed="0.9" maxAnimSpeed="1.1"/>
+                     <fast name="Run"/>
+                     <scream name="RunScream">
+                        <waggle name="RunScream_Ahead" wag="1"/>
+                     </scream>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="groundcarry" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="StandItem_Idle">
+                     <stop name="StandItem"/>
+                     <slow name="WalkItem" minAnimSpeed="1.0" maxAnimSpeed="1.4">
+                        <waggle name="WalkItem_Ahead" wag="0.1"/>
+                     </slow>
+                     <medium name="WalkItem" minAnimSpeed="1.4" maxAnimSpeed="1.6"/>
+                     <fast name="WalkItem" minAnimSpeed="1.6" maxAnimSpeed="1.8"/>
+                     <scream name="RunScream">
+                        <waggle name="RunScream_Ahead" wag="1"/>
+                     </scream>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="water" required="1">
+              <instance>
+                <BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+                  <stop name="TreadWater"/>
+                  <slow name="Swim"/>
+                  <medium name="Swim"/>
+                  <fast name="Swim"/>
+                  <scream name="Swim"/>
+                </BFLocoAnimate>
+              </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

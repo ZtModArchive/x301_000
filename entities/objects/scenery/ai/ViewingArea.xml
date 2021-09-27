@@ -1,0 +1,45 @@
+<BFTypedBinder binderType="ViewingArea" abstract="true">
+   <types>
+      <entity>
+         <scenery>
+            <ViewingArea/>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 -0.015234 0.376781" icon3Dscale="0.284080" minimumHeadroom="5.0"/>
+      <BFAIEntityDataShared s_ObjectType="Canopy" b_ViewingArea="true" f_ViewPriority="1" p_Dock_01="-1.5 -0.5 0" p_Dock_02="-0.5 -0.5 0" p_Dock_03="0.5 -0.5 0" p_Dock_04="1.5 -0.5 0" p_Dock_05="-1.5 0.5 0" p_Dock_06="-0.5 0.5 0" p_Dock_07="0.5 0.5 0" p_Dock_08="1.5 0.5 0"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="ShadowNode_01" width="8" length="4" offwidth="1" offlength="-1" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_View">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="p_Dock_01" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="p_Dock_02" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="p_Dock_03" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="p_Dock_04" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="p_Dock_05" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="p_Dock_06" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="p_Dock_07" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="p_Dock_08" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

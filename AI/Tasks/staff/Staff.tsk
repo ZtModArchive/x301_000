@@ -1,0 +1,162 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="DefaultTask" UniqueID="staff:DefaultTask">
+      <BFAICreateData>
+         <Subjects>
+            <Staff/>
+            <Qualifiers inWater_OR_onLand="true"/>                        
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData fixedScore=".00002">
+         <BFAIAttributeFloatMap/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:StaffPlaced"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Idle"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StaffWander" CursorTask="false" UniqueID="staff:StaffWander">
+      <BFAICreateData>
+         <Subjects>
+            <Staff/>
+            <Qualifiers_AND inWater_OR_onLand="true" isSwimming="false"/>
+         </Subjects>
+         <Targets>
+           <self/>
+         </Targets>
+         <Objects/>
+       </BFAICreateData>
+       <BFAIEvalData>
+         <BFAIAttributeFloatMap work="-.5"/>
+       </BFAIEvalData>
+       <BFBehExecTask>
+         <ZTBehFeedback>
+           <ZTFeedbackData>
+             <ZTActionInfo locID="staffactions:WaitingForTask"/>
+           </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+           <ZTFeedbackData>
+             <ZTThoughtInfo locID="staffthoughts:WaitingForTask" priority="1" timeout="30" global="false"/>
+           </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehExitTankGate/>
+         <BFBehWander playTime="5" avoidWater="true"/>
+       </BFBehExecTask>
+       <BFAICompletionData/>
+       <BFAIFailureData/>
+     </BFAITaskTemplate>
+     <BFAITaskTemplate Name="StaffWanderWater" CursorTask="false" UniqueID="staff:StaffWanderWater">
+       <BFAICreateData>
+         <Subjects>
+           <Staff/>
+           <Qualifiers_AND inWater_OR_onLand="true" isSwimming="true"/>
+         </Subjects>
+         <Targets>
+           <self/>
+         </Targets>
+         <Objects/>
+       </BFAICreateData>
+       <BFAIEvalData>
+         <BFAIAttributeFloatMap work="-.5"/>
+       </BFAIEvalData>
+       <BFBehExecTask>
+         <ZTBehFeedback>
+           <ZTFeedbackData>
+             <ZTActionInfo locID="staffactions:WaitingForTask"/>
+           </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+           <ZTFeedbackData>
+             <ZTThoughtInfo locID="staffthoughts:WaitingForTask" priority="1" timeout="30" global="false"/>
+           </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehWander playTime="5"/>
+       </BFBehExecTask>
+       <BFAICompletionData/>
+       <BFAIFailureData/>
+     </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StaffWaitBench" CursorTask="false" Priority="1" reserveTag="Use_Seating" UniqueID="staff:StaffWaitBench">
+      <BFAICreateData>
+         <Subjects>
+            <Staff/>
+            <Qualifiers inWater_OR_onLand="true"/>                        
+         </Subjects>
+         <Targets>
+            <bench/>
+            <Qualifiers inSight="30"/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap work="-5"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:WaitingForTaskBench"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="staffthoughts:WaitingForTaskBench" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:WaitingForTask"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="useContainer"/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+      <BFAIFailureData/>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="StaffWaitStaffCenter" CursorTask="false" Priority="2" reserveTag="Use" UniqueID="staff:StaffWaitStaffCenter">
+      <BFAICreateData>
+         <Subjects>
+            <Staff/>
+            <Qualifiers inWater_OR_onLand="true"/>                        
+         </Subjects>
+         <Targets>
+            <staffcenter_df/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap work="-10"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:WaitingForTaskCenter"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="staffthoughts:WaitingForTaskCenter" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:WaitingForTask"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="useContainer"/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+      <BFAIFailureData/>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

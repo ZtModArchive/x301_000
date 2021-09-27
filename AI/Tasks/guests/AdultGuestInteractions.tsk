@@ -1,0 +1,194 @@
+<BFAITaskTemplateList>
+
+   <BFAITaskTemplate Name="InviteTalkHappy" CursorTask="false" TaskDelayMin="60" TaskDelayMax="180" UniqueID="adultguestinteractions:InviteTalkHappy">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult/>
+            <Qualifiers happiness="L 30"/>          
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap social="-15"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSetAttribute>
+            <BFAISubjectData b_Talking="false"/>
+         </BFBehSetAttribute>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_TalkHappy" GiveTo="Guest_Adult" Payload="subject" Radius="10" Timeout="15" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap social="-100"/>
+         <BFAITargetData social="-100"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="AcceptTalkHappy" CursorTask="false" reserveTag="General" UniqueID="adultguestinteractions:AcceptTalkHappy">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+            <Qualifiers b_Talking="false"/>
+         </Targets>
+         <Objects>
+            <t_TalkHappy/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap happiness="-5" social="-30"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSyncSet subjectBehSet="DockTalk" targetBehSet="WaitTalkHappy"/>
+          <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:HappyTalk" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>          
+         <BFBehSyncSet subjectBehSet="TalkHappy" targetBehSet="ListenHappy"/>
+         <BFBehSyncSet subjectBehSet="ListenHappy" targetBehSet="TalkHappy"/>
+         <BFBehSyncSet subjectBehSet="TalkHappy" targetBehSet="ListenHappy"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap social="-100"/>
+         <BFAITargetData social="-100"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate> 
+
+   <BFAITaskTemplate Name="InviteTalkNeutral" CursorTask="false" TaskDelayMin="60" TaskDelayMax="180" UniqueID="adultguestinteractions:InviteTalkNeutral">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult/>
+            <Qualifiers_AND happiness="GE 30" happiness="L 70"/>                       
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap social="-10"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSetAttribute>
+            <BFAISubjectData b_Talking="false"/>
+         </BFBehSetAttribute>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_TalkNeutral" GiveTo="Guest_Adult" Payload="subject" Radius="10" Timeout="15" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <BFBehAnimate targetAnim="Stand_Idle" playTime="10"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap social="-100"/>
+         <BFAITargetData social="-100"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="AcceptTalkNeutral" CursorTask="false" reserveTag="General" UniqueID="adultguestinteractions:AcceptTalkNeutral">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+            <Qualifiers b_Talking="false"/>
+         </Targets>
+         <Objects>
+            <t_TalkNeutral/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap happiness="-5" social="-30"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSyncSet subjectBehSet="DockTalk" targetBehSet="WaitTalkNeutral"/>
+          <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:Talk" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>          
+         <BFBehSyncSet subjectBehSet="TalkNeutral" targetBehSet="ListenNeutral"/>
+         <BFBehSyncSet subjectBehSet="ListenNeutral" targetBehSet="TalkNeutral"/>
+         <BFBehSyncSet subjectBehSet="TalkNeutral" targetBehSet="ListenNeutral"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap social="-100"/>
+         <BFAITargetData social="-100"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>   
+   
+   <BFAITaskTemplate Name="InviteTalkAngry" CursorTask="false" TaskDelayMin="60" TaskDelayMax="180" UniqueID="adultguestinteractions:InviteTalkAngry">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult/>
+            <Qualifiers_AND happiness="GE 70"/>          
+         </Subjects>
+         <Targets>
+            <self/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap social="-10"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSetAttribute>
+            <BFAISubjectData b_Talking="false"/>
+         </BFBehSetAttribute>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_TalkAngry" GiveTo="Guest_Adult" Payload="subject" Radius="10" Timeout="15" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <BFBehAnimate targetAnim="Stand_Idle" playTime="10"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap social="-100"/>
+         <BFAITargetData social="-100"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="AcceptTalkAngry" CursorTask="false" reserveTag="General" UniqueID="adultguestinteractions:AcceptTalkAngry">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult/>
+         </Subjects>
+         <Targets>
+            <fromToken/>
+            <Qualifiers b_Talking="false"/>
+         </Targets>
+         <Objects>
+            <t_TalkAngry/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap happiness="-5" social="-30"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <BFBehSyncSet subjectBehSet="DockTalk" targetBehSet="WaitTalkAngry"/>
+          <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:Complain" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>         
+         <BFBehSyncSet subjectBehSet="TalkAngry" targetBehSet="ListenAngry"/>
+         <BFBehSyncSet subjectBehSet="ListenAngry" targetBehSet="TalkAngry"/>
+         <BFBehSyncSet subjectBehSet="TalkAngry" targetBehSet="ListenAngry"/>
+         <BFBehSetAttribute>
+            <BFAITargetData social="-100"/>
+         </BFBehSetAttribute>         
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap social="-100"/>
+         <BFAITargetData social="-100"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>   
+   
+</BFAITaskTemplateList>

@@ -1,0 +1,724 @@
+<UILayout name="mixer layout">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <children>
+      <UILayout name="mixer layout components">
+         <UIRegion x="50" y="513" w="665" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIHotKeys>
+            <file name="UI/hotkeys/hotkeys.xml" node="escclose"/>
+         </UIHotKeys>
+         <UIAspect>
+            <default/>
+         </UIAspect>
+         <show>
+            <!--        <event msg="ZT_SHOWMIXER_UPDATEAVAILABLEANIMALS"/> -->
+            <event msg="ZT_SHOWMIXER_FILLLISTBOX"/>
+         </show>
+         <children>
+            <UILayout name="mixer - pieces" template="blank">
+               <UIRegion x="0" y="10" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <children>
+                  <UILayout name="header template" template="header">
+                     <UIRegion x="0" y="0" w="0" h="33" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="">
+                           <BFRect x="0" y="0" w="640" h="579"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UILayout name="panel well template" template="panelwell">
+                     <UIRegion x="13" y="33" w="-15" h="-57" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="">
+                           <BFRect x="0" y="0" w="640" h="579"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UIButton name="close">
+                     <UIRegion x="-42" y="-4" w="40" h="40" xalign="max" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="zoostatus:close"/>
+                     <UIAspect string="">
+                        <default image="ui\shared\button_close.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="ZT_SHOWMIXER_REQUEST_CANCELEDIT"/>
+                     </activate>
+                  </UIButton>
+                  <UIText name="Show Name Label" alwayshit="false">
+                     <UIRegion x="95" y="-55" w="150" h="30" xalign="min" yalign="max" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="sequencer:show_name_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFFont align="center">
+                              <BFColor r="255" g="197" b="78" a="255"/>
+                           </BFFont>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIText name="Show Name Display" alwayshit="false">
+                     <UIRegion x="95" y="-32" w="150" h="22" xalign="min" yalign="max" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default>
+                           <BFFont x="3" y="3">
+                              <BFColor r="255" g="255" b="255" a="255"/>
+                           </BFFont>
+                        </default>
+                     </UIAspect>
+                     <text format="entityname:format"/>
+                  </UIText>
+                  <UITextEdit name="Show Name" template="textedit" cursor="edit.cur" maxlength="12" alwayshit="true">
+                     <UIRegion x="95" y="-32" w="150" h="22" xalign="min" yalign="max" walign="len" halign="len"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect>
+                        <default>
+                           <BFFont x="3" y="3">
+                              <BFColor r="59" g="83" b="66" a="255"/>
+                           </BFFont>
+                        </default>
+                     </UIAspect>
+                     <text format="entityname:format"/>
+                     <textchanged>
+                        <event msg="UI_SELF">
+                           <child msg="UI_SEND_TEXT" data="BFType" type="ZT_SET_SHOW_NAME"/>
+                        </event>
+                     </textchanged>
+                  </UITextEdit>
+                  <UILayout name="trick fprint display">
+                     <UIRegion x="0" y="10" w="-10" h="64" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <children>
+                        <UIText name="Stage1Label">
+                           <UIRegion x="150" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect alwayshit="never" locid="sequencer:Stage1Label">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage1Labelalt">
+                           <UIRegion x="150" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="hidden"/>
+                           <UIAspect alwayshit="never" locid="sequencer:Stage1AltLabel">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage2Label">
+                           <UIRegion x="210" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect alwayshit="never" locid="sequencer:Stage2Label">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage2Labelalt">
+                           <UIRegion x="210" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="hidden"/>
+                           <UIAspect alwayshit="never" locid="sequencer:Stage2AltLabel">
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              &gt;
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage3Label">
+                           <UIRegion x="270" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="sequencer:Stage3Label" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage3Labelalt">
+                           <UIRegion x="270" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="hidden"/>
+                           <UIAspect locid="sequencer:Stage3AltLabel" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage4Label">
+                           <UIRegion x="330" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="sequencer:Stage4Label" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage4Labelalt">
+                           <UIRegion x="330" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="hidden"/>
+                           <UIAspect locid="sequencer:Stage4AltLabel" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage5Label">
+                           <UIRegion x="390" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="sequencer:Stage5Label" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage5Labelalt">
+                           <UIRegion x="390" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="hidden"/>
+                           <UIAspect locid="sequencer:Stage5AltLabel" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage6Label">
+                           <UIRegion x="450" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="sequencer:Stage6Label" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage6Labelalt">
+                           <UIRegion x="450" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="hidden"/>
+                           <UIAspect locid="sequencer:Stage6AltLabel" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage7Label">
+                           <UIRegion x="510" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="sequencer:Stage7Label" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage7Labelalt">
+                           <UIRegion x="510" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="hidden"/>
+                           <UIAspect locid="sequencer:Stage7AltLabel" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage8Label">
+                           <UIRegion x="570" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="sequencer:Stage8Label" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                        <UIText name="Stage8Labelalt">
+                           <UIRegion x="570" y="5" w="54" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="normal" visible="hidden"/>
+                           <UIAspect locid="sequencer:Stage8AltLabel" alwayshit="never">
+                              <default image="" sound="">
+                                 <BFFont align="right"/>
+                              </default>
+                              <standard>
+                                 <normal/>
+                                 <highlighted/>
+                                 <activated/>
+                                 <disabled/>
+                              </standard>
+                           </UIAspect>
+                           <UIHotKeys/>
+                        </UIText>
+                     </children>
+                  </UILayout>
+                  <UILayout name="trick layout">
+                     <UIRegion x="17" y="35" w="-10" h="-60" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox name="master listbox" template="panel_thin" columns="1" rows="-1" yspacer="0">
+                           <UIRegion x="0" y="0" w="-10" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <UIAspect>
+                              <default image="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                              </default>
+                           </UIAspect>
+                           <children/>
+                           <colors>
+                              <BFColor r="45" g="70" b="115" a="255"/>
+                              <BFColor r="45" g="40" b="100" a="255"/>
+                           </colors>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIButton name="accept">
+                     <UIRegion x="-55" y="-58" w="52" h="52" xalign="max" yalign="max" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="sequencer:accept_show_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_ok.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="ZT_SHOWMIXER_SHOWMIXERPANEL" data="int" value="0"/>
+                        <event msg="UI_CHILD" data="UIChildData" name="maximize">
+                           <child msg="UI_ACTIVATE_OFF"/>
+                        </event>
+                     </activate>
+                  </UIButton>
+                  <UIToggleButton name="view_edit_toggle">
+                     <UIRegion x="-360" y="-50" w="66" h="38" xalign="max" yalign="max" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="sequencer:edit_show_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\tricks\button_edit.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="1" y="15" w="62" h="34"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="1" y="79" w="62" h="34"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="65" y="15" w="62" h="34"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="65" y="79" w="60" h="34"/>
+                           </disabled>
+                        </standard>
+                        <alternate>
+                           <normal>
+                              <BFRect x="65" y="15" w="62" h="34"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="1" y="79" w="62" h="34"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="1" y="15" w="62" h="34"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="65" y="79" w="60" h="34"/>
+                           </disabled>
+                        </alternate>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <on>
+                        <event msg="UI_CHILD" data="UIChildData" name="Show Name Display">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="Show Name">
+                           <child msg="UI_SHOW"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="edit_show_label">
+                           <child msg="UI_SHOW"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="view_show_label">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                     </on>
+                     <off>
+                        <event msg="UI_CHILD" data="UIChildData" name="Show Name Display">
+                           <child msg="UI_SHOW"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="Show Name">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="edit_show_label">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="UI_CHILD" data="UIChildData" name="view_show_label">
+                           <child msg="UI_SHOW"/>
+                        </event>
+                     </off>
+                     <activate>
+                        <event msg="ZT_SHOWMIXER_REQUEST_TOGGLEEDITSHOW"/>
+                     </activate>
+                  </UIToggleButton>
+                  <UIButton name="decline">
+                     <UIRegion x="5" y="-58" w="52" h="52" xalign="min" yalign="max" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="sequencer:decline_show_button"/>
+                     <UIAspect string="" alwayshit="true">
+                        <default image="ui\shared\button_back.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="ZT_SHOWMIXER_REQUEST_CANCELEDIT"/>
+                     </activate>
+                  </UIButton>
+                  <UIText name="no animals">
+                     <UIRegion x="160" y="-50" w="350" h="100" xalign="min" yalign="mid" walign="len" halign="len"/>
+                     <UIState active="normal" visible="hidden"/>
+                     <UIAspect locid="sequencer:no_available_animals">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFFont align="center">
+                              <BFColor r="255" g="197" b="78" a="255"/>
+                           </BFFont>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <text type="multi"/>
+                  </UIText>
+                  <UIText name="Show Score Label">
+                     <UIRegion x="430" y="-55" w="150" h="30" xalign="min" yalign="max" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="sequencer:show_score_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFFont align="center">
+                              <BFColor r="255" g="197" b="78" a="255"/>
+                           </BFFont>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+                  <UIStatic name="show score layer 1">
+                     <UIRegion x="425" y="-42" w="145" h="35" xalign="min" yalign="max" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="ui/maingame/starwells.dds">
+                           <BFRect x="0" y="0" w="232" h="54"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic name="show score layer 3">
+                     <UIRegion x="425" y="-42" w="145" h="35" xalign="min" yalign="max" walign="%min" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="UI\shared\2dstars.dds">
+                           <BFRect x="0" y="0" w="232" h="54"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+               </children>
+            </UILayout>
+            <UIText name="edit_show_label">
+               <UIRegion x="28" y="18" w="300" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect locid="sequencer:edit_show_label" alwayshit="false">
+                  <default image="" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFFont align="left">
+                        <BFColor r="255" g="197" b="78" a="255"/>
+                     </BFFont>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal/>
+                     <highlighted/>
+                     <activated/>
+                     <disabled/>
+                  </standard>
+               </UIAspect>
+               <UIHotKeys/>
+            </UIText>
+            <UIText name="view_show_label" alwayshit="false">
+               <UIRegion x="28" y="18" w="300" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect locid="sequencer:view_show_label">
+                  <default image="" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFFont align="left">
+                        <BFColor r="255" g="197" b="78" a="255"/>
+                     </BFFont>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal/>
+                     <highlighted/>
+                     <activated/>
+                     <disabled/>
+                  </standard>
+               </UIAspect>
+               <UIHotKeys/>
+            </UIText>
+            <UILayout name="move icon">
+               <UIRegion x="0" y="3" w="553" h="435" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <children>
+                  <UILayout>
+                     <UIRegion x="2" y="12" w="25" h="27" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\moveable.dds">
+                           <BFRect x="0" y="0" w="31" h="32"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UIDrag name="mixer drag" bounded="true" cursor="movebox.cur">
+               <UIRegion x="0" y="5" w="-140" h="35" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFRect x="0" y="0" w="1" h="1"/>
+                     <BFColor r="255" g="255" b="255" a="0"/>
+                  </default>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_POS"/>
+               </drag>
+               <doubleclick>
+                  <event msg="UI_SET_POS" data="BFPoint" x="50" y="513"/>
+                  <event msg="UI_SET_SIZE" data="BFPoint" x="665" y="256"/>
+               </doubleclick>
+            </UIDrag>
+            <UIDrag minHeight="256" maxHeight="500" bounded="true" cursor="vertical.cur">
+               <UIRegion x="-10" y="-10" w="0" h="0" xalign="min" yalign="max" walign="max" halign="max"/>
+               <UIAspect alwayshit="true">
+                  <default/>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_SIZE" axis="y"/>
+               </drag>
+            </UIDrag>
+         </children>
+      </UILayout>
+      <ZTUIFullscreenButton name="dropdown background" delayTime="0.4">
+         <UIRegion walign="max" halign="max"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect alwayshit="true"><!-- <default image="ui/shared/white1x1.dds">
+               <BFRect x="0" y="0" w="-1" h="-1"/>
+               <BFColor r="255" g="255" b="255" a="255"/>
+            </default> --></UIAspect>
+         <UIHotKeys>
+            <file name="UI/hotkeys/hotkeys.xml" node="ZTUIFullscreenButton"/>
+         </UIHotKeys>
+         <on>
+            <!--hide everything-->
+            <event msg="UI_SELF">
+               <child msg="UI_HIDE"/>
+            </event>
+         </on>
+         <rightmousedown>
+            <!--hides only secondary droplist if visible, otherwise everything-->
+            <event msg="UI_SELF">
+               <child msg="ZT_SHOWMIXER_DROPDOWNBACKGROUNDACTIVATED"/>
+            </event>
+         </rightmousedown>
+      </ZTUIFullscreenButton>
+   </children>
+</UILayout>

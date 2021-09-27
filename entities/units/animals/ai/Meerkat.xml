@@ -1,0 +1,172 @@
+<BFTypedBinder binderType="Meerkat" abstract="true">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Carnivora>
+                     <Viverridae>
+                        <Meerkat/>
+                     </Viverridae>
+                  </Carnivora>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities/units/animals/Meerkat/Meerkat_Adult_F_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo ids="entityname:Meerkat"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Meerkat_Adult_F"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData icon3Doffset="0 0 1.1" icon3Dscale="3.1" waterPlacement="true"/>
+      <BFAIEntityDataShared s_Product="CP1" f_MaxTourValue="60" f_BaseDonationAmount="100" s_DonateToken="t_DonateMeerkat" s_Species="Meerkat" p_NurseNode=".15 0 270" s_Endangerment="LowRisk" b_Elite="true" f_ResponseRadius="35" b_RespondToCursor="true" b_Carnivore="true" b_Insectivore="true" s_KeeperEatType="Terrain_Meat" b_SmallAnimal="true" b_TroughEater="false" b_MetalTroughEater="false" b_FoodDishEater="true" s_KeeperDrinkType="FoodDish_Water" b_SubstratePileEater="true" f_adoptRarity="70" s_Zoopedia="zoopedia:zoopedia_Meerkat:entry" f_RequiredInitialSpace="120" f_RequiredAdditionalSpace="25" p_PursuitBallNode="0 -1.25 0" b_CubbingDenUser="true" b_LargeRockCaveUser="true" b_LargeSnowCaveUser="true" b_SmallRockCaveUser="true" b_SmallSnowCaveUser="true" b_ScrubAnimal="true" b_ClimbsLargeAlpineRockLarge="true" b_ClimbsMediumAlpineRockLarge="true" b_ClimbsLargeBorealForestRockLarge="true" b_ClimbsMediumBorealForestRockLarge="true" b_ClimbsLargeDesertRockLarge="true" b_ClimbsMediumDesertRockLarge="true" b_ClimbsLargeGrasslandRockLarge="true" b_ClimbsMediumGrasslandRockLarge="true" b_ClimbsLargeSavannahRockLarge="true" b_ClimbsMediumSavannahRockLarge="true" b_ClimbsLargeScrubRockLarge="true" b_ClimbsMediumScrubRockLarge="true" b_ClimbsLargeTemperateForestRockLarge="true" b_ClimbsMediumTemperateForestRockLarge="true" b_ClimbsLargeTropicalRainforestRockLarge="true" b_ClimbsMediumTropicalRainforestRockLarge="true" b_ClimbsLargeTundraRockLarge="true" b_ClimbsMediumTundraRockLarge="true" b_ClimbsLargeWetlandsRockLarge="true" b_ClimbsMediumWetlandsRockLarge="true" b_AlpineOdd="true" b_DesertOdd="true" b_GrasslandOdd="true" b_BorealForestOdd="true" b_TemperateForestOdd="true" b_TropicalRainforestOdd="true" b_TundraOdd="true" b_WetlandsOdd="true" b_ScentMarksLogs="true" b_SniffsCarcass="true" b_ScentMarksLargeRocks="true" b_ScentMarksMediumRocks="true" b_SniffsScentedRocks="true" b_SniffsFoodDish="true" b_SniffsTroughs="true" b_SniffsMetalTroughs="true" b_BeefShankEater="true" b_RubberToyUser="true" b_RattleBallUser="true" b_HeatedRockUser="true" b_IceBlockUser="true" b_BallUser="true" p_FenceClimbUnderNode="0 -0.4 0" p_ScentMarkNode="0 1 0" p_PreyOffset="0 2 0" p_FightOffset="0 -.5 180" b_MeerkatBurrowUser="true" b_KopjeUser="true" b_TermiteMoundUser="true" b_LargeScrubBurrowUser="true" b_SmallScrubBurrowUser="true" p_BallNode="0 -.4 0" p_FoodDishNode="0 -0.4 0" p_TouchDock="0 -0.4 0" p_PredatorFightOffset="0 -.5 180">
+         <BFAINeedAdjusts stimulation="0.3" privacy="0" social="0.3"/>
+      </BFAIEntityDataShared>
+      <BFGBiomeData location="savannah_southafrica" locationSensitivity="10">
+         <alpine sensitivity="-10"/>
+         <borealforest sensitivity="-10"/>
+         <desert sensitivity="-5"/>
+         <grassland sensitivity="2"/>
+         <temperateforest sensitivity="-5"/>
+         <tropicalrainforest sensitivity="-10"/>
+         <tundra sensitivity="-10"/>
+         <savannah sensitivity="2"/>
+         <scrub sensitivity="10" primary="true"/>
+         <wetlands sensitivity="-5"/>
+      </BFGBiomeData>
+      <ZTUserStaffAction>
+         <SetAttribute name="hygiene" value="0" threshold="20" locid="superstaff:animal_groom" effect="SuperStaffGroom"/>
+         <SetAttribute name="health" value="0" threshold="20" locid="superstaff:animal_heal" effect="SuperStaffHeal"/>
+      </ZTUserStaffAction>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFShadowLODComponent numLevels="2" switchingDists="18.0 60.0"/>
+               <BFActorComponent actorfile="entities/units/animals/Meerkat/Meerkat_Adult_F.bfm" scale="2"/>
+               <BF4LegsGroundFitComponent heightOffset="-.20" heightOffsetScale="0" maxRollError=".2" maxPitchError=".1" maxHeightError=".5" pitchGain="1.0" heightGain="6.0" rollGain="1.0" bicyclePointBack="Bip01" bicyclePointFront="bp1" backBuoyancyNode="Node_Buoy_Back" frontBuoyancyNode="Node_Buoy"/>
+               <BFLegFitComponent maxLegRaise="2.0" leftFrontHipJoint="Bip01 L UpperArm" leftFrontKneeJoint="Bip01 L Forearm" leftFrontAnkleJoint="Bip01 L Hand" rightFrontHipJoint="Bip01 R UpperArm" rightFrontKneeJoint="Bip01 R Forearm" rightFrontAnkleJoint="Bip01 R Hand" leftBackHipJoint="Bip01 L Thigh" leftBackKneeJoint="Bip01 L Calf" leftBackAnkleJoint="Bip01 L Foot" rightBackHipJoint="Bip01 R Thigh" rightBackKneeJoint="Bip01 R Calf" rightBackAnkleJoint="Bip01 R Foot" ankleRotVectorLeftFront="0 1 0" ankleRotVectorRightFront="0 -1 0" ankleRotVectorRightBack="0 0 -1" ankleRotVectorLeftBack="0 0 -1" hipRaiseVectorLeftFront="0 0 1" hipRaiseVectorRightFront="0 0 1" hipRaiseVectorLeftBack="0 0 1" hipRaiseVectorRightBack="0 0 1" kneeRaiseVectorLeftFront="0 0 1" kneeRaiseVectorRightFront="0 0 1" kneeRaiseVectorLeftBack="0 0 1" kneeRaiseVectorRightBack="0 0 1" legFitModeLeftFront="1" legFitModeRightFront="1" legFitModeRightBack="1" legFitModeLeftBack="1" anklePitchVector="0 -1 0" maxLOD="2"/>
+               <BFSecondaryAnimComponent animName="Secondary_TailA" frequency="1.5" chance="40" validAnims="Stand_Idle,Stalk_Ahead"/>
+               <BFSwimComponent waterInDistance="0.50" waterOutDistance="0.1"/>
+               <BFForwardMovingComponent/>
+               <BFRotYawMovingComponent/>
+               <BFCollisionComponent grid="Bip01 Spine1"/>
+               <BFGridCollisionComponent/>
+               <BFDecalTextureCycleComponent materialName="Meerkat_F_Mat">
+                  <Step imageName="entities/units/animals/shared/tiger_blink_blank.dds" hold="3.0" variance="0.5"/>
+                  <Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance=""/>
+                  <Step imageName="entities/units/animals/shared/tiger_blink.dds" hold="0.1" variance=""/>
+                  <Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance=""/>
+               </BFDecalTextureCycleComponent>
+               <BFHeadLookComponent leftRightAnimName="Secondary_HeadLook" lookDirNode="Bip01 Head" lookDirVector="0 1 0" gain_z="-2" fov_extreme_lr="90.0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFTextTagMacrosComponent>
+               <MACROS>
+                  <macro name="CatJumpOn" text="as 100 1, anim 'Walk_2ClimbFlat'"/>
+                  <macro name="CatJumpOff" text="as 100 1, anim 'ClimbFlat_2Walk'"/>
+                  <macro name="JumpOnHeatedRock" text="as 100 1, anim 'Stand_JumpUp'"/>
+                  <macro name="JumpOnRock" text="as 100 1, anim 'Stand_JumpUp'"/>
+                  <macro name="Walky" text="anim 'Walk_Ahead'"/>
+                  <macro name="Walky2Standy" text="anim 'Walk_2Stand', anim'Stand_Idle'"/>
+                  <macro name="Stand2LieBelly" text="anim 'Stand_2Lie', anim 'Lie_Idle'"/>
+                  <macro name="LieBelly2Stand" text="anim 'Lie_2Stand', anim 'Stand_Idle'"/>
+                  <macro name="Standy2Walky" text="anim 'Stand_2Walk', anim 'Walk_Ahead'"/>
+                  <macro name="LieOnBelly" text="anim 'Lie_Idle'"/>
+                  <macro name="TurnLeft180" text="anim 'Stand_TurnL', anim 'Stand_TurnL'"/>
+                  <macro name="TurnRight180" text="anim 'Stand_TurnR', anim 'Stand_TurnR'"/>
+                  <macro name="TurnLeft90" text="anim 'Stand_TurnL'"/>
+                  <macro name="TurnRight90" text="anim 'Stand_TurnR'"/>
+                  <macro name="WalkBack" text="anim 'Backup_Ahead'"/>
+                  <macro name="Standy2WalkBack" text="anim 'Stand_2Backup', anim 'Backup_Ahead'"/>
+                  <macro name="WalkBack2Stand" text="anim 'Backup_2Stand', anim 'Stand_Idle'"/>
+                  <macro name="LieLong" text="anim 'Lie_Idle',anim 'Lie_Idle',anim 'Lie_Idle',anim 'Lie_Idle',anim 'Lie_Idle',anim 'Lie_Idle',anim 'Lie_Idle'"/>
+                  <macro name="Walk2LieBelly" text="!anim 'Walk_2Stand',anim 'Stand_2Lie', anim 'Lie_Idle'"/>
+                  <macro name="UseBurrowStand" text="!anim 'Walk_2Stand', dis,anim 'Stand_2StandBi', anim 'StandBi_Idle',anim 'StandBi_Sniff', anim 'StandBi_Idle' , anim 'StandBi_2Stand'"/>
+               </MACROS>
+            </BFTextTagMacrosComponent>
+         </shared>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1">
+               <subBehaviors>
+                  <BFBehLocoSwitchSet loopFlag="true">
+                     <behaviorTable>
+                        <ground behSet="Sit_Idle"/>
+                        <water behSet="TreadWater_Idle"/>
+                     </behaviorTable>
+                  </BFBehLocoSwitchSet>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr/>
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="ground" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="Stand_Idle">
+                     <stop name="Stand"/>
+                     <slow name="Walk"/>
+                     <medium name="Walk"/>
+                     <fast name="Bound"/>
+                     <stalk name="Stalk"/>
+                     <evade name="Run" minAnimSpeed="0.6" maxAnimSpeed="1.5"/>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="water" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+                     <stop name="TreadWater"/>
+                     <slow name="Swim"/>
+                     <medium name="Swim"/>
+                     <fast name="Swim"/>
+                     <stalk name="Swim"/>
+                     <evade name="Swim" minAnimSpeed="0.6" maxAnimSpeed="1.5"/>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>
+      <BFNamedBinder binderName="mouth" required="1">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="foodprop" repopulateMethod="byName" required="1">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="15000">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

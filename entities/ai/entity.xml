@@ -1,0 +1,48 @@
+<BFTypedBinder binderType="entity" abstract="true" version="1" versionReplace="true">
+   <types>
+      <entity/>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <BFGDetachInfo>
+         <detachActionTable>
+            <dropitem destination="drop"/>
+            <killitem destination="kill"/>
+            <fallitem destination="fall"/>
+         </detachActionTable>
+      </BFGDetachInfo>
+      <ZTEntityCrater crateType="AnimalCrate_df" crateContainer="default"/>
+      <ZTEntitySelector parentName="mainObj" nodeName="" animationTime="0.4" useFootprint="true">
+         <BFPhysObj allowHighlight="false"/>
+      </ZTEntitySelector>
+      <ZTPlacementData moveable="true" Rotatable="true">
+         <stompData>
+            <allow>
+               <path/>
+               <tankwallsupport/>
+               <tankladder/>
+            </allow>
+            <prevent/>
+         </stompData>
+      </ZTPlacementData>
+      <BFAIEntityDataShared s_Product="Zoo2" b_Eyedropper="true" b_SeeThrough="true" b_ValidateDockingPosition="true"/>
+   </shared>
+   <binder>
+      <BFBinder required="1">
+         <instance>
+            <BFGEntitySndComponent/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

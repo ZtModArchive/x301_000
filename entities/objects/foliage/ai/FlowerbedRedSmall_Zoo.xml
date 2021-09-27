@@ -1,0 +1,53 @@
+<BFTypedBinder binderType="FlowerbedRedSmall_Zoo">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <flowerbed>
+                  <FlowerbedRedSmall_Zoo/>
+               </flowerbed>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\RedFlowerbedSmall\RedFlowerbedSmall_Zoo_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:FlowerbedRedSmall_Zoo"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="FlowerbedRedSmall_Zoo"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_flowerbed:entry" f_FameReq="20"/>
+      <ZTPlacementData icon3Doffset="0 0 0.807834" icon3Dscale="0.354608"/>
+      <BFGBiomeData location="grassland_worldwide">
+         <zoodecoration/>
+      </BFGBiomeData>
+   		<ZTTourData>
+	 		<flowerbed value="2"/>
+		</ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\foliage\RedFlowerbedSmall\RedFlowerbedSmall_Zoo" scale="0.9" switch="0 30 60"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="5">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

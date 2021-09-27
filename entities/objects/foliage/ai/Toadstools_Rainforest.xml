@@ -1,0 +1,53 @@
+<BFTypedBinder binderType="Toadstools_Rainforest">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <fungi>
+                  <Toadstools_Rainforest/>
+               </fungi>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.590001" icon3Dscale="0.949594"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\Toadstools\Toadstools_Rainforest_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Toadstools_Rainforest"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Toadstools_Rainforest"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_toadstools:entry" f_FameReq="60"/>
+      <BFGBiomeData location="tropicalrainforest_southamerica">
+         <tropicalrainforest/>
+      </BFGBiomeData>
+   		<ZTTourData>
+	 			<biome_tropical value="1"/>
+		</ZTTourData> 
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\foliage\Toadstools\Toadstools_Rainforest"/>
+               <BFMultiGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="10">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,44 @@
+<BFTypedBinder binderType="Aardvark_Adult_M">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Tubulidentata>
+                     <Orycteropodidae>
+                        <Aardvark>
+                           <Aardvark_Adult>
+                              <Aardvark_Adult_M/>
+                           </Aardvark_Adult>
+                        </Aardvark>
+                     </Orycteropodidae>
+                  </Tubulidentata>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+				<default image="entities\units\animals\Aardvark\Aardvark_Adult_F_icon.dds" />
+			</UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Aardvark_Adult_M"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Male="1" f_adoptCount="rand(1,1)"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFActorComponent actorfile="entities\units\animals\Aardvark\Aardvark_Adult_F.bfm" scale="0.9"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

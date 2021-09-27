@@ -1,0 +1,49 @@
+﻿<BFTypedBinder binderType="ViewingArea_end">
+	<types>
+		<entity>
+			<scenery>
+				<ViewingArea>
+					<ViewingArea_end />
+				</ViewingArea>
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\scenery\ViewingArea_end\ViewingArea_end_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:ViewingArea_end" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ViewingArea_end" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData terrainFlatten="true" />
+		<BFGCollisionData isPassable="true" />
+		<BFAIEntityDataShared s_ProfileLock="endangeredlock" s_Product="EndangeredSpecies" s_uisort="kd" s_Zoopedia="zoopedia:zoopedia_themedviewingareas:entry" s_Theme="endangered" f_FameReq="20" />
+		<ZTTourData>
+			<theme_endangered value="8" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/ViewingArea_end/ViewingArea_end" switch="0 15 30" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="280">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

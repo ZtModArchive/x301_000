@@ -1,0 +1,82 @@
+<BFTypedBinder binderType="station" abstract="true">
+   <types>
+      <entity>
+         <transportation>
+            <station/>
+         </transportation>
+      </entity>
+   </types>
+   <shared>
+      <BFGCollisionData>
+         <typeScores vehicle="0"/>
+      </BFGCollisionData>
+      <BFAIEntityDataShared b_CanLookUpByGlobalID="true" s_ObjectType="Station" b_ReceiveUpdates="true" s_PassengerDockBeh="StationQueue" s_GenerateName="byType" f_SpacePerVehicle="20.0"/>
+      <ZTPlacementData moveable="false" autoFootprint="true" gridSnap="true" terrainFlatten="true" sound="place_building" deleteSound="recycle_building">
+         <stompData>
+            <allow/>
+            <delete>
+               <bush/>
+               <grass/>
+               <thicket/>
+               <wildflowers/>
+               <fungi/>
+               <watersurfacefoliage/>
+               <b_SmallRock>
+                  <true/>
+               </b_SmallRock>
+            </delete>
+         </stompData>
+         <excludedIconObjs>
+            <closed2open/>
+         </excludedIconObjs>
+         <soundEnv> 
+			<stageVolume soundStage="vehiclestation" botLeftX="-4.0" botLeftY="-5.5" topRightX="4.0" topRightY="5.5" height="6.0" />
+		 </soundEnv>
+      </ZTPlacementData>
+      <ZTEntitySelector>
+         <BFPhysObj>
+            <BFTerrainDecalComponent imageName="UI/fx/selection/object.tga" alphaBlend="true">
+               <lighting emmisiveColor="255 255 255" specularColor="255 255 255" diffuseColor="255 255 255" ambientColor="255 255 255"/>
+            </BFTerrainDecalComponent>
+         </BFPhysObj>
+      </ZTEntitySelector>
+   </shared>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFCollisionComponent/>
+               <BFTerrainPaintComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <BFAIEntityDataInstance s_name="unnamed"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="ParkedVehicleContainer" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot capacity="250" ownContents="true" hideContents="true"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_TourDonationBox">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest1" exclusiveID="TourDonation"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest2" exclusiveID="TourDonation"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

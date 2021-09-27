@@ -1,0 +1,177 @@
+<BFTypedBinder binderType="InsectKiosk_df">
+   <types>
+      <entity>
+         <building>
+            <InsectKiosk_df/>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="biomedetail_01" rottype="ignore" postype="use" attachnode="biomedetail_01"/>
+            <parentObj parent="mainObj" child="biomedetail_02" rottype="ignore" postype="use" attachnode="biomedetail_02"/>
+            <parentObj parent="mainObj" child="biomedetail_03" rottype="ignore" postype="use" attachnode="biomedetail_03"/>
+            <parentObj parent="mainObj" child="biomedetail_04" rottype="ignore" postype="use" attachnode="biomedetail_04"/>
+            <parentObj parent="mainObj" child="biomedetail_05" rottype="ignore" postype="use" attachnode="biomedetail_05"/>
+            <parentObj parent="mainObj" child="biomedetail_06" rottype="ignore" postype="use" attachnode="biomedetail_06"/>
+            <parentObj parent="mainObj" child="biomedetail_07" rottype="ignore" postype="use" attachnode="biomedetail_07"/>
+            <parentObj parent="mainObj" child="insects" rottype="use" postype="use"/>
+            <parentObj parent="mainObj" child="tanks" rottype="use" postype="use"/>
+            <parentObj parent="mainObj" child="sign" rottype="use" postype="use"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData dockArrowStyle="standard" dockArrowSize="1.5" icon3Doffset="0 0 0.338574" icon3Dscale="0.314229" >
+         <UIAspect>
+            <default image="entities\objects\buildings\InsectKiosk_df\InsectKiosk_df_icon.dds"/>
+         </UIAspect>
+      </ZTPlacementData>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\buildings\InsectKiosk_df\InsectKiosk_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:InsectKiosk"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="InsectKiosk_df"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\buildings\InsectKiosk_df\InsectKiosk_df_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="InsectKiosk_df"/>
+         </on>
+      </UIToggleButton>
+      <UIButton name="overviewicon">
+         <UIAspect>
+            <default image="ui/zoomap/icon_attractions.dds"/>
+         </UIAspect>
+      </UIButton>
+      <BFAIEntityDataShared s_ObjectType="Misc" b_Researchable="true" s_uisort="ef" b_DonationAcceptor="false" s_Zoopedia="zoopedia:zoopedia_insect_house:entry" f_researchUnlockTime="100" f_researchCost="800" b_wantLifetimeUsers="true" f_FameReq="40"/>
+   		<ZTTourData>
+            <cool value="6"/>
+         </ZTTourData>       
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="ShadowNode_01" width="6" length="6" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/InsectKiosk_df/InsectKiosk_df"  switch="0 18 36" minSwitch="0 0 20"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="insects">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/objects/buildings/InsectKiosk_df/InsectKiosk_Bugs_df.bfm" pruneOffscreenUpdates="true" activeSequenceName="Stand_Idle"  switch="0 18 36"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFSecondaryAnimComponent animName="Secondary_HercBeetle" frequency="1.5" chance="40" validAnims="Stand_Idle"/>
+               <BFSecondaryAnimComponent animName="Secondary_Tarantula" frequency="1.5" chance="40" validAnims="Stand_Idle"/>
+               <BFSecondaryAnimComponent animName="Secondary_Scorpion" frequency="1.5" chance="40" validAnims="Stand_Idle"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="tanks">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/InsectKiosk_df/InsectKiosk_Tanks_df"  switch="0 18 36"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="sign">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/InsectKiosk_df/InsectKiosk_Sign_df"  switch="0 18 36"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_01">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_02">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_03">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_04">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_05">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_06">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_07">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_Kiosk">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest_01"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest_02"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest_03"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest_04"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest_05"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest_06"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest_07"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest_08"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Guest_09"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="1200">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="upkeep" cost="100" period="monthly" type="debit" category="upkeep"/>
+               <ZTTransaction name="add_user" cost="1" type="addUser" category="user"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

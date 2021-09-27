@@ -1,0 +1,138 @@
+<BFTypedBinder binderType="YellowCedar_Alpine">
+   <types>
+      <entity>
+         <foliage>
+            <tree>
+               <YellowCedar_Alpine/>
+            </tree>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+                        <parentObj parent="mainObj" child="biomedetail_01" rottype="ignore" postype="use" attachnode="biomedetail_01"/>
+	                <parentObj parent="mainObj" child="biomedetail_02" rottype="ignore" postype="use" attachnode="biomedetail_02"/>
+	                <parentObj parent="mainObj" child="biomedetail_03" rottype="ignore" postype="use" attachnode="biomedetail_03"/>
+	                <parentObj parent="mainObj" child="biomedetail_04" rottype="ignore" postype="use" attachnode="biomedetail_04"/>
+            <parentObj parent="mainObj" child="biomedetail_05" rottype="ignore" postype="use" attachnode="biomedetail_05"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\YellowCedar\YellowCedar_Alpine_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:YellowCedar_Alpine"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="YellowCedar_Alpine"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_BrowseBarkTree="true" s_Zoopedia="zoopedia:zoopedia_yellowcedar:entry" f_FameReq="60" b_ThickTree="true"/>
+      <BFGBiomeData location="borealforest_northamerica">
+         <alpine/>
+      </BFGBiomeData>
+      <ZTPlacementData icon3Doffset="0 0 0.4" icon3Dscale="0.24" />
+   		<ZTTourData>
+	 				<biome_alpine value="3"/>
+		</ZTTourData> 
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width="6" minLength="6" maxLength="15" minOffset="0" maxOffset="3.5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\foliage\YellowCedar\YellowCedar_Alpine" switch="0 15 25 60"/>
+               <BFMultiGroundFitComponent heightOffset="0.0" forceTopLevel="true"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_01">
+               <instance>
+                  <BFPhysObj>
+                     <BFDecorativeDetailObjectComponent lodDistances="15 20 25 45"/>
+                  </BFPhysObj>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="biomedetail_02">
+               <instance>
+                  <BFPhysObj>
+                     <BFDecorativeDetailObjectComponent lodDistances="15 20 25 45"/>
+                  </BFPhysObj>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="biomedetail_03">
+               <instance>
+                  <BFPhysObj>
+                     <BFDecorativeDetailObjectComponent lodDistances="15 20 25 45"/>
+                  </BFPhysObj>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="biomedetail_04">
+               <instance>
+                  <BFPhysObj>
+                     <BFDecorativeDetailObjectComponent lodDistances="15 20 25 45"/>
+                  </BFPhysObj>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="biomedetail_05">
+               <instance>
+                  <BFPhysObj>
+                     <BFDecorativeDetailObjectComponent lodDistances="15 20 25 45"/>
+                  </BFPhysObj>
+               </instance>
+      </BFNamedBinder>
+            <BFNamedBinder binderName="Rub">
+               <instance>
+                  <BFGEntityContainer>
+                     <slots>
+                        <BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_01" capacity="1"/>
+                        <BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_02" capacity="1"/>
+                        <BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_03" capacity="1"/>
+                        <BFGEntityContainerSlot enterBehSet="EnterTreeRub" useBehSet="RubTree" exitBehSet="ExitTreeRub" targetNode="Dock_Rub_04" capacity="1"/>
+                     </slots>
+                  </BFGEntityContainer>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="Scratch">
+               <instance>
+                  <BFGEntityContainer>
+                     <slots>
+                        <BFGEntityContainerSlot enterBehSet="EnterTreeScratch" useBehSet="ScratchTree" exitBehSet="ExitTreeScratch" targetNode="Dock_Beaver_01" capacity="1"/>
+                        <BFGEntityContainerSlot enterBehSet="EnterTreeScratch" useBehSet="ScratchTree" exitBehSet="ExitTreeScratch" targetNode="Dock_Beaver_02" capacity="1"/>
+                        <BFGEntityContainerSlot enterBehSet="EnterTreeScratch" useBehSet="ScratchTree" exitBehSet="ExitTreeScratch" targetNode="Dock_Beaver_03" capacity="1"/>
+                        <BFGEntityContainerSlot enterBehSet="EnterTreeScratch" useBehSet="ScratchTree" exitBehSet="ExitTreeScratch" targetNode="Dock_Beaver_04" capacity="1"/>
+                     </slots>
+                  </BFGEntityContainer>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="BrowseTrunk">
+               <instance>
+                  <BFGEntityContainer>
+                     <slots>
+                        <BFGEntityContainerSlot enterBehSet="EnterBeaverGnaw" useBehSet="BeaverGnaw" exitBehSet="ExitBeaverGnaw" targetNode="Dock_Beaver_01" capacity="1"/>
+                        <BFGEntityContainerSlot enterBehSet="EnterBeaverGnaw" useBehSet="BeaverGnaw" exitBehSet="ExitBeaverGnaw" targetNode="Dock_Beaver_02" capacity="1"/>
+                        <BFGEntityContainerSlot enterBehSet="EnterBeaverGnaw" useBehSet="BeaverGnaw" exitBehSet="ExitBeaverGnaw" targetNode="Dock_Beaver_03" capacity="1"/>
+                        <BFGEntityContainerSlot enterBehSet="EnterBeaverGnaw" useBehSet="BeaverGnaw" exitBehSet="ExitBeaverGnaw" targetNode="Dock_Beaver_04" capacity="1"/>
+                     </slots>
+                  </BFGEntityContainer>
+               </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="30">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,189 @@
+<UILayout name="Timer Layout">
+   <UIRegion x="0" y="98" w="185" h="106" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect locid="">
+      <default image="" sound="">
+         <BFRect x="0" y="0" w="512" h="512"/>
+         <BFColor r="255" g="255" b="255" a="255"/>
+      </default>
+      <normal/>
+   </UIAspect>
+   <children>
+      <UILayout name="Timer - pieces">
+         <UIRegion x="0" y="10" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect>
+            <default/>
+         </UIAspect>
+         <children>
+            <UILayout name="Timer - pieces background" template="blank">
+               <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIState active="normal" visible="normal"/>
+               <UIShowHideAnim time=".1f">
+                  <start x="0" y="0" w="0" h="0"/>
+                  <end x="0" y="0" w="-1" h="-1"/>
+               </UIShowHideAnim>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="header template" template="header">
+               <UIRegion x="0" y="0" w="0" h="22" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default image="">
+                     <BFRect x="0" y="0" w="640" h="579"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UIText name="Timer Label">
+               <UIRegion x="0" y="3" w="150" h="20" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect locid="timer:showtimedisplay">
+                  <default image="" sound="">
+                     <BFFont align="center">
+                        <BFColor r="255" g="248" b="178" a="255"/>
+                     </BFFont>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <normal/>
+               </UIAspect>
+            </UIText>
+            <UILayout name="move icon">
+               <UIRegion x="2" y="2" w="20" h="20" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui\shared\moveable.dds">
+                     <BFRect x="0" y="0" w="31" h="32"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UILayout name="Timer Sub-Layout ">
+               <UIRegion x="5" y="21" w="180" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect locid="">
+                  <default image="" sound="">
+                     <BFRect x="0" y="0" w="512" h="512"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <normal/>
+               </UIAspect>
+               <children>
+                  <UIListBox name="FilterList" template="panel_thin" rows="-1">
+                     <UIRegion x="0" y="0" w="-5" h="75" walign="max" halign="len"/>
+                     <UIState visible="visable"/>
+                     <UIAspect>
+                        <default image=""/>
+                     </UIAspect>
+                     <colors>
+                        <BFColor r="45" g="70" b="115" a="255"/>
+                        <BFColor r="45" g="40" b="100" a="255"/>
+                     </colors>
+                     <children/>
+                  </UIListBox>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+      <UIButton name="show panel droplist opener">
+         <UIRegion x="-30" y="10" w="27" h="22" xalign="max" yalign="min" walign="len" halign="len"/>
+         <UIHelpInfo name="" short="" long="" help="" ids=""/>
+         <UIState active="normal" visible="hiidden"/>
+         <UIAspect string="">
+            <default image="ui/maingame/viewfilter.dds" sound="">
+               <BFRect x="0" y="0" w="-1" h="-1"/>
+               <BFColor r="255" g="255" b="255" a="255"/>
+            </default>
+            <standard>
+               <normal>
+                  <BFRect x="41" y="6" w="41" h="21"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="41" y="33" w="41" h="21"/>
+               </highlighted>
+               <activated sound="expand">
+                  <BFRect x="41" y="60" w="41" h="21"/>
+               </activated>
+               <disabled>
+                  <BFRect x="41" y="87" w="41" h="21"/>
+               </disabled>
+            </standard>
+            <alternate/>
+         </UIAspect>
+         <off>
+            <event msg="UI_CHILD" data="UIChildData" name="Timer Sub-Layout ">
+               <child msg="UI_SHOW"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Timer - pieces background">
+               <child msg="UI_SHOW"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="show panel droplist opener">
+               <child msg="UI_HIDE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="show panel droplist closer">
+               <child msg="UI_SHOW"/>
+            </event>
+         </off>
+      </UIButton>
+      <UIButton name="show panel droplist closer">
+         <UIRegion x="-30" y="10" w="27" h="21" xalign="max" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIHelpInfo name="" short="" long="" help="" ids=""/>
+         <UIAspect string="">
+            <default image="ui/maingame/viewfilter.dds" sound="">
+               <BFRect x="0" y="0" w="-1" h="-1"/>
+               <BFColor r="255" g="255" b="255" a="255"/>
+            </default>
+            <standard>
+               <normal>
+                  <BFRect x="82" y="6" w="41" h="21"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="82" y="33" w="41" h="21"/>
+               </highlighted>
+               <activated sound="collapse">
+                  <BFRect x="82" y="60" w="41" h="21"/>
+               </activated>
+               <disabled>
+                  <BFRect x="82" y="87" w="41" h="21"/>
+               </disabled>
+            </standard>
+            <alternate/>
+         </UIAspect>
+         <off>
+            <event msg="UI_CHILD" data="UIChildData" name="Timer Sub-Layout ">
+               <child msg="UI_HIDE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="Timer - pieces background">
+               <child msg="UI_HIDE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="show panel droplist opener">
+               <child msg="UI_SHOW"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="show panel droplist closer">
+               <child msg="UI_HIDE"/>
+            </event>
+         </off>
+      </UIButton>
+      <UIDrag bounded="true" cursor="movebox.cur">
+         <UIRegion x="0" y="11" w="-30" h="22" xalign="min" yalign="min" walign="max" halign="len"/>
+         <UIAspect alwayshit="true">
+            <default image="ui/shared/white1x1.dds">
+               <BFRect x="0" y="0" w="1" h="1"/>
+               <BFColor r="255" g="255" b="255" a="0"/>
+            </default>
+            <standard>
+               <activated x="0" y="0" w="1" h="1">
+                  <BFColor r="134" g="201" b="139" a="64"/>
+               </activated>
+            </standard>
+         </UIAspect>
+         <drag>
+            <UIDragCommand msg="UI_ADD_POS"/>
+         </drag>
+         <doubleclick>
+            <event msg="UI_SET_POS" data="BFPoint" x="0" y="98"/>
+            <event msg="UI_SET_SIZE" data="BFPoint" x="185" y="106"/>
+         </doubleclick>
+      </UIDrag>
+   </children>
+</UILayout>

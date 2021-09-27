@@ -1,0 +1,20 @@
+<BFScenarioGroup name="compuglobalrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="compuglobal" state="0" sticky="true" optional="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHCompuglobalShort" overview="Challengetext:CHCompuglobal" />
+				<success locid="Challengetext:CHCompuglobalSuccessShort" overview="Challengetext:CHCompuglobalSuccess" />
+				<failure locid="Challengetext:CHCompuglobalFailureShort" overview="Challengetext:CHCompuglobalFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/compuglobal.lua" entry="evalcompuglobal" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/compuglobal.lua" entry="completecompuglobal" />
+			</success>		
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/compuglobal.lua" entry="failcompuglobal" />
+			</failure>	
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

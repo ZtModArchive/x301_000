@@ -1,0 +1,77 @@
+<BFTypedBinder binderType="DurianFruit_df">
+	<types>
+		<entity>
+			<enrichment>
+				<treat>
+					<DurianFruit_df />
+				</treat>
+			</enrichment>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<ZTPlacementData icon3Doffset="-1.5 .5 1" icon3Dscale=".75" autoFootprint="false">
+		   <cfootprint width="0" height="0"/>
+		   <dfootprint width="1" height="1"/>
+		</ZTPlacementData>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\enrichment\DurianFruit_df\DurianFruit_df_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:DurianFruit_df" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="DurianFruit_df" />
+			</on>
+		</UIToggleButton>
+		<BFGCollisionData isPassable="true" />
+		<BFGDetachInfo>
+			<detachActionTable>
+				<dropitem destination="drop"/>
+				<killitem destination="kill"/>
+				<inventory destination="inventory"/>
+				<maketrash destination="kill"/>
+			</detachActionTable>
+		</BFGDetachInfo>
+		<BFAIEntityDataShared s_Product="EndangeredSpecies" s_uisort="ea" b_Sniffable="true" s_Zoopedia="zoopedia:zoopedia_durianfruit:entry" f_FameReq="90" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="1" intensity="0.3"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/DurianFruit_df/DurianFruit_df" switch="0 8 16" scale="0.5"/>
+					<BFGroundFitComponent heightOffset="0.0" maxTilt="50" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Open">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterDurianFruit" useBehSet="UseDurianFruit" exitBehSet="ExitDurianFruit" targetNode="Dock_Eat" capacity="1"/>
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="100">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

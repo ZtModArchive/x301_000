@@ -1,0 +1,40 @@
+﻿<BFTypedBinder binderType="item" abstract="true" versionReplace="false">
+	<types>
+		<entity>
+			<item />
+		</entity>
+	</types>
+	<shared>
+		<ZTPlacementData selectable="false" deletable="false" />
+		<BFGDetachInfo>
+			<detachActionTable>
+				<dropitem destination="drop" />
+				<killitem destination="kill" />
+				<inventory destination="inventory" />
+			</detachActionTable>
+		</BFGDetachInfo>
+		<ZTEntitySelector parentName="mainObj" nodeName="" animationTime="0.4" useFootprint="true">
+			<BFPhysObj>
+				<BFTerrainDecalComponent imageName="UI/fx/selection/object.tga" alphaBlend="true">
+					<lighting emmisiveColor="255 255 255" specularColor="255 255 255" diffuseColor="255 255 255" ambientColor="255 255 255" />
+				</BFTerrainDecalComponent>
+			</BFPhysObj>
+		</ZTEntitySelector>
+		<BFAIEntityDataShared b_Eyedropper="false" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj useTriShapeGroup="false">
+					<BFSimpleLODComponent minSwitch="0 15 30" />
+					<BFCollisionComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<ZTPhotoAnalysisComponent />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

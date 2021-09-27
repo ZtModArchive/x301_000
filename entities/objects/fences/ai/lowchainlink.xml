@@ -1,0 +1,68 @@
+<BFTypedBinder binderType="lowchainlink">
+   <types>
+      <entity>
+         <fence>
+            <lowchainlink/>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <ZTPlacementData minimumHeadroom="2.0"/>
+      <UIToggleButton template="fence">
+         <UIAspect>
+            <default image="entities\objects\fences\lowchainlink_df\lowchainlink_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:lowchainlink"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="lowchainlink"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_uisort="hc" f_FenceStrength="3" f_Height="1.0" b_lowfence="true" s_Zoopedia="zoopedia:zoopedia_chainlink:entry" s_Broken="lowchainlink_broken" b_SeeThrough="true" b_TunnelFence="true" b_ClimbFenceLow="true"/>
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTFence gate="lowchainlinkgate" hasCurves="false"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="start_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowchainlink_df\lowchainlink_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowchainlink_df\lowchainlink_df_vert"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowchainlink_df\lowchainlink_df_diag"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="end_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\lowchainlink_df\lowchainlink_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+                  <BFBinder>
+      			<instance>
+				<ZTEconomyComponent cost="50">
+      					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+      				</ZTEconomyComponent>
+      			</instance>
+		</BFBinder>
+</binder>
+</BFTypedBinder>

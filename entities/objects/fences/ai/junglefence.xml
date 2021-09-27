@@ -1,0 +1,82 @@
+<BFTypedBinder binderType="junglefence">
+   <types>
+      <entity>
+         <fence>
+            <junglefence/>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="fence">
+         <UIAspect>
+            <default image="entities\objects\fences\junglefence_jt\junglefence_jt_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:junglefence"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="junglefence"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_uisort="mb" f_FenceStrength="5" s_ProfileLock="junglelock" s_Zoopedia="zoopedia:zoopedia_junglefence:entry" s_Theme="jungle" s_Broken="junglefence_broken"/>
+   		<ZTTourData>
+	 		<theme_jungle value="9"/>
+		</ZTTourData>       
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTFence gate="junglefencegate" hasCurves="false"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="start_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\junglefence_jt\junglefence_jt_post"/>
+            </BFPhysObj>
+         </instance>
+	  <shared>
+	      <BFSharedPhysVars seeThrough="false"/>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\junglefence_jt\junglefence_jt_vert"/>
+            </BFPhysObj>
+         </instance>
+	  <shared>
+	      <BFSharedPhysVars seeThrough="false"/>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\junglefence_jt\junglefence_jt_diag"/>
+            </BFPhysObj>
+         </instance>
+	  <shared>
+	      <BFSharedPhysVars seeThrough="false"/>
+         </shared>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="end_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\junglefence_jt\junglefence_jt_post"/>
+            </BFPhysObj>
+         </instance>
+	  <shared>
+	      <BFSharedPhysVars seeThrough="false"/>
+         </shared>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="110">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,212 @@
+<UILayout name="trick training layout">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <children>
+      <UILayout alwayshit="true" name="Training components">
+         <UIRegion x="50" y="513" w="665" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIHotKeys>
+            <file name="UI/hotkeys/hotkeys.xml" node="escclose"/>
+         </UIHotKeys>
+         <children>
+            <UILayout name="training layout">
+               <UIRegion x="0" y="10" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <children>
+                  <UILayout name="header template" template="header">
+                     <UIRegion x="0" y="0" w="0" h="35" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UILayout name="background" template="blank">
+                     <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                  </UILayout>
+                  <UILayout name="panel well template" template="panelwell">
+                     <UIRegion x="5" y="60" w="-5" h="-23" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="">
+                           <BFRect x="0" y="0" w="-" h="-1"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UILayout name="Multilist header">
+                     <UIRegion x="16" y="40" w="-4" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <children>
+                        <UIText name="trick">
+                           <UIRegion x="5" y="0" w="100" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIAspect locid="training:trainer_trick_name">
+                              <default>
+                                 <BFFont align="left">
+                                    <BFColor r="255" g="197" b="78" a="255"/>
+                                 </BFFont>
+                              </default>
+                           </UIAspect>
+                        </UIText>
+                        <UIText name="training lvl">
+                           <UIRegion x="140" y="0" w="272" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIAspect locid="training:trainer_training_lvl">
+                              <default>
+                                 <BFFont align="left">
+                                    <BFColor r="255" g="197" b="78" a="255"/>
+                                 </BFFont>
+                              </default>
+                           </UIAspect>
+                        </UIText>
+                        <UIText name="popularity">
+                           <UIRegion x="260" y="0" w="110" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIAspect locid="training:trainer_popularuty">
+                              <default>
+                                 <BFFont align="right"/>
+                              </default>
+                           </UIAspect>
+                        </UIText>
+                        <UIText name="train">
+                           <UIRegion x="370" y="0" w="110" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIAspect locid="training:trainer_train">
+                              <default>
+                                 <BFFont align="right"/>
+                              </default>
+                           </UIAspect>
+                        </UIText>
+                     </children>
+                  </UILayout>
+                  <UIButton name="close training panel">
+                     <UIRegion x="-42" y="-4" w="40" h="40" xalign="max" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIHelpInfo name="" short="" long="" help="" ids="zoostatus:close"/>
+                     <UIAspect string="">
+                        <default image="ui\shared\button_close.dds" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal>
+                              <BFRect x="0" y="0" w="64" h="64"/>
+                           </normal>
+                           <highlighted>
+                              <BFRect x="0" y="64" w="64" h="64"/>
+                           </highlighted>
+                           <activated sound="">
+                              <BFRect x="64" y="0" w="64" h="64"/>
+                           </activated>
+                           <disabled>
+                              <BFRect x="64" y="64" w="64" h="64"/>
+                           </disabled>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                     <activate>
+                        <event msg="UI_CHILD" data="UIChildData" name="trick training layout">
+                           <child msg="UI_HIDE"/>
+                        </event>
+                        <event msg="ZT_EXITMODE"/>
+                     </activate>
+                  </UIButton>
+                  <UILayout name="Training components">
+                     <UIRegion x="8" y="58" w="-8" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default/>
+                     </UIAspect>
+                     <children>
+                        <UIListBox name="training master listbox" template="listbox" columns="1" rows="-1" yspacer="0">
+                           <UIRegion x="0" y="5" w="0" h="-27" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <colors>
+                              <BFColor r="45" g="70" b="115" a="255"/>
+                              <BFColor r="45" g="40" b="100" a="255"/>
+                           </colors>
+                           <children/>
+                        </UIListBox>
+                     </children>
+                  </UILayout>
+                  <UIText name="training list label">
+                     <UIRegion x="28" y="5" w="300" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect locid="training:training_list_label">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="-1" h="-1"/>
+                           <BFFont align="left">
+                              <BFColor r="255" g="197" b="78" a="255"/>
+                           </BFFont>
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                        <standard>
+                           <normal/>
+                           <highlighted/>
+                           <activated/>
+                           <disabled/>
+                        </standard>
+                     </UIAspect>
+                     <UIHotKeys/>
+                  </UIText>
+               </children>
+            </UILayout>
+            <UILayout name="move icon">
+               <UIRegion x="0" y="0" w="0" h="40" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <children>
+                  <UILayout>
+                     <UIRegion x="2" y="14" w="25" h="27" xalign="min" yalign="min" walign="len" halign="len"/>
+                     <UIAspect alwayshit="true">
+                        <default image="ui\shared\moveable.dds">
+                           <BFRect x="0" y="0" w="31" h="32"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UIDrag bounded="true" cursor="movebox.cur">
+               <UIRegion x="0" y="12" w="-40" h="30" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFRect x="0" y="0" w="1" h="1"/>
+                     <BFColor r="255" g="255" b="255" a="0"/>
+                  </default>
+                  <standard>
+                     <activated x="0" y="0" w="1" h="1">
+                        <BFColor r="134" g="201" b="139" a="64"/>
+                     </activated>
+                  </standard>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_POS"/>
+               </drag>
+               <doubleclick>
+                  <event msg="UI_SET_POS" data="BFPoint" x="50" y="513"/>
+                  <event msg="UI_SET_SIZE" data="BFPoint" x="665" y="256"/>
+               </doubleclick>
+            </UIDrag>
+            <UIDrag minHeight="256" maxHeight="400" bounded="true" cursor="vertical.cur">
+               <UIRegion x="-10" y="-10" w="0" h="0" xalign="min" yalign="max" walign="max" halign="max"/>
+               <UIAspect alwayshit="true">
+                  <default/>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_SIZE" axis="y"/>
+               </drag>
+            </UIDrag>
+            <UIDrag minHeight="256" maxHeight="400" bounded="true" cursor="vertical.cur">
+               <UIRegion x="0" y="0" w="0" h="15" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIAspect alwayshit="true">
+                  <default/>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_ADD_SIZE" axis="y" flip="y"/>
+               </drag>
+            </UIDrag>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

@@ -1,0 +1,56 @@
+<BFTypedBinder binderType="snackcart_popcorn" abstract="true">
+   <types>
+      <entity>
+         <building>
+            <snackcart>
+               <snackcart_popcorn/>
+            </snackcart>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting mergeKey="child">
+            <parentObj parent="mainObj" child="signidle" rottype="use" postype="use" attachnode="Link_Sign"/>
+            <parentObj parent="mainObj" child="signused" rottype="use" postype="use" attachnode="Link_Sign"/>
+            <parentObj parent="mainObj" child="Snack" rottype="use" postype="use" attachnode="Link_Snack"/>
+            <parentObj parent="mainObj" child="Umbrella" rottype="use" postype="use" attachnode="Link_Umbrella"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <binder>
+      <BFBinder>
+         <instance>
+            <BFGPhysAnimController currState="idle" defaultState="idle">
+               <stateList>
+                  <idle parent="mainObj" child="signidle" rottype="use" postype="use" attachnode="Link_Sign"/>
+                  <used parent="mainObj" child="signused" rottype="use" postype="use" attachnode="Link_Sign"/>
+               </stateList>
+            </BFGPhysAnimController>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="signidle">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/buildings/Snackcart/sign_popcorn_idle.nif"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="signused" required="0">
+         <instance>
+            <BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSceneGraphComponent modelfile="entities/objects/buildings/Snackcart/sign_popcorn_used.nif" initialTextKey="snd &quot;popcorn_amb&quot; &quot;popcorn&quot; looping"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1.32"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Snack">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/Snackcart/snack_popcorn"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

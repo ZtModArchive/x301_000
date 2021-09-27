@@ -1,0 +1,143 @@
+<UICompositeHoverButton name="ShowEntry Break" button="EntryButton">
+   <UIRegion x="0" w="0" h="20" walign="max"/>
+   <UIAspect>
+      <default image="ui/shared/white1x1.dds"/>
+   </UIAspect>
+   <enter>
+      <child msg="UI_SELF">
+         <event msg="UI_CHILD" data="UIChildData" name="border">
+            <child msg="UI_SHOW"/>
+         </event>
+      </child>
+   </enter>
+   <leave>
+      <child msg="UI_SELF">
+         <event msg="UI_CHILD" data="UIChildData" name="border">
+            <child msg="UI_HIDE"/>
+         </event>
+      </child>
+   </leave>
+   <children>
+      <UIToggleHoverButton name="EntryButton" sticky="1">
+         <UIRegion x="30" h="20" walign="max"/>
+         <UIAspect alwayshit="true" locid="scheduler:break_name">
+            <default>
+               <BFFont>
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </BFFont>
+            </default>
+            <standard>
+               <normal>
+                  <BFFont>
+                     <BFColor r="255" g="205" b="57" a="255"/>
+                  </BFFont>
+               </normal>
+               <highlighted>
+                  <BFFont>
+                     <BFColor r="255" g="255" b="201" a="255"/>
+                  </BFFont>
+               </highlighted>
+               <activated>
+                  <BFFont>
+                     <BFColor r="255" g="255" b="0" a="255"/>
+                  </BFFont>
+               </activated>
+               <disabled>
+                  <BFFont>
+                     <BFColor r="200" g="200" b="200" a="255"/>
+                  </BFFont>
+               </disabled>
+            </standard>
+         </UIAspect>
+         <on>
+            <event msg="UI_ACTIVATE_DATA"/>
+            <event msg="UI_CHILD" data="UIChildData" name="highlight">
+               <child msg="UI_SHOW"/>
+            </event>
+         </on>
+         <off>
+            <event msg="UI_CHILD" data="UIChildData" name="highlight">
+               <child msg="UI_HIDE"/>
+            </event>
+         </off>
+         <enter/>
+         <leave/>
+      </UIToggleHoverButton>
+      <UILayout name="highlight">
+         <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+         <UIState visible="hidden"/>
+         <children>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="0" h="2" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="-2" y="0" w="2" h="0" xalign="max" yalign="min" walign="len" halign="max"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="-2" w="0" h="2" xalign="min" yalign="max" walign="max" halign="len"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="2" h="0" xalign="min" yalign="min" walign="len" halign="max"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+         </children>
+      </UILayout>
+      <UILayout name="border">
+         <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+         <UIState visible="hidden"/>
+         <children>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="0" h="1" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="-1" y="0" w="1" h="0" xalign="max" yalign="min" walign="len" halign="max"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="-1" w="0" h="1" xalign="min" yalign="max" walign="max" halign="len"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="1" h="0" xalign="min" yalign="min" walign="len" halign="max"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+         </children>
+      </UILayout>
+   </children>
+</UICompositeHoverButton>

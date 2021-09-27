@@ -1,0 +1,129 @@
+<BFTypedBinder binderType="IceFloe_Medium">
+	<types>
+		<entity>
+			<enrichment>
+				<stationary_enrichment>
+					<IceFloe_Medium />
+				</stationary_enrichment>
+			</enrichment>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\enrichment\IceFloe\IceFloe_Medium_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:IceFloe_Medium" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="IceFloe_Medium" />
+			</on>
+		</UIToggleButton>
+		<UIToggleButton template="researchentity">
+			<UIAspect>
+				<default image="entities\objects\enrichment\IceFloe\IceFloe_Medium_icon.dds" />
+			</UIAspect>
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="IceFloe_Medium" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData waterPlacement="true" tankPlacement="true" randomRotate="true" gridSnap="true" terrainFlatten="false" landPlacement="false" icon3Doffset="0 0 0.918257" icon3Dscale="0.278529">
+			<cfootprint width="2" height="2" />
+			<dfootprint width="2" height="2" />
+		</ZTPlacementData>
+		<BFAIEntityDataShared b_Researchable="true" s_uisort="lf" s_Zoopedia="zoopedia:zoopedia_icefloatmed:entry" f_researchUnlockTime="80" f_researchCost="600" f_FameReq="40" />
+		<BFGCollisionData isPassable="false" isStatic="true" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent modelfile="entities/objects/enrichment/IceFloe/IceFloe_Medium.nif" switch="0 20 40" />
+					<BFTravAnimPathComponent actorfile="entities/objects/enrichment/IceFloe/IceFloe_Medium_TAP.bfm" />
+					<BFGroundFitComponent heightOffset="0.0" floatOnWater="true" waterOffset="0.0" />
+					<BFForceUpdateWhenVisibleComponent />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars>
+					<virtualNodes>
+						<Node_Gnaw01 x="2.5" y="-1.5" z="-1" yaw="90" roll="0" />
+						<Node_Gnaw02 x="2.5" y="0" z="-1" yaw="90" roll="0" />
+						<Node_Gnaw03 x="2.5" y="1.5" z="-1" yaw="90" roll="0" />
+						<Node_Gnaw04 x="1.5" y="2.5" z="-1" yaw="0" roll="0" />
+						<Node_Gnaw05 x="0" y="2.5" z="-1" yaw="0" roll="0" />
+						<Node_Gnaw06 x="-1.5" y="2.5" z="-1" yaw="0" roll="0" />
+						<Node_Gnaw07 x="-2.5" y="1.5" z="-1" yaw="-90" roll="0" />
+						<Node_Gnaw08 x="-2.5" y="0" z="-1" yaw="-90" roll="0" />
+						<Node_Gnaw09 x="-2.5" y="-1.5" z="-1" yaw="-90" roll="0" />
+						<Node_Gnaw10 x="-1.5" y="-2.5" z="-1" yaw="180" roll="0" />
+						<Node_Gnaw11 x="0" y="-2.5" z="-1" yaw="180" roll="0" />
+						<Node_Gnaw12 x="1.5" y="-2.5" z="-1" yaw="180" roll="0" />
+					</virtualNodes>
+				</BFSharedPhysVars>
+			</shared>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="1500">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="TAP" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium5" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium5" targetNode="EnterE" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium6" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium6" targetNode="EnterF" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium7" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium7" targetNode="EnterG" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium8" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium8" targetNode="EnterH" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium9" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium9" targetNode="EnterI" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium10" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium10" targetNode="EnterJ" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium11" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium11" targetNode="EnterK" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium12" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium12" targetNode="EnterL" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium13" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium13" targetNode="EnterM" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium14" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium14" targetNode="EnterN" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium15" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium15" targetNode="EnterO" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium16" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium16" targetNode="EnterP" exclusiveID="IceFloe_Medium1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="TAP_Small" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium1" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium1" targetNode="EnterA" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium2" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium2" targetNode="EnterB" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium3" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium3" targetNode="EnterC" exclusiveID="IceFloe_Medium1" />
+						<BFGEntityContainerSlot enterBehSet="EnterIceFloe_Medium4" useBehSet="UseIceFloe_Medium" exitBehSet="ExitIceFloe_Medium4" targetNode="EnterD" exclusiveID="IceFloe_Medium1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="GnawIce" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw01" exclusiveID="IceFloe_Medium2" />
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw02" exclusiveID="IceFloe_Medium2" />
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw03" exclusiveID="IceFloe_Medium2" />
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw04" exclusiveID="IceFloe_Medium2" />
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw05" exclusiveID="IceFloe_Medium2" />
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw06" exclusiveID="IceFloe_Medium2" />
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw07" exclusiveID="IceFloe_Medium2" />
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw08" exclusiveID="IceFloe_Medium2" />
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw09" exclusiveID="IceFloe_Medium2" />
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw10" exclusiveID="IceFloe_Medium2" />
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw11" exclusiveID="IceFloe_Medium2" />
+						<BFGEntityContainerSlot enterBehSet="EnterGnawIceFloe" useBehSet="GnawIceFloe" exitBehSet="ExitGnawIceFloe" targetNode="Node_Gnaw12" exclusiveID="IceFloe_Medium2" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+	</binder>
+</BFTypedBinder>

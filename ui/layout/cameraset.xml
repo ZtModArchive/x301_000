@@ -1,0 +1,267 @@
+<UILayout name="Camera Set">
+   <UIRegion x="0" y="615" w="53" h="154" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIShowHideAnim time=".3">
+      <start x="-53" y="615" w="53" h="154"/>
+      <end x="0" y="615" w="53" h="154"/>
+   </UIShowHideAnim>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect string="">
+      <default image="" sound="">
+         <BFColor r="0" g="0" b="0" a="0"/>
+      </default>
+   </UIAspect>
+   <UIHotKeys/>
+   <children>
+      <UILayout name="cameraset background">
+         <UIRegion x="0" y="0" w="53" h="154" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect string="" alwayshit="never">
+            <default image="ui\shared\peanut.dds" sound="">
+               <BFRect x="0" y="0" w="53" h="154"/>
+            </default>
+         </UIAspect>
+         <UIHotKeys/>
+         <children>
+            <UIStatic name="firstperson background">
+               <UIRegion x="-1" y="69" w="55" h="55" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="cameraset:firstpersoncameramode_stt" long="cameraset:firstpersoncameramode_ltt" help=""/>
+               <UIAspect string="">
+                  <default image="ui/maingame/button_firstperson.dds">
+                     <BFRect x="55" y="55" w="55" h="55"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic name="photo button background">
+               <UIRegion x="-3" y="103" w="55" h="55" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="cameraset:photocameramode_stt" long="cameraset:photocameramode_ltt" help=""/>
+               <UIAspect string="">
+                  <default image="ui/maingame/photo.dds">
+                     <BFRect x="55" y="55" w="55" h="55"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+         </children>
+      </UILayout>
+      <UIButton name="overviewmap" sticky="1">
+         <UIRegion x="-3" y="-4" w="55" h="55" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIHelpInfo name="" short="" long="" help="" ids="cameraset:overheadcameramode"/>
+         <UIAspect>
+            <default image="ui/maingame/overview.dds" sound="">
+               <BFRect x="0" y="0" w="-1" h="-1"/>
+               <BFColor r="255" g="255" b="255" a="255"/>
+            </default>
+            <standard>
+               <normal>
+                  <BFRect x="0" y="0" w="55" h="55"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="0" y="55" w="55" h="55"/>
+               </highlighted>
+               <activated sound="uiclick">
+                  <BFRect x="55" y="0" w="55" h="55"/>
+               </activated>
+               <disabled>
+                  <BFRect x="55" y="55" w="55" h="55"/>
+               </disabled>
+            </standard>
+            <alternate>
+               <normal>
+                  <BFRect x="55" y="0" w="55" h="55"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="0" y="0" w="55" h="55"/>
+               </highlighted>
+               <activated sound="uiclick">
+                  <BFRect x="55" y="0" w="55" h="55"/>
+               </activated>
+            </alternate>
+         </UIAspect>
+         <UIHotKeys/>
+         <activate>
+            <event msg="UI_CHILD" data="UIChildData" name="overview_screen">
+               <child msg="UI_SHOW"/>
+            </event>
+            <event msg="ZT_STOP_FOLLOWCAM"/>
+         </activate>
+      </UIButton>
+      <UIToggleSet name="mode buttons">
+         <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect string="">
+            <default/>
+         </UIAspect>
+         <children>
+            <UIToggleButton name="overhead" toggle="0" sticky="1">
+               <!--Building Camera Mode-->
+               <UIRegion x="-1" y="27" w="55" h="55" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="cameraset:buildingcameramode_stt" long="cameraset:buildingcameramode_ltt" help=""/>
+               <UIAspect string="">
+                  <default image="ui/maingame/button_overhead.dds" sound="">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="0" w="55" h="55"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="55" w="55" h="55"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="55" y="0" w="55" h="55"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="55" y="55" w="55" h="55"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="55" y="0" w="55" h="55"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="55" w="55" h="55"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="55" y="0" w="55" h="55"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="55" y="55" w="55" h="55"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <UIHotKeys/>
+               <on>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_overhead"/>
+               </on>
+            </UIToggleButton>
+            <UIToggleButton name="firstperson" sticky="1">
+               <UIRegion x="-1" y="69" w="55" h="55" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="cameraset:firstpersoncameramode_stt" long="cameraset:firstpersoncameramode_ltt" help=""/>
+               <UIAspect string="">
+                  <default image="ui/maingame/button_firstperson.dds" sound="">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="0" w="55" h="55"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="55" w="55" h="55"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="55" y="0" w="55" h="55"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="55" y="55" w="55" h="55"/>
+                        <BFColor r="255" g="255" b="255" a="0"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="55" y="0" w="55" h="55"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="55" w="55" h="55"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="55" y="0" w="55" h="55"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="55" y="55" w="55" h="55"/>
+                        <BFColor r="255" g="255" b="255" a="0"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <UIHotKeys/>
+               <on>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_first_person"/>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_super_staff"/>
+               </on>
+            </UIToggleButton>
+            <UIToggleButton name="photo" sticky="1">
+               <!--Photo Camera Mode-->
+               <UIRegion x="-3" y="103" w="55" h="55" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="cameraset:photocameramode_stt" long="cameraset:photocameramode_ltt" help=""/>
+               <UIAspect string="">
+                  <default image="ui/maingame/photo.dds" sound="">
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="0" w="55" h="55"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="55" w="55" h="55"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="55" y="0" w="55" h="55"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="55" y="55" w="55" h="55"/>
+                        <BFColor r="255" g="255" b="255" a="0"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="55" y="0" w="55" h="55"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="0" w="55" h="55"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="55" y="0" w="55" h="55"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="55" y="55" w="55" h="55"/>
+                        <BFColor r="255" g="255" b="255" a="0"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <UIHotKeys/>
+               <on>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_first_person"/>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_photo_safari"/>
+               </on>
+            </UIToggleButton>
+         </children>
+      </UIToggleSet>
+      <ZTUITimedEvents name="EarthQuake">
+         <UIRegion x="-1" y="-1" w="0" h="0"/>
+         <UIAspect>
+            <default/>
+         </UIAspect>
+         <timedEvents>
+            <event time="0" msg="UI_PLAY_SOUND" data="BFString" string="earthquake"/>
+            <event time="1" msg="ZT_RUN_SCRIPT" data="BFString" string="global scenario/scripts/earthquake.lua runQuake"/>
+            <event time="0" msg="UI_CHILD" data="UIChildData" name="QuakeRunner">
+               <child msg="UI_ACTIVATE_ON"/>
+            </event>
+            <event time="6" msg="UI_CHILD" data="UIChildData" name="QuakeRunner">
+               <child msg="UI_ACTIVATE_OFF"/>
+            </event>
+            <event time="0.0" msg="UI_SELF">
+               <child msg="UI_ACTIVATE_OFF"/>
+            </event>
+         </timedEvents>
+         <children>
+            <ZTUITimedEvents name="QuakeRunner">
+               <UIRegion x="-1" y="-1" w="0" h="0"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <timedEvents>
+                  <event time="0" msg="ZT_RUN_SCRIPT" data="BFString" string="global scenario/scripts/earthquake.lua updateQuake"/>
+                  <event time="0" msg="UI_SELF">
+                     <child msg="UI_ACTIVATE_ON"/>
+                  </event>
+               </timedEvents>
+            </ZTUITimedEvents>
+         </children>
+      </ZTUITimedEvents>
+   </children>
+</UILayout>

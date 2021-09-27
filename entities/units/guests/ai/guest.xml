@@ -1,0 +1,386 @@
+<BFTypedBinder binderType="Guest" abstract="true" version="2" versionReplace="true">
+   <types>
+      <entity>
+         <actor>
+            <people>
+               <Guest/>
+            </people>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared f_VehicleWaitTime="120" s_FallAnim="Fall_Idle" s_LandImpactAnim="LandImpact_2Stand" s_WaterImpactAnim="WaterImpact_2TreadWater" s_RouteClass="ZTBehTransportRoute" mergeKey="Name" f_favoriteAnimalScore="100" f_viewNoiseFactor="200" f_PreferredAnimalViewFactor="2" f_PreferredAnimalDonateFactor="2" f_sensorRadius="48" f_MinQoV="0" f_MaxQoV="3" f_MinDtV="0" f_MaxDtV="7" f_ViewSpeed="4" f_ViewSpeedBySpecies="2.5" f_ViewSpeciesDiscount=".9" f_ViewSpeciesDiscountCap=".5" f_ViewDistanceMin="1.2" f_ViewDistanceMax="1.0" b_SendSlap="false" f_ResponseRadius="20" b_RespondToCursor="false" f_HappinessAdjust="0" f_LowHappiness="75" f_LowHappyDepartPts="-1" f_LowCashDepartPts="-2" f_LowCash="20" f_FailureDepartVel="-1" f_DonationThreshold="70" b_Attacked="false" s_Rarity="common" f_MaxTourQoV="4" f_MaxTourInducement="100" f_EdDonationBonusFactor="3.0"  b_NoBuyBackGift="false" b_NoBuyRHandGift="false" b_NoBuyLHandGift="false" b_NoBuyWaistGift="false" b_NoBuyHeadGift="false"  b_NoBuyShirtGift="false">
+         <BFAINeedAdjusts show=".30" tour=".30" hunger=".1" thirst=".1" dessert=".1" rest=".3" social=".3" amusement=".2" gift="0" bathroom=".15" viewanimals="0" happiness=".1"/>
+         <BFAINeedAdjusts Name="onTour" hunger=".01" thirst=".01" dessert=".01" bathroom=".02" rest="-.5"/>
+         <BFAINeedAdjusts Name="watchingShow" hunger=".01" thirst=".01" dessert=".01" bathroom=".02" rest="-.5"/>
+         <BFAIScriptData Name="doState" File="entities/units/guests/ai/dostate.lua" Entry="doState"/>
+         <ZTTourData>
+            <theme_safari value="0"/>
+            <theme_jungle value="0"/>
+            <theme_endangered value="0"/>
+            <theme_desert value="0"/>
+            <theme_marine value="0"/>
+            <biome_alpine value="0"/>
+            <biome_benthic value="0"/>            
+            <biome_boreal value="0"/>
+            <biome_coastal value="0"/>
+            <biome_desert value="0"/>
+            <biome_grassland value="0"/>
+            <biome_pelagic value="0"/>
+            <biome_reef value="0"/>
+            <biome_savannah value="0"/>
+            <biome_scrub value="0"/>
+            <biome_temperate value="0"/>
+            <biome_tropical value="0"/>
+            <biome_tundra value="0"/>
+            <biome_wetlands value="0"/>
+            <statue value="0"/>
+            <fountain value="0"/>
+            <flowerbed value="0"/>
+            <arch value="0"/>
+            <scenery value="0"/>
+            <reward value="0"/>
+            <shelter value="0"/>
+         </ZTTourData>
+      </BFAIEntityDataShared>
+      <ZTPlacementData iconObj="headObj" icon3Doffset="0 0 .5" icon3Dscale="5.89" displayFootprint="false" deletable="false" dockArrowStyle="none" tankPlacement="true" waterPlacement="true">
+         <stompData>
+            <allow>
+               <wildflowers/>
+               <watersurfacefoliage/>
+               <grass/>
+               <fungi/>
+               <bush/>
+               <TankPlatform/>
+            </allow>
+            <prevent>
+               <log/>
+               <thicket/>
+               <flowerbed/>
+            </prevent>
+         </stompData>
+      </ZTPlacementData>
+      <ZTEntitySelector size="0.7"/>
+      <ZTTriggeredEventsComponent>
+         <Use_Bathroom>
+            <nonbroadcast>
+               <event msg="BFSND_PLAY_FROM_ENTITY" data="BFString" string="bathroom"/>
+            </nonbroadcast>
+         </Use_Bathroom>
+         <Adjust_SurveyData>
+            <nonbroadcast>
+               <event msg="ZTAI_ADJUST_SURVEYDATA"/>
+            </nonbroadcast>
+         </Adjust_SurveyData>
+      </ZTTriggeredEventsComponent>
+      <ZTSharedFeedbackData>
+         <ZTFeedbackData name="Buy_Item">
+            <data>
+               <ZTFeedbackDataSet>
+                  <ZTEmoticonInfo emoticonName="EmoteGuestcheapgood"/>
+                  <ZTThoughtInfo locID="guestthoughts:CheapItem" priority="1" timeout="60" useTargetName="true"/>
+               </ZTFeedbackDataSet>
+               <ZTFeedbackDataSet>
+                  <ZTThoughtInfo locID="guestthoughts:ModerateItem" timeout="60" useTargetName="true"/>
+               </ZTFeedbackDataSet>
+               <ZTFeedbackDataSet>
+                  <ZTEmoticonInfo emoticonName="EmoteGuestexpensivebad"/>
+                  <ZTThoughtInfo locID="guestthoughts:ExpensiveItem" priority="-1" timeout="60" useTargetName="true"/>
+               </ZTFeedbackDataSet>
+            </data>
+         </ZTFeedbackData>
+         <ZTFeedbackData name="Education">
+            <data>
+               <ZTFeedbackDataSet/>
+               <ZTFeedbackDataSet>
+                  <ZTEmoticonInfo emoticonName="EmoteGuestUneducation"/>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalEduAwful" priority="-1" timeout="60" useTargetName="true"/>
+               </ZTFeedbackDataSet>
+               <ZTFeedbackDataSet>
+                  <ZTEmoticonInfo emoticonName="EmoteGuestUneducation"/>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalEduBad" priority="-1" timeout="60" useTargetName="true"/>
+               </ZTFeedbackDataSet>
+               <ZTFeedbackDataSet>
+                  <ZTEmoticonInfo emoticonName="EmoteGuestEducation"/>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalEduNormal" timeout="60" useTargetName="true"/>
+               </ZTFeedbackDataSet>
+               <ZTFeedbackDataSet>
+                  <ZTEmoticonInfo emoticonName="EmoteGuestEducation"/>
+                  <ZTThoughtInfo locID="guestthoughts:AnimalEduGood" timeout="60" useTargetName="true"/>
+               </ZTFeedbackDataSet>
+            </data>
+         </ZTFeedbackData>
+         <ZTFeedbackData name="smell">
+            <data>
+               <ZTFeedbackDataSet>
+                  <ZTEmoticonInfo emoticonName="EmoteTrashbad"/>
+                  <ZTThoughtInfo locID="guestthoughts:SmellTerrible" priority="-1" timeout="60"/>
+               </ZTFeedbackDataSet>
+            </data>
+         </ZTFeedbackData>
+         <ZTFeedbackData name="tour">
+            <data>
+               <ZTFeedbackDataSet>
+                  <ZTEmoticonInfo emoticonName="EmoteAngry"/>
+                  <ZTThoughtInfo locID="guestthoughts:TourBad" priority="-1" timeout="60" useTargetName="false"/>
+               </ZTFeedbackDataSet>
+               <ZTFeedbackDataSet>
+                  <ZTEmoticonInfo emoticonName="EmoteAmuse"/>
+                  <ZTThoughtInfo locID="guestthoughts:TourOK" timeout="60" useTargetName="false"/>
+               </ZTFeedbackDataSet>
+               <ZTFeedbackDataSet>
+                  <ZTEmoticonInfo emoticonName="EmoteEntertained"/>
+                  <ZTThoughtInfo locID="guestthoughts:TourGood"  priority="1" timeout="60" useTargetName="false"/>
+               </ZTFeedbackDataSet>
+            </data>
+         </ZTFeedbackData>
+      </ZTSharedFeedbackData>
+      <ZTAIEducationData FeedbackDataName="Education" FeedbackChance="5">
+         <range Max="-8" EdDonationValue="-40" FeedbackIndex="1"/>
+         <range Min="-8" Max="-.5" EdDonationValue="-10" FeedbackIndex="2"/>
+         <range Min="-.5" Max="4" FeedbackIndex="0"/>
+         <range Min="4" Max="8" EdDonationValue="4" FeedbackIndex="3"/>
+         <range Min="8" EdDonationValue="8" FeedbackIndex="4"/>
+      </ZTAIEducationData>
+      <ZTAISharedInfluenceWatcher>
+         <ZTAIInfluenceEffectData Category="smell" Update="5.0" FeedbackDataName="smell" FeedbackChance="50">
+            <sensitivity>
+               <bad value="-10"/>
+               <good value="10"/>
+               <wolfethiopian value="-10"/>
+               <ratel value="-10"/>
+            </sensitivity>
+            <range Max="-3" FeedbackIndex="0">
+               <BFAISubjectData happiness="3" f_DeparturePoints="1"/>
+            </range>
+         </ZTAIInfluenceEffectData>
+      </ZTAISharedInfluenceWatcher>
+      <ZTAISharedTourTaker tourTokenTimeOut="10" donationScaleFactor="0.25" donationCap="200">
+         <ZTAITourTakerData FeedbackDataName="tour" FeedbackChance="0">
+			<range Max="1" FeedbackIndex="0">
+		        <BFAISubjectData happiness="5" f_DeparturePoints="1"/>
+	    </range>
+			<range Min="1" Max="66" FeedbackIndex="1">
+		        <BFAISubjectData happiness="-5"/>
+			</range>
+			<range Min="66" Max="100" FeedbackIndex="2">
+		        <BFAISubjectData happiness="-8"/>
+			</range>
+         </ZTAITourTakerData>
+      </ZTAISharedTourTaker>
+   </shared>
+   <binder>
+      <BFBinder required="1">
+         <instance>
+            <BFAICognitiveMgr>
+               <Sensors>
+                  <ZTAISensor/>
+                  <BFAISensorSelf/>
+                  <ZTAISensorVA sensorTag="viewanimals"/>
+                  <ZTAISensorPath sensorTag="path" maxPaths="24"/>
+                  <ZTAISensorTransport/>
+                  <ZTAISensorTour sensorTag="tour"/>
+                  <ZTAISensorShow sensorTag="watchshow"/>
+               </Sensors>
+               <StateThinkers>
+                  <ZTAIStateThinker>
+                     <BFAIStateVar Name="hunger" Value="" ValueMin="10" ValueMax="65" DisplayThreshold="30" TriggerThreshold="30" CessationThreshold="20" PressingThreshold="70" CriticalThreshold="90" CriticalAdjust="1"/>
+                     <BFAIStateVar Name="thirst" Value="" ValueMin="10" ValueMax="65" DisplayThreshold="30" TriggerThreshold="30" CessationThreshold="20" PressingThreshold="70" CriticalThreshold="90" CriticalAdjust="1"/>
+                     <BFAIStateVar Name="dessert" Value="25" DisplayThreshold="30" TriggerThreshold="30" CessationThreshold="20" PressingThreshold="70" CriticalThreshold="90"/>
+                     <BFAIStateVar Name="rest" Value="" ValueMin="30" ValueMax="50" DisplayThreshold="30" TriggerThreshold="30" CessationThreshold="20" PressingThreshold="70" CriticalThreshold="90" CriticalAdjust="1"/>
+                     <BFAIStateVar Name="social" Value="" ValueMin="10" ValueMax="65" TriggerThreshold="50" CessationThreshold="40" CriticalThreshold="101"/>
+                     <BFAIStateVar Name="amusement" Value="" ValueMin="10" ValueMax="20" DisplayThreshold="30" TriggerThreshold="30" CessationThreshold="20" PressingThreshold="70" CriticalThreshold="90" CriticalAdjust=".1"/>
+                     <BFAIStateVar Name="gift" Value="0" TriggerThreshold="50" CessationThreshold="40" CriticalThreshold="101"/>
+                     <BFAIStateVar Name="bathroom" Value="" ValueMin="20" ValueMax="50" TriggerThreshold="30" DisplayThreshold="30" CessationThreshold="20" PressingThreshold="70" CriticalThreshold="90" CriticalAdjust="1"/>
+                     <BFAIStateVar Name="viewanimals" Value="30" TriggerThreshold="0" CessationThreshold="-100" CriticalThreshold="101"/>
+                     <BFAIStateVar Name="happiness" Value="50" TriggerThreshold="0" CessationThreshold="-100" CriticalThreshold="101"/>
+                     <BFAIStateVar Name="tour" Value="" ValueMin="15" ValueMax="50" TriggerThreshold="0" CessationThreshold="-100" CriticalThreshold="101"/>
+                     <BFAIStateVar Name="show" Value="" ValueMin="50" ValueMax="75" TriggerThreshold="0" CessationThreshold="-100" CriticalThreshold="101"/>
+                  </ZTAIStateThinker>
+               </StateThinkers>
+               <TaskThinkers>
+                  <ZTAITaskThinker/>
+                  <ZTAITourTaskThinker/>
+               </TaskThinkers>
+            </BFAICognitiveMgr>
+         </instance>
+         <shared>
+            <BFAICogShared>
+               <BFAINoPerceive>
+                  <fence/>
+                  <foliage/>
+                  <path/>
+                  <Guest/>
+                  <shelters/>
+                  <food/>
+                  <rock/>
+                  <lamp/>
+                  <enrichment/>
+                  <egg/>
+                  <AnimalCrate/>
+                  <item/>
+                  <animal/>
+                  <Staff/>
+               </BFAINoPerceive>
+            </BFAICogShared>
+         </shared>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <ZTAIViewAnimals donateMeters="0" speciesMetersFree="200" speciesMetersLow="175" speciesMeters="150" speciesMetersHigh="100"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance f_MaxShowSeen="-1" b_Talking="false" f_needPointsGood="0" f_needPointsBad="0" f_departurePoints="100" s_name="Unnamed" f_Education="0" f_Arrived="-1" f_AteFavoriteFood="0" f_AteNonFavoriteFood="0" f_CouldntFindDonationBox="0" f_DidFindDonationBox="0" b_EdDonationBonus="false"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr/>
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="ground" required="1">
+               <instance>
+                  <BFLocoAnimate version="1">
+                     <stop name="Stand"/>
+                     <slow name="Walk" minAnimSpeed="0.9" maxAnimSpeed="1.1">
+                        <waggle name="Walk_Ahead" wag="0.1"/>
+                     </slow>
+                     <medium name="FastWalk" minAnimSpeed="0.9" maxAnimSpeed="1.1"/>
+                     <fast name="Run"/>
+                     <scream name="RunScream">
+                        <waggle name="RunScream_Ahead" wag="1"/>
+                     </scream>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="groundcarry" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="StandItem_Idle">
+                     <stop name="StandItem"/>
+                     <slow name="WalkItem" minAnimSpeed="1.0" maxAnimSpeed="1.4">
+                        <waggle name="WalkItem_Ahead" wag="0.1"/>
+                     </slow>
+                     <medium name="WalkItem" minAnimSpeed="1.4" maxAnimSpeed="1.6"/>
+                     <fast name="WalkItem" minAnimSpeed="1.6" maxAnimSpeed="1.8"/>
+                     <scream name="RunScream">
+                        <waggle name="RunScream_Ahead" wag="1"/>
+                     </scream>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+            <BFNamedBinder binderName="water" required="1">
+              <instance>
+                <BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+                  <stop name="TreadWater"/>
+                  <slow name="Swim"/>
+                  <medium name="FastSwim"/>
+                  <fast name="FastSwim"/>
+                  <scream name="FastSwim"/>
+                </BFLocoAnimate>
+              </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFHeadLookComponent leftRightAnimName="Secondary_HeadLook" lookDirNode="Bip01 Head" lookDirVector="0 1 0" gain_z="-2" fov_extreme_lr="85.0"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="100"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="inventory" required="1">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot ownContents="true" hideContents="true" capacity="100"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="head_inventory" required="1">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot ownContents="true" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fanny_inventory" required="1">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot ownContents="true" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="back_inventory" required="1">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot ownContents="true" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="righthand_inventory" required="1">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot ownContents="true" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="lefthand_inventory" required="1">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot ownContents="true" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFGCollisionTester escapeBuffer="0.1" radius="0.1f" motionClass="guestMover" useFastPathing="true"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <ZTEconomyComponent allowNegativeCash="false">
+               <ZTTransaction name="setInitialCash" type="setCash" costType="random" minCost="400" maxCost="600" period="once" aggregate="false" category="guest_initial_cash"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <ZTPhotoAnalysisComponent/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <ZTAIInfluenceWatcher/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1" repopulateMethod="byType">
+         <instance>
+            <ZTAITourTaker/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="SkyTowerSeat" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\SkyTower_Reward_Seat\SkyTower_Reward_Seat" scale="1.0" switch="0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

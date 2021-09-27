@@ -1,0 +1,300 @@
+<BFTypedBinder binderType="skystation" abstract="true">
+	<types>
+		<entity>
+			<transportation>
+				<station>
+					<skystation />
+				</station>
+			</transportation>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<UIButton name="overviewicon">
+			<UIAspect>
+				<default image="ui/zoomap/icon_skytram_station.dds" />
+			</UIAspect>
+		</UIButton>
+		<BFAIEntityDataShared p_SeedA="6 0 0" p_SeedB="-6 0 0" s_TransportationMode="Sky" p_PassengerEnterA="4.5 0 90" p_PassengerEnterB="-4.5 0 270" p_PassengerExitA="4.5 0 270" p_PassengerExitB="-4.5 0 90" s_trackType="station" />
+		<ZTPlacementData icon3Doffset="0 -0.071826 0.230039" icon3Dscale="0.4" applyHeightModifier="false" minimumHeadroom="1.5" maxDistanceToConnect="27.5f">
+			<clickableObjData>
+				<constructionMarker1 locid="transportation:skycircuit_incomplete" />
+				<constructionMarker2 locid="transportation:skycircuit_incomplete" />
+				<constructionMarker3 locid="transportation:skycircuit_incomplete" />
+				<constructionMarker4 locid="transportation:skycircuit_incomplete" />
+			</clickableObjData>
+			<attachObj>
+				<entity nodeName="Link_Sign1" binderType="station_collision_proxy" />
+				<entity nodeName="Link_Sign2" binderType="station_collision_proxy" />
+			</attachObj>			
+		</ZTPlacementData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="firstStation">
+			<instance>
+				<ZTTransportStationSky>
+					<entrances>
+						<firstPassengerQueue seed="p_SeedA" exit="p_PassengerExitA" />
+						<firstPassengerQueueB seed="p_SeedB" exit="p_PassengerExitB" />
+					</entrances>
+					<ui>
+						<togglebutton>
+							<UIToggleButton name="togglebutton" toggle="1" sticky="1">
+								<UIRegion x="0" y="0" w="48" h="48" />
+								<UIHelpInfo name="" short="" long="" help="" ids="entityinfo:circuitA_tab" />
+								<UIAspect>
+									<default image="ui/maingame/button_routeA.dds" />
+									<standard>
+										<normal>
+											<BFRect x="0" y="0" w="64" h="64" />
+										</normal>
+										<highlighted>
+											<BFRect x="0" y="64" w="64" h="64" />
+										</highlighted>
+										<activated>
+											<BFRect x="64" y="0" w="64" h="64" />
+										</activated>
+										<disabled>
+											<BFRect x="64" y="64" w="64" h="64" />
+										</disabled>
+									</standard>
+									<alternate>
+										<normal>
+											<BFRect x="64" y="0" w="64" h="64" />
+										</normal>
+										<highlighted>
+											<BFRect x="64" y="0" w="64" h="64" />
+										</highlighted>
+										<activated>
+											<BFRect x="64" y="0" w="64" h="64" />
+										</activated>
+										<disabled>
+											<BFRect x="64" y="0" w="64" h="64" />
+										</disabled>
+									</alternate>
+								</UIAspect>
+								<activate>
+									<event msg="ZT_SELECT_STATION_COMPONENT" data="BFString" string="firstStation" />
+								</activate>
+							</UIToggleButton>
+						</togglebutton>
+					</ui>
+				</ZTTransportStationSky>
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="stationEconomy" required="0">
+					<instance>
+						<ZTEconomyComponent>
+							<ZTTransaction name="donate" cost="10" type="debit" category="donations_income" nextTransaction="add_user" />
+							<ZTTransaction name="add_user" cost="1" type="addUser" category="user" />
+							<BFGTransactionTracker>
+								<ignore>
+									<build />
+									<add_user />
+								</ignore>
+							</BFGTransactionTracker>
+						</ZTEconomyComponent>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="stationFeedback" required="0">
+					<instance>
+						<ZTFeedbackComponent />
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="returnStation" required="1">
+			<instance>
+				<ZTTransportStationSky>
+					<entrances>
+						<returnPassengerQueueA seed="p_SeedA" exit="p_PassengerExitA" />
+						<returnPassengerQueue seed="p_SeedB" exit="p_PassengerExitB" />
+					</entrances>
+					<ui>
+						<togglebutton>
+							<UIToggleButton toggle="0" sticky="1">
+								<UIRegion x="30" y="0" w="48" h="48" />
+								<UIHelpInfo name="" short="" long="" help="" ids="entityinfo:circuitB_tab" />
+								<UIAspect>
+									<default image="ui/maingame/button_routeB.dds" />
+									<standard>
+										<normal>
+											<BFRect x="0" y="0" w="64" h="64" />
+										</normal>
+										<highlighted>
+											<BFRect x="0" y="64" w="64" h="64" />
+										</highlighted>
+										<activated>
+											<BFRect x="64" y="0" w="64" h="64" />
+										</activated>
+										<disabled>
+											<BFRect x="64" y="64" w="64" h="64" />
+										</disabled>
+									</standard>
+									<alternate>
+										<normal>
+											<BFRect x="64" y="0" w="64" h="64" />
+										</normal>
+										<highlighted>
+											<BFRect x="64" y="0" w="64" h="64" />
+										</highlighted>
+										<activated>
+											<BFRect x="64" y="0" w="64" h="64" />
+										</activated>
+										<disabled>
+											<BFRect x="64" y="0" w="64" h="64" />
+										</disabled>
+									</alternate>
+								</UIAspect>
+								<activate>
+									<event msg="ZT_SELECT_STATION_COMPONENT" data="BFString" string="returnStation" />
+								</activate>
+							</UIToggleButton>
+						</togglebutton>
+					</ui>
+				</ZTTransportStationSky>
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="stationEconomy" required="0">
+					<instance>
+						<ZTEconomyComponent>
+							<ZTTransaction name="donate" cost="10" type="debit" category="donations_income" nextTransaction="add_user" />
+							<ZTTransaction name="add_user" cost="1" type="addUser" category="user" />
+							<BFGTransactionTracker>
+								<ignore>
+									<build />
+									<add_user />
+								</ignore>
+							</BFGTransactionTracker>
+						</ZTEconomyComponent>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="stationFeedback" required="0">
+					<instance>
+						<ZTFeedbackComponent />
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="firstTrip" required="1">
+			<instance>
+				<ZTTransportSkyTrack ropeClearance="4.0f" />
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="returnTrip" required="1">
+			<instance>
+				<ZTTransportSkyTrack ropeClearance="4.0f" />
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="30">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="ReturnParkedVehicleContainer" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+				<slots>
+					<BFGEntityContainerSlot capacity="250" ownContents="true" hideContents="true"/>
+				</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="firstPassengerQueue">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot targetNode="p_PassengerEnterA" capacity="1" />
+					</slots>
+					<queue>
+						<BFGEntityContainerSlot targetNode="p_PassengerEnterA" capacity="10" />
+					</queue>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="firstPassengerQueueB" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot targetNode="p_PassengerEnterB" capacity="1" />
+					</slots>
+					<queue>
+						<BFGEntityContainerSlot targetNode="p_PassengerEnterB" capacity="10" />
+					</queue>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="returnPassengerQueueA" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot targetNode="p_PassengerEnterA" capacity="1" />
+					</slots>
+					<queue>
+						<BFGEntityContainerSlot targetNode="p_PassengerEnterA" capacity="10" />
+					</queue>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="returnPassengerQueue">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot targetNode="p_PassengerEnterB" capacity="1" />
+					</slots>
+					<queue>
+						<BFGEntityContainerSlot targetNode="p_PassengerEnterB" capacity="10" />
+					</queue>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="constructionMarker1" required="1">
+			<instance>
+			    <BFPhysObj allowHighlight="false">
+					<BFSimpleLODComponent modelfile="UI/fx/underconstruction/underconstruction_sky.nif" switch="0 10" scale="1.0"/>
+					<BFAnimatedObjectControllerComponent autoStart="true" duration="5.0" loop="true"/>
+					<BFForceUpdateWhenVisibleComponent/>
+                </BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="constructionMarker2" required="1">
+			<instance>
+				<BFPhysObj allowHighlight="false">
+					<BFSimpleLODComponent modelfile="UI/fx/underconstruction/underconstruction_sky.nif" switch="0 10" scale="1.0"/>
+					<BFAnimatedObjectControllerComponent autoStart="true" duration="5.0" loop="true"/>
+					<BFForceUpdateWhenVisibleComponent/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="constructionMarker3" required="1">
+			<instance>
+				<BFPhysObj allowHighlight="false">
+					<BFSimpleLODComponent modelfile="UI/fx/underconstruction/underconstruction_sky.nif" switch="0 10" scale="1.0"/>
+					<BFAnimatedObjectControllerComponent autoStart="true" duration="5.0" loop="true"/>
+					<BFForceUpdateWhenVisibleComponent/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="constructionMarker4" required="1">
+			<instance>
+				<BFPhysObj allowHighlight="false">
+					<BFSimpleLODComponent modelfile="UI/fx/underconstruction/underconstruction_sky.nif" switch="0 10" scale="1.0"/>
+					<BFAnimatedObjectControllerComponent autoStart="true" duration="5.0" loop="true"/>
+					<BFForceUpdateWhenVisibleComponent/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+	</binder>
+</BFTypedBinder>

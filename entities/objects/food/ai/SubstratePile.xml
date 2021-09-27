@@ -1,0 +1,79 @@
+<BFTypedBinder binderType="SubstratePile" abstract="true">
+   <types>
+      <entity>
+         <food>
+            <SubstratePile/>
+         </food>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\food\SubstratePile\SubstratePile_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:SubstratePile"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="SubstratePile"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData randomRotate="false" gridSnap="true" autoFootprint="true" terrainFlatten="true" icon3Doffset="0 0 0.970485" icon3Dscale="0.766674" protectedPlacement="false">
+         <cfootprint width="0" height="0"/>
+         <dfootprint width="1" height="1"/>
+         <stompData>
+            <delete>
+               <treat/>
+               <bush/>
+               <grass/>
+               <wildflowers/>
+               <fungi/>
+               <watersurfacefoliage/>
+            </delete>
+            <prevent/>
+         </stompData>
+      </ZTPlacementData>
+      <BFGCollisionData isPassable="true"/>
+      <BFAIEntityDataShared s_Container="Substrate" s_uisort="i" b_Sniffable="true" s_Zoopedia="zoopedia:zoopedia_substratepile:entry"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/food/SubstratePile/SubstratePile" switch="0 18"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="25"/>
+               <BFTerrainPaintComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="190">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <ZTAIStaffRequestController attribName="f_FoodLevel" thresholdValue="25" testType="1" cancelThresholdValue="50" cancelTestType="2">
+               <ZTStaffRequestData tokenKey="t_FillFoodContainer" subjectType="Keeper" priority="3"/>
+            </ZTAIStaffRequestController>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="Eat">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterSubstratePile" useBehSet="UseSubstratePile" exitBehSet="ExitSubstratePile" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterSubstratePile" useBehSet="UseSubstratePile" exitBehSet="ExitSubstratePile" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterSubstratePile" useBehSet="UseSubstratePile" exitBehSet="ExitSubstratePile" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterSubstratePile" useBehSet="UseSubstratePile" exitBehSet="ExitSubstratePile" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

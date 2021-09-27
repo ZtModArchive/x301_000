@@ -1,0 +1,57 @@
+<BFTypedBinder binderType="BigBluestem_Grassland">
+	<types>
+		<entity>
+			<foliage>
+				<plant>
+					<grass>
+						<BigBluestem_Grassland />
+					</grass>
+				</plant>
+			</foliage>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<ZTPlacementData icon3Doffset="0 0 0.3" icon3Dscale="0.35">
+			<cfootprint width="1" height="1" />
+			<dfootprint width="1" height="1" />
+		</ZTPlacementData>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\foliage\BigBluestem\BigBluestem_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:BigBluestem_Grassland" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="BigBluestem_Grassland" />
+			</on>
+		</UIToggleButton>
+		<BFGBiomeData location="grassland_northamerica">
+			<grassland />
+		</BFGBiomeData>
+		<BFAIEntityDataShared s_Product="EndangeredSpecies" b_GrazeGrass="true" s_prop="Grass_Prop" s_Zoopedia="zoopedia:zoopedia_bigbluestem:entry" />
+   		<ZTTourData>
+ 			<biome_grasslands value="2"/>
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\foliage\BigBluestem\BigBluestem_Grassland" scale="0.4" switch="0 15 25 35 60" />
+					<BFMultiGroundFitComponent heightOffset="0.0" maxTilt="75"/>
+					<BFTerrainPaintComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="15">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

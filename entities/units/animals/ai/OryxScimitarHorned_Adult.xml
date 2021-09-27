@@ -1,0 +1,75 @@
+﻿<BFTypedBinder binderType="OryxScimitarHorned_Adult" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Artiodactyla>
+							<Bovidae>
+								<OryxScimitarHorned>
+									<OryxScimitarHorned_Adult />
+								</OryxScimitarHorned>
+							</Bovidae>
+						</Artiodactyla>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<ZTPlacementData icon3Doffset="0 -0.039038 0.999731" icon3Dscale="0.786842" />
+		<BFAIEntityDataShared b_Adult="1" s_MorphMessage="zoomessages:AnimalPuberty" f_MorphMessagePriority="1" f_MorphMessageDuration="30" b_MediumPrey="true" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="texController" required="1">
+			<instance>
+				<BFAITextureController currState="well" defaultState="well">
+					<attribList>
+						<health />
+						<hygiene />
+					</attribList>
+					<stateList>
+						<sickanddirty>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="OryxScimitarHorned_Adult_F_MTL" image="entities\units\animals\OryxScimitarHorned\OryxScimitarHorned_Adult_F_Sick_Dirty_A.dds" />
+							</textureData>
+						</sickanddirty>
+						<sick>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="OryxScimitarHorned_Adult_F_MTL" image="entities\units\animals\OryxScimitarHorned\OryxScimitarHorned_Adult_F_Sick_A.dds" />
+							</textureData>
+						</sick>
+						<dirty>
+							<attribData>
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="OryxScimitarHorned_Adult_F_MTL" image="entities\units\animals\OryxScimitarHorned\OryxScimitarHorned_Adult_F_Dirty_A.dds" />
+							</textureData>
+						</dirty>
+						<well>
+							<textureData>
+								<mainObj material="OryxScimitarHorned_Adult_F_MTL" image="entities\units\animals\OryxScimitarHorned\OryxScimitarHorned_Adult_F.dds" />
+							</textureData>
+						</well>
+					</stateList>
+				</BFAITextureController>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester escapeBuffer="0.1875" radius=".375" motionClass="mover" waterScore="10" maxSlope=".90" wadeDepth="1" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

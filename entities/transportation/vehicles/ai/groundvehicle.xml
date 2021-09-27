@@ -1,0 +1,37 @@
+<BFTypedBinder binderType="groundvehicle" abstract="true">
+	<types>
+		<entity>
+			<transportation>
+				<vehicle>
+					<groundvehicle />
+				</vehicle>
+			</transportation>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<BFAIEntityDataShared f_animalTourValueMultiplier="2.00" f_BaseSpeed="3.25" s_TransportationMode="Ground" f_Acceleration="4.0" f_Deceleration="4.0" f_MinTurnSpeed="4.0" f_TurnRateForMinSpeed="0.5" f_TurnLeadDistance="2.0" f_MinFollowDistance="8.0" f_DropBackSpeedMultiplier="0.65" s_MoveAnimation="Drive_Ahead" s_StoppedAnim="Stop_Idle" f_VehicleLength="4" s_ConnectNodeName="Bip01 Rear" s_LineFitNodeName="Bip01 Front" f_HonkWaitTime="4" f_HonkRadius="4" s_HonkAnimation="Stop_Idle" f_TimeBeforeCrossingGate="4.5" s_PassengerIdleAnim="SitCar_Idle" f_LODToUseInPreview="1" />
+		<ZTPlacementData sound="place_vehicle_ground">
+			<excludedIconObjs>
+				<mainObj />
+				<driverObj />
+			</excludedIconObjs>
+		</ZTPlacementData>
+		<ZTEntitySelector useFootprint="false" size="3.5">
+			<BFPhysObj>
+				<BFTerrainDecalComponent imageName="UI/fx/selection/unit.tga" alphaBlend="true">
+					<lighting ambientColor="255 255 255" diffuseColor="255 255 255" specularColor="255 255 255" emmisiveColor="255 255 255" />
+				</BFTerrainDecalComponent>
+			</BFPhysObj>
+		</ZTEntitySelector>
+	</shared>
+	<binder>
+		<BFBinder required="1">
+			<instance>
+				<ZTVehicleGround />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,56 @@
+<UIToggleButton templateName="watergroupbutton" sticky="1">
+   <UIRegion x="0" y="0" w="125" h="25" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIAspect alwayshit="true">
+      <default image="ui/shared/white1x1.dds">
+         <BFColor r="150" g="150" b="150" a="0"/>
+         <BFFont align="center">
+            <BFColor r="150" g="150" b="150" a="255"/>
+         </BFFont>
+      </default>
+      <standard>
+         <normal>
+            <BFFont align="center">
+               <BFColor r="200" g="200" b="200" a="75"/>
+            </BFFont>
+         </normal>
+         <highlighted>
+            <BFColor r="120" g="120" b="120" a="25"/>
+            <BFFont align="center">
+               <BFColor r="230" g="230" b="150" a="150"/>
+            </BFFont>
+         </highlighted>
+         <activated>
+            <BFColor r="120" g="120" b="120" a="100"/>
+            <BFFont align="center">
+               <BFColor r="150" g="0" b="0" a="255"/>
+            </BFFont>
+         </activated>
+      </standard>
+      <alternate>
+         <normal>
+            <BFColor r="120" g="120" b="200" a="150"/>
+            <BFFont align="center">
+               <BFColor r="225" g="120" b="20" a="255"/>
+            </BFFont>
+         </normal>
+         <highlighted>
+            <BFColor r="120" g="120" b="120" a="100"/>
+            <BFFont align="center">
+               <BFColor r="230" g="230" b="150" a="255"/>
+            </BFFont>
+         </highlighted>
+         <activated>
+            <BFColor r="120" g="120" b="120" a="100"/>
+            <BFFont align="center">
+               <BFColor r="225" g="120" b="20" a="255"/>
+            </BFFont>
+         </activated>
+      </alternate>
+   </UIAspect>
+   <on>
+      <event msg="UI_SELF">
+         <child msg="UI_COPY_NAME" data="BFString" string="Selected Group"/>
+      </event>
+      <event msg="ZT_RUN_SCRIPT" data="BFString" string="global tool/water/watertool.lua switchSliderGroup"/>
+   </on>
+</UIToggleButton>

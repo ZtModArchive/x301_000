@@ -1,0 +1,94 @@
+<BFTypedBinder binderType="RubberToy">
+   <types>
+      <entity>
+         <enrichment>
+            <toy>
+               <RubberToy/>
+            </toy>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\RubberToy\RubberToy_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:RubberToy"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="RubberToy"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\enrichment\RubberToy\RubberToy_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="RubberToy"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData moveable="true" randomRotate="false" gridSnap="true" autoFootprint="false" icon3Doffset="0 0.046912 0.509546" icon3Dscale="4.444444">
+         <cfootprint width="0" height="0"/>
+         <dfootprint width="1" height="1"/>
+      </ZTPlacementData>
+      <BFGCollisionData isPassable="true"/>
+      <BFAIEntityDataShared b_Researchable="true" s_uisort="bd" s_Zoopedia="zoopedia:zoopedia_rubbertoy:entry" f_researchUnlockTime="60" f_researchCost="600" f_FameReq="40"/>
+      <BFGDetachInfo>
+         <detachActionTable>
+            <dropitem destination="drop"/>
+            <killitem destination="kill"/>
+            <inventory destination="inventory"/>
+            <maketrash destination="kill"/>
+         </detachActionTable>
+      </BFGDetachInfo>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width=".6" ignoreLights="true" minLength=".5" maxLength="1" minOffset="0" maxOffset=".25"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities\objects\enrichment\RubberToy\RubberToy.bfm" scale=".5"/>
+               <BFFakePhysicsComponent idleAnim="Stand_Idle" moveAnim="Stand_Bounce" escapeAnim="Stand_Nudge" slideRate="1.0" maxEscapeTries="5"/>
+               <BFGroundFitComponent heightOffset="0.0" maxTilt="50" floatOnWater="true" waterOffset="-0.65"/>
+               <BFCollisionComponent grid="Bone01"/>
+               <BFGridCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Play">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall_Whap" exitBehSet="ExitBall" targetNode="Dock_PickUp01" exclusiveID="Ball1" capacity="1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall_Whap" exitBehSet="ExitBall" targetNode="Dock_PickUp02" exclusiveID="Ball1" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="320">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFGCollisionTester maxSlope=".01"/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,64 @@
+<ZTScenarioMgr interval="2" name="mgr" state="0" chain="true" allsuccess="true" sticky="true" optional="false">
+	<info locid="PhotoSafari:VIPsIntro"/>
+	<children>
+		<BFScenarioRule hidden="1" name="setinitialzoostate" state="0" sticky="true">
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="setinitialzoostate" />
+			</evaluate>
+		</BFScenarioRule>
+		<BFScenarioRule name="GuestPhotos" hidden="0" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="PhotoSafari:GuestsPhotosGoal" overview="PhotoSafari:VIPsOverview" />
+				<success locid="PhotoSafari:GuestsPhotosGoalDone" overview="PhotoSafari:VIPsOverview" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="evalguestphotos" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="completeguestphotos" />
+			</success>
+		</BFScenarioRule>
+		<BFScenarioRule name="ThreeStars" hidden="1" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="PhotoSafari:VIPsFameGoal" overview="PhotoSafari:VIPsFame" />
+				<success locid="PhotoSafari:VIPsFameGoalDone" overview="PhotoSafari:VIPsFame" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="evalthreestars" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="completethreestars" />
+			</success>
+		</BFScenarioRule>
+		<BFScenarioRule name="VIPPhotos" hidden="1" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="PhotoSafari:VIPsPhotosGoal" overview="PhotoSafari:VIPsSpecialGuests" />
+				<success locid="PhotoSafari:VIPPhotosGoalDone" overview="PhotoSafari:VIPsSpecialGuests" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="evalvipphotos" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="completevipphotos" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="failvipphotos" />
+			</failure>
+		</BFScenarioRule>
+		<BFScenarioRule name="DivaPhotos" hidden="1" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="PhotoSafari:VIPsDivaGoal" overview="PhotoSafari:VIPsDiva" />
+				<success locid="PhotoSafari:VIPsDivaGoalDone" overview="PhotoSafari:VIPsDiva" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="evaldivaphotos" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="completedivaphotos" />
+			</success>
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/photosafaricampaign.lua" entry="faildivaphotos" />
+			</failure>
+		</BFScenarioRule>
+	</children>
+</ZTScenarioMgr>

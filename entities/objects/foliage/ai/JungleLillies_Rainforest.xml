@@ -1,0 +1,53 @@
+<BFTypedBinder binderType="JungleLillies_Rainforest">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <wildflowers>
+                  <JungleLillies_Rainforest/>
+               </wildflowers>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\JungleLillies\JungleLillies_Rainforest_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:JungleLillies_Rainforest"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="JungleLillies_Rainforest"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_junglelillies:entry" f_FameReq="80"/>
+      <BFGBiomeData location="tropicalrainforest_southeastasia">
+         <tropicalrainforest/>
+      </BFGBiomeData>
+      <ZTPlacementData icon3Doffset="0 0 0.410000" icon3Dscale="0.817343" />
+   		<ZTTourData>
+	 		<biome_tropical value="2"/>
+		</ZTTourData> 
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\foliage\JungleLillies\JungleLillies_Rainforest" switch="0 15"/>
+               <BFMultiGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="10">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

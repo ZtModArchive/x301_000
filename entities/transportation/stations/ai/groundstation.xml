@@ -1,0 +1,64 @@
+<BFTypedBinder binderType="groundstation" abstract="true">
+	<types>
+		<entity>
+			<transportation>
+				<station>
+					<groundstation />
+				</station>
+			</transportation>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<UIButton name="overviewicon">
+			<UIAspect>
+				<default image="ui/zoomap/icon_jeep_station.dds" />
+			</UIAspect>
+		</UIButton>
+		<ZTPlacementData alignDiagonalSides="true">
+			<stompData>
+				<delete>
+					<groundtrack />
+				</delete>
+			</stompData>
+			<clickableObjData>
+				<constructionMarker1 locid="transportation:roadcircuit_incomplete" />
+				<constructionMarker2 locid="transportation:roadcircuit_incomplete" />
+			</clickableObjData>
+			<attachObj>
+				<entity nodeName="Link_Sign1" binderType="station_collision_proxy" />
+				<entity nodeName="Link_Sign2" binderType="station_collision_proxy" />
+			</attachObj>
+		</ZTPlacementData>
+		<BFAIEntityDataShared s_TransportationMode="Ground" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="constructionMarker1" required="1">
+			<instance>
+				<BFPhysObj allowHighlight="false">
+					<BFSimpleLODComponent modelfile="UI/fx/underconstruction/underconstruction_ground.nif" switch="0 10" scale="0.2" />
+					<BFAnimatedObjectControllerComponent autoStart="true" duration="5.0" loop="true" />
+					<BFForceUpdateWhenVisibleComponent />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="constructionMarker2" required="1">
+			<instance>
+				<BFPhysObj allowHighlight="false">
+					<BFSimpleLODComponent modelfile="UI/fx/underconstruction/underconstruction_ground.nif" switch="0 10" scale="0.2" />
+					<BFAnimatedObjectControllerComponent autoStart="true" duration="5.0" loop="true" />
+					<BFForceUpdateWhenVisibleComponent />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTPlaceEntityComponent />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

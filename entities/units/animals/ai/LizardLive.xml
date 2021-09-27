@@ -1,0 +1,176 @@
+<BFTypedBinder binderType="LizardLive">
+	<types>
+		<entity>
+			<enrichment>
+				<live_enrichment>
+					<LizardLive />
+				</live_enrichment>
+			</enrichment>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<BFAIEntityDataShared s_Product="CP1" b_Researchable="true" p_PreyOffset="0 .25 0" f_sensorRadius="48" s_uisort="er" s_Species="LizardLive" f_researchUnlockTime="80" f_researchCost="700" f_FameReq="30" s_Zoopedia="zoopedia:zoopedia_livelizard:entry" p_PickUpNode="0 -0.06 270">
+			<BFAINeedAdjusts lifespan="0.25" />
+		</BFAIEntityDataShared>
+		<BFGInfluenceComponent defaultRadius="6.0" defaultGroupFactor="0.0" defaultRadiusDropoff="linear" defaultGroupDropoff="none">
+			<smell key="bad" value=".2" />
+		</BFGInfluenceComponent>
+		<ZTPlacementData icon3Dscale="2.17" icon3Doffset="0.0 0.12 1.0" waterPlacement="false" iconAnim=""/>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\units\animals\LizardLive\LizardLive_Adult_F_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:LizardLive" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="LizardLive" />
+			</on>
+		</UIToggleButton>
+		<UIToggleButton template="researchentity">
+			<UIAspect>
+				<default image="entities\units\animals\LizardLive\LizardLive_Adult_F_icon.dds" />
+			</UIAspect>
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="LizardLive" />
+			</on>
+		</UIToggleButton>
+		<BFGDetachInfo>
+			<detachActionTable>
+				<dropitem destination="drop" />
+				<killitem destination="kill" />
+				<inventory destination="inventory" />
+				<maketrash destination="kill" />
+			</detachActionTable>
+		</BFGDetachInfo>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<position x="0" y="0" z="0" />
+					<BFActorComponent actorfile="entities\units\animals\LizardLive\LizardLive_Adult_F.bfm" switch="0 5000"/>
+					<BF4LegsGroundFitComponent heightOffset="0" maxRollError=".2" maxPitchError=".1" maxHeightError=".5" pitchGain="2.00" heightGain="6.0" rollGain="1.0" bicyclePointBack="Bip01_Spine02" bicyclePointFront="Bip01_Spine03" frontBuoyancyNode="Node_Buoy" backBuoyancyNode="Node_Buoy_Back"/>
+					<BFForwardMovingComponent />
+					<BFRotYawMovingComponent />
+					<BFCollisionComponent grid="Bip01_Spine01" />
+					<BFGridCollisionComponent />
+					<BFBoundedObjectComponent worldBounded="0">
+						<minPoint x="-1000000" y="-100000" z="-100000" />
+						<maxPoint x="1000000" y="100000" z="100000" />
+					</BFBoundedObjectComponent>
+					<BFSwimComponent waterInDistance="0.1" waterOutDistance="0.1" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent lodLevel="0" shadowTexture="world\shadows\blob\blob_animal_final.tga" baseNode="Bip01_Head" width="0.5" minLength="0.5" maxLength="1.0" minOffset="0" maxOffset="0.25" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehAnimate interruptible="true" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true" />
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="ground" required="1">
+					<instance>
+						<BFLocoAnimate version="1">
+							<stop name="Stand" />
+							<slow name="Walk" minAnimSpeed="0.5" maxAnimSpeed="0.5" />
+							<medium name="Walk" minAnimSpeed="0.5" maxAnimSpeed="0.5" />
+							<fast name="Run" minAnimSpeed="0.5" maxAnimSpeed="0.5" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+            <BFNamedBinder binderName="water" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+                     <stop name="TreadWater"/>
+                     <slow name="Swim">
+                        <waggle name="Swim_Ahead" wag="0.3"/>
+                     </slow>
+                     <medium name="Swim">
+                        <waggle name="Swim_Ahead" wag="0.3"/>
+                     </medium>
+                     <fast name="Swim">
+                        <waggle name="Swim_Ahead" wag="0.3"/>
+                     </fast>
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester radius=".25" motionClass="swimmer" maxSlope=".75" waterScore="100" landScore="0" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance b_Dead="false" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAICognitiveMgr>
+					<Sensors>
+						<ZTAISensor />
+						<BFAISensorSelf />
+						<ZTAISensorLand />
+						<ZTAISensorTA sensorTag="habitat" />
+					</Sensors>
+					<StateThinkers>
+						<ZTAIStateThinker>
+							<BFAIStateVar Name="lifespan" Value="" ValueMin="0" ValueMax="0" CessationThreshold="0" TriggerThreshold="90" CriticalThreshold="90" Advanced="true" />
+						</ZTAIStateThinker>
+					</StateThinkers>
+					<TaskThinkers>
+						<ZTAITaskThinker />
+					</TaskThinkers>
+				</BFAICognitiveMgr>
+			</instance>
+			<shared>
+				<BFAICogShared>
+					<BFAINoPerceive>
+						<Guest />
+						<fence />
+					</BFAINoPerceive>
+				</BFAICogShared>
+			</shared>
+		</BFBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="85">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	        <BFNamedBinder binderName="Eat">
+	  	   <instance>
+		      <BFGEntityContainer>
+		         <slots>
+		  	    <BFGEntityContainerSlot enterBehSet="EnterLiveFood" useBehSet="UseLiveFood" exitBehSet="ExitLiveFood" capacity="1"/>
+		         </slots>
+		      </BFGEntityContainer>
+		   </instance>
+	        </BFNamedBinder>
+	</binder>
+</BFTypedBinder>

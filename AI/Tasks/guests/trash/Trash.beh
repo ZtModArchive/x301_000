@@ -1,0 +1,52 @@
+<BehaviorSets>
+   <DockTrashContainer>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" detachAction="inventory" locoMod="carry"/>
+         <BFBehDock targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </DockTrashContainer>
+   
+   
+   <UseTrashContainer>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" detachAction="inventory" locoMod="carry"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:ThrowawayTrash"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDetachObject detachEntity="object" targetAnim="StandItem_ThrowAway" detachAction="killitem"/>
+      </behaviors>
+   </UseTrashContainer>
+   <UseRecyclingBin>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:RecycleTrash"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDetachObject detachEntity="object" targetAnim="StandItem_ThrowAway" detachAction="killitem"/>
+      </behaviors>
+   </UseRecyclingBin>   
+   
+   
+   <ExitTrashContainer>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </ExitTrashContainer>
+
+   
+</BehaviorSets>

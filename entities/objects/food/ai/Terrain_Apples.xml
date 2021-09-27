@@ -1,0 +1,26 @@
+<BFTypedBinder binderType="Terrain_Apples" abstract="true">
+   <types>
+      <entity>
+         <food>
+            <TerrainFood>
+               <Terrain_Apples/>
+            </TerrainFood>
+         </food>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image=""/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Terrain_Apples"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Terrain_Apples"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_FoodType="Fruit" s_prop="Apple_Prop"/>
+   </shared>
+</BFTypedBinder>

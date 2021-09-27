@@ -1,0 +1,73 @@
+<BFTypedBinder binderType="PathSupport_Wood_curved_end">
+   <types>
+      <entity>
+         <scenery>
+            <pathsupport>
+               <PathSupport_Wood_curved_end/>
+            </pathsupport>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="elevatedpathplacement">
+         <UIAspect>
+            <default image="entities\objects\paths\elevatedpaths\ElevatedPath_Wood_end\ElevatedPath_Wood_end_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:PathSupport_Wood"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PathSupport_Wood_end"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_ReceiveUpdates="true" s_supportType="PathSupport_Wood_end" s_curveSupportType="PathSupport_Wood_curved_end" s_Zoopedia="zoopedia:zoopedia_elevatedpath:entry"/>
+      <ZTPlacementData icon3Doffset="0 0 0.4" icon3Dscale="0.25" terrainFlatten="false" />      
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\paths\elevatedpaths\ElevatedPath_Wood_end\ElevatedPath_Wood_end_curvesupport_base"/>
+               <BFGroundFitComponent heightOffset="0.5" fitLowest="true" fitRadius="1.5" />
+               <BFCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="topObj_T" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\paths\elevatedpaths\ElevatedPath_Wood_end\ElevatedPath_Wood_end_curvesupport_top"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="expandoPiece1" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\paths\elevatedpaths\ElevatedPath_Wood_end\ElevatedPath_Wood_end_curvesupport_pole"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="0">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTExpandoComponent height="10" heightAbsolute="true" rotateTop="true">
+               <Base binderName="mainObj" height="1.0f" attachSelfNode="" attachOthersNode="Link_Base01"/>
+               <Top>
+                  <TopPiece1 binderName="topObj_T" height="1.0f" attachSelfNode="Link_Pole" attachOthersNode=""/>
+               </Top>
+               <Expando>
+                  <Piece1 binderName="expandoPiece1" height="1.0f" attachSelfNode="Link_Segment01" attachOthersNode="Link_Segment02"/>
+               </Expando>
+            </ZTExpandoComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

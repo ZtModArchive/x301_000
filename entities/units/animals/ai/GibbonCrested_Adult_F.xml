@@ -1,0 +1,105 @@
+<BFTypedBinder binderType="GibbonCrested_Adult_F">
+   <types>
+      <entity>
+         <actor>
+            <animal>
+               <Mammalia>
+                  <Primata>
+                     <Hylobatidae>
+                        <GibbonCrested>
+                          <GibbonCrested_Adult>
+                              <GibbonCrested_Adult_F/>
+                           </GibbonCrested_Adult>
+                        </GibbonCrested>
+                     </Hylobatidae>
+                  </Primata>
+               </Mammalia>
+            </animal>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared b_Male="0" f_adoptCount="rand(1,2)"/>
+   </shared>
+   <binder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_Pregnant="false"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFDecalTextureCycleComponent materialName="GibbonCrested_F">
+                  <Step imageName="entities/units/animals/shared/tiger_blink_blank.dds" hold="3.0" variance="0.5"/>
+                  <Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance=""/>
+                  <Step imageName="entities/units/animals/shared/tiger_blink.dds" hold="0.1" variance=""/>
+                  <Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance=""/>
+               </BFDecalTextureCycleComponent>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFLocomotionMgr />
+         </instance>
+         <binder>
+            <BFNamedBinder binderName="groundcarrybaby" required="1">
+               <instance>
+                  <BFLocoAnimate version="1" stationaryAnim="StandYoung_Idle">
+                     <stop name="StandYoung" />
+                     <slow name="WalkYoung" />
+                     <medium name="WalkYoung" />
+                     <fast name="RunYoung" />
+                  </BFLocoAnimate>
+               </instance>
+            </BFNamedBinder>
+         </binder>
+      </BFBinder>
+      <BFNamedBinder binderName="texController" required="1">
+         <instance>
+            <BFAITextureController currState="well" defaultState="well">
+               <attribList>
+                  <health/>
+                  <hygiene/>
+               </attribList>
+               <stateList>
+                  <sickanddirty>
+                     <attribData>
+                        <health minRange="70" maxRange="101"/>
+                        <hygiene minRange="70" maxRange="101"/>
+                     </attribData>
+                     <textureData>
+                        <mainObj material="GibbonCrested_F" image="entities\units\animals\GibbonCrested\GibbonCrested_F_SickDirty.dds"/>
+                     </textureData>
+                  </sickanddirty>
+                  <sick>
+                     <attribData>
+                        <health minRange="70" maxRange="101"/>
+                     </attribData>
+                     <textureData>
+                        <mainObj material="GibbonCrested_F" image="entities\units\animals\GibbonCrested\GibbonCrested_F_Sick.dds"/>
+                     </textureData>
+                  </sick>
+                  <dirty>
+                     <attribData>
+                        <hygiene minRange="70" maxRange="101"/>
+                     </attribData>
+                     <textureData>
+                        <mainObj material="GibbonCrested_F" image="entities\units\animals\GibbonCrested\GibbonCrested_F_Dirty.dds"/>
+                     </textureData>
+                  </dirty>
+                  <well>
+                     <textureData>
+                        <mainObj material="GibbonCrested_F" image="entities\units\animals\GibbonCrested\GibbonCrested_F.dds"/>
+                     </textureData>
+                  </well>
+               </stateList>
+            </BFAITextureController>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

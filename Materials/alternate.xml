@@ -1,0 +1,45 @@
+<water>
+   <reflection strength="70." ambient="20. 15. 5." tint="102. 71. 38." mapsize="10." bumpiness="50." falloff="10." fresnel="50."><!--Parameters controlling reflection off the water--></reflection>
+   <refraction ambient="10. 8. 3." tint="204. 143. 77." mapsize="50." bumpiness="10." falloff="100."><!--Parameters controlling refraction through the water--></refraction>
+   <geometric minAmplitude="5." maxAmplitude="5." chop="10.0"><!--Parameters for mesh undulation--></geometric>
+   <shore tint="103 113 87 200" botRate="0.01" botSize="4.0" topRate="-0.04" topSize="5.0" rippleTop="Materials/waterlayout" rippleBot="Materials/waterlayout" rippleMask="Materials/watermask"/>
+   <ripple lifespan="3.0" startup="0.45" maxAmplitude="15." minAmplitude="5." chop="100." speed="0.2" rampmin="2" rampmax="10"/>
+   <scummap image="Materials/scum" botsize="-15.0 15.0" botrate="0.1 0.1" topsize="20.0 20.0" toprate="0.1 -0.1"><!--Optional map for scum layer--></scummap>
+   <wake system="paltdecal paltdecal palthighdecal palthighdecal"/>
+   <side color="25 0 0 128" lit="80 70 40 128" />
+   <suspense file="world/water/defaultSuspense.xml"/>
+   <spray>
+      <detail level="0">
+         <level system="splash_base_2" maxstrength="0.5" aboveWaterSound="splash_small" belowWaterSound="splash_small_uw" />
+         <level system="splash_base_4" maxstrength="5000.0" aboveWaterSound="splash_large" belowWaterSound="splash_large_uw" />
+      </detail>
+      <detail level="1">
+         <level system="splash_base_2" maxstrength="0.5" aboveWaterSound="splash_small" belowWaterSound="splash_small_uw" />
+         <level system="splash_base_3" maxstrength="0.7" aboveWaterSound="splash_med" belowWaterSound="splash_med_uw" />
+         <level system="splash_base_4" maxstrength="5000.0" aboveWaterSound="splash_large" belowWaterSound="splash_large_uw" />
+      </detail>
+      <detail level="2">
+         <level system="splash_base_1" maxstrength="0.25" aboveWaterSound="splash_tiny" belowWaterSound="splash_tiny_uw" />
+         <level system="splash_base_2" maxstrength="0.5" aboveWaterSound="splash_small" belowWaterSound="splash_small_uw" />
+         <level system="splash_base_3" maxstrength="0.7" aboveWaterSound="splash_med" belowWaterSound="splash_med_uw" />
+         <level system="splash_base_4" maxstrength="0.8" aboveWaterSound="splash_large" belowWaterSound="splash_large_uw" />
+         <level system="splash_base_5" maxstrength="5000.0" aboveWaterSound="splash_huge" belowWaterSound="splash_huge_uw" />
+      </detail>
+   </spray>
+   <bubbles>
+      <detail level="0" system="default_bubbles" sound="ambient_bubbles" maxsounds="1" maxrange="10" >
+         <emit smallsecs="16.0" bigsecs="6.0"/>
+      </detail>
+      <detail level="1" system="default_bubbles2" sound="ambient_bubbles" maxsounds="3" maxrange="20" >
+         <emit smallsecs="8.0" bigsecs="1.0"/>
+         <emit smallsecs="1.0" bigsecs="0.1"/>
+      </detail>
+      <detail level="2" system="default_bubbles2" sound="ambient_bubbles" maxsounds="4" maxrange="30" >
+         <emit smallsecs="8.0" bigsecs="1.0"/>
+         <emit smallsecs="1.0" bigsecs="0.1"/>
+      </detail>
+   </bubbles>
+   <current windspeed="5.0" gustiness="0.3"/>
+   <fog file="world/water/alternateFog.xml"/>
+   <light file="world/water/defaultLight.xml"/>
+</water>

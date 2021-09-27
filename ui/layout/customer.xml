@@ -1,0 +1,247 @@
+<UILayout name="VINCE Layout">
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <children>
+      <UILayout name="Customer Feedback Layout" modal="true">
+         <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect string="">
+            <default image="ui\layout\white1x1.dds" alwayshit="true">
+               <BFRect x="0" y="0" w="0" h="0"/>
+               <BFColor r="0" g="0" b="0" a="128"/>
+            </default>
+         </UIAspect>
+         <children>
+            <UILayout name="Backgrounds">
+               <UIRegion x="236" y="106" w="550" h="475" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <children>
+                  <UILayout name="mian background pieces" template="blank">
+                     <UIRegion x="0" y="10" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="310" h="243"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UILayout template="header">
+                     <UIRegion x="0" y="10" w="0" h="37" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="310" h="243"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UILayout template="buttonbar">
+                     <UIRegion x="5" y="-72" w="-5" h="65" xalign="min" yalign="max" walign="max" halign="len"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="310" h="243"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UILayout name="Buttons and Text ">
+                     <UIRegion x="0" y="0" w="0" h="max" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect string="">
+                        <default image="" sound="">
+                           <BFRect x="0" y="0" w="0" h="0"/>
+                           <BFColor r="0" g="0" b="0" a="0"/>
+                        </default>
+                     </UIAspect>
+                     <children>
+                        <UIText name="label">
+                           <UIRegion x="10" y="20" w="-5" h="20" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="customer:customer_label">
+                              <default>
+                                 <BFFont>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </BFFont>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                        </UIText>
+                        <UIText name="welcome_text">
+                           <UIRegion x="10" y="50" w="0" h="220" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="customer:welcome_text">
+                              <default>
+                                 <BFFont>
+                                    <BFColor r="255" g="255" b="255" a="255"/>
+                                 </BFFont>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                           </UIAspect>
+                           <text type="multi"/>
+                        </UIText>
+                        <UILayout template="blank">
+                           <UIRegion x="5" y="250" w="-5" h="150" xalign="min" yalign="min" walign="max" halign="len"/>
+                           <UIState active="normal" visible="normal"/>
+                           <UIAspect locid="">
+                              <default/>
+                           </UIAspect>
+                        </UILayout>
+                        <UIToggleSet>
+                           <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                           <UIState active="normal" visible="normal"/>
+                           <children>
+                              <UIText name="Yes_text">
+                                 <UIRegion x="55" y="265" w="-15" h="65" xalign="min" yalign="min" walign="max" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect locid="customer:yes_text">
+                                    <default>
+                                       <BFFont>
+                                          <BFColor r="255" g="255" b="255" a="255"/>
+                                       </BFFont>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                 </UIAspect>
+                                 <text type="multi"/>
+                              </UIText>
+                              <UIToggleButton name="agree button" sticky="1" toggle="0">
+                                 <UIRegion x="10" y="255" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="customer:accept_program_button"/>
+                                 <UIAspect string="">
+                                    <default image="ui\shared\button_check.dds"/>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="192" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uicheck">
+                                          <BFRect x="64" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                 </UIAspect>
+                                 <UIHotKeys/>
+                                 <on>
+                                    <event data="UIChildData" msg="UI_CHILD" name="Customer Feedback Button">
+                                       <child msg="UI_ENABLE"/>
+                                    </event>
+                                    <event msg="ZT_ACCEPT_LOGGING"/>
+                                 </on>
+                              </UIToggleButton>
+                              <UIText name="No_text">
+                                 <UIRegion x="55" y="345" w="-15" h="65" xalign="min" yalign="min" walign="max" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIAspect locid="customer:no_text">
+                                    <default>
+                                       <BFFont>
+                                          <BFColor r="255" g="255" b="255" a="255"/>
+                                       </BFFont>
+                                       <BFColor r="255" g="255" b="255" a="255"/>
+                                    </default>
+                                 </UIAspect>
+                                 <text type="multi"/>
+                              </UIText>
+                              <UIToggleButton name="decline_program" sticky="1" toggle="0">
+                                 <UIRegion x="10" y="330" w="50" h="50" xalign="min" yalign="min" walign="len" halign="len"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <UIHelpInfo name="" short="" long="" help="" ids="customer:decline_program_button"/>
+                                 <UIAspect string="">
+                                    <default image="ui\shared\button_check.dds"/>
+                                    <alternate>
+                                       <normal>
+                                          <BFRect x="0" y="0" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="64" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated>
+                                          <BFRect x="64" y="0" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="64" w="64" h="64"/>
+                                       </disabled>
+                                    </alternate>
+                                    <standard>
+                                       <normal>
+                                          <BFRect x="0" y="128" w="64" h="64"/>
+                                       </normal>
+                                       <highlighted>
+                                          <BFRect x="0" y="192" w="64" h="64"/>
+                                       </highlighted>
+                                       <activated sound="uicheck">
+                                          <BFRect x="64" y="128" w="64" h="64"/>
+                                       </activated>
+                                       <disabled>
+                                          <BFRect x="64" y="192" w="64" h="64"/>
+                                       </disabled>
+                                    </standard>
+                                 </UIAspect>
+                                 <on>
+                                    <event msg="UI_CHILD" data="UIChildData" name="Customer Feedback Button">
+                                       <child msg="UI_ENABLE"/>
+                                    </event>
+                                    <event msg="ZT_DECLINE_LOGGING"/>
+                                 </on>
+                                 <UIHotKeys/>
+                              </UIToggleButton>
+                           </children>
+                        </UIToggleSet>
+                        <UIButton name="Customer Feedback Button">
+                           <UIRegion x="240" y="400" w="70" h="70" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <UIState active="disabled" visible="normal"/>
+                           <UIHelpInfo name="" short="" long="" help="" ids="customer:exit_panel_button"/>
+                           <UIAspect string="">
+                              <default image="ui\shared\button_ok.dds" sound="">
+                                 <BFRect x="0" y="0" w="-1" h="-1"/>
+                                 <BFColor r="255" g="255" b="255" a="255"/>
+                              </default>
+                              <standard>
+                                 <normal>
+                                    <BFRect x="0" y="0" w="64" h="64"/>
+                                 </normal>
+                                 <highlighted>
+                                    <BFRect x="0" y="64" w="64" h="64"/>
+                                 </highlighted>
+                                 <activated sound="uiclick">
+                                    <BFRect x="64" y="0" w="64" h="64"/>
+                                 </activated>
+                                 <disabled>
+                                    <BFRect x="64" y="64" w="64" h="64"/>
+                                 </disabled>
+                              </standard>
+                           </UIAspect>
+                           <activate>
+                              <event msg="ZT_VINCE_QUESTION_ANSWERED"/>
+                              <event msg="UI_CHILD" data="UIChildData" name="Customer Feedback Layout">
+                                 <child msg="UI_HIDE"/>
+                              </event>
+                           </activate>
+                        </UIButton>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

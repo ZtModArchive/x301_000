@@ -1,0 +1,432 @@
+<!-- This is a dummy "biome" created so that flower beds don't show up on zookeeper recommendation panels for grassland animals-->
+<BFGBiome name="zoodecoration" displayname="biometype:grassland" groundTexture="Biomes/grassland/grassland_ground_512.DDS" groundCoverTexture="Biomes/grassland/grassland_cover_512.DDS" mixMask="Biomes/grassland/mixmask_grassland.DDS" objectMask="Biomes/shared/foliage_distribution_mask.DDS" cliffHoriz="Biomes/grassland/grassland_cliff_128_H.DDS" cliffVert="Biomes/grassland/grassland_cliff_128_V.DDS" cliffDiag1="Biomes/grassland/grassland_cliff_128_D1.DDS" cliffDiag2="Biomes/grassland/grassland_cliff_128_D2.DDS" cliffUnaligned="Biomes/grassland/grassland_cliff_128_U.DDS" groundCoverHeightMap="Biomes/shared/low_displacecover_128.DDS" groundCoverWhiteHeightOffset="0.10f" groundCoverBlackHeightOffset="0.0" groundHeightMap="Biomes/shared/low_displaceground_128.DDS" groundWhiteHeightOffset="0.10f" groundBlackHeightOffset="0.0" mixHeightMap="Biomes/shared/low_displacemix_128.DDS" mixWhiteHeightOffset="0.1" mixBlackHeightOffset="0.0" drawOrder="6" iconName="ui/icon_biomes/icon_grassland.dds">
+   <groundBrushes brush="Biomes/shared/groundbrush01_64.DDS" brush1="Biomes/shared/groundbrush02_64.DDS" brush2="Biomes/shared/groundbrush03_64.DDS" brush3="Biomes/shared/groundbrush04_64.DDS"/>
+   <groundCoverBrushes brush="Biomes/shared/coverbrush01_64.DDS" brush1="Biomes/shared/coverbrush02_64.DDS" brush2="Biomes/shared/coverbrush03_64.DDS" brush3="Biomes/shared/coverbrush04_64.DDS"/>
+   <groundBrushesNoBlend brush="Biomes/shared/noblend_brush01_32.DDS" brush1="Biomes/shared/noblend_brush02_32.DDS" brush2="Biomes/shared/noblend_brush03_32.DDS" brush3="Biomes/shared/noblend_brush04_32.DDS"/>
+   <groundCoverBrushesNoBlend brush="Biomes/shared/noblend_brush01_32.DDS" brush1="Biomes/shared/noblend_brush02_32.DDS" brush2="Biomes/shared/noblend_brush03_32.DDS" brush3="Biomes/shared/noblend_brush04_32.DDS"/>
+   <overviewColors coverR="132" coverG="175" coverB="132" uncoverR="132" uncoverG="175" uncoverB="132" cliffR="132" cliffG="175" cliffB="132"/>
+   <water shallowDepth="1.0" deepDepth="6" shoreOffset="0.4" vertexColorLow="207 255 245 130" vertexColorMed="200 200 200 150" vertexColorHigh="200 200 200 150" glossMap="world/water/gloss/grassland_gloss.dds" waterSubmerged="Biomes/grassland/grassland_shore_256.DDS" shoreTexture="Biomes/grassland/grassland_shore_256.DDS" shoreRipple="ShoreRipples" shoreRippleMaxPercent="75" shoreRipplePeriod="2" shoreRippleMaxPercentPerPeriod="50">
+      <texture name="world/water/water.dds" gridWidth="6" gridHeight="6" scrollTexture="true" startMinUV="0.0 1.0" startMaxUV="1.0 2.0" endMinUV="0.0 0.0" endMaxUV="1.0 1.0" scrollInterval="40" pingpong="false"/>
+      <texture name="world/water/water45.dds" gridWidth="6" gridHeight="6" scrollTexture="true" startMinUV="1.0 0.0" startMaxUV="2.0 1.0" endMinUV="0.0 1.0" endMaxUV="1.0 2.0" scrollInterval="60" pingpong="false"/>
+   </water>
+   <detailobjects>
+      <lowest/>
+      <low/>
+      <med>
+         <dirt objDensity="1">
+            <object nifFile="Biomes/z_detail/grassland/DetailGreengrassA_Grassland.nif" probability="5"/>
+            <object nifFile="Biomes/z_detail/grassland/DetailGreengrassB_Grassland.nif" probability="5"/>
+            <object nifFile="" probability="400"/>
+         </dirt>
+         <cover objDensity="1">
+            <object nifFile="Biomes/z_detail/grassland/DetailGreengrassA_Grassland.nif" probability="95"/>
+            <object nifFile="Biomes/z_detail/grassland/DetailGreengrassB_Grassland.nif" probability="95"/>
+            <object nifFile="" probability="200"/>
+         </cover>
+      </med>
+      <high>
+         <dirt objDensity="1">
+            <object nifFile="Biomes/z_detail/grassland/DetailGreengrassA_Grassland.nif" probability="10"/>
+            <object nifFile="Biomes/z_detail/grassland/DetailGreengrassB_Grassland.nif" probability="10"/>
+            <object nifFile="" probability="400"/>
+         </dirt>
+         <cover objDensity="2">
+            <object nifFile="Biomes/z_detail/grassland/DetailGreengrassA_Grassland.nif" probability="95"/>
+            <object nifFile="Biomes/z_detail/grassland/DetailGreengrassB_Grassland.nif" probability="95"/>
+         </cover>
+      </high>
+   </detailobjects>
+   <decorativedetailobjects>
+      <dirt>
+         <object bfrFile="Biomes/z_detail/grassland/DecDetailGreengrassA_Grassland" probability="20"/>
+         <object bfrFile="Biomes/z_detail/grassland/DecDetailGreengrassB_Grassland" probability="20"/>
+         <object bfrFile="" probability="40"/>
+      </dirt>
+      <cover>
+         <object bfrFile="Biomes/z_detail/grassland/DecDetailGreengrassA_Grassland" probability="2"/>
+         <object bfrFile="Biomes/z_detail/grassland/DecDetailGreengrassB_Grassland" probability="2"/>
+         <object bfrFile="" probability="4"/>
+      </cover>
+   </decorativedetailobjects>
+   <panel>
+      <UIToggleSet name="Biome">
+         <UIRegion x="26" y="45" w="500" h="256" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect string="">
+            <default image="" sound="">
+               <BFRect x="0" y="0" w="0" h="0"/>
+               <BFColor r="0" g="0" b="0" a="0"/>
+            </default>
+         </UIAspect>
+         <UIHotKeys/>
+         <children>
+            <UIToggleButton name="deepwater" toggle="0" sticky="1">
+               <UIRegion x="0" y="93" w="88" h="60" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="grassland:deepwater"/>
+               <UIAspect string="">
+                  <default image="ui/biome/biome_grass.DDS" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="516" w="88" h="60"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="516" w="88" h="60"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="382" y="516" w="88" h="60"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="0" y="516" w="88" h="60"/>
+                        <BFColor r="100" g="100" b="100" a="255"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="382" y="516" w="88" h="60"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="516" w="88" h="60"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="382" y="516" w="88" h="60"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="0" y="0" w="20" h="72"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <UIHotKeys/>
+               <on>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_biome"/>
+                  <event msg="ZT_SETMODE" data="BFString" string="deepwater"/>
+               </on>
+            </UIToggleButton>
+            <UIToggleButton name="shallowwater" toggle="0" sticky="1">
+               <UIRegion x="22" y="93" w="144" h="60" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="grassland:shallowwater"/>
+               <UIAspect string="">
+                  <default image="ui/biome/biome_grass.DDS" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="455" w="144" h="60"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="455" w="144" h="60"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="368" y="455" w="144" h="60"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="0" y="455" w="144" h="60"/>
+                        <BFColor r="100" g="100" b="100" a="255"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="368" y="455" w="144" h="60"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="455" w="144" h="60"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="368" y="455" w="144" h="60"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="21" y="0" w="22" h="72"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <UIHotKeys/>
+               <on>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_biome"/>
+                  <event msg="ZT_SETMODE" data="BFString" string="shallowwater"/>
+               </on>
+            </UIToggleButton>
+            <UIToggleButton name="ground" toggle="0" sticky="1">
+               <UIRegion x="102" y="63" w="103" h="90" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="grassland:ground"/>
+               <UIAspect string="">
+                  <default image="ui/biome/biome_grass.DDS" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="364" w="103" h="90"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="364" w="103" h="90"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="382" y="364" w="103" h="90"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="0" y="364" w="103" h="90"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="382" y="364" w="103" h="90"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="364" w="103" h="90"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="382" y="364" w="103" h="90"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="44" y="0" w="26" h="72"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <UIHotKeys/>
+               <on>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_biome"/>
+                  <event msg="ZT_SETMODE" data="BFString" string="ground"/>
+               </on>
+            </UIToggleButton>
+            <UIToggleButton name="mix" toggle="0" sticky="1">
+               <UIRegion x="141" y="63" w="103" h="90" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="grassland:mix"/>
+               <UIAspect string="">
+                  <default image="ui/biome/biome_grass.DDS" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="182" w="103" h="90"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="182" w="103" h="90"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="382" y="182" w="103" h="90"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="0" y="182" w="103" h="90"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="382" y="182" w="103" h="90"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="182" w="103" h="90"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="382" y="182" w="103" h="90"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="71" y="0" w="30" h="72"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <UIHotKeys/>
+               <on>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_biome"/>
+                  <event msg="ZT_SETMODE" data="BFString" string="mix"/>
+               </on>
+            </UIToggleButton>
+            <UIToggleButton name="ground-cover" toggle="0" sticky="1">
+               <UIRegion x="180" y="63" w="103" h="90" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="grassland:ground-cover"/>
+               <UIAspect string="">
+                  <default image="ui/biome/biome_grass.DDS" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="273" w="103" h="90"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="273" w="103" h="90"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="382" y="273" w="103" h="90"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="0" y="273" w="103" h="90"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="382" y="273" w="103" h="90"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="273" w="103" h="90"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="382" y="273" w="103" h="90"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="64" y="64" w="33" h="72"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <UIHotKeys/>
+               <on>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_biome"/>
+                  <event msg="ZT_SETMODE" data="BFString" string="ground-cover"/>
+               </on>
+            </UIToggleButton>
+            <UIToggleButton name="foliage-mix" toggle="0" sticky="1">
+               <UIRegion x="220" y="64" w="103" h="90" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="grassland:foliage-mix"/>
+               <UIAspect string="">
+                  <default image="ui/biome/biome_grass.DDS" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="91" w="103" h="90"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="91" w="103" h="90"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="382" y="91" w="103" h="90"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="0" y="732" w="103" h="90"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="382" y="91" w="103" h="90"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="91" w="103" h="90"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="382" y="91" w="103" h="90"/>
+                        <BFRect x="0" y="93" w="103" h="90"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="0" y="91" w="103" h="90"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <UIHotKeys/>
+               <on>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_biome"/>
+                  <event msg="ZT_SETMODE" data="BFString" string="foliage-mix"/>
+                  <event msg="ZT_SET_AUTO_PLACEMENT_LIST" data="BFXMLNode">
+                     <autoPlacement>
+                        <Range0 threshold="50">
+                           <nothing weight="100"/>
+                        </Range0>
+                        <Range1 threshold="100">
+                           <Rock_Grassland_Small_A weight="200"/>
+                           <Rock_Grassland_Medium_A weight="100"/>
+                           <Rock_Grassland_Large_A weight="50"/>
+                           <BigBluestem_Grassland weight="500"/>
+                           <JuneGrass_Grassland weight="200"/>                           
+                           <nothing weight="1250"/>
+                        </Range1>
+                        <Range2 threshold="150">
+                           <JuneGrass_Grassland weight="400"/>
+                           <Dandelions_Grassland weight="400"/>
+                           <Sedge_Grassland weight="400"/>
+                           <BigBluestem_Grassland weight="800"/>                           
+                           <nothing weight="200"/>
+                        </Range2>
+                        <Range3 threshold="255">
+                           <BigBluestem_Grassland weight="50"/>                        
+                           <nothing weight="200"/>
+                        </Range3>
+                     </autoPlacement>
+                  </event>
+               </on>
+            </UIToggleButton>
+            <UIToggleButton name="foliage-mix-terrain" toggle="0" sticky="1">
+               <UIRegion x="259" y="63" w="122" h="90" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="grassland:foliage-mix-terrain"/>
+               <UIAspect string="">
+                  <default image="ui/biome/biome_grass.DDS" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="0" w="122" h="90"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="0" w="122" h="90"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="381" y="0" w="122" h="90"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="0" y="638" w="122" h="90"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="381" y="0" w="122" h="90"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="192" y="0" w="122" h="90"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="381" y="0" w="122" h="90"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="0" y="0" w="122" h="90"/>
+                        <BFColor r="0" g="0" b="0" a="175"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <UIHotKeys/>
+               <on>
+                  <event msg="ZT_SETMODE" data="BFString" string="mode_biome"/>
+                  <event msg="ZT_SETMODE" data="BFString" string="foliage-mix"/>
+                  <event msg="ZT_SET_AUTO_PLACEMENT_LIST" data="BFXMLNode">
+                     <autoPlacement>
+                        <Range0 threshold="50">
+                           <nothing weight="100"/>
+                        </Range0>
+                        <Range1 threshold="100">
+                           <Rock_Grassland_Small_A weight="200"/>
+                           <Rock_Grassland_Medium_A weight="100"/>
+                           <Rock_Grassland_Large_A weight="50"/>
+                           <BigBluestem_Grassland weight="400"/>
+                           <JuneGrass_Grassland weight="200"/>                             
+                           <nothing weight="1200"/>
+                        </Range1>
+                        <Range2 threshold="150">
+                           <JuneGrass_Grassland weight="400"/>
+                           <Dandelions_Grassland weight="300"/>
+                           <Sedge_Grassland weight="400"/>
+                           <BigBluestem_Grassland weight="500"/>
+                           <nothing weight="50"/>
+                        </Range2>
+                        <Range3 threshold="255">
+                           <BigBluestem_Grassland weight="100"/>                        
+                           <TremblingAspen_Grassland weight="150"/>
+                           <BurOak_Grassland weight="90"/>
+                           <nothing weight="350"/>
+                        </Range3>
+                     </autoPlacement>
+                  </event>
+               </on>
+            </UIToggleButton>
+         </children>
+      </UIToggleSet>
+   </panel>
+</BFGBiome>

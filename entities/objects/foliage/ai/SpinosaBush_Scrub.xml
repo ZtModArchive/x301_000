@@ -1,0 +1,53 @@
+﻿<BFTypedBinder binderType="SpinosaBush_Scrub">
+	<types>
+		<entity>
+			<foliage>
+				<plant>
+					<bush>
+						<SpinosaBush_Scrub />
+					</bush>
+				</plant>
+			</foliage>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<ZTPlacementData icon3Doffset="0 0 0.600000" icon3Dscale="0.729706" />
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\foliage\SpinosaBush\SpinosaBush_Scrub_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:SpinosaBush_Scrub" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="SpinosaBush_Scrub" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_spinosa:entry" f_FameReq="20" b_BrowseBush="true" s_prop="Hay_Prop" />
+		<BFGBiomeData location="desert_northafrica">
+			<scrub />
+		</BFGBiomeData>
+		<ZTTourData>
+			<biome_scrub value="1" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\foliage\SpinosaBush\SpinosaBush_Scrub" />
+					<BFMultiGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="10">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

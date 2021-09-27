@@ -1,0 +1,89 @@
+<BehaviorSets>
+   <Queue>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehDockQueue hitRadius="2.5" queueRadius="12" locoSpeed="slow"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:WaitLine" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:WaitLine" priority="0" timeout="30" global="true" useTargetName="true"/>               
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehWaitQueue minWaitTime="30" maxWaitTime="60" waitBehSet="WaitInLine"/>
+         <BFBehDock targetAnim="Stand_Idle"/>
+      </behaviors>
+   </Queue>
+   
+   <StationQueue>
+      <subjects>
+         <Guest/>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehDockQueue hitRadius="2.5" queueRadius="12" locoSpeed="slow"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:WaitLine" useTargetName="true"/>
+               <ZTThoughtInfo locID="guestthoughts:WaitLine" priority="0" timeout="30" global="true" useTargetName="true"/>               
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehWaitQueue minWaitTime="60" maxWaitTime="90" waitBehSet="WaitInLine"/>
+         <BFBehDock targetAnim="Stand_Idle"/>
+      </behaviors>
+   </StationQueue>   
+   
+   
+   <WaitInLine>
+      <subjects>
+         <Guest/>
+         <Staff/>
+      </subjects>
+      <behaviors>
+         <BFBehDockQueue hitRadius="2.5" queueRadius="12" locoSpeed="slow"/>
+         <BFBehAnimate targetAnim="Stand_Idle"/>
+      </behaviors>
+   </WaitInLine>
+   
+   <WaitForPath>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimSwitchSet loopFlag="true">
+            <behaviorTable>
+               <StandItem behSet="StandItemWaitForPath"/>
+               <default behSet="StandWaitForPath"/>
+            </behaviorTable>
+         </BFBehAnimSwitchSet>
+      </behaviors>   
+
+   </WaitForPath>   
+
+   <StandItemWaitForPath>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+		<BFBehAnimate targetAnim="StandItem_Idle"/>
+      </behaviors>
+   </StandItemWaitForPath>
+
+   <TreadWater_Idle>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate interruptible="true" interruptFlag="true" loopFlag="true" targetAnim="TreadWater_Idle"/>
+      </behaviors>
+   </TreadWater_Idle>
+   <Stand_Idle>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate interruptible="true" interruptFlag="true" loopFlag="true" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </Stand_Idle>
+</BehaviorSets>

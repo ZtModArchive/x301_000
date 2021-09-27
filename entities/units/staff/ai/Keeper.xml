@@ -1,0 +1,298 @@
+<BFTypedBinder binderType="Keeper" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<people>
+					<Staff>
+						<Keeper />
+					</Staff>
+				</people>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\units\staff\Keeper\Keeper_M_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo ids="entityname:Zookeeper" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Keeper" />
+			</on>
+		</UIToggleButton>
+	</shared>
+	<binder>
+		<BFBinder required="1">
+			<instance>
+				<BFAICognitiveMgr>
+					<Sensors>
+						<ZTAIStaffSensorSelf />
+						<ZTAIStaffSensor />
+					</Sensors>
+					<TaskThinkers>
+						<ZTAIStaffTaskThinker />
+					</TaskThinkers>
+				</BFAICognitiveMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehLocoSwitchSet loopFlag="true">
+							<behaviorTable>
+								<ground behSet="Stand_Idle" />
+								<water behSet="TreadWater_Idle" />
+								<underwater behSet="TreadWaterSub_Idle" />
+							</behaviorTable>
+						</BFBehLocoSwitchSet>
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="ground" required="1">
+					<instance>
+						<BFLocoAnimate version="1">
+							<stop name="Stand" />
+							<slow name="Walk" minAnimSpeed="1.0" maxAnimSpeed="1.4">
+								<waggle name="Walk_Ahead" wag="0.1" />
+							</slow>
+							<medium name="FastWalk" minAnimSpeed="1.4" maxAnimSpeed="1.6" />
+							<fast name="Run" />
+							<glide name="Walk" minAnimSpeed="1.0" maxAnimSpeed="1.4">
+								<waggle name="Walk_Ahead" wag="0.1" />
+							</glide>
+							<clean name="Walk" minAnimSpeed="1.0" maxAnimSpeed="1.4">
+								<waggle name="Walk_Ahead" wag="0.1" />
+							</clean>
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="groundcarry" required="1">
+					<instance>
+						<BFLocoAnimate version="1" stationaryAnim="StandItem_Idle">
+							<stop name="StandItem" />
+							<slow name="WalkItem" minAnimSpeed="1.0" maxAnimSpeed="1.4">
+								<waggle name="WalkItem_Ahead" wag="0.1" />
+							</slow>
+							<med name="WalkItem" minAnimSpeed="1.4" maxAnimSpeed="1.6" />
+							<fast name="WalkItem" minAnimSpeed="1.6" maxAnimSpeed="1.8" />
+							<glide name="WalkItem" minAnimSpeed="1.0" maxAnimSpeed="1.4">
+								<waggle name="WalkItem_Ahead" wag="0.1" />
+							</glide>
+							<clean name="WalkItem" minAnimSpeed="1.0" maxAnimSpeed="1.4">
+								<waggle name="WalkItem_Ahead" wag="0.1" />
+							</clean>
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="water" required="1">
+					<instance>
+						<BFLocoAnimate version="1" stationaryAnim="TreadWater_Idle">
+							<stop name="TreadWater" />
+							<slow name="Swim" />
+							<medium name="FastSwim" />
+							<fast name="FastSwim" animSpeed="2.0"/>
+							<glide name="Swim" />
+							<clean name="CleanTankWater">
+								<anim name="TreadWater_2CleanTankWater" yaw="0.5" />
+								<anim name="CleanTankWater_Ahead" yaw="1.0" pitch="0.5" />
+							</clean>
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="underwater" required="1">
+					<instance>
+						<BFLocoAnimate version="1">
+							<stop name="TreadWaterSub">
+								<anim name="SwimSub_2TreadWaterSub" yaw="0.5" />
+								<anim name="TreadWaterSub_Idle" yaw="1.0" pitch="0.5" />
+							</stop>
+							<slow name="SwimSub">
+								<anim name="Swim_2SwimSub" yaw="1.0" />
+								<anim name="SwimSub_Ahead" yaw="1.0" pitch="0.5" />
+							</slow>
+							<medium name="SwimSub">
+								<anim name="Swim_2SwimSub" yaw="1.0" />
+								<anim name="SwimSub_Ahead" yaw="1.0" pitch="0.5" />
+							</medium>
+							<fast name="SwimSub" animSpeed="2.0">
+								<anim name="Swim_2SwimSub" yaw="1.0" />
+								<anim name="SwimSub_Ahead" yaw="1.0" pitch="0.5" />
+							</fast>
+							<glide name="SwimSub" flapAnim="SwimSub_2SwimSubGlide" minFlapPeriod="4" maxFlapPeriod="6">
+								<anim name="SwimSub_Ahead" yaw="1.0" pitch="0.5" acceleration="-0.1" minSpeed="0.25" maxSpeed="1.0" />
+								<anim name="Swim_2SwimSub" yaw="1.0" pitch="0.5" />
+							</glide>
+							<clean name="CleanTankWater">
+								<anim name="TreadWater_2CleanTankWater" yaw="0.5" />
+								<anim name="CleanTankWater_Ahead" yaw="1.0" pitch="0.5" />
+							</clean>
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<ZTAIStaffAssignmentComponent />
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj />
+			</instance>
+			<shared>
+				<BFSharedPhysVars>
+					<virtualNodes>
+						<Node_PlaceFood y="-1" z="1" />
+						<Node_WaterFood y="-1" z="1" />
+					</virtualNodes>
+				</BFSharedPhysVars>
+			</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Hose" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Hose\Hose" scale="1.0" switch="0 9" />
+				</BFPhysObj>
+			</instance>
+	        	<shared>
+			  <BFSharedPhysVars noSave="true" isProp="true">
+			  </BFSharedPhysVars>
+	       		</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Binoculars" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Binoculars\Binoculars" scale="1.0" switch="0" />
+				</BFPhysObj>
+			</instance>
+	        	<shared>
+			  <BFSharedPhysVars noSave="true" isProp="true">
+			  </BFSharedPhysVars>
+	       		</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="DartGun" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\DartGun\DartGun" scale="1.0" switch="0" />
+				</BFPhysObj>
+			</instance>
+	        	<shared>
+			  <BFSharedPhysVars noSave="true" isProp="true">
+			  </BFSharedPhysVars>
+	       		</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Broom" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Broom\Broom" scale="1.0" switch="0 9" />
+				</BFPhysObj>
+			</instance>
+	        	<shared>
+			  <BFSharedPhysVars noSave="true" isProp="true">
+			  </BFSharedPhysVars>
+	       		</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Rake" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Rake\Rake" scale="1.0" switch="0 9" />
+				</BFPhysObj>
+			</instance>
+	        	<shared>
+			  <BFSharedPhysVars noSave="true" isProp="true">
+			  </BFSharedPhysVars>
+	       		</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="BFGAquaVac" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFActorComponent actorfile="entities\objects\Items\BFG_Aquavac2006\BFG_Aquavac2006.bfm" activeSequenceName="Swim_Idle" activeSequenceLoop="true" />
+				</BFPhysObj>
+			</instance>
+	        	<shared>
+			  <BFSharedPhysVars noSave="true" isProp="true">
+			  </BFSharedPhysVars>
+	       		</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="HealClosed" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\FirstAid\FirstAid_Closed" scale="1.0" switch="0" />
+				</BFPhysObj>
+			</instance>
+	        	<shared>
+			  <BFSharedPhysVars noSave="true" isProp="true">
+			  </BFSharedPhysVars>
+	       		</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="HealOpen" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\FirstAid\FirstAid_Open" scale="1.0" switch="0" />
+				</BFPhysObj>
+			</instance>
+	        	<shared>
+			  <BFSharedPhysVars noSave="true" isProp="true">
+			  </BFSharedPhysVars>
+	       		</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="WaterHealOpen" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\UnderwaterMedicalKit\UnderwaterMedicalKit_Open" scale="1.0" switch="0" />
+				</BFPhysObj>
+			</instance>
+	        	<shared>
+			  <BFSharedPhysVars noSave="true" isProp="true">
+			  </BFSharedPhysVars>
+	       		</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="WaterHealClosed" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\UnderwaterMedicalKit\UnderwaterMedicalKit_Closed" scale="1.0" switch="0" />
+				</BFPhysObj>
+			</instance>
+	        	<shared>
+			  <BFSharedPhysVars noSave="true" isProp="true">
+			  </BFSharedPhysVars>
+	       		</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="headObj" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent switch="0 7 14 23 34" minSwitch="0 0 0 7 14" />
+					<BFDistanceCullComponent firstPersonOnly="true" cullDistance="100" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="headObjWetsuit" required="0">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent switch="0 7 14 23 34" minSwitch="0 0 0 7 14" />
+					<BFDistanceCullComponent firstPersonOnly="true" cullDistance="100" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="food" required="1" repopulateMethod="byName">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="true" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+	</binder>
+</BFTypedBinder>

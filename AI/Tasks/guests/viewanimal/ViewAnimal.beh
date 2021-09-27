@@ -1,0 +1,140 @@
+<BehaviorSets>
+   <GotoPathVP>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToViewAnimal"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoViewAnimal" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDockRadial/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:ViewingAnimals"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </GotoPathVP>
+   <GotoPathVP>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToViewAnimal"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoViewAnimal" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDockRadial locoSpeed="fast"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:ViewingAnimals"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </GotoPathVP>
+   <MakeDonation>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:DonateMoney"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:DonateMoney" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Donate"/>
+         <ZTBehEconomy transactionName="donate"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </MakeDonation>
+   <RandomNeeds>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehRandomSet>
+            <randomSets>
+               <RandomHunger weight="1"/>
+               <RandomThirst weight="1"/>
+               <RandomRest weight="1"/>
+               <RandomBathroom weight="1"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </RandomNeeds>
+   
+   <RandomNeedsBench>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehRandomSet>
+            <randomSets>
+               <RandomHunger weight="1"/>
+               <RandomThirst weight="1"/>
+               <RandomBathroom weight="1"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </RandomNeedsBench>   
+   
+   
+   <RandomHunger>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehSetAttribute>
+            <BFAISubjectData hunger="rand(1,10,.5)"/>
+         </BFBehSetAttribute>
+      </behaviors>
+   </RandomHunger>
+   <RandomThirst>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehSetAttribute>
+            <BFAISubjectData thirst="rand(1,10,.5)"/>
+         </BFBehSetAttribute>
+      </behaviors>
+   </RandomThirst>
+   <RandomRest>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehSetAttribute>
+            <BFAISubjectData rest="rand(1,7,.5)"/>
+         </BFBehSetAttribute>
+      </behaviors>
+   </RandomRest>
+   <RandomBathroom>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehSetAttribute>
+            <BFAISubjectData bathroom="rand(1,7,.5)"/>
+         </BFBehSetAttribute>
+      </behaviors>
+   </RandomBathroom>
+</BehaviorSets>

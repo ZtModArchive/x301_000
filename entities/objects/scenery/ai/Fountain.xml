@@ -1,0 +1,45 @@
+<BFTypedBinder binderType="Fountain" abstract="true">
+   <types>
+      <entity>
+         <scenery>
+            <Fountain/>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting mergeKey="child">
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData terrainFlatten="true" moveable="false" minimumHeadroom="5.0"/>
+      <BFAIEntityDataShared s_ObjectType="Fountain" b_IsWishFountain="true"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="11" length="11" offwidth="1" offlength="-2" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent initialTextKey="snd &quot;fountain&quot; looping"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TossCoin_Fountain">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot capacity="3"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>      
+   </binder>
+</BFTypedBinder>

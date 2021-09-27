@@ -1,0 +1,261 @@
+<BFTypedBinder binderType="GroundStation_end">
+	<types>
+		<entity>
+			<transportation>
+				<station>
+					<groundstation>
+                  <GroundStation_end/>
+					</groundstation>
+				</station>
+			</transportation>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="ignore" postype="ignore" attachnode="ShadowNode_01"/>
+            <parentObj parent="mainObj" child="biomedetail_01" rottype="ignore" postype="use" attachnode="biomedetail_01"/>
+            <parentObj parent="mainObj" child="biomedetail_02" rottype="ignore" postype="use" attachnode="biomedetail_02"/>
+            <parentObj parent="mainObj" child="biomedetail_03" rottype="ignore" postype="use" attachnode="biomedetail_03"/>
+            <parentObj parent="mainObj" child="biomedetail_04" rottype="ignore" postype="use" attachnode="biomedetail_04"/>
+            <parentObj parent="mainObj" child="biomedetail_05" rottype="ignore" postype="use" attachnode="biomedetail_05"/>
+            <parentObj parent="mainObj" child="signright1" rottype="use" postype="use" attachnode="Link_Sign1"/>
+            <parentObj parent="mainObj" child="signright2" rottype="use" postype="use" attachnode="Link_Sign2"/>
+            <parentObj parent="mainObj" child="closed" rottype="use" postype="use" attachnode="Link_State"/>
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+      <ZTPlacementData waterPlacement="true" icon3Doffset="0 0 0.3" icon3Dscale="0.15" dockArrowStyle="special" dockArrowSize="1.5" minimumHeadroom="6.0"/>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+            <default image="entities\transportation\stations\GroundStation\GroundStation_icon.dds"/>
+			</UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:GroundStation_end"/>
+			<on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="GroundStation_end"/>
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_Product="CP1" s_uisort="a" p_SeedA="-6 0 0" p_SeedB="6 0 0" p_PassengerEnterA="-4.5 0 270" p_PassengerEnterB="4.5 0 90" p_PassengerExitA="-4.5 0 90" p_PassengerExitB="4.5 0 270" p_EntryCardinal="0 -4.5 0" p_ExitCardinal="0 4.5 0" p_EntryDiagonal="0 -4.2426417 0" p_ExitDiagonal="0 4.2426417 0" s_trackType="station" s_Zoopedia="zoopedia:zoopedia_groundstation:entry" />
+		<ZTEntitySelector useFootprint="false" size="6.25"/>
+	</shared>
+	<binder>
+		<BFBinder>
+			<instance>
+				<ZTTransportStationGround>
+					<entrances>
+                  <Board_VehicleA seed="p_SeedA" exit="p_PassengerExitA"/>
+                  <Board_VehicleB seed="p_SeedB" exit="p_PassengerExitB"/>
+					</entrances>
+				</ZTTransportStationGround>
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="stationEconomy" required="0">
+					<instance>
+						<ZTEconomyComponent>
+						<ZTTransaction name="donate" cost="10" type="debit" category="donations_income" nextTransaction="add_user"/>
+						<ZTTransaction name="add_user" cost="1" type="addUser" category="user"/>
+							<BFGTransactionTracker>
+								<ignore>
+								<build/>
+								<add_user/>
+								</ignore>
+							</BFGTransactionTracker>
+						</ZTEconomyComponent>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="stationFeedback" required="0">
+					<instance>
+						<ZTFeedbackComponent />
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFBinder>
+			<instance>
+            <ZTTransportGroundTrack useFollowPts="true"/>
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="sign1controller" repopulateMethod="byName">
+			<instance>
+				<BFGPhysAnimController currState="right" defaultState="right">
+					<stateList>
+                  <right parent="mainObj" child="signright1" rottype="use" postype="use" attachnode="Link_Sign1"/>
+                  <right2left parent="mainObj" child="signright2left1" rottype="use" postype="use" attachnode="Link_Sign1"/>
+                  <left parent="mainObj" child="signleft1" rottype="use" postype="use" attachnode="Link_Sign1"/>
+                  <left2right parent="mainObj" child="signleft2right1" rottype="use" postype="use" attachnode="Link_Sign1"/>
+					</stateList>
+				</BFGPhysAnimController>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="sign2controller" repopulateMethod="byName">
+			<instance>
+				<BFGPhysAnimController currState="right" defaultState="right">
+					<stateList>
+                  <right parent="mainObj" child="signright2" rottype="use" postype="use" attachnode="Link_Sign2"/>
+                  <right2left parent="mainObj" child="signright2left2" rottype="use" postype="use" attachnode="Link_Sign2"/>
+                  <left parent="mainObj" child="signleft2" rottype="use" postype="use" attachnode="Link_Sign2"/>
+                  <left2right parent="mainObj" child="signleft2right2" rottype="use" postype="use" attachnode="Link_Sign2"/>
+					</stateList>
+				</BFGPhysAnimController>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="signright1">
+			<instance>
+				<BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Left.nif"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="signright2">
+			<instance>
+				<BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Right.nif"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="signright2left1" required="0">
+			<instance>
+				<BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Left2Right.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="signright2left2" required="0">
+			<instance>
+				<BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Right2Left.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="signleft1" required="0">
+			<instance>
+				<BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Right.nif"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="signleft2" required="0">
+			<instance>
+				<BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Left.nif"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="signleft2right1" required="0">
+			<instance>
+				<BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Right2Left.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="signleft2right2" required="0">
+			<instance>
+				<BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/Signs/Station_Sign_Left2Right.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="statecontroller" repopulateMethod="byName">
+			<instance>
+				<BFGPhysAnimController currState="closed" defaultState="closed">
+					<stateList>
+                  <closed parent="mainObj" child="closed" rottype="use" postype="use" attachnode="Link_State"/>
+                  <closed2open parent="mainObj" child="closed2open" rottype="use" postype="use" attachnode="Link_State"/>
+                  <open parent="mainObj" child="open" rottype="use" postype="use" attachnode="Link_State"/>
+                  <open2closed parent="mainObj" child="open2closed" rottype="use" postype="use" attachnode="Link_State"/>
+					</stateList>
+				</BFGPhysAnimController>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="closed" required="1">
+			<instance>
+				<BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/transportation/stations/GroundStation/GroundStation_State_Closed.nif"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="closed2open" required="0">
+			<instance>
+				<BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/GroundStation/GroundStation_State_Close2Open.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="2"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="open" required="0">
+			<instance>
+				<BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/transportation/stations/GroundStation/GroundStation_State_Open.nif"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="open2closed" required="0">
+			<instance>
+				<BFPhysObj drawLast="true" useTriShapeGroup="false">
+               <BFSimpleLODComponent modelfile="entities/transportation/stations/GroundStation/GroundStation_State_Open2Close.nif"/>
+               <BFForceUpdateWhenVisibleComponent controllersOnly="false"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="1"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/transportation/stations/GroundStation/GroundStation" switch="0 20 40" minSwitch="0 0 20"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+               <BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="ShadowNode_01" width="12" length="14" offwidth="0" offlength="0" intensity="0.3"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="1000" mergeKey="name">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="upkeep" cost="25" period="monthly" type="debit" category="upkeep"/>
+               <ZTTransaction name="add_user" cost="1" type="addUser" category="user"/>
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="Board_VehicleA">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+                  <BFGEntityContainerSlot targetNode="p_PassengerEnterA" capacity="1"/>
+					</slots>
+					<queue>
+                  <BFGEntityContainerSlot targetNode="p_PassengerEnterA" capacity="10"/>
+					</queue>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Board_VehicleB">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+                  <BFGEntityContainerSlot targetNode="p_PassengerEnterB" capacity="1"/>
+					</slots>
+					<queue>
+                  <BFGEntityContainerSlot targetNode="p_PassengerEnterB" capacity="10"/>
+					</queue>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+	</binder>
+</BFTypedBinder>

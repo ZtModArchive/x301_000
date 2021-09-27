@@ -1,0 +1,30 @@
+<BFTypedBinder binderType="Aves" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Aves />
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<BFAIEntityDataShared b_Pees="false"/>
+	</shared>
+	<binder>
+		<BFBinder>
+			<instance>
+				<BFAICognitiveMgr>
+					<StateThinkers>
+						<ZTAIStateThinker>
+							<BFAIStateVar Name="explore" TriggerThreshold="60" />
+						</ZTAIStateThinker>
+					</StateThinkers>
+				</BFAICognitiveMgr>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

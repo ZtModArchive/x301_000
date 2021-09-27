@@ -1,0 +1,20 @@
+<BFScenarioGroup name="disasterreliefrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="disasterrelief" state="0" sticky="true" optional="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHDisasterReliefShort" overview="Challengetext:CHDisasterRelief" />
+				<success locid="Challengetext:CHDisasterReliefSuccessShort" overview="Challengetext:CHDisasterReliefSuccess" />
+				<failure locid="Challengetext:CHDisasterReliefFailureShort" overview="Challengetext:CHDisasterReliefFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/disasterrelief.lua" entry="evaldisasterrelief" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/disasterrelief.lua" entry="completedisasterrelief" />
+			</success>		
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/disasterrelief.lua" entry="faildisasterrelief" />
+			</failure>	
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

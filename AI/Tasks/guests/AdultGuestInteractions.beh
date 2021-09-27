@@ -1,0 +1,158 @@
+<BehaviorSets>
+   <DockTalk>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehSetAttribute>
+            <BFAITargetData b_Talking="true"/>
+         </BFBehSetAttribute> 
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoTalk" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>         
+         <BFBehDock targetNode="p_TalkOffset" targetAnim="Stand_Idle"/>
+      </behaviors>
+   </DockTalk>
+   
+   
+   <WaitTalkNeutral>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:Talk" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>       
+         <BFBehAnimate targetAnim="Stand_Wave"/>
+         <BFBehAnimate targetAnim="Stand_Idle" loopFlag="true"/>
+      </behaviors>
+   </WaitTalkNeutral>
+   <TalkNeutral>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom minPlays="1" maxPlays="2">
+            <randomAnims>
+               <StandTalk_A weight="50"/>
+               <StandTalk_Idle weight="50"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </TalkNeutral>
+   <ListenNeutral>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom loopFlag="true">
+            <randomAnims>
+               <StandListen_A weight="50"/>
+               <StandListen_Idle weight="50"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </ListenNeutral>
+   
+   
+   
+   
+   <WaitTalkAngry>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:Complain" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>       
+         <BFBehAnimate targetAnim="Standbored_Idle" loopFlag="true"/>
+      </behaviors>
+   </WaitTalkAngry>
+   <TalkAngry>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom minPlays="1" maxPlays="2">
+            <randomAnims>
+               <Stand_ShakeFist weight="50"/>
+               <Stand_Grumble weight="50"/>
+               <Stand_Argue weight="50"/>
+               <Stand_Scold weight="50"/>               
+               <StandTalk_Idle weight="50"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </TalkAngry>
+   <ListenAngry>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom loopFlag="true">
+            <randomAnims>
+               <Stand_ShakeHead weight="50"/>
+               <Stand_Dismissive weight="50"/>               
+               <Standbored_Idle weight="50"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </ListenAngry>   
+   
+   
+   <WaitTalkHappy>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+          <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:HappyTalk" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>      
+         <BFBehAnimate targetAnim="Stand_Wave"/>
+         <BFBehAnimate targetAnim="Stand_Idle" loopFlag="true"/>
+      </behaviors>
+   </WaitTalkHappy>
+   <TalkHappy>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom minPlays="1" maxPlays="2">
+            <randomAnims>
+               <Stand_Cheer weight="50"/>
+               <Stand_Laugh weight="50"/>
+               <StandTalk_Idle weight="50"/>
+              
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </TalkHappy>
+   <ListenHappy>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimateRandom loopFlag="true">
+            <randomAnims>
+               <StandListen_A weight="50"/>
+               <StandListen_Idle weight="50"/>
+            </randomAnims>
+         </BFBehAnimateRandom>
+      </behaviors>
+   </ListenHappy>   
+   
+   
+   
+   
+   
+   
+   
+</BehaviorSets>

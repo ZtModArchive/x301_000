@@ -1,0 +1,102 @@
+<BFTypedBinder binderType="PlasticBarrel">
+	<types>
+		<entity>
+			<enrichment>
+				<toy>
+					<PlasticBarrel />
+				</toy>
+			</enrichment>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\enrichment\PlasticBarrel\PlasticBarrel_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:PlasticBarrel" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PlasticBarrel" />
+			</on>
+		</UIToggleButton>
+		<UIToggleButton template="researchentity">
+			<UIAspect>
+				<default image="entities\objects\enrichment\PlasticBarrel\PlasticBarrel_icon.dds" />
+			</UIAspect>
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PlasticBarrel" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared b_Researchable="true" s_uisort="ca" s_Zoopedia="zoopedia:zoopedia_plasticbarrel:entry" f_researchUnlockTime="100" f_researchCost="800" f_FameReq="60" b_collideWithGroundVehicles="true" />
+		<ZTPlacementData waterPlacement="true" tankPlacement="true" moveable="true" randomRotate="false" gridSnap="true" autoFootprint="true" icon3Doffset="0 -0.04 0.96" icon3Dscale=".97" minimumHeadroom="1.35" />
+		<ZTUserStaffAction>
+			<Kick locid="superstaff:kick_obj"/>
+		</ZTUserStaffAction> 		
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob.tga" baseNode="footprint" width="1.5" minLength="1.5" maxLength="3.25" minOffset="0" maxOffset=".5" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities\objects\enrichment\PlasticBarrel\PlasticBarrel_Phys" switch="0 18 72" />
+					<BFRealPhysicsComponent shapeType="cylinder" shapeRadius="0.42" shapeHeight="1.0" rollFrictionCoef="0.05" bounceCoef="0.25" />
+					<BFGroundFitComponent heightOffset="0.5" floatOnWater="true" waterOffset="-0.15" />
+					<BFCollisionComponent grid="footprint" />
+					<BFGridCollisionComponent />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars>
+					<virtualNodes>
+						<Dock_01 x=".85" y="0" z="0" />
+						<Dock_02 x="0" y=".85" z="0" yaw="90" />
+						<Dock_03 x="0" y="-.85" z="0" yaw="-90" />
+						<Dock_04 x="-.85" y="0" z="0" yaw="180" />
+					</virtualNodes>
+				</BFSharedPhysVars>
+			</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Play">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBarrel_Whap" exitBehSet="ExitBall" targetNode="Dock_01" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBarrel_Whap" exitBehSet="ExitBall" targetNode="Dock_02" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBarrel_Whap" exitBehSet="ExitBall" targetNode="Dock_03" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBarrel_Whap" exitBehSet="ExitBall" targetNode="Dock_04" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="125">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance b_Moving="false" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester maxSlope=".01" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

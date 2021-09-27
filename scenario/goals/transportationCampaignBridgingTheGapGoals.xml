@@ -1,0 +1,46 @@
+<ZTScenarioMgr interval="2" name="mgr" state="0" chain="true" allsuccess="true" sticky="true" optional="false">
+	<info locid="TransportationCampaign:BridgingGapIntro"/>
+	<children>
+		<BFScenarioRule hidden="1" name="setinitialzoostate" state="0" sticky="true">
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="setinitialzoostate" />
+			</evaluate>
+		</BFScenarioRule>
+		<BFScenarioRule name="EightSpecies" hidden="0" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="TransportationCampaign:BridgingGapEightGoal" overview="TransportationCampaign:BridgingGapOverview" />
+				<success locid="TransportationCampaign:BridgingGapEightGoalDone" overview="TransportationCampaign:BridgingGapOverview" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="evaleightspecies" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="completeeightspecies" />
+			</success>
+		</BFScenarioRule>
+		<BFScenarioRule name="TwelveSpecies" hidden="1" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="TransportationCampaign:BridgingGapTwelveGoal" overview="TransportationCampaign:BridgingGapTwelve" />
+				<success locid="TransportationCampaign:BridgingGapTwelveGoalDone" overview="TransportationCampaign:BridgingGapTwelve" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="evaltwelvespecies" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="completetwelvespecies" />
+			</success>
+		</BFScenarioRule>
+		<BFScenarioRule name="SixteenSpecies" hidden="1" state="0" sticky="true">
+			<info type="primary">
+				<neutral locid="TransportationCampaign:BridgingGapSixteenGoal" overview="TransportationCampaign:BridgingGapSixteen" />
+				<success locid="TransportationCampaign:BridgingGapSixteenGoalDone" overview="TransportationCampaign:BridgingGapSuccessOverview" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="evalsixteenspecies" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/transportationcampaign.lua" entry="completesixteenspecies" />
+			</success>
+		</BFScenarioRule>
+	</children>
+</ZTScenarioMgr>

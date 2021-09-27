@@ -1,0 +1,73 @@
+<BFTypedBinder binderType="PeafowlCommon_Egg">
+   <types>
+      <entity>
+          <egg>
+              <PeafowlCommon_Egg/>
+          </egg>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.3" icon3Dscale="5.0"/>
+      <UIToggleButton template="adopt">
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:PeafowlCommon_Egg"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PeafowlCommon_Egg"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Species="PeafowlCommon" s_Zoopedia="zoopedia:zoopedia_peafowl:entry" s_Endangerment="LowRisk"/>
+      <BFGBiomeData location="tropicalrainforest_southeastasia" locationSensitivity="10">
+         <alpine sensitivity="0"/>
+         <borealforest sensitivity="2"/>
+         <desert sensitivity="-5"/>
+         <grassland sensitivity="0"/>
+         <temperateforest sensitivity="10" primary="true"/>
+         <tropicalrainforest sensitivity="0"/>
+         <tundra sensitivity="-10"/>
+         <savannah sensitivity="-5"/>
+         <scrub sensitivity="-5"/>
+         <wetlands sensitivity="-5"/>
+      </BFGBiomeData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFCollisionComponent grid="Bip01"/>
+               <BFActorComponent actorfile="entities/objects/eggs/CommonPeafowl_Egg/CommonPeafowl_Egg.bfm" activeSequenceName="Stand_Idle" activeSequenceAccumulate="false" scale="1.0"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFGridCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+	<BFBinder required="1">
+		<instance>
+			<BFAICognitiveMgr>
+				<Sensors>
+					<ZTAISensor />
+					<BFAISensorSelf />
+				</Sensors>
+				<StateThinkers>
+					<ZTAIStateThinker>
+						<BFAIStateVar Name="incubation" Value="" ValueMin=".0075" ValueMax="" CessationThreshold="0" DisplayThreshold="0" PressingThreshold="1.04" TriggerThreshold="1.04" CriticalThreshold="1.04" Advanced="true" />
+					</ZTAIStateThinker>
+				</StateThinkers>
+				<TaskThinkers>
+					<ZTAITaskThinker />
+				</TaskThinkers>
+			</BFAICognitiveMgr>
+		</instance>
+		<shared>
+			<BFAICogShared>
+				<BFAINoPerceive>
+					<fence />
+					<path />
+					<entrance />
+				</BFAINoPerceive>
+			</BFAICogShared>
+		</shared>
+	</BFBinder>
+   </binder>
+</BFTypedBinder>

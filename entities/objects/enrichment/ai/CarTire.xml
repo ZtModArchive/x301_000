@@ -1,0 +1,97 @@
+<BFTypedBinder binderType="CarTire">
+   <types>
+      <entity>
+         <enrichment>
+            <toy>
+               <CarTire/>
+            </toy>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData waterPlacement="true" tankPlacement="true" moveable="true" randomRotate="false" gridSnap="true" autoFootprint="true" icon3Doffset="0 -0.066119 0.888111" icon3Dscale="2.237330" minimumHeadroom="0.85"/>
+      <ZTEntitySelector nodeName="Node_Center"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\CarTire\CarTire_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:CarTire"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="CarTire"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\enrichment\CarTire\CarTire_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="CarTire"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Researchable="true" s_uisort="cm" s_Zoopedia="zoopedia:zoopedia_cartire:entry" f_researchUnlockTime="100" f_researchCost="800" f_FameReq="60" b_collideWithGroundVehicles="true"/>
+		<ZTUserStaffAction>
+			<Kick locid="superstaff:kick_obj"/>
+		</ZTUserStaffAction>       
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width="1" minLength="1" maxLength="2" minOffset="0" maxOffset=".5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\enrichment\CarTire\CarTire_Phys"  switch="0 9 36"/>
+               <BFRealPhysicsComponent shapeType="cylinder" shapeRadius="0.4" shapeHeight="0.32" rollFrictionCoef="0.05" bounceCoef="0.6" displacableByObjects="false"/>
+               <BFGroundFitComponent heightOffset="0.16" floatOnWater="true" waterOffset="-0.05"/>
+               <BFCollisionComponent grid="footprint"/>
+               <BFGridCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+			<shared>
+				<BFSharedPhysVars>
+					<virtualNodes>
+						<Dock_01 x="0" y="0" z="0" yaw="0"/>
+					</virtualNodes>
+				</BFSharedPhysVars>
+			</shared>         
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Play">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseCarTire_Whap" exitBehSet="ExitBall" targetNode="Dock_01" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="320">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_Moving="false"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFGCollisionTester maxSlope=".01"/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

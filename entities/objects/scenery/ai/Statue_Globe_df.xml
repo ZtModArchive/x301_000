@@ -1,0 +1,70 @@
+<BFTypedBinder binderType="Statue_Globe_df">
+   <types>
+      <entity>
+         <scenery>
+            <Statue>
+               <Statue_Globe_df/>
+            </Statue>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="compass" rottype="ignore" postype="use"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\Statue_Globe_df\Statue_Globe_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Statue_Globe_df"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Statue_Globe_df"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Theme="default" s_uisort="od" s_ProfileLock="globelock" s_Zoopedia="zoopedia:zoopedia_globe:entry"/>
+      <ZTPlacementData icon3Doffset="0 -0.064319 0.404346" icon3Dscale="0.616731" terrainFlatten="false"/>
+      <BFGCollisionData isPassable="false" isStatic="false"/>
+   		<ZTTourData>
+	 				<statue value="8"/>
+	 				<cool value="5"/>
+	 				<reward value="6"/>
+		</ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="ShadowNode_01" ignoreLights="false" width="3" length="2" offwidth="-0.5" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="compass">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/Statue_Globe_df/Statue_Globe_Compass_df" />
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/Statue_Globe_df/Statue_Globe_df"  switch="0 25 40"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="300">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

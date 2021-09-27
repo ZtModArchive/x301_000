@@ -1,0 +1,53 @@
+<BFTypedBinder binderType="umbrellatable_df">
+   <types>
+      <entity>
+         <scenery>
+            <umbrellatable>
+               <umbrellatable_df/>
+            </umbrellatable>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\umbrellatable_df\umbrellatable_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:umbrellatable"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="umbrellatable_df"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\scenery\umbrellatable_df\umbrellatable_df_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="umbrellatable_df"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Researchable="true" s_Theme="default" f_FameReq="40" s_uisort="em" s_Zoopedia="zoopedia:zoopedia_umbrellatable:entry" f_researchUnlockTime="80" f_researchCost="600"/>
+      <ZTPlacementData terrainFlatten="true"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/umbrellatable_df/umbrellatable_df"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="150">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

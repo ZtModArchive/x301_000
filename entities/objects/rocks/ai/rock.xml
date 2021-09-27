@@ -1,0 +1,59 @@
+<BFTypedBinder binderType="rock" abstract="true">
+	<types>
+		<entity>
+			<rock />
+		</entity>
+	</types>
+	<shared>
+		<BFAIEntityDataShared b_SuppressEconomyHistory="true" />
+		<BFGCollisionData isPassable="false" isTraversable="true" />
+		<ZTPlacementData waterPlacement="true" tankPlacement="true" randomRotate="true" gridSnap="true" autoFootprint="true" sound="place_rock" deleteSound="recycle_rock">
+			<stompData>
+				<delete>
+					<bush />
+					<grass />
+					<wildflowers />
+					<fungi />
+					<Poop />
+					<watersurfacefoliage />
+				</delete>
+				<prevent>
+					<treat />
+					<flowerbed />
+					<thicket />
+				</prevent>
+				<allow>
+					<animal />
+				</allow>
+			</stompData>
+		</ZTPlacementData>
+		<ZTEntitySelector>
+			<BFPhysObj>
+				<BFTerrainDecalComponent imageName="UI/fx/selection/object.tga" alphaBlend="true">
+					<lighting emmisiveColor="255 255 255" specularColor="255 255 255" diffuseColor="255 255 255" ambientColor="255 255 255" />
+				</BFTerrainDecalComponent>
+			</BFPhysObj>
+		</ZTEntitySelector>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFCollisionComponent />
+					<BFTerrainPaintComponent />
+					<BFDistanceCullComponent firstPersonOnly="true" cullDistance="70" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<ZTPhotoAnalysisComponent />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1" repopulateMethod="byName">
+			<instance>
+				<BFAIEntityDataInstance b_ScentEmitter="false" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

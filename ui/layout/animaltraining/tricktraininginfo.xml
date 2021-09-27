@@ -1,0 +1,67 @@
+<UILayout columns="1" name="Training icon and name">
+   <UIRegion x="0" y="0" w="200" h="80" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIAspect draw3D="true" alwayshit="never">
+      <default image=""/>
+   </UIAspect>
+   <children>
+      <UILayout name="Training Icon and Name Panel" template="blank">
+         <UIRegion x="0" y="0" w="200" h="76" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect>
+            <default/>
+         </UIAspect>
+         <children>
+            <UIStatic name="training level layer 3">
+               <UIRegion x="10" y="7" w="6" h="40" xalign="min" yalign="min" walign="len" halign="%min"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect>
+                  <default image="ui\tricks\trick_sequencer_asset.dds">
+                     <BFRect x="31" y="85" w="11" h="72"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic name="training level layer 1">
+               <UIRegion x="10" y="7" w="15" h="60" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default image="ui\tricks\trick_sequencer_asset.dds">
+                     <BFRect x="0" y="85" w="15" h="72"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic name="training level layer 2">
+               <UIRegion x="10" y="7" w="13" h="60" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default image="ui\tricks\trick_sequencer_asset.dds">
+                     <BFRect x="16" y="85" w="11" h="72"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic name="Trick Icon">
+               <UIRegion x="25" y="5" w="64" h="64"/>
+               <UIAspect alwayshit="true">
+                  <default image="UI\trick_icons\trick_icon_add.dds">
+                     <BFRect x="0" y="0" w="64" h="64"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIText name="Trick Preview Name" autosize="true">
+               <UIRegion x="90" y="20" w="108" h="55" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect alwayshit="never">
+                  <default>
+                     <BFFont>
+                        <BFColor r="255" g="255" b="255" a="255"/>
+                     </BFFont>
+                  </default>
+               </UIAspect>
+               <text format="entityname:format" type="multi"/>
+            </UIText>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

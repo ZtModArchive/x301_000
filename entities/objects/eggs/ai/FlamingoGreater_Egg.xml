@@ -1,0 +1,73 @@
+<BFTypedBinder binderType="FlamingoGreater_Egg">
+   <types>
+      <entity>
+          <egg>
+              <FlamingoGreater_Egg/>
+          </egg>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.3" icon3Dscale="5.0"/>
+      <UIToggleButton template="adopt">
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:FlamingoGreater_Egg"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="FlamingoGreater_Egg"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Species="FlamingoGreater" s_Zoopedia="zoopedia:zoopedia_flamingo:entry" s_Endangerment="LowRisk"/>
+      <BFGBiomeData location="wetland_africa" locationSensitivity="10">
+		<alpine sensitivity="-5"/>
+		<borealforest sensitivity="0"/>
+		<desert sensitivity="-10"/>
+		<grassland sensitivity="2"/>
+		<temperateforest sensitivity="0"/>
+		<tropicalrainforest sensitivity="0"/>
+		<tundra sensitivity="-10"/>
+		<savannah sensitivity="2"/>
+		<scrub sensitivity="0"/>
+		<wetlands sensitivity="10" primary="true"/>
+      </BFGBiomeData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFCollisionComponent grid="Bip01"/>
+				<BFActorComponent actorfile="entities/objects/eggs/FlamingoGreater_Egg/FlamingoGreater_Egg.bfm" activeSequenceName="Stand_Idle" activeSequenceAccumulate="false" scale="1.0"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFGridCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+	<BFBinder required="1">
+		<instance>
+			<BFAICognitiveMgr>
+				<Sensors>
+					<ZTAISensor />
+					<BFAISensorSelf />
+				</Sensors>
+				<StateThinkers>
+					<ZTAIStateThinker>
+						<BFAIStateVar Name="incubation" Value="" ValueMin=".0075" ValueMax="" CessationThreshold="0" DisplayThreshold="0" PressingThreshold="1.11" TriggerThreshold="1.11" CriticalThreshold="1.11" Advanced="true" />					</ZTAIStateThinker>
+				</StateThinkers>
+				<TaskThinkers>
+					<ZTAITaskThinker />
+				</TaskThinkers>
+			</BFAICognitiveMgr>
+		</instance>
+		<shared>
+			<BFAICogShared>
+				<BFAINoPerceive>
+					<fence />
+					<path />
+					<entrance />
+				</BFAINoPerceive>
+			</BFAICogShared>
+		</shared>
+	</BFBinder>
+   </binder>
+</BFTypedBinder>
+

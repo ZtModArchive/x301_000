@@ -1,0 +1,33 @@
+<UIToggleButton templateName="waterbiomebutton" sticky="1">
+   <UIRegion x="0" y="0" w="45" h="45" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIAspect alwayshit="true">
+      <default image="ui/shared/white1x1.dds">
+         <BFColor r="255" g="255" b="255" a="0"/>
+      </default>
+      <standard>
+         <highlighted>
+            <BFColor r="255" g="255" b="0" a="100"/>
+         </highlighted>
+         <activated>
+            <BFColor r="255" g="255" b="255" a="0"/>
+         </activated>
+      </standard>
+      <alternate>
+         <normal>
+            <BFColor r="255" g="255" b="0" a="255"/>
+         </normal>
+         <highlighted>
+            <BFColor r="255" g="255" b="0" a="255"/>
+         </highlighted>
+         <activated>
+            <BFColor r="255" g="255" b="255" a="255"/>
+         </activated>
+      </alternate>
+   </UIAspect>
+   <on>
+      <event msg="UI_SELF">
+         <child msg="UI_COPY_NAME" data="BFString" string="Biome Text"/>
+      </event>
+      <event msg="ZT_RUN_SCRIPT" data="BFString" string="global tool/water/watertool.lua switchBiome"/>
+   </on>
+</UIToggleButton>

@@ -1,0 +1,212 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="ThrowAwayTrashCan" CursorTask="false" Priority="1" reserveTag="Use_Can" UniqueID="trash:ThrowAwayTrashCan">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <b_TrashCan/>
+            <Qualifiers_AND f_TrashLevel="L 100" inSight="20"/>
+         </Targets>
+         <Objects>
+            <Trash/>
+            <Recyclable/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-75" thirst="-75" dessert="-75" rest="-75" social="-75" amusement="-75" gift="-75" bathroom="-75" viewanimals="-75"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoThrowawayTrash"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoThrowawayTrash" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <BFBehPlaySet behSet="useContainer"/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap happiness="-1"/>
+         <BFAITargetData f_TrashLevel="5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="ThrowAwayRecyclingBin" CursorTask="false" Priority="1" reserveTag="Use_Can" UniqueID="trash:ThrowAwayRecyclingBin">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <RecyclingBin_df/>
+            <Qualifiers_AND f_TrashLevel="L 100" inSight="20"/>
+         </Targets>
+         <Objects>
+            <Recyclable/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="-100" dessert="-100" rest="-100" social="-100" amusement="-100" gift="-100" bathroom="-100" viewanimals="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoRecycleTrash"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoRecycleTrash" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehEnter/>
+         <BFBehPlaySet behSet="useContainer"/>
+         <ZTBehEconomy transactionName="recycle"/>         
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap happiness="-1"/>
+         <BFAITargetData f_TrashLevel="5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="GotoFullTrashcan" CursorTask="false" TaskDelayMin="60" TaskDelayMax="60" reserveTag="Use_Can" Priority="1" UniqueID="trash:GotoFullTrashcan">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <b_TrashCan/>
+            <Qualifiers_AND f_TrashLevel="GE 100" inSight="20"/>
+         </Targets>
+         <Objects>
+            <Trash/>
+            <Recyclable/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-50" thirst="-50" dessert="-50" rest="-50" social="-50" amusement="-50" gift="-50" bathroom="-50" viewanimals="-50"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoThrowawayTrash"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoThrowawayTrash" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" detachAction="inventory" locoMod="carry"/>
+         <BFBehDockRadial dockRadius="2" targetAnim="StandItem_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteTrashbad"/>
+               <ZTThoughtInfo locID="guestthoughts:TrashFull" priority="-1" timeout="30" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_PinchNose"/>
+         <BFBehExit exitBehSet="ExitTrashContainer"/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="ThrowAwayTrashGround" CursorTask="false" sensorTag="path" reserveTag="Use_Path" Priority="1" UniqueID="trash:ThrowAwayTrashGround">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <path/>
+         </Targets>
+         <Objects>
+            <Trash/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData distanceInfluenced="false">
+         <BFAIAttributeFloatMap hunger="-25" thirst="-25" dessert="-25" rest="-25" social="-25" amusement="-25" gift="-25" bathroom="-25" viewanimals="-25"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoThrowTrashGround"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoThrowawayTrash" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" detachAction="inventory" locoMod="carry"/>
+         <BFBehDockRadial/>
+         <BFBehDetachObject detachEntity="object" targetAnim="StandItem_ThrowAway" detachAction="killitem"/>
+         <BFBehSpawn spawnEntity="TrashGround" randomPosOffset="0.5" randomRotOffset="180"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:ThrowTrashGround"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteTrashbad"/>
+               <ZTThoughtInfo locID="guestthoughts:TrashGround" priority="-1" timeout="30" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap f_departurePoints="-20" happiness="5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="ThrowAwayRecyclableGround" CursorTask="false" sensorTag="path" reserveTag="Use_Path" Priority="1" UniqueID="trash:ThrowAwayRecyclableGround">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <path/>
+         </Targets>
+         <Objects>
+            <Recyclable/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData distanceInfluenced="false">
+         <BFAIAttributeFloatMap hunger="-25" thirst="-25" dessert="-25" rest="-25" social="-25" amusement="-25" gift="-25" bathroom="-25" viewanimals="-25"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoThrowRecyclingGround"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoRecycleTrash" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="object" targetAnim="Stand_2StandItem_Inventory" detachAction="inventory" locoMod="carry"/>
+         <BFBehDockRadial/>
+         <BFBehDetachObject detachEntity="object" targetAnim="StandItem_ThrowAway" detachAction="killitem"/>
+         <BFBehSpawn spawnEntity="RecyclableGround" randomPosOffset="0.5" randomRotOffset="180"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:ThrowRecyclableGround"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTEmoticonInfo emoticonName="EmoteTrashbad"/>
+               <ZTThoughtInfo locID="guestthoughts:TrashGround" priority="-1" timeout="30" global="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap f_departurePoints="-20" happiness="5"/>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

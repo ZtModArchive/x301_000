@@ -1,0 +1,132 @@
+<BFTypedBinder binderType="groundtrack" abstract="true">
+   <types>
+      <entity>
+         <transportation>
+            <track>
+               <groundtrack/>
+            </track>
+         </transportation>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared f_CollisionDetectionRadius="3" s_TransportationMode="Ground" b_ReceiveUpdates="true" f_TrackWidth="0" f_MinVelocityForObstruction="0.1" p_EntryCardinal="0.0 -1.50 0" p_ExitCardinal="0.0 1.50 0" p_EntryDiagonal="0.0 -2.12132034356 0" p_ExitDiagonal="0.0 2.12132034356 0" s_trackType="normal" f_ViewCone="145.0f" f_ViewRange="14.99f" f_DecalCardinalWidth="3.223" f_DecalCardinalHeight="3.0" f_DecalDiagonalWidth="4.55" f_DecalDiagonalHeight="3.0" f_MaximumSlope="0.5" f_MaximumAcrossSlope="0.5"/>
+      <ZTPlacementData autoFootprint="false" gridSnap="true" moveable="false" selectable="false" waterPlacement="true" rampPlacement="true" minimumHeadroom="3.0">
+         <cfootprint width="1" height="1"/>
+         <dfootprint width="2" height="2"/>
+         <stompData>
+            <delete>
+               <bush/>
+               <grass/>
+               <wildflowers/>
+               <fungi/>
+               <b_SmallRock>true</b_SmallRock>
+            </delete>
+            <allow>
+               <groundstation/>
+               <groundtrack/>
+               <RedwoodTunnel/>
+               <CrystalTunnel/>
+               <PathArch/>
+               <Poop/>
+            </allow>
+            <prevent/>
+         </stompData>
+         <clickableObjData>
+            <constructionMarker1 locid="transportation:roadcircuit_incomplete"/>
+            <constructionMarker2 locid="transportation:roadcircuit_incomplete"/>
+         </clickableObjData>
+      </ZTPlacementData>
+      <BFGCollisionData isPassable="true"/>
+      <ZTTransportGroundTrackShared useStraightDecals="false">
+         <textureData>
+            <ZTTransportGroundTrackTextureData pieceType="1" appearance="0" paintMask="entities/transportation/track/ground/groundtrack_vert_mask.dds" paintTexture="entities/transportation/track/ground/groundtrack_vert.dds" paintSampleStart="10 10" paintCopyDimension="43 43" groundDecalTexture="entities/transportation/track/ground/groundtrack_vert.dds" groundDecalSize="4.5 4.5" elevatedPathTexture="entities/transportation/track/ground/groundtrack_horz.dds" elevatedPathRot="1" lowResTexture="entities/transportation/track/ground/low/groundtrack_vert.dds" lowResMask="entities/transportation/track/ground/low/groundtrack_vert_mask.dds" lowResSampleStart="10 10" lowResCopyDimension="43 43"/>
+            <ZTTransportGroundTrackTextureData pieceType="2" appearance="0" paintMask="entities/transportation/track/ground/groundtrack_horz_mask.dds" paintTexture="entities/transportation/track/ground/groundtrack_horz.dds" paintSampleStart="10 10" paintCopyDimension="43 43" groundDecalTexture="entities/transportation/track/ground/groundtrack_horz.dds" groundDecalSize="4.5 4.5" elevatedPathTexture="entities/transportation/track/ground/groundtrack_horz.dds" elevatedPathRot="0" lowResTexture="entities/transportation/track/ground/low/groundtrack_horz.dds" lowResMask="entities/transportation/track/ground/low/groundtrack_horz_mask.dds" lowResSampleStart="10 10" lowResCopyDimension="43 43"/>
+            <ZTTransportGroundTrackTextureData pieceType="3" appearance="0" paintMask="entities/transportation/track/ground/groundtrack_NEtoSW_mask.dds" paintTexture="entities/transportation/track/ground/groundtrack_NEtoSW.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/groundtrack_NEtoSW.dds" groundDecalSize="8.6 8.6" elevatedPathTexture="entities/transportation/track/ground/groundtrack_NEtoSW.dds" elevatedPathRot="1" lowResTexture="entities/transportation/track/ground/low/groundtrack_NEtoSW.dds" lowResMask="entities/transportation/track/ground/low/groundtrack_NEtoSW_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="4" appearance="0" paintMask="entities/transportation/track/ground/groundtrack_NWtoSE_mask.dds" paintTexture="entities/transportation/track/ground/groundtrack_NWtoSE.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/groundtrack_NWtoSE.dds" groundDecalSize="8.6 8.6" elevatedPathTexture="entities/transportation/track/ground/groundtrack_NEtoSW.dds" elevatedPathRot="0" lowResTexture="entities/transportation/track/ground/low/groundtrack_NWtoSE.dds" lowResMask="entities/transportation/track/ground/low/groundtrack_NWtoSE_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="2" appearance="1" paintMask="entities/transportation/track/ground/WtoSE_mask.dds" paintTexture="entities/transportation/track/ground/WtoSE.dds" paintSampleStart="10 10" paintCopyDimension="43 43" groundDecalTexture="entities/transportation/track/ground/WtoSE.dds" groundDecalSize="4.7 4.7" elevatedPathTexture="entities/transportation/track/ground/WtoNE.dds" elevatedPathRot="0" lowResTexture="entities/transportation/track/ground/low/WtoSE.dds" lowResMask="entities/transportation/track/ground/low/WtoSE_mask.dds" lowResSampleStart="10 10" lowResCopyDimension="43 43"/>
+            <ZTTransportGroundTrackTextureData pieceType="1" appearance="2" paintMask="entities/transportation/track/ground/NtoSE_mask.dds" paintTexture="entities/transportation/track/ground/NtoSE.dds" paintSampleStart="10 10" paintCopyDimension="43 43" groundDecalTexture="entities/transportation/track/ground/NtoSE.dds" groundDecalSize="4.7 4.7" elevatedPathTexture="entities/transportation/track/ground/WtoSE.dds" elevatedPathRot="3" lowResTexture="entities/transportation/track/ground/low/NtoSE.dds" lowResMask="entities/transportation/track/ground/low/NtoSE_mask.dds" lowResSampleStart="10 10" lowResCopyDimension="43 43"/>
+            <ZTTransportGroundTrackTextureData pieceType="1" appearance="3" paintMask="entities/transportation/track/ground/NtoSW_mask.dds" paintTexture="entities/transportation/track/ground/NtoSW.dds" paintSampleStart="10 10" paintCopyDimension="43 43" groundDecalTexture="entities/transportation/track/ground/NtoSW.dds" groundDecalSize="4.7 4.7" elevatedPathTexture="entities/transportation/track/ground/WtoNE.dds" elevatedPathRot="3" lowResTexture="entities/transportation/track/ground/low/NtoSW.dds" lowResMask="entities/transportation/track/ground/low/NtoSW_mask.dds" lowResSampleStart="10 10" lowResCopyDimension="43 43"/>
+            <ZTTransportGroundTrackTextureData pieceType="2" appearance="4" paintMask="entities/transportation/track/ground/EtoSW_mask.dds" paintTexture="entities/transportation/track/ground/EtoSW.dds" paintSampleStart="10 10" paintCopyDimension="43 43" groundDecalTexture="entities/transportation/track/ground/EtoSW.dds" groundDecalSize="4.7 4.7" elevatedPathTexture="entities/transportation/track/ground/WtoSE.dds" elevatedPathRot="2" lowResTexture="entities/transportation/track/ground/low/EtoSW.dds" lowResMask="entities/transportation/track/ground/low/EtoSW_mask.dds" lowResSampleStart="10 10" lowResCopyDimension="43 43"/>
+            <ZTTransportGroundTrackTextureData pieceType="2" appearance="5" paintMask="entities/transportation/track/ground/EtoNW_mask.dds" paintTexture="entities/transportation/track/ground/EtoNW.dds" paintSampleStart="10 10" paintCopyDimension="43 43" groundDecalTexture="entities/transportation/track/ground/EtoNW.dds" groundDecalSize="4.7 4.7" elevatedPathTexture="entities/transportation/track/ground/WtoNE.dds" elevatedPathRot="2" lowResTexture="entities/transportation/track/ground/low/EtoNW.dds" lowResMask="entities/transportation/track/ground/low/EtoNW_mask.dds" lowResSampleStart="10 10" lowResCopyDimension="43 43"/>
+            <ZTTransportGroundTrackTextureData pieceType="1" appearance="6" paintMask="entities/transportation/track/ground/StoNW_mask.dds" paintTexture="entities/transportation/track/ground/StoNW.dds" paintSampleStart="10 10" paintCopyDimension="43 43" groundDecalTexture="entities/transportation/track/ground/StoNW.dds" groundDecalSize="4.7 4.7" elevatedPathTexture="entities/transportation/track/ground/WtoSE.dds" elevatedPathRot="1" lowResTexture="entities/transportation/track/ground/low/StoNW.dds" lowResMask="entities/transportation/track/ground/low/StoNW_mask.dds" lowResSampleStart="10 10" lowResCopyDimension="43 43"/>
+            <ZTTransportGroundTrackTextureData pieceType="1" appearance="7" paintMask="entities/transportation/track/ground/StoNE_mask.dds" paintTexture="entities/transportation/track/ground/StoNE.dds" paintSampleStart="10 10" paintCopyDimension="43 43" groundDecalTexture="entities/transportation/track/ground/StoNE.dds" groundDecalSize="4.7 4.7" elevatedPathTexture="entities/transportation/track/ground/WtoNE.dds" elevatedPathRot="1" lowResTexture="entities/transportation/track/ground/low/StoNE.dds" lowResMask="entities/transportation/track/ground/low/StoNE_mask.dds" lowResSampleStart="10 10" lowResCopyDimension="43 43"/>
+            <ZTTransportGroundTrackTextureData pieceType="2" appearance="8" paintMask="entities/transportation/track/ground/WtoNE_mask.dds" paintTexture="entities/transportation/track/ground/WtoNE.dds" paintSampleStart="10 10" paintCopyDimension="43 43" groundDecalTexture="entities/transportation/track/ground/WtoNE.dds" groundDecalSize="4.7 4.7" elevatedPathTexture="entities/transportation/track/ground/WtoSE.dds" elevatedPathRot="0" lowResTexture="entities/transportation/track/ground/low/WtoNE.dds" lowResMask="entities/transportation/track/ground/low/WtoNE_mask.dds" lowResSampleStart="10 10" lowResCopyDimension="43 43"/>
+            <ZTTransportGroundTrackTextureData pieceType="4" appearance="1" paintMask="entities/transportation/track/ground/SEtoCurve_mask.dds" paintTexture="entities/transportation/track/ground/SEtoCurve.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/SEtoCurve.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/SEtoCurve.dds" elevatedPathRot="3" lowResTexture="entities/transportation/track/ground/low/SEtoCurve.dds" lowResMask="entities/transportation/track/ground/low/SEtoCurve_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="4" appearance="2" paintMask="entities/transportation/track/ground/SEtoCurve_mask.dds" paintTexture="entities/transportation/track/ground/SEtoCurve.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/SEtoCurve.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/SEtoCurve.dds" elevatedPathRot="3" lowResTexture="entities/transportation/track/ground/low/SEtoCurve.dds" lowResMask="entities/transportation/track/ground/low/SEtoCurve_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="3" appearance="3" paintMask="entities/transportation/track/ground/SWtoCurve_mask.dds" paintTexture="entities/transportation/track/ground/SWtoCurve.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/SWtoCurve.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/SEtoCurve.dds" elevatedPathRot="2" lowResTexture="entities/transportation/track/ground/low/SWtoCurve.dds" lowResMask="entities/transportation/track/ground/low/SWtoCurve_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="3" appearance="4" paintMask="entities/transportation/track/ground/SWtoCurve_mask.dds" paintTexture="entities/transportation/track/ground/SWtoCurve.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/SWtoCurve.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/SEtoCurve.dds" elevatedPathRot="2" lowResTexture="entities/transportation/track/ground/low/SWtoCurve.dds" lowResMask="entities/transportation/track/ground/low/SWtoCurve_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="4" appearance="5" paintMask="entities/transportation/track/ground/NWtoCurve_mask.dds" paintTexture="entities/transportation/track/ground/NWtoCurve.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NWtoCurve.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/SEtoCurve.dds" elevatedPathRot="1" lowResTexture="entities/transportation/track/ground/low/NWtoCurve.dds" lowResMask="entities/transportation/track/ground/low/NWtoCurve_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="4" appearance="6" paintMask="entities/transportation/track/ground/NWtoCurve_mask.dds" paintTexture="entities/transportation/track/ground/NWtoCurve.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NWtoCurve.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/SEtoCurve.dds" elevatedPathRot="1" lowResTexture="entities/transportation/track/ground/low/NWtoCurve.dds" lowResMask="entities/transportation/track/ground/low/NWtoCurve_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="3" appearance="7" paintMask="entities/transportation/track/ground/NEtoCurve_mask.dds" paintTexture="entities/transportation/track/ground/NEtoCurve.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NEtoCurve.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/SEtoCurve.dds" elevatedPathRot="0" lowResTexture="entities/transportation/track/ground/low/NEtoCurve.dds" lowResMask="entities/transportation/track/ground/low/NEtoCurve_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="3" appearance="8" paintMask="entities/transportation/track/ground/NEtoCurve_mask.dds" paintTexture="entities/transportation/track/ground/NEtoCurve.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NEtoCurve.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/SEtoCurve.dds" elevatedPathRot="0" lowResTexture="entities/transportation/track/ground/low/NEtoCurve.dds" lowResMask="entities/transportation/track/ground/low/NEtoCurve_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="3" appearance="9" paintMask="entities/transportation/track/ground/NEtoSWCurve2_mask.dds" paintTexture="entities/transportation/track/ground/NEtoSWCurve2.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NEtoSWCurve2.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/NWtoSECurve2.dds" elevatedPathRot="0" lowResTexture="entities/transportation/track/ground/low/NEtoSWCurve2.dds" lowResMask="entities/transportation/track/ground/low/NEtoSWCurve2_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="4" appearance="10" paintMask="entities/transportation/track/ground/NWtoSECurve2_mask.dds" paintTexture="entities/transportation/track/ground/NWtoSECurve2.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NWtoSECurve2.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/NWtoSECurve2.dds" elevatedPathRot="1" lowResTexture="entities/transportation/track/ground/low/NWtoSECurve2.dds" lowResMask="entities/transportation/track/ground/low/NWtoSECurve2_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="3" appearance="11" paintMask="entities/transportation/track/ground/NEtoSWCurve2_mask.dds" paintTexture="entities/transportation/track/ground/NEtoSWCurve2.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NEtoSWCurve2.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/NWtoSECurve2.dds" elevatedPathRot="0" lowResTexture="entities/transportation/track/ground/low/NEtoSWCurve2.dds" lowResMask="entities/transportation/track/ground/low/NEtoSWCurve2_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="4" appearance="12" paintMask="entities/transportation/track/ground/NWtoSECurve2_mask.dds" paintTexture="entities/transportation/track/ground/NWtoSECurve2.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NWtoSECurve2.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/NWtoSECurve2.dds" elevatedPathRot="1" lowResTexture="entities/transportation/track/ground/low/NWtoSECurve2.dds" lowResMask="entities/transportation/track/ground/low/NWtoSECurve2_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="4" appearance="13" paintMask="entities/transportation/track/ground/NWtoSECurve2_mask.dds" paintTexture="entities/transportation/track/ground/NWtoSECurve2.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NWtoSECurve2.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/NWtoSECurve2.dds" elevatedPathRot="1" lowResTexture="entities/transportation/track/ground/low/NWtoSECurve2.dds" lowResMask="entities/transportation/track/ground/low/NWtoSECurve2_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="3" appearance="14" paintMask="entities/transportation/track/ground/NEtoSWCurve2_mask.dds" paintTexture="entities/transportation/track/ground/NEtoSWCurve2.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NEtoSWCurve2.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/NWtoSECurve2.dds" elevatedPathRot="0" lowResTexture="entities/transportation/track/ground/low/NEtoSWCurve2.dds" lowResMask="entities/transportation/track/ground/low/NEtoSWCurve2_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="3" appearance="15" paintMask="entities/transportation/track/ground/NEtoSWCurve2_mask.dds" paintTexture="entities/transportation/track/ground/NEtoSWCurve2.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NEtoSWCurve2.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/NWtoSECurve2.dds" elevatedPathRot="0" lowResTexture="entities/transportation/track/ground/low/NEtoSWCurve2.dds" lowResMask="entities/transportation/track/ground/low/NEtoSWCurve2_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+            <ZTTransportGroundTrackTextureData pieceType="4" appearance="16" paintMask="entities/transportation/track/ground/NWtoSECurve2_mask.dds" paintTexture="entities/transportation/track/ground/NWtoSECurve2.dds" paintSampleStart="21 21" paintCopyDimension="86 86" groundDecalTexture="entities/transportation/track/ground/NWtoSECurve2.dds" groundDecalSize="9 9" elevatedPathTexture="entities/transportation/track/ground/NWtoSECurve2.dds" elevatedPathRot="1" lowResTexture="entities/transportation/track/ground/low/NWtoSECurve2.dds" lowResMask="entities/transportation/track/ground/low/NWtoSECurve2_mask.dds" lowResSampleStart="21 21" lowResCopyDimension="86 86"/>
+         </textureData>
+      </ZTTransportGroundTrackShared>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj/>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="use_track">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="track_decal" required="1">
+         <instance>
+            <BFPhysObj allowHighlight="false">
+               <BFTerrainDecalComponent alphaBlend="true" radius="3.0f" floatOnWater="true" gridAligned="true"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTTransportGroundTrack useFollowPts="true"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="constructionMarker1" required="1">
+         <instance>
+            <BFPhysObj allowHighlight="false">
+               <BFSimpleLODComponent modelfile="UI/fx/underconstruction/underconstruction_ground.nif" switch="0 10" scale="0.2"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="5.0" loop="true"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="constructionMarker2" required="1">
+         <instance>
+            <BFPhysObj allowHighlight="false">
+               <BFSimpleLODComponent modelfile="UI/fx/underconstruction/underconstruction_ground.nif" switch="0 10" scale="0.2"/>
+               <BFAnimatedObjectControllerComponent autoStart="true" duration="5.0" loop="true"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="75">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

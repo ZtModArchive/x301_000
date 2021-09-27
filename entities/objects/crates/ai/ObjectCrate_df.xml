@@ -1,0 +1,42 @@
+<BFTypedBinder binderType="ObjectCrate_df">
+	<types>
+		<entity>
+			<Crate>
+				<ObjectCrate>
+					<ObjectCrate_df />
+				</ObjectCrate>
+			</Crate>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="ui/zoomap/icon_crate.dds">
+					<BFRect x="0" y="0" w="64" h="64" />
+				</default>
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="ObjectCrate_df" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData autoFootprint="false" icon3Dscale="0.3">
+			<cfootprint width="2" height="2" />
+			<dfootprint width="2" height="2" />
+		</ZTPlacementData>
+		<BFAIEntityDataShared b_SeeThrough="false" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/crates/ObjectCrate/ObjectCrate" switch="0 25"/>
+					<BFGroundFitComponent heightOffset="0.0" maxTilt="75"/>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+	</binder>
+</BFTypedBinder>

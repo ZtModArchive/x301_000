@@ -1,0 +1,72 @@
+<BFTypedBinder binderType="lamp_et">
+   <types>
+      <entity>
+         <scenery>
+            <lamp>
+               <lamp_et/>
+            </lamp>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="fire" rottype="ignore" postype="use" attachnode="Link_Fire01"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\lamp_et\lamp_et_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:lamp_et"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="lamp_et"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_uisort="g" s_ProfileLock="desertlock" s_Zoopedia="zoopedia:zoopedia_themedlamp:entry" s_Theme="desert" s_Product="CP1" f_FameReq="40"/>
+   		<ZTTourData>
+	 		<theme_desert value="4"/>
+		</ZTTourData>      
+      <ZTPlacementData autoFootprint="false" randomRotate="true" icon3Doffset="0 0 0.22" icon3Dscale="0.45">
+         <cfootprint width="0" height="0"/>
+         <dfootprint width="1" height="1"/>
+      </ZTPlacementData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="2" length="2" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/scenery/lamp_et/lamp_et" switch="0 5 20" minSwitch="0 0 15"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="fire">
+         <instance>
+            <BFPhysObj drawLast="true">
+               <BFSimpleLODComponent modelfile="entities/objects/fx/Fire.nif" scale="1.5"/>
+               <BFForceUpdateWhenVisibleComponent/>
+               <BFHasParticleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="175">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

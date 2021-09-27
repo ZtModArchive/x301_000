@@ -1,0 +1,59 @@
+<BFTypedBinder binderType="building" abstract="true">
+	<types>
+		<entity>
+			<building />
+		</entity>
+	</types>
+	<shared>
+		<BFAIEntityDataShared b_VisibleThroughRemoteStations="true" b_CommerceBuilding="false" b_DonationAcceptor="false" b_ReceiveUpdates="1" b_SeeThrough="false" s_GenerateName="byType" f_FameReq="0" />
+		<ZTPlacementData moveable="false" randomRotate="false" gridSnap="true" autoFootprint="true" terrainFlatten="true" sound="place_building" deleteSound="recycle_building" minimumHeadroom="5.0">
+			<stompData>
+				<delete>
+					<treat />
+					<bush />
+					<grass />
+					<thicket />
+					<wildflowers />
+					<fungi />
+					<watersurfacefoliage />
+					<Poop />
+				</delete>
+				<prevent />
+			</stompData>
+		</ZTPlacementData>
+		<BFGCollisionData score="100000">
+		    <typeScores vehicle="0"/>
+      </BFGCollisionData>
+		<ZTEntitySelector>
+			<BFPhysObj>
+				<BFTerrainDecalComponent imageName="UI/fx/selection/object.tga" alphaBlend="true">
+					<lighting emmisiveColor="255 255 255" specularColor="255 255 255" diffuseColor="255 255 255" ambientColor="255 255 255" />
+				</BFTerrainDecalComponent>
+			</BFPhysObj>
+		</ZTEntitySelector>
+		<ZTEntityCrater crateType="ObjectCrate_df" crateContainer="default" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent minSwitch="0 15 25 35 40" />
+					<BFGroundFitComponent heightOffset="0.0" />
+					<BFCollisionComponent />
+					<BFTerrainPaintComponent />
+					<BFDistanceCullComponent firstPersonOnly="true" cullDistance="110" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance s_name="unnamed" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<ZTPhotoAnalysisComponent />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

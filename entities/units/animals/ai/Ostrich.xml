@@ -1,0 +1,126 @@
+<BFTypedBinder binderType="Ostrich" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Aves>
+						<Struthioniformes>
+							<Struthionidae>
+								<Ostrich />
+							</Struthionidae>
+						</Struthioniformes>
+					</Aves>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<ZTPlacementData icon3Doffset="0 -0.045313 0.964219" icon3Dscale="0.992710" />
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\units\animals\Ostrich\Ostrich_Adult_M_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo ids="entityname:Ostrich" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Ostrich_Adult_F" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared f_BaseDonationAmount="60" f_MaxTourValue="40" p_FightOffset="0 -.75 180" p_PreyOffset="0 1 0" p_MateOffset="-1 0 0" s_Endangerment="LowRisk" s_DonateToken="t_DonateOstrich" s_Species="Ostrich" b_Basic="true" b_Granivore="true" b_Graminivore="true" s_KeeperEatType="Terrain_Hay" b_SmallAnimal="true" b_FoodDishEater="true" s_KeeperDrinkType="FoodDish_Water" f_adoptRemoveTime="0" f_adoptRarity="40" s_Zoopedia="zoopedia:zoopedia_ostrich:entry" f_RequiredInitialSpace="200" f_RequiredAdditionalSpace="20" p_PursuitBallNode="0 -1 180" p_FenceJumpNode="0 -5 180" b_SavannahAnimal="true" b_Grazer="true" b_RattleBallUser="true" b_PursuitBallUser="true" b_BallUser="true" b_FeederBallUser="true">
+			<BFAINeedAdjusts privacy="0" />
+		</BFAIEntityDataShared>
+		<BFGBiomeData location="savannah_africa" locationSensitivity="10">
+			<alpine sensitivity="-5" />
+			<benthic sensitivity="-10" />
+			<borealforest sensitivity="0" />
+			<coastal sensitivity="-10" />
+			<desert sensitivity="0" />
+			<grassland sensitivity="2" />
+			<reef sensitivity="-10" />
+			<pelagic sensitivity="-10" />
+			<temperateforest sensitivity="0" />
+			<tropicalrainforest sensitivity="0" />
+			<tundra sensitivity="-10" />
+			<savannah sensitivity="10" primary="true" />
+			<scrub sensitivity="2" />
+			<wetlands sensitivity="-5" />
+		</BFGBiomeData>
+		<ZTUserStaffAction>
+			<SetAttribute name="hygiene" value="0" threshold="20" locid="superstaff:animal_groom" effect="SuperStaffGroom" />
+			<SetAttribute name="health" value="0" threshold="20" locid="superstaff:animal_heal" effect="SuperStaffHeal" />
+		</ZTUserStaffAction>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFShadowLODComponent numLevels="1" switchingDists="60.0" />
+					<BFActorComponent actorfile="entities/units/animals/Ostrich/Ostrich_Adult_M.bfm" />
+					<BFSecondaryAnimComponent animName="Secondary_TailA" frequency="1.5" chance="40" validAnims="Stand_Idle,Pee_Idle,Poop_Idle,Chew_Idle,Eat_Drink,Eat_Idle,Stand_Click,Stand_Hiss,Stand_Scratch,Stand_Snort,Stand_TendEgg,Stand_TurnLeft90,Stand_TurnRight180,Stand_TurnRight90,Stand_Yawn" />
+					<BF2LegsGroundFitComponent rightAnkleJoint="Bip01 R Foot" leftAnkleJoint="Bip01 L Foot" ankleRotVectorLeft="0 0 -1" ankleRotVectorRight="0 0 -1" heightOffset="0" fitRadius=".15" frontBuoyancyNode="Node_Buoy" backBuoyancyNode="Node_Buoy_Back" />
+					<BFForwardMovingComponent />
+					<BFRotYawMovingComponent />
+					<BFCollisionComponent grid="Bip01 Spine" />
+					<BFGridCollisionComponent />
+					<BFDecalTextureCycleComponent materialName="Ostrich_Adult_M_MTL">
+						<Step imageName="entities/units/animals/shared/tiger_blink_blank.dds" hold="3.0" variance="0.5" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink.dds" hold="0.1" variance="" />
+						<Step imageName="entities/units/animals/shared/tiger_blink02.dds" hold="0.08" variance="" />
+					</BFDecalTextureCycleComponent>
+					<BFHeadLookComponent leftRightAnimName="Secondary_HeadLook" lookDirNode="Bip01 Head" lookDirVector="0 1 0" gain_z="-2" fov_extreme_lr="90.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1">
+					<subBehaviors>
+						<BFBehAnimate interruptible="true" targetAnim="Stand_Idle" interruptFlag="true" loopFlag="true" />
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="ground" required="1">
+					<instance>
+						<BFLocoAnimate version="1">
+							<stop name="Stand" />
+							<slow name="Walk" />
+							<medium name="Walk" minAnimSpeed="1.2" maxAnimSpeed="1.5" />
+							<fast name="Run" />
+							<prance name="Prance" />
+							<evade name="Run" minAnimSpeed="0.8" maxAnimSpeed="1.5" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFNamedBinder binderName="foodprop" repopulateMethod="byName" required="1">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot ownContents="false" hideContents="false" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="5500">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

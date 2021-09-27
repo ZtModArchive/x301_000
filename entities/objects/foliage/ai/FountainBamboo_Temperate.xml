@@ -1,0 +1,64 @@
+<BFTypedBinder binderType="FountainBamboo_Temperate">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <thicket>
+                  <FountainBamboo_Temperate/>
+               </thicket>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.211426" icon3Dscale="0.400000" minimumHeadroom="3.0"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\FountainBamboo\FountainBamboo_Temperate_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:FountainBamboo_Temperate"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="FountainBamboo_Temperate"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_fountainbamboo:entry" f_FameReq="80" s_prop="Bamboo_Prop"/>
+      <BFGBiomeData location="temperateforest_china">
+         <temperateforest/>
+      </BFGBiomeData>
+      <ZTTourData>
+         <biome_temperate value="2"/>
+      </ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width="6" minLength="6" maxLength="8" minOffset="0" maxOffset="1.5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\foliage\FountainBamboo\FountainBamboo_Temperate" switch="0 50 60"/>
+               <BFMultiGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="30">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,54 @@
+<BFTypedBinder binderType="ambient" abstract="true">
+   <types>
+      <entity>
+         <actor>
+            <ambient/>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared b_DoNotSave="1" b_Ambient="true">
+         <BFAINeedAdjusts lifespan="0.75"/>
+      </BFAIEntityDataShared>
+      <ZTPlacementData selectable="false" deletable="false">
+			<stompData>
+				<allow>
+					<TrainingArea />
+				</allow>
+				<prevent />
+			</stompData>
+		</ZTPlacementData>      
+   </shared>
+   <binder>
+      <BFBinder required="1">
+         <instance>
+            <BFAICognitiveMgr>
+               <Sensors>
+                  <ZTAISensor/>
+                  <BFAISensorSelf/>
+               </Sensors>
+               <StateThinkers>
+                  <ZTAIStateThinker>
+                     <BFAIStateVar Name="lifespan" Value="" ValueMin="0" ValueMax="0" CessationThreshold="0" TriggerThreshold="90" CriticalThreshold="90" Advanced="true"/>
+                  </ZTAIStateThinker>
+               </StateThinkers>
+               <TaskThinkers>
+                  <ZTAITaskThinker/>
+               </TaskThinkers>
+            </BFAICognitiveMgr>
+         </instance>
+         <shared>
+            <BFAICogShared>
+               <BFAINoPerceive>
+                  <animal/>
+                  <Guest/>
+                  <fence/>
+               </BFAINoPerceive>
+            </BFAICogShared>
+         </shared>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

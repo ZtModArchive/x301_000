@@ -1,0 +1,111 @@
+<UILayout>
+   <UIRegion x="0" y="2" w="60" h="55"/>
+   <children>
+      <UIToggleHoverButton name="Trick" sticky="1" toggle="0">
+         <UIRegion x="0" y="0" w="55" h="55"/>
+         <!-- Note, when an item is selected in a dropdown, it is disabled, so the below colors dupe the normal colors into the disabled -->
+         <UIState active="normal" visible="normal"/>
+         <UIAspect alwayshit="true">
+            <default image="UI\trick_icons\trick_icon_add.dds"/>
+            <standard>
+               <normal>
+                  <BFRect x="0" y="0" w="64" h="64"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="0" y="64" w="64" h="64"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="64" y="0" w="64" h="64"/>
+               </activated>
+               <disabled>
+                  <BFRect x="0" y="0" w="64" h="64"/>
+               </disabled>
+            </standard>
+            <alternate>
+               <normal>
+                  <BFRect x="64" y="0" w="64" h="64"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="0" y="64" w="64" h="64"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="64" y="0" w="64" h="64"/>
+               </activated>
+               <disabled>
+                  <BFRect x="0" y="0" w="64" h="64"/>
+               </disabled>
+            </alternate>
+         </UIAspect>
+      </UIToggleHoverButton>
+      <UIText name="trick number">
+         <UIRegion x="32" y="5" w="15" h="16"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect alwayshit="never"/>
+         <text format="sequencer:PropCountFormat"/>
+      </UIText>
+      <UIButton name="opener">
+         <UIRegion x="-25" y="-20" w="18" h="18" xalign="max" yalign="max" walign="len" halign="len"/>
+         <UIAspect>
+            <default image="ui/tricks/trick_sequencer_asset.dds"/>
+            <standard>
+               <normal>
+                  <BFRect x="150" y="0" w="17" h="17"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="150" y="18" w="17" h="17"/>
+               </highlighted>
+               <activated sound="collapse">
+                  <BFRect x="150" y="36" w="17" h="17"/>
+               </activated>
+               <disabled>
+                  <BFRect x="150" y="54" w="17" h="17"/>
+               </disabled>
+            </standard>
+            <alternate>
+               <normal>
+                  <BFRect x="150" y="36" w="17" h="17"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="150" y="18" w="17" h="17"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="150" y="36" w="17" h="17"/>
+               </activated>
+               <disabled>
+                  <BFRect x="150" y="54" w="17" h="17"/>
+               </disabled>
+            </alternate>
+         </UIAspect>
+      </UIButton>
+      <UIStatic name="trick score layer 1">
+         <UIRegion x="0" y="0" w="13" h="55" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect alwayshit="never">
+            <default image="ui\tricks\trick_sequencer_asset.dds">
+               <BFRect x="0" y="85" w="14" h="72"/>
+               <BFColor r="255" g="255" b="255" a="255"/>
+            </default>
+         </UIAspect>
+      </UIStatic>
+      <UIStatic name="trick score layer 2">
+         <UIRegion x="0" y="0" w="11" h="55" xalign="min" yalign="min" walign="len" halign="%min"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect alwayshit="never">
+            <default image="ui\tricks\trick_sequencer_asset.dds">
+               <BFRect x="16" y="85" w="11" h="72"/>
+               <BFColor r="255" g="255" b="255" a="255"/>
+            </default>
+         </UIAspect>
+      </UIStatic>
+      <UIStatic name="trick score layer 3">
+         <UIRegion x="0" y="0" w="11" h="55" xalign="min" yalign="min" walign="len" halign="%min"/>
+         <UIState active="normal" visible="hidden"/>
+         <UIAspect alwayshit="never">
+            <default image="ui\tricks\trick_sequencer_asset.dds">
+               <BFRect x="31" y="85" w="11" h="72"/>
+               <BFColor r="255" g="255" b="255" a="255"/>
+            </default>
+         </UIAspect>
+      </UIStatic>
+   </children>
+</UILayout>

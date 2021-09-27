@@ -1,0 +1,99 @@
+<BFTypedBinder binderType="HeatedRock">
+   <types>
+      <entity>
+         <enrichment>
+            <stationary_enrichment>
+               <HeatedRock/>
+            </stationary_enrichment>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\HeatedRock\HeatedRock_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:HeatedRock"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="HeatedRock"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\enrichment\HeatedRock\HeatedRock_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="HeatedRock"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData icon3Dscale="0.175" randomRotate="false" gridSnap="true" terrainFlatten="true" minimumHeadroom="3.0" protectedPlacement="false">
+         <cfootprint width="2" height="2"/>
+         <dfootprint width="2" height="2"/>
+      </ZTPlacementData>
+      <BFAIEntityDataShared b_Researchable="true" s_uisort="lb" s_Zoopedia="zoopedia:zoopedia_heatedrock:entry" f_researchUnlockTime="100" f_researchCost="800" f_FameReq="60"/>
+  <BFGCollisionData isPassable="false" isStatic="true"/>
+  </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="12" length="6" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/HeatedRock/HeatedRock" scale="0.8" switch="0 15 35" minSwitch="0 0 15"/>
+               <BFTravAnimPathComponent actorfile="entities/objects/enrichment/HeatedRock/HeatedRock_TAP.bfm"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="1000">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="TAP" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock1" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock1" targetNode="EnterA" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock2" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock2" targetNode="EnterB" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock3" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock3" targetNode="EnterC" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock4" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock4" targetNode="EnterD" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock5" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock5" targetNode="EnterE" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock6" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock6" targetNode="EnterF" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock7" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock7" targetNode="EnterG" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock8" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock8" targetNode="EnterH" exclusiveID="HeatedRock1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP_PandaRed" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock2" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock2" targetNode="DockNode02" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock3" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock3" targetNode="DockNode04" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock4" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock4" targetNode="DockNode06" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock5" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock5" targetNode="DockNode08" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock6" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock6" targetNode="DockNode10" exclusiveID="HeatedRock1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterHeatedRock7" useBehSet="UseHeatedRock" exitBehSet="ExitHeatedRock7" targetNode="DockNode12" exclusiveID="HeatedRock1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,18 @@
+<ZTEconomyMgr active="true" moneyIncrement="10000" delayCashTime="1">
+	<CostFactors concessions_food_drink="1" admissions_income="1" donations_income="1" concessions_gifts="1"/>
+	<ZTEconomyComponent category="generalEconomyComponent" noBinder="true">
+		<ZTTransaction name="build" cost="0" type="debit" category="construction"/>
+		<ZTTransaction name="destroy" cost="0" type="credit" category="recycling"/>
+		<ZTTransaction name="terraform" cost="0" type="debit" category="construction"/>
+		<ZTTransaction name="biomechange" cost="0" type="debit" category="construction"/>
+		<ZTTransaction name="waterchange" cost="0" type="debit" category="construction"/>
+		<ZTTransaction name="adult_admission" cost="24" type="credit" category="admissions_income" />
+		<ZTTransaction name="child_admission" cost="12" type="credit" category="admissions_income" />
+		<ZTTransaction name="group_admission" cost="100" type="credit" category="admissions_income" />
+		<ZTTransaction name="add_user" cost="1" type="addUser" category="admissions" />
+		<ZTTransaction name="remove_user" cost="1" type="removeUser" category="admissions" />
+		<ZTTransaction name="research" cost="0" type="debit" category="research" />
+		<ZTTransaction name="cash_grants" cost="0" type="credit" category="cash_grants" />
+		<ZTTransaction name="remove_cash_grants" cost="0" type="debit" category="cash_grants" />
+	</ZTEconomyComponent>
+</ZTEconomyMgr>

@@ -1,0 +1,20 @@
+<BFScenarioGroup name="rainforestrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="rainforest" state="0" sticky="true" optional="true">
+			<info type="primary">
+				<neutral locid="Challengetext:CHRainforestPreservationShort" overview="Challengetext:CHRainforestPreservation" />
+				<success locid="Challengetext:CHRainforestPreservationSuccessShort" overview="Challengetext:CHRainforestPreservationSuccess" />
+				<failure locid="Challengetext:CHRainforestPreservationFailureShort" overview="Challengetext:CHRainforestPreservationFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/rainforest.lua" entry="evalrainforest" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/rainforest.lua" entry="completerainforest" />
+			</success>		
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/rainforest.lua" entry="failrainforest" />
+			</failure>	
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

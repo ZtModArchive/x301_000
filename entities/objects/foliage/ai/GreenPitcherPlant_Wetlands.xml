@@ -1,0 +1,57 @@
+﻿<BFTypedBinder binderType="GreenPitcherPlant_Wetlands">
+	<types>
+		<entity>
+			<foliage>
+				<plant>
+					<bush>
+						<GreenPitcherPlant_Wetlands />
+					</bush>
+				</plant>
+			</foliage>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<ZTPlacementData autoFootprint="false" icon3Doffset="0 0 0.6" icon3Dscale="1.25" minimumHeadroom="3.0">
+			<cfootprint width="1" height="1" />
+			<dfootprint width="1" height="1" />
+		</ZTPlacementData>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\foliage\GreenPitcherPlant\GreenPitcherPlant_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:GreenPitcherPlant_Wetlands" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="GreenPitcherPlant_Wetlands" />
+			</on>
+		</UIToggleButton>
+		<BFGBiomeData location="wetland_northamerica">
+			<wetlands/>
+		</BFGBiomeData>
+		<BFAIEntityDataShared s_Product="EndangeredSpecies" b_GrazeGrass="false" s_prop="Grass_Prop" s_Zoopedia="zoopedia:zoopedia_greenpitcherplant:entry" f_FameReq="60" />
+		<ZTTourData>
+			<biome_wetlands value="1" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\foliage\GreenPitcherPlant\GreenPitcherPlant_Wetlands" scale="1.0" switch="0 15 25 35 60" />
+					<BFMultiGroundFitComponent heightOffset="0.0" />
+					<BFTerrainPaintComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="15">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

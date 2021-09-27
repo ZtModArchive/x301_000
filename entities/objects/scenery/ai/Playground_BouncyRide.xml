@@ -1,0 +1,60 @@
+﻿<BFTypedBinder binderType="BouncyRide" abstract="true">
+	<types>
+		<entity>
+			<scenery>
+				<Playground>
+					<BouncyRide />
+				</Playground>
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting mergeKey="child">
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<ZTPlacementData autoFootprint="false" icon3Doffset="0 0 0.386733" icon3Dscale="0.521209">
+			<cfootprint width="1" height="2" />
+			<dfootprint width="1" height="2" />
+		</ZTPlacementData>
+		<BFGCollisionData isPassable="false" isStatic="false" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="2" length="4" intensity="0.3" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFActorComponent actorfile="entities/objects/scenery/Playground_BouncyRide_Lion_df/BouncyRide_Lion_df.bfm" activeSequenceName="BouncyRide_Used" activeSequenceAccumulate="false" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr behaviorVersion="1" physObj="mainObj">
+					<subBehaviors>
+						<BFBehAnimate interruptible="true" targetAnim="BouncyRide_Idle" interruptFlag="true" loopFlag="true" />
+					</subBehaviors>
+				</BFBehaviorMgr>
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="Use_Ride">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot targetNode="Dock_Young" capacity="1" enterBehSet="EnterBouncyRide" useBehSet="UseBouncyRide" exitBehSet="ExitBouncyRide" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,67 @@
+<BFTypedBinder binderType="chainlink">
+   <types>
+      <entity>
+         <fence>
+            <chainlink/>
+         </fence>
+      </entity>
+   </types>
+   <instance>
+      <ZTFenceEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="fence">
+         <UIAspect>
+            <default image="entities\objects\fences\chainlink_df\chainlink_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:chainlink"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="chainlink"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_uisort="hb" f_FenceStrength="3" s_Zoopedia="zoopedia:zoopedia_chainlink:entry" s_Broken="chainlink_broken" b_SeeThrough="true" b_TunnelFence="true" b_ClimbFence="true"/>
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTFence gate="chainlinkgate" hasCurves="false"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="start_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\chainlink_df\chainlink_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence90">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\chainlink_df\chainlink_df_vert"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder required="0" binderName="fence45">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\chainlink_df\chainlink_df_diag"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="end_post">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\fences\chainlink_df\chainlink_df_post"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+                  <BFBinder>
+      			<instance>
+				<ZTEconomyComponent cost="75">
+      					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+      				</ZTEconomyComponent>
+      			</instance>
+		</BFBinder>
+</binder>
+</BFTypedBinder>

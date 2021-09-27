@@ -1,0 +1,50 @@
+<BFTypedBinder binderType="tree">
+   <types>
+      <entity>
+         <foliage>
+            <tree/>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <ZTPlacementData gridSnap="true" autoFootprint="true" terrainFlatten="false" randomRotate="true" sound="place_tree" minimumHeadroom="8.0">
+         <stompData>
+            <delete/>
+            <prevent>
+               <treat/>
+            </prevent>
+            <allow>
+               <bush/>
+               <grass/>
+               <wildflowers/>
+               <fungi/>
+            </allow>
+         </stompData>
+      </ZTPlacementData>
+      <BFGCollisionData isPassable="false" isStatic="false"/>
+      <BFGInfluenceComponent defaultRadius="21.0" defaultGroupFactor="5.0" defaultRadiusDropoff="none" defaultGroupDropoff="linear">
+         <biome/>
+         <location/>
+      </BFGInfluenceComponent>    
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFTerrainPaintComponent/>
+               <BFCollisionComponent/>
+               <BFSimpleLODComponent minSwitch="0 5 8 65 66"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="160"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <ZTPhotoAnalysisComponent/>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

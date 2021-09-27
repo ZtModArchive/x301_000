@@ -1,0 +1,37 @@
+<BFTypedBinder binderType="GroundTrack_df">
+   <types>
+      <entity>
+         <transportation>
+            <track>
+               <groundtrack>
+                  <GroundTrack_df/>
+               </groundtrack>
+            </track>
+         </transportation>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <UIToggleButton template="trackplacement">
+         <UIAspect>
+            <default image="entities\transportation\track\ground\ground_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:GroundTrack"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="GroundTrack_df"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Product="CP1" s_uisort="a" s_Zoopedia="zoopedia:zoopedia_groundtrack:entry"/>
+   </shared>
+   <binder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="10">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

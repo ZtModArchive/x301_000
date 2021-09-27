@@ -1,0 +1,90 @@
+<BFTypedBinder binderType="vehicle" abstract="true">
+	<types>
+		<entity>
+			<transportation>
+				<vehicle />
+			</transportation>
+		</entity>
+	</types>
+	<shared>
+		<BFGCollisionData score="100" isStatic="false" />
+		<BFAIEntityDataShared b_ValidateDockingPosition="false" b_Eyedropper="false" b_ReceiveUpdates="1" f_InterpolationDistance="6" f_InterpolationConeBegin="45" f_InterpolationConeEnd="180" s_MoveAnimation="" s_NeedAdjustmentCategory="onTour" s_GenerateName="byType" />
+		<ZTPlacementData iconAnim="Stand_Idle" moveable="false">
+			<stompData>
+				<allow>
+					<treat />
+					<TerrainFood />
+					<bush />
+					<grass />
+					<wildflowers />
+					<thicket />
+					<fungi />
+					<watersurfacefoliage />
+				</allow>
+			</stompData>
+		</ZTPlacementData>
+		<UIToggleButton template="vehicle">
+			<UIAspect>
+				<default image="_VALUE_" />
+			</UIAspect>
+			<UIHelpInfo ids="_VALUE_" />
+			<on>
+				<event msg="ZT_SELECT_VEHICLE_TYPE" data="BFString" string="_VALUE_" />
+			</on>
+		</UIToggleButton>
+		<ZTUserStaffAction>
+			<BoardObject locid="superstaff:ridevehicle" />
+			<DisembarkObject locid="superstaff:exitvehicle" showSelection="false" />
+		</ZTUserStaffAction>
+	</shared>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<binder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFSteeringMgr />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFBehaviorMgr />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester radius="1" motionClass="mover" maxSlope=".75" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1" repopulateMethod="byType">
+			<instance>
+				<BFGCollisionHandler factorMin="0.1" factorStepUp="1.0" factorStepDown="0.5" />
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFBoundedObjectComponent useModelBounds="true" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars seeThrough="true" />
+			</shared>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<BFAIEntityDataInstance s_name="unnamed" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<ZTPhotoAnalysisComponent />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

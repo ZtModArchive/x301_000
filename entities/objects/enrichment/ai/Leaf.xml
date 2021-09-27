@@ -1,0 +1,37 @@
+<BFTypedBinder binderType="Leaf">
+   <types>
+      <entity>
+         <item>
+            <Leaf/>
+         </item>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <BFGDetachInfo>
+         <detachActionTable>
+            <dropitem destination="kill"/>
+            <killitem destination="kill"/>
+            <inventory destination="inventory"/>
+         </detachActionTable>
+      </BFGDetachInfo>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="UI/infopan/icon_Leaf.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Leaf"/>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_uisort="dq"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/ShelterMaterials/ShelterMaterials_LeafProp"  switch="0 36"/> 
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

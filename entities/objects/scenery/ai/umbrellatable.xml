@@ -1,0 +1,53 @@
+<BFTypedBinder binderType="umbrellatable" abstract="true" version="2" versionReplace="true">
+   <types>
+      <entity>
+         <scenery>
+            <umbrellatable/>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.278613" icon3Dscale="0.487608" minimumHeadroom="3.0"/>
+      <BFAIEntityDataShared s_ObjectType="Seating"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob2.tga" baseNode="footprint" width="4" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_Seating">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="TableDock1" exclusiveID="Slot1"/>
+                  <BFGEntityContainerSlot enterBehSet="TableDock2" exclusiveID="Slot2"/>
+                  <BFGEntityContainerSlot enterBehSet="TableDock3" exclusiveID="Slot3"/>
+                  <BFGEntityContainerSlot enterBehSet="TableDock4" exclusiveID="Slot4"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Rest">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="RestUTableDock1" useBehSet="RestUTable" exitBehSet="ExitUTable" exclusiveID="Slot1"/>
+                  <BFGEntityContainerSlot enterBehSet="RestUTableDock2" useBehSet="RestUTable" exitBehSet="ExitUTable" exclusiveID="Slot2"/>
+                  <BFGEntityContainerSlot enterBehSet="RestUTableDock3" useBehSet="RestUTable" exitBehSet="ExitUTable" exclusiveID="Slot3"/>
+                  <BFGEntityContainerSlot enterBehSet="RestUTableDock4" useBehSet="RestUTable" exitBehSet="ExitUTable" exclusiveID="Slot4"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>        
+   </binder>
+</BFTypedBinder>

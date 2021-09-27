@@ -1,0 +1,51 @@
+<BFTypedBinder binderType="scenery" abstract="true">
+	<types>
+		<entity>
+			<scenery />
+		</entity>
+	</types>
+	<shared>
+		<ZTPlacementData randomRotate="false" gridSnap="true" autoFootprint="true" terrainFlatten="true" deleteSound="recycle_scenery">
+			<stompData>
+				<delete>
+					<bush />
+					<grass />
+					<wildflowers />
+					<fungi />
+					<Poop />
+					<watersurfacefoliage />
+				</delete>
+				<prevent />
+				<allow />
+			</stompData>
+		</ZTPlacementData>
+		<BFGCollisionData isTraversable="true">
+		   <typeScores vehicle="0"/>
+      </BFGCollisionData>
+      <ZTEntityCrater crateType="ObjectCrate_df" crateContainer="default" />
+		<BFAIEntityDataShared f_FameReq="0" s_uisort="z" />
+		<ZTEntitySelector>
+			<BFPhysObj>
+				<BFTerrainDecalComponent imageName="UI/fx/selection/object.tga" alphaBlend="true">
+					<lighting emmisiveColor="255 255 255" specularColor="255 255 255" diffuseColor="255 255 255" ambientColor="255 255 255" />
+				</BFTerrainDecalComponent>
+			</BFPhysObj>
+		</ZTEntitySelector>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFCollisionComponent />
+					<BFTerrainPaintComponent />
+					<BFDistanceCullComponent firstPersonOnly="true" cullDistance="100" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<ZTPhotoAnalysisComponent />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

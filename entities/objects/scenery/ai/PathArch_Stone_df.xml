@@ -1,0 +1,60 @@
+<BFTypedBinder binderType="PathArch_Stone_df">
+   <types>
+      <entity>
+         <scenery>
+            <PathArch>
+               <PathArch_Stone_df/>
+            </PathArch>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\PathArch_Stone_df\PathArch_Stone_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:PathArch_Stone"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PathArch_Stone_df"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\scenery\PathArch_Stone_df\PathArch_Stone_df_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PathArch_Stone_df"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Researchable="true" s_Theme="default" f_FameReq="80" s_uisort="oy" s_Zoopedia="zoopedia:zoopedia_arch:entry" f_researchUnlockTime="120" f_researchCost="1000"/>
+      <ZTPlacementData>
+         <cfootprint width="3" height="1"/>
+         <dfootprint width="4" height="1"/>
+      </ZTPlacementData>
+      <BFGCollisionData isPassable="true"/>
+   		<ZTTourData>
+	 				<arch value="6"/>
+		</ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/PathArch_Stone_df/PathArch_Stone_df"  switch="0 25 40"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="300">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

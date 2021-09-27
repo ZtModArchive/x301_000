@@ -1,0 +1,983 @@
+<BehaviorSets>
+  <PlaceFood>
+     <subjects>
+       <Keeper/>
+     </subjects>
+     <behaviors>
+       <BFBehLocoSwitchSet switch="false">
+         <behaviorTable>
+           <ground behSet="PlaceFood_Land"/>
+           <water behSet="PlaceFood_Water"/>
+           <underwater behSet="PlaceFood_Underwater"/>
+         </behaviorTable>
+       </BFBehLocoSwitchSet>
+     </behaviors>     
+  </PlaceFood>
+  <PlaceFood_Land>
+    <subjects>
+      <Keeper/>
+    </subjects>
+    <behaviors>
+      <BFBehDockRadial subjectNode="Node_PlaceFood" targetAnim="PlaceFood_Idle" locoSpeed="fast"/>
+      <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+    </behaviors>
+  </PlaceFood_Land>
+  <PlaceFood_Water>
+    <subjects>
+      <Keeper/>
+    </subjects>
+    <behaviors>
+      <BFBehDockSpline subjectNode="Node_PlaceFood" locoSpeed="fast"/>
+      <BFBehAnimate interruptFlag="true" targetAnim="TreadWater_PlaceFood"/>
+    </behaviors>
+  </PlaceFood_Water>
+  <PlaceFood_Underwater>
+    <subjects>
+      <Keeper/>
+    </subjects>
+    <behaviors>
+      <BFBehDockSpline subjectNode="Node_PlaceFood" locoSpeed="fast"/>
+      <BFBehAnimate interruptFlag="true" targetAnim="TreadWaterSub_PlaceFood"/>
+    </behaviors>
+  </PlaceFood_Underwater>
+   <EnterFoodDish>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDock targetAnim="Stand_Idle" subjectNode="Node_Dish" locoSpeed="medium"/>
+      </behaviors>
+   </EnterFoodDish>
+   <UseFoodDish>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="Stand_2StandItem" detachAction="killitem"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>         
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+      </behaviors>
+   </UseFoodDish>
+   <DrinkFoodDish>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="Stand_2StandItem" detachAction="killitem"/>
+         <BFBehAnimate targetAnim="PourItem_Idle"/>
+         <BFBehAnimate targetAnim="PourItem_Idle"/>
+         <BFBehAnimate targetAnim="PourItem_Idle"/>
+      </behaviors>
+   </DrinkFoodDish>
+   <ExitFoodDish>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </ExitFoodDish>
+   <EnterTermiteMound>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDock targetAnim="Stand_Idle" subjectNode="Node_Dish" locoSpeed="medium"/>
+      </behaviors>
+   </EnterTermiteMound>
+   <UseTermiteMound>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="Stand_2StandItem" detachAction="killitem"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>         
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+      </behaviors>
+   </UseTermiteMound>
+   <ExitTermiteMound>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </ExitTermiteMound>
+   <EnterTrough>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDock targetAnim="Stand_Idle" subjectNode="Node_Dish" locoSpeed="medium"/>
+      </behaviors>
+   </EnterTrough>
+   <UseTrough>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="Stand_2StandItem" detachAction="killitem"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>         
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+      </behaviors>
+   </UseTrough>
+   <DrinkTrough>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="Stand_2StandItem" detachAction="killitem"/>
+         <BFBehAnimate targetAnim="PourItem_Idle"/>
+         <BFBehAnimate targetAnim="PourItem_Idle"/>
+         <BFBehAnimate targetAnim="PourItem_Idle"/>
+      </behaviors>
+   </DrinkTrough>
+   <ExitTrough>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </ExitTrough>
+   <EnterBrowseHolder>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDock targetAnim="Stand_Idle" subjectNode="Node_Dish" locoSpeed="medium"/>
+      </behaviors>
+   </EnterBrowseHolder>
+   <UseBrowseHolder>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="Stand_2StandItem" detachAction="killitem"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>         
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+      </behaviors>
+   </UseBrowseHolder>
+   <ExitBrowseHolder>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </ExitBrowseHolder>
+   <EnterElevatedFoodDish>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDock targetAnim="Stand_Idle" subjectNode="Node_Dish" locoSpeed="medium"/>
+      </behaviors>
+   </EnterElevatedFoodDish>
+   <UseElevatedFoodDish>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="Stand_2StandItem" detachAction="killitem"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>         
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+      </behaviors>
+   </UseElevatedFoodDish>
+   <DrinkElevatedFoodDish>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="Stand_2StandItem" detachAction="killitem"/>
+         <BFBehAnimate targetAnim="PourItem_Idle"/>
+         <BFBehAnimate targetAnim="PourItem_Idle"/>
+         <BFBehAnimate targetAnim="PourItem_Idle"/>
+      </behaviors>
+   </DrinkElevatedFoodDish>
+   <ExitElevatedFoodDish>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </ExitElevatedFoodDish>
+   <EnterTerrainFood>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehLocoSwitchSet>
+            <behaviorTable>
+               <ground behSet="EnterTerrainFood_Ground"/>
+               <water behSet="EnterTerrainFood_Water"/>
+               <underwater behSet="EnterTerrainFood_Water"/>
+            </behaviorTable>
+         </BFBehLocoSwitchSet>
+      </behaviors>
+   </EnterTerrainFood>
+   <EnterTerrainFood_Ground>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDockRadial targetAnim="Stand_Idle" subjectNode="Node_Dish" locoSpeed="medium"/>
+      </behaviors>
+   </EnterTerrainFood_Ground>
+   <EnterTerrainFood_Water>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDockSpline subjectNode="Node_WaterFood" targetAnim="TreadWater_Idle" locoSpeed="medium"/>
+      </behaviors>
+   </EnterTerrainFood_Water>
+   <UseTerrainFood>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehLocoSwitchSet>
+            <behaviorTable>
+               <ground behSet="UseTerrainFood_Ground"/>
+               <water behSet="UseTerrainFood_Water"/>
+               <underwater behSet="UseTerrainFood_Water"/>
+            </behaviorTable>
+         </BFBehLocoSwitchSet>
+      </behaviors>
+   </UseTerrainFood>
+   <UseTerrainFood_Ground>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="Stand_2StandItem" detachAction="killitem"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>         
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+      </behaviors>
+   </UseTerrainFood_Ground>
+   <UseTerrainFood_Water>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWater_PlaceFood" detachAction="killitem"/>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWater_PlaceFood" detachAction="killitem"/>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWater_PlaceFood" detachAction="killitem"/>
+      </behaviors>
+   </UseTerrainFood_Water>
+   <ExitTerrainFood>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehLocoSwitchSet>
+            <behaviorTable>
+               <ground behSet="ExitTerrainFood_Ground"/>
+               <water behSet="ExitTerrainFood_Water"/>
+               <underwater behSet="ExitTerrainFood_Water"/>
+            </behaviorTable>
+         </BFBehLocoSwitchSet>
+      </behaviors>
+   </ExitTerrainFood>
+   <ExitTerrainFood_Ground>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </ExitTerrainFood_Ground>
+   <ExitTerrainFood_Water>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="TreadWater_Idle"/>
+      </behaviors>
+   </ExitTerrainFood_Water>
+   <EnterSubstratePile>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDockRadial targetAnim="Stand_Idle" subjectNode="Node_Dish" locoSpeed="medium"/>
+      </behaviors>
+   </EnterSubstratePile>
+   <UseSubstratePile>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="Stand_2StandItem" detachAction="killitem"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>         
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+         <BFBehAnimate targetAnim="PlaceFood_Idle"/>
+      </behaviors>
+   </UseSubstratePile>
+   <ExitSubstratePile>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </ExitSubstratePile>
+   <EnterHollowLogLeft>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDock targetAnim="Stand_Idle" subjectNode="Node_Dish" locoSpeed="medium"/>
+      </behaviors>
+   </EnterHollowLogLeft>
+   <EnterHollowLogRight>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDock targetAnim="Stand_Idle" subjectNode="Node_Dish" locoSpeed="medium"/>
+      </behaviors>
+   </EnterHollowLogRight>
+   <EnterHollowLogMiddle>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDock targetAnim="Stand_Idle" subjectNode="Node_Dish" locoSpeed="medium"/>
+      </behaviors>
+   </EnterHollowLogMiddle>
+   <EnterBuoyLure>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDockSpline subjectNode="Node_WaterFood" targetAnim="TreadWater_Idle" locoSpeed="medium"/>
+      </behaviors>
+   </EnterBuoyLure>
+   <UseBuoyLure>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="TreadWater_Idle" groundFit="false"/>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWater_PlaceFood" detachAction="killitem" groundFit="false"/>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWater_PlaceFood" detachAction="killitem"/>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWater_PlaceFood" detachAction="killitem"/>
+      </behaviors>
+   </UseBuoyLure>
+   <ExitBuoyLure>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="TreadWater_Idle" groundFit="false"/>
+      </behaviors>
+   </ExitBuoyLure>
+   <EnterArtificialReef>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDockSpline subjectNode="Node_WaterFood" targetAnim="TreadWaterSub_Idle" locoSpeed="medium"/>
+      </behaviors>
+   </EnterArtificialReef>
+   <UseArtificialReef>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWaterSub_PlaceFood" detachAction="killitem"/>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWaterSub_PlaceFood" detachAction="killitem"/>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWaterSub_PlaceFood" detachAction="killitem"/>
+      </behaviors>
+   </UseArtificialReef>
+   <ExitArtificialReef>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="TreadWaterSub_Idle"/>
+      </behaviors>
+   </ExitArtificialReef>
+   <EnterFoodBox>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDockSpline subjectNode="Node_WaterFood" targetAnim="TreadWaterSub_Idle" locoSpeed="medium"/>
+      </behaviors>
+   </EnterFoodBox>
+   <UseFoodBox>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWaterSub_PlaceFood" detachAction="killitem"/>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWaterSub_PlaceFood" detachAction="killitem"/>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWaterSub_PlaceFood" detachAction="killitem"/>
+      </behaviors>
+   </UseFoodBox>
+   <ExitFoodBox>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="TreadWaterSub_Idle"/>
+      </behaviors>
+   </ExitFoodBox>
+   <EnterMarineCarcass>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDockSpline subjectNode="Node_WaterFood" targetAnim="TreadWaterSub_Idle" locoSpeed="medium"/>
+      </behaviors>
+   </EnterMarineCarcass>
+   <UseMarineCarcass>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:FillDish"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWaterSub_PlaceFood" detachAction="killitem"/>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWaterSub_PlaceFood" detachAction="killitem"/>
+         <BFBehAttachObject attachEntity="Bucket" targetAnim="TreadWaterSub_PlaceFood" detachAction="killitem"/>
+      </behaviors>
+   </UseMarineCarcass>
+   <ExitMarineCarcass>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="TreadWaterSub_Idle"/>
+      </behaviors>
+   </ExitMarineCarcass>
+   <CleanAnimal_Land>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:GoCleanAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="staffthoughts:KeeperGoCleanAnimal" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="10" pursuitRadius="30" locoSpeed="fast"/>
+         <BFBehSyncSet subjectBehSet="DockClean" targetBehSet="GetCleaned"/>
+      </behaviors>
+   </CleanAnimal_Land>
+   <DockClean>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDockRadial dockRadius="3" targetNode="Floor" targetAnim="Stand_Idle" locoSpeed="medium"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:CleanAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Hose_Idle"/>
+         <BFBehAnimate targetAnim="Hose_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="staffthoughts:KeeperCleanAnimal" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehSetAttribute>
+            <BFAITargetData hygiene="-100"/>
+         </BFBehSetAttribute>
+      </behaviors>
+   </DockClean>
+   <GetCleaned>
+      <subjects>
+         <animal/>
+      </subjects>
+      <behaviors>
+         <BFBehLocoSwitchSet>
+            <behaviorTable>
+               <ground behSet="GroundCleaned_Idle"/>
+               <water behSet="WaterCleaned_Idle"/>
+               <underwater behSet="WaterCleaned_Idle"/>
+            </behaviorTable>
+         </BFBehLocoSwitchSet>
+      </behaviors>
+   </GetCleaned>
+   <GroundCleaned_Idle>
+      <subjects>
+         <animal/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Idle" loopFlag="true"/>
+      </behaviors>
+   </GroundCleaned_Idle>
+   <WaterCleaned_Idle>
+      <subjects>
+         <animal/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="TreadWater_Idle" loopFlag="true"/>
+      </behaviors>
+   </WaterCleaned_Idle>
+   <CleanAnimal_Water>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:GoCleanAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="staffthoughts:KeeperGoCleanAnimal" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="10" pursuitRadius="30" locoSpeed="fast"/>
+         <BFBehSyncSet subjectBehSet="DockClean_Water" targetBehSet="GetCleaned_Water"/>
+      </behaviors>
+   </CleanAnimal_Water>
+   <DockClean_Water>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehPursuit hitRadius="3" pursuitRadius="30" locoSpeed="fast"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:CleanAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehFollowEntity locoSpeed="clean" targetNode="Node_Follow" minPlayTime="10" maxPlayTime="20"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="staffthoughts:KeeperCleanAnimal" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehSetAttribute>
+            <BFAITargetData hygiene="-100"/>
+         </BFBehSetAttribute>
+      </behaviors>
+   </DockClean_Water>
+   <GetCleaned_Water>
+      <subjects>
+         <animal/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="animalactions:SwimmingAround"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehWander minPlayTime="30" maxPlayTime="45" avoidLand="true" locoSpeed="slow" minDepth="0" maxDepth="1" avoidEntityRadius="8">
+            <avoidEntityTypes>
+               <TrainingArea/>
+            </avoidEntityTypes>
+         </BFBehWander>
+      </behaviors>
+   </GetCleaned_Water>
+   <GoToHealAnimal>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:GoHealAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="staffthoughts:KeeperGoHealAnimal" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="5" pursuitRadius="30" locoSpeed="fast"/>
+      </behaviors>
+   </GoToHealAnimal>
+   <HealAnimal>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+       <BFBehLocoSwitchSet>
+         <behaviorTable>
+           <ground behSet="HealAnimal_Land"/>
+           <water behSet="HealAnimal_Water"/>
+           <underwater behSet="HealAnimal_Water"/>
+         </behaviorTable>
+       </BFBehLocoSwitchSet>
+      </behaviors>
+   </HealAnimal>
+   <HealAnimal_Land>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:GoHealAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="staffthoughts:KeeperGoHealAnimal" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="10" pursuitRadius="30" locoSpeed="fast"/>
+         <BFBehSyncSet subjectBehSet="DockHeal_Land" targetBehSet="LoopIdle"/>
+      </behaviors>
+   </HealAnimal_Land>
+   <DockHeal_Land>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDockRadial dockRadius="3" targetNode="Floor" targetAnim="Stand_Idle" locoSpeed="medium"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:HealAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_HealAnimal"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="staffthoughts:KeeperHealAnimal" priority="1" timeout="30" global="false"/>
+               <ZTMessageInfo locID="zoomessages:AnimalHealed" priority="1" timeout="30" global="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehSetAttribute>
+            <BFAITargetData health="-100"/>
+         </BFBehSetAttribute>
+      </behaviors>
+   </DockHeal_Land>
+   <HealAnimal_Water>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:GoHealAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="staffthoughts:KeeperGoHealAnimal" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehSyncSet subjectBehSet="DockHeal_Water" targetBehSet="WaterHeal_Idle"/>
+      </behaviors>
+   </HealAnimal_Water>
+   <DockHeal_Water>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehPursuit hitRadius="2" pursuitRadius="30" locoSpeed="fast"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:HealAnimal" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="TreadWater_HealAnimal" interruptFlag="true"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="staffthoughts:KeeperHealAnimal" priority="1" timeout="30" global="false"/>
+               <ZTMessageInfo locID="zoomessages:AnimalHealed" priority="1" timeout="30" global="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehSetAttribute>
+            <BFAITargetData health="-100"/>
+         </BFBehSetAttribute>
+      </behaviors>
+   </DockHeal_Water>
+   <WaterHeal_Idle>
+      <subjects>
+         <animal/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="TreadWater_Idle" loopFlag="true"/>
+      </behaviors>
+   </WaterHeal_Idle>
+   <WaterHeal_Idle>
+      <subjects>
+         <Actinopterygii/>
+         <Chondrichthyes/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Swim_Idle" loopFlag="true"/>
+      </behaviors>
+   </WaterHeal_Idle>
+   <CheckupBaby>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+       <BFBehLocoSwitchSet>
+         <behaviorTable>
+           <ground behSet="CheckupBaby_Land"/>
+           <water behSet="CheckupBaby_Water"/>
+           <underwater behSet="CheckupBaby_Water"/>
+         </behaviorTable>
+       </BFBehLocoSwitchSet>
+      </behaviors>
+   </CheckupBaby>
+   <CheckupBaby_Land>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:GoCheckupBaby" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="10" pursuitRadius="30" locoSpeed="fast"/>
+         <BFBehSyncSet subjectBehSet="DockCheckup" targetBehSet="Think"/>
+      </behaviors>
+   </CheckupBaby_Land>
+   <DockCheckup_Land>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehDockRadial dockRadius="3" targetNode="Floor" targetAnim="Stand_Idle" locoSpeed="medium"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:CheckupBaby" useTargetName="true"/>
+               <ZTThoughtInfo locID="staffthoughts:KeeperCheckupBaby" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_HealAnimal"/>
+         <BFBehSetAttribute>
+            <BFAITargetData health="-100"/>
+         </BFBehSetAttribute>
+      </behaviors>
+   </DockCheckup_Land>
+   <CheckupBaby_Water>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:GoCheckupBaby" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="10" pursuitRadius="30" locoSpeed="fast"/>
+         <BFBehSyncSet subjectBehSet="DockCheckup" targetBehSet="WaterHeal_Idle"/>
+      </behaviors>
+   </CheckupBaby_Water>
+   <DockCheckup_Water>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehPursuit hitRadius="2" pursuitRadius="30" locoSpeed="fast"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:CheckupBaby" useTargetName="true"/>
+               <ZTThoughtInfo locID="staffthoughts:KeeperCheckupBaby" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="TreadWater_HealAnimal" interruptFlag="true"/>
+         <BFBehSetAttribute>
+            <BFAITargetData health="-100"/>
+         </BFBehSetAttribute>
+      </behaviors>
+   </DockCheckup_Water>
+   <CrateAnimal>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+       <BFBehLocoSwitchSet>
+         <behaviorTable>
+           <ground behSet="CrateAnimal_Land"/>
+           <water behSet="CrateAnimal_Water"/>
+           <underwater behSet="CrateAnimal_Water"/>
+         </behaviorTable>
+       </BFBehLocoSwitchSet>
+      </behaviors>
+   </CrateAnimal>
+   <CrateAnimal_Land>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:GoCrateAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="staffthoughts:KeeperGoCrateAnimal" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="10" pursuitRadius="30" locoSpeed="fast"/>
+         <BFBehFaceTarget/>
+         <BFBehAnimate targetAnim="Stand_DartAnimal"/>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_Tranquilized" GiveTo="target" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:CrateAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="staffthoughts:KeeperCrateAnimal" priority="1" timeout="30" global="false"/>
+               <ZTMessageInfo locID="zoomessages:AnimalCrated" priority="-1" timeout="30" global="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </CrateAnimal_Land>
+   <CrateAnimal_Water>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:GoCrateAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="staffthoughts:KeeperGoCrateAnimal" priority="1" timeout="30" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPursuit hitRadius="10" pursuitRadius="30" locoSpeed="fast"/>
+         <BFBehFaceTarget/>
+         <BFBehAnimate targetAnim="TreadWater_DartAnimal"/>
+         <BFBehSendToken>
+            <BFAITokenList>
+               <BFAIToken Name="t_Tranquilized" GiveTo="target" Reconsider="true"/>
+            </BFAITokenList>
+         </BFBehSendToken>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="staffactions:CrateAnimal" useTargetName="true"/>
+               <ZTThoughtInfo locID="staffthoughts:KeeperCrateAnimal" priority="1" timeout="30" global="false"/>
+               <ZTMessageInfo locID="zoomessages:AnimalCrated" priority="-1" timeout="30" global="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </CrateAnimal_Water>
+   <RakePoo>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+       <BFBehLocoSwitchSet>
+         <behaviorTable>
+           <ground behSet="RakePoo_Land"/>
+           <water behSet="RakePoo_Water"/>
+           <underwater behSet="RakePoo_Water"/>
+         </behaviorTable>
+       </BFBehLocoSwitchSet>
+      </behaviors>
+   </RakePoo>
+   <RakePoo_Land>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Rake_Idle"/>
+      </behaviors>
+   </RakePoo_Land>
+   <RakePoo_Water>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="TreadWater_2CleanTankWater"/>
+         <BFBehAnimate targetAnim="CleanTankWater_Ahead"/>
+         <BFBehAnimate targetAnim="CleanTankWater_2TreadWater"/>
+      </behaviors>
+   </RakePoo_Water>   
+   <ZKFailFeedback>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="staffthoughts:StaffFailure" priority="-1" timeout="30" global="false" useTargetName="true"/>
+		           <ZTMessageInfo locID="zoomessages:GeneralFailure" priority="-1" timeout="30" interval="30" global="true" useEntityName="true" useTargetName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </ZKFailFeedback>
+   <ZKFailCleanWaterFeedback>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="staffthoughts:StaffFailure" priority="-1" timeout="30" global="false" useTargetName="true"/>
+               <ZTMessageInfo locID="zoomessages:CleanWaterFailure" priority="-1" timeout="30" interval="30" global="true" useEntityName="true"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+      </behaviors>
+   </ZKFailCleanWaterFeedback>
+   <KillTarget>
+      <subjects>
+         <Keeper/>
+      </subjects>
+      <behaviors>
+         <BFBehKill killTarget="true"/>
+      </behaviors>
+   </KillTarget>
+</BehaviorSets>

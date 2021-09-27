@@ -1,0 +1,88 @@
+﻿<BFTypedBinder binderType="LogSmall_Wetlands">
+	<types>
+		<entity>
+			<foliage>
+				<plant>
+					<log>
+						<LogSmall_Wetlands />
+					</log>
+				</plant>
+			</foliage>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj3" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj4" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\foliage\LogSmall\LogSmall_Wetlands_ icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:LogSmall_Wetlands" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="LogSmall_Wetlands" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_wetlandlog:entry" f_FameReq="20" />
+		<BFGBiomeData location="wetland_africa">
+			<wetlands />
+		</BFGBiomeData>
+		<ZTPlacementData icon3Doffset="0 0 0.770000" icon3Dscale="0.677956" waterPlacement="true" />
+		<ZTTourData>
+			<biome_wetlands value="1" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="ShadowNode_01" ignoreLights="true" width="1.75" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj2">
+			<instance>
+				<BFPhysObj>
+					<BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="ShadowNode_02" ignoreLights="true" width="1.75" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj3">
+			<instance>
+				<BFPhysObj>
+					<BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="ShadowNode_03" ignoreLights="true" width="1.75" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj4">
+			<instance>
+				<BFPhysObj>
+					<BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="ShadowNode_04" ignoreLights="true" width="1.75" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/foliage/LogSmall/LogSmall_Wetlands" switch="0 15 25 35 60" />
+					<BFGroundFitComponent heightOffset="0.0" floatOnWater="true" waterOffset="-0.3" maxTilt="50" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="30">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

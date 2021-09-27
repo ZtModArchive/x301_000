@@ -1,0 +1,20 @@
+<BFScenarioGroup name="leisuretransportationrules" state="0" chain="false" allsuccess="true" sticky="true" optional="false">
+	<children>
+		<BFScenarioRule hidden="1" name="leisuretransportationphoto" state="0" sticky="true" optional="true">
+			<info type="photo">
+				<neutral locid="PhotoChallengetext:PHLeisureTransportationShort" overview="PhotoChallengetext:PHLeisureTransportation" />
+				<success locid="PhotoChallengetext:PHLeisureTransportationSuccessShort" overview="PhotoChallengetext:PHLeisureTransportationSuccess" />
+				<failure locid="PhotoChallengetext:PHLeisureTransportationFailureShort" overview="PhotoChallengetext:PHLeisureTransportationFailure" />
+			</info>
+			<evaluate>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/leisuretransportation.lua" entry="evalleisuretransportation" />
+			</evaluate>
+			<success>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/leisuretransportation.lua" entry="completeleisuretransportation" />
+			</success>		
+			<failure>
+				<BFScenarioScriptAction script="scenario/scripts/challenge/leisuretransportation.lua" entry="failleisuretransportation" />
+			</failure>	
+		</BFScenarioRule>
+	</children>
+</BFScenarioGroup>

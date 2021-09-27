@@ -1,0 +1,20 @@
+<BFGTraversabilityMgr constantWork="25" invalidationDelay="2.000000" viewingDistanceGround="6.000000" viewingRangeGround="32.000000" viewingDistanceSky="9.000000" viewingRangeSky="48.000000" minOpenAreaSize="3" displayMotionClass="displayer" guestViewHeight="1.7" skytramViewHeight="10.0" exhibitViewHeight="0.5" messageTimeout="180">
+   <entities>
+      <b_ViewingArea/>
+      <b_DonationAcceptor/>
+      <b_Food/>
+      <b_Water/>
+      <vpintersect/>
+   </entities>
+   <collisionTesters>
+      <BFGCollisionTester noBinder="true" motionClass="outsideZoo" waterScore="0" landScore="0"/>
+      <BFGCollisionTester noBinder="true" motionClass="guestPath" waterScore="10000" landScore="0" maxSlope=".75" height="2.9" requiredType="path" ignoredType="entrance"/>
+      <BFGCollisionTester noBinder="true" motionClass="protectedArea" waterScore="0" landScore="0" canSwimNoEntity="true"/>
+      <BFGCollisionTester noBinder="true" motionClass="waterBoundary" waterScore="0" landScore="0" canUseWaterFreely="true"/>
+   </collisionTesters>
+   <distantViewTypes>
+      <binoculars_df/>
+      <skytower/>
+      <Grandstand/>
+   </distantViewTypes>
+</BFGTraversabilityMgr>

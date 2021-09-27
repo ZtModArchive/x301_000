@@ -1,0 +1,484 @@
+<UICompositeHoverButton name="Mulit List Entry" columns="-1" button="selector">
+   <UIRegion x="0" y="0" w="0" h="32" xalign="min" yalign="min" walign="max" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect>
+      <default image="ui/shared/white1x1.dds"/>
+   </UIAspect>
+   <children>
+      <UIToggleHoverButton name="selector" sticky="1">
+         <UIRegion x="0" y="0" w="-25" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+         <UIAspect alwayshit="true">
+            <default/>
+         </UIAspect>
+         <on>
+            <event msg="UI_CHILD" data="UIChildData" name="border highlight">
+               <child msg="UI_SHOW"/>
+            </event>
+         </on>
+         <off>
+            <event msg="UI_CHILD" data="UIChildData" name="border highlight">
+               <child msg="UI_HIDE"/>
+            </event>
+         </off>
+         <enter>
+            <event msg="UI_CHILD" data="UIChildData" name="icon">
+               <child msg="UI_SET_SRC_RECT" data="BFRect" x="3" y="69" w="57" h="48"/>
+            </event>
+            <event msg="UI_SELF">
+               <child msg="UI_CHILD" data="UIChildData" name="border">
+                  <child msg="UI_SHOW"/>
+               </child>
+            </event>
+         </enter>
+         <leave>
+            <event msg="UI_CHILD" data="UIChildData" name="icon">
+               <child msg="UI_SET_SRC_RECT" data="BFRect" x="3" y="5" w="57" h="48"/>
+            </event>
+            <event msg="UI_SELF">
+               <child msg="UI_CHILD" data="UIChildData" name="border">
+                  <child msg="UI_HIDE"/>
+               </child>
+            </event>
+         </leave>
+         <children>
+            <UILayout name="border">
+               <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIState visible="hidden"/>
+               <children>
+                  <UIStatic>
+                     <UIRegion x="0" y="0" w="0" h="1" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/shared/white1x1.dds">
+                           <BFColor r="0" g="255" b="0" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic>
+                     <UIRegion x="-1" y="0" w="1" h="0" xalign="max" yalign="min" walign="len" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/shared/white1x1.dds">
+                           <BFColor r="0" g="255" b="0" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic>
+                     <UIRegion x="0" y="-1" w="0" h="1" xalign="min" yalign="max" walign="max" halign="len"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/shared/white1x1.dds">
+                           <BFColor r="0" g="255" b="0" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic>
+                     <UIRegion x="0" y="0" w="1" h="0" xalign="min" yalign="min" walign="len" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/shared/white1x1.dds">
+                           <BFColor r="0" g="255" b="0" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+               </children>
+            </UILayout>
+            <UILayout name="border highlight">
+               <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIState visible="hidden"/>
+               <children>
+                  <UIStatic>
+                     <UIRegion x="0" y="0" w="0" h="1" xalign="min" yalign="min" walign="max" halign="len"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/shared/white1x1.dds">
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic>
+                     <UIRegion x="-1" y="0" w="1" h="0" xalign="max" yalign="min" walign="len" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/shared/white1x1.dds">
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic>
+                     <UIRegion x="0" y="-1" w="0" h="1" xalign="min" yalign="max" walign="max" halign="len"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/shared/white1x1.dds">
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic>
+                     <UIRegion x="0" y="0" w="1" h="0" xalign="min" yalign="min" walign="len" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/shared/white1x1.dds">
+                           <BFColor r="255" g="255" b="255" a="255"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+               </children>
+            </UILayout>
+         </children>
+      </UIToggleHoverButton>
+      <UIStatic name="icon">
+         <UIRegion x="0" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect alwayshit="never">
+            <default>
+               <BFRect x="3" y="5" w="57" h="48"/>
+            </default>
+            <standard>
+               <highlighted>
+                  <BFRect x="3" y="69" w="57" h="48"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="67" y="5" w="57" h="48"/>
+               </activated>
+               <disabled>
+                  <BFRect x="67" y="69" w="57" h="48"/>
+               </disabled>
+            </standard>
+            <alternate>
+               <normal>
+                  <BFRect x="67" y="5" w="57" h="48"/>
+               </normal>
+               <highlighted>
+                  <BFRect x="67" y="5" w="57" h="48"/>
+               </highlighted>
+               <activated>
+                  <BFRect x="67" y="5" w="57" h="48"/>
+               </activated>
+               <disabled>
+                  <BFRect x="67" y="69" w="57" h="48"/>
+               </disabled>
+            </alternate>
+         </UIAspect>
+         <doubleclick>
+            <event msg="UI_CHILD" data="UIChildData" name="multilist layout">
+               <child msg="UI_HIDE"/>
+            </event>
+         </doubleclick>
+      </UIStatic>
+      <UIText name="name" autosize="true">
+         <UIRegion x="32" y="0" w="92" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect alwayshit="never">
+            <default>
+               <BFFont>
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </BFFont>
+            </default>
+            <standard>
+               <highlighted>
+                  <BFFont>
+                     <BFColor r="128" g="255" b="128" a="255"/>
+                  </BFFont>
+               </highlighted>
+               <activated>
+                  <BFFont>
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </BFFont>
+               </activated>
+               <disabled>
+                  <BFFont>
+                     <BFColor r="64" g="64" b="64" a="128"/>
+                  </BFFont>
+               </disabled>
+            </standard>
+         </UIAspect>
+         <text format="entityname:format" type="multi"/>
+         <doubleclick>
+            <event msg="UI_CHILD" data="UIChildData" name="multilist layout">
+               <child msg="UI_HIDE"/>
+            </event>
+         </doubleclick>
+      </UIText>
+      <UILayout name="animal entry needs">
+         <UIRegion x="0" y="0" w="696" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+         <children>
+            <UILayout name="environment">
+               <UIRegion x="124" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIStatic name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/icon_needs/animal_biome.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="hunger">
+               <UIRegion x="156" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIStatic name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/icon_needs/all_hunger.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="thirst">
+               <UIRegion x="188" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIStatic name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/icon_needs/all_thirst.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="rest">
+               <UIRegion x="220" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIStatic name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/icon_needs/animal_rest.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="exercise">
+               <UIRegion x="252" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIStatic name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/icon_needs/animal_exercise.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="hygiene">
+               <UIRegion x="299" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIStatic name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/icon_needs/animal_hygiene.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="privacy">
+               <UIRegion x="331" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIStatic name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/icon_needs/animal_privacy.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="social">
+               <UIRegion x="363" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIStatic name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/icon_needs/animal_social.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="stimulation">
+               <UIRegion x="395" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIStatic name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/icon_needs/animal_stimulation.dds"/>
+                     </UIAspect>
+                  </UIStatic>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="needPoints">
+               <UIRegion x="442" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIMultiIcon name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never"/>
+                     <images>
+                        <entry key="animal_happy" image="ui/icon_needs/all_good.dds"/>
+                        <entry key="animal_not_happy" image="ui/icon_needs/all_bad.dds"/>
+                     </images>
+                  </UIMultiIcon>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="health">
+               <UIRegion x="474" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIMultiIcon name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never"/>
+                     <images>
+                        <entry key="animal_sick" image="ui/icon_needs/animal_sick.dds"/>
+                        <entry key="animal_well" image="ui/icon_needs/animal_sick_sick.dds"/>
+                     </images>
+                  </UIMultiIcon>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+            <UILayout name="pregnant">
+               <UIRegion x="506" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState visible="hidden"/>
+               <UIAspect alwayshit="true"/>
+               <children>
+                  <UIMultiIcon name="icon background">
+                     <UIRegion x="1" y="1" w="-1" h="-1" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never"/>
+                     <images>
+                        <entry key="animal_pregnant" image="ui/icon_needs/animal_pregnant.dds"/>
+                        <entry key="animal_not_pregnant" image="ui/icon_needs/animal_pregnant_not.dds"/>
+                     </images>
+                  </UIMultiIcon>
+                  <UILayout name="foreground container">
+                     <UIRegion x="3" y="3" w="-3" h="-3" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UIStatic name="icon foreground">
+                           <UIRegion x="0" y="0" w="100" h="100" xalign="% min" yalign="% min" walign="% min" halign="% min"/>
+                           <UIAspect alwayshit="never">
+                              <default image="ui/shared/white1x1.dds"/>
+                           </UIAspect>
+                        </UIStatic>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+   </children>
+</UICompositeHoverButton>

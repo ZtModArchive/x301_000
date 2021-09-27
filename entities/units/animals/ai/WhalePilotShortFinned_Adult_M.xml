@@ -1,0 +1,73 @@
+<BFTypedBinder binderType="WhalePilotShortFinned_Adult_M">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Cetacea>
+							<Delphinidae>
+								<WhalePilotShortFinned>
+									<WhalePilotShortFinned_Adult>
+										<WhalePilotShortFinned_Adult_M />
+									</WhalePilotShortFinned_Adult>
+								</WhalePilotShortFinned>
+							</Delphinidae>
+						</Cetacea>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\units\animals\WhalePilotShortFinned\WhalePilotShortFinned_Adult_M_icon.dds" />
+			</UIAspect>
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="WhalePilotShortFinned_Adult_M" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData icon3Doffset="0 .02 .89" icon3Dscale=".44" iconAnim="Swim_Ahead" minimumDepth="0.6" />
+		<BFAIEntityDataShared b_Male="1" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFActorComponent actorfile="entities/units/animals/WhalePilotShortFinned/WhalePilotShortFinned_Adult_F.bfm" scale="1" switch="0 15 30 60" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars>
+					<virtualNodes>
+						<Node_Guest y="-4" />
+					</virtualNodes>
+				</BFSharedPhysVars>
+			</shared>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<ZTAITrickComponent />
+			</instance>
+			<shared>
+				<ZTAITrickComponentData>
+					<Knowledge>
+						<WhalePilotShortFinnedJump minScore="0" maxScore="0" />
+						<WhalePilotShortFinnedJumpFallSide minScore="0" maxScore="0" />
+						<WhalePilotShortFinnedStraightUpJump_Male minScore="0" maxScore="0" />
+						<WhalePilotShortFinnedFlipperSplash_Male minScore="0" maxScore="0" />
+						<WhalePilotShortFinnedSpyhop_Male minScore="0" maxScore="0" />
+						<WhalePilotShortFinnedTailSplash_Male minScore="0" maxScore="0" />
+						<WhalePilotShortFinnedRamBallOutOfWater minScore="0" maxScore="0" />
+						<WhalePilotShortFinnedJumpHoop_Male minScore="0" maxScore="0" />
+						<WhalePilotShortFinnedJumpBar_Male minScore="0" maxScore="0" />
+						<WhalePilotShortFinnedFlukeSwipeBall minScore="0" maxScore="0" />
+					</Knowledge>
+				</ZTAITrickComponentData>
+			</shared>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

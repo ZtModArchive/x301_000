@@ -1,0 +1,95 @@
+<BFTypedBinder binderType="IceBlock_BeefShank">
+   <types>
+      <entity>
+         <enrichment>
+            <toy>
+               <IceBlock>
+                  <IceBlock_BeefShank/>
+               </IceBlock>
+            </toy>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+     <BFGEntity entityVersion="1">
+       <physObjParenting>
+         <parentObj parent="mainObj" child="full" rottype="use" postype="use" offsetZ="-0.27" attachnode="physicsbody"/>
+       </physObjParenting>
+     </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\IceBlock\IceBlock_BeefShank_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:IceBlock_BeefShank"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="IceBlock_BeefShank"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\enrichment\IceBlock\IceBlock_BeefShank_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="IceBlock_BeefShank"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Researchable="true" s_uisort="fd" b_CarnivoreFood="true" s_contents="Terrain_Meat" s_prop="Meat_Prop" f_researchUnlockTime="60" f_researchCost="600" f_FameReq="40" s_Zoopedia="zoopedia:zoopedia_iceblock:entry"/>
+      <ZTPlacementData icon3Dscale="1.7"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/IceBlock/IceBlock_Phys" switch="0 18 36" minSwitch="0 18 36"/>
+              <BFGroundFitComponent heightOffset="0.2" maxTilt="50" floatOnWater="true" waterOffset="-0.07f"/>
+              <BFRealPhysicsComponent shapeType="box" shapeRadius="0.42" shapeHeight="0.4" rollFrictionCoef="1.0" bounceCoef="0.0" waterDragCoef="1.2"/>
+              <BFCollisionComponent grid="footprint"/>
+              <BFGridCollisionComponent/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="65"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="full" required="1">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/objects/enrichment/IceBlock/IceBlock_BeefShank.nif" switch="0 18 36" minSwitch="0 18 36"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="65"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="empty" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities/objects/enrichment/IceBlock/IceBlock_Phys"/>
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="65"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance f_FoodLevel="100"/>
+         </instance>
+      </BFBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIFadeController attribName="f_FoodLevel" currState="full" fadePeriod="1">
+               <stateList>
+                  <full physObj="full" minRange="1" maxRange="101"/>
+                  <empty physObj="empty" minRange="-101" maxRange="1"/>
+               </stateList>
+            </BFAIFadeController>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="600">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="refill" cost="75" type="debit" category="animal_upkeep"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

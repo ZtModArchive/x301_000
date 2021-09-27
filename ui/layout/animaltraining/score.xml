@@ -1,0 +1,104 @@
+<UILayout name="Score Layout">
+   <UIRegion x="-675" y="60" w="400" h="200" xalign="max" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <children>
+      <UILayout name="background">
+         <UIRegion x="0" y="0" w="310" h="128"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect>
+            <default image="UI\tricks\training_feedback_panel.dds">
+               <BFRect x="0" y="0" w="310" h="128"/>
+               <BFColor r="255" g="255" b="255" a="128"/>
+            </default>
+         </UIAspect>
+         <children>
+            <UILayout name="background" template="panelwell">
+               <UIRegion x="44" y="25" w="165" h="32"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default image="">
+                     <BFRect x="0" y="0" w="249" h="49"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UIText name="Score number">
+               <UIRegion x="182" y="26" w="80" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect>
+                  <default>
+                     <BFFont align="right">
+                        <BFColor r="255" g="255" b="255" a="255"/>
+                     </BFFont>
+                  </default>
+               </UIAspect>
+               <text format="training:score_number_format"/>
+            </UIText>
+            <UIText name="percent">
+               <UIRegion x="266" y="26" w="40" h="30" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIAspect locid="training:percent_format">
+                  <default>
+                     <BFFont align="left">
+                        <BFColor r="255" g="255" b="255" a="255"/>
+                     </BFFont>
+                  </default>
+               </UIAspect>
+            </UIText>
+            <UISlider name="training score bar" span="0">
+               <UIRegion x="48" y="29" w="157" h="24"/>
+               <children>
+                  <UIStatic>
+                     <UIRegion walign="max" halign="max"/>
+                     <UIAspect>
+                        <default image="">
+                           <BFColor r="255" g="255" b="255" a="128"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic name="thumb">
+                     <UIRegion w="0" h="100" halign="% min"/>
+                     <UIAspect>
+                        <default image="UI/shared/white1x1.dds">
+                           <BFColor r="0" g="255" b="0" a="200"/>
+                           <BFRect x="0" y="0" w="1" h="1"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic name="scoredivider1">
+                     <UIRegion x="0" y="0" w="2" h="25"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="UI/shared/white1x1.dds">
+                           <BFColor r="66" g="143" b="173" a="255"/>
+                           <BFRect x="0" y="0" w="1" h="1"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic name="scoredivider2">
+                     <UIRegion x="0" y="0" w="2" h="25"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="UI/shared/white1x1.dds">
+                           <BFColor r="66" g="143" b="173" a="255"/>
+                           <BFRect x="0" y="0" w="15" h="1"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic name="scoredivider3">
+                     <UIRegion x="0" y="0" w="2" h="25"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="UI/shared/white1x1.dds">
+                           <BFColor r="66" g="143" b="173" a="255"/>
+                           <BFRect x="0" y="0" w="15" h="1"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+               </children>
+               <thumb name="thumb" axis="x" style="stretch">
+                  <UIRegion x="0" y="0" w="100" h="0" walign="% min" halign="max"/>
+               </thumb>
+               <field name="number" type="float" fmt="%.2f"/>
+            </UISlider>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

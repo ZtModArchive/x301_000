@@ -1,0 +1,72 @@
+<BFTypedBinder binderType="Guest_Adult" abstract="true">
+   <types>
+      <entity>
+         <actor>
+            <people>
+               <Guest>
+                  <Guest_Adult/>
+               </Guest>
+            </people>
+         </actor>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity/>
+   </instance>
+   <shared>
+      <BFAIEntityDataShared p_TalkOffset="0 -1 180" f_vpSwapChance="25" f_vpMaxSwapDistance="15" f_vpMinSwapDistance="3" f_DonationDivisor="5" f_MinDonation="5" f_MaxDonation="1000"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent switch="0 7 14 23 34 45 65" minSwitch="0 0 0 7 14 23 34" useDecalsInLow="true"/>
+               <BF2LegsGroundFitComponent frontBuoyancyNode="Node_Buoy"/>
+               <BFSwimComponent waterInDistance="0.1" waterOutDistance="0.250"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>    
+      <BFNamedBinder binderName="CellPhone" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\CellPhone\CellPhone" scale="1.0" switch="0 9"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Camera" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Camera\Camera" scale="1.0" switch="0 9 18"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Map" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Map\Map" scale="1.0" switch="0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Comb" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Comb\Comb" scale="1.0" switch="0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Conch" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Touchpool\Conch" scale="1.0" switch="0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="SeaStar" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent isBFR="true" modelfile="entities\objects\Items\Touchpool\Starfish" scale="1.0" switch="0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>      
+   </binder>
+</BFTypedBinder>

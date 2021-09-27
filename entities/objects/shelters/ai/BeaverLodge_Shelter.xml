@@ -1,0 +1,146 @@
+<BFTypedBinder binderType="BeaverLodge_Shelter">
+   <types>
+      <entity>
+         <shelters>
+            <BeaverLodge_Shelter/>
+         </shelters>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="biomedetail_01" rottype="ignore" postype="use" attachnode="biomedetail_01"/>
+            <parentObj parent="mainObj" child="biomedetail_02" rottype="ignore" postype="use" attachnode="biomedetail_02"/>
+            <parentObj parent="mainObj" child="biomedetail_03" rottype="ignore" postype="use" attachnode="biomedetail_03"/>
+            <parentObj parent="mainObj" child="biomedetail_04" rottype="ignore" postype="use" attachnode="biomedetail_04"/>
+            <parentObj parent="mainObj" child="biomedetail_05" rottype="ignore" postype="use" attachnode="biomedetail_05"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTDevComponent/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\shelters\BeaverLodge_Shelter\BeaverLodge_Shelter_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:BeaverLodge_Shelter"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="BeaverLodge_Shelter"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData icon3Doffset="0 0.028046 0.774629" icon3Dscale="0.300290" waterPlacement="true"/>
+      <BFGCollisionData isPassable="true"/>
+      <BFAIEntityDataShared s_uisort="wz" s_Zoopedia="zoopedia:zoopedia_BeaverLodge:entry"/>
+   		<ZTTourData>
+	 				<shelter value="9"/>
+	 				<cool value="7"/>
+		</ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/shelters/BeaverLodge_Shelter/BeaverLodge_Shelter"/>
+               <BFTravAnimPathComponent actorfile="entities\objects\shelters\BeaverLodge_Shelter/BeaverLodge_Shelter_TAP.bfm"/>
+               <BFGroundFitComponent heightOffset="0.0" floatOnWater="true" waterOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_01">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_02">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_03">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_04">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="biomedetail_05">
+         <instance>
+            <BFPhysObj>
+               <BFDecorativeDetailObjectComponent lodDistances="5 15 25 35"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance f_ConstructionLevel="0"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="empty" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/shelters/BeaverLodge_Shelter/BeaverLodge_Shelter" switch="0 25"/>
+               <BFGroundFitComponent heightOffset="0.0" floatOnWater="true" waterOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="onethird" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/shelters/BeaverLodge_Shelter/BeaverLodge_OneThird_Shelter" switch="0 25"/>
+               <BFGroundFitComponent heightOffset="0.0" floatOnWater="true" waterOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="twothirds" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/shelters/BeaverLodge_Shelter/BeaverLodge_TwoThirds_Shelter" switch="0 25"/>
+               <BFGroundFitComponent heightOffset="0.0" floatOnWater="true" waterOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="completed" required="0">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/shelters/BeaverLodge_Shelter/BeaverLodge_Completed_Shelter" switch="0 25"/>
+               <BFGroundFitComponent heightOffset="0.0" floatOnWater="true" waterOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterBeaverLodge1" useBehSet="UseBeaverLodge" exitBehSet="ExitBeaverLodge1" targetNode="EnterA"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterBeaverLodge2" useBehSet="UseBeaverLodge" exitBehSet="ExitBeaverLodge2" targetNode="EnterB"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterBeaverLodge3" useBehSet="UseBeaverLodge" exitBehSet="ExitBeaverLodge3" targetNode="EnterC"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterBeaverLodge4" useBehSet="UseBeaverLodge" exitBehSet="ExitBeaverLodge4" targetNode="EnterD"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIFadeController attribName="f_ConstructionLevel" currState="empty" fadePeriod="1">
+               <stateList>
+                  <empty minRange="-101" maxRange="33"/>
+                  <onethird physObj="onethird" minRange="33" maxRange="66"/>
+                  <twothirds physObj="twothirds" minRange="66" maxRange="100"/>
+                  <completed physObj="completed" minRange="100" maxRange="101"/>
+               </stateList>
+            </BFAIFadeController>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

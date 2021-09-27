@@ -1,0 +1,53 @@
+<BFTypedBinder binderType="AfricanViolets_Rainforest">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <wildflowers>
+                  <AfricanViolets_Rainforest/>
+               </wildflowers>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0.001172 0.616710" icon3Dscale="0.874026" />
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\AfricanViolets\AfricanViolets_Rainforest_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:AfricanViolets_Rainforest"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="AfricanViolets_Rainforest"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_africanviolet:entry" f_FameReq="60"/>
+      <BFGBiomeData location="tropicalrainforest_africa">
+         <tropicalrainforest/>
+      </BFGBiomeData>
+   		<ZTTourData>
+	 		<biome_tropical value="2"/>
+		</ZTTourData>       
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\foliage\AfricanViolets\AfricanViolets_Rainforest" switch="0 15"/>
+               <BFMultiGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="10">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

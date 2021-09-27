@@ -1,0 +1,69 @@
+<BFTypedBinder binderType="PuyaPlant_Temperate">
+	<types>
+		<entity>
+			<foliage>
+				<plant>
+					<bush>
+						<PuyaPlant_Temperate />
+					</bush>
+				</plant>
+			</foliage>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<ZTPlacementData autoFootprint="false" icon3Doffset="0 0 0.6" icon3Dscale="0.09" minimumHeadroom="3.0">
+			<cfootprint width="1" height="1" />
+			<dfootprint width="1" height="1" />
+		</ZTPlacementData>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\foliage\Puya\Puya_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:PuyaPlant_Temperate" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PuyaPlant_Temperate" />
+			</on>
+		</UIToggleButton>
+		<BFGBiomeData location="temperateforest_america_south">
+			<temperateforest />
+		</BFGBiomeData>
+		<BFAIEntityDataShared s_Product="EndangeredSpecies" b_GrazeGrass="true" s_prop="Grass_Prop" s_Zoopedia="zoopedia:zoopedia_puyaplant:entry" f_FameReq="80" />
+ 		<ZTTourData>
+	 		<biome_temperate value="3"/>
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent isBFR="true" modelfile="entities\objects\foliage\Puya\Puya_Temperate" scale="0.17" switch="0 15 25 35 60" />
+					<BFMultiGroundFitComponent heightOffset="0.0" />
+					<BFTerrainPaintComponent />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="BrowseSpectacledBear">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterPuyaPlant" useBehSet="BrowsePuyaPlant" exitBehSet="ExitPuyaPlant" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterPuyaPlant" useBehSet="BrowsePuyaPlant" exitBehSet="ExitPuyaPlant" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterPuyaPlant" useBehSet="BrowsePuyaPlant" exitBehSet="ExitPuyaPlant" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterPuyaPlant" useBehSet="BrowsePuyaPlant" exitBehSet="ExitPuyaPlant" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="15">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

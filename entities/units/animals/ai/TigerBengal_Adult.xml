@@ -1,0 +1,173 @@
+<BFTypedBinder binderType="TigerBengal_Adult" abstract="true">
+	<types>
+		<entity>
+			<actor>
+				<animal>
+					<Mammalia>
+						<Carnivora>
+							<Felidae>
+								<TigerBengal>
+									<TigerBengal_Adult />
+								</TigerBengal>
+							</Felidae>
+						</Carnivora>
+					</Mammalia>
+				</animal>
+			</actor>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj2" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj3" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj4" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj5" rottype="use" postype="ignore" attachnode="link" />
+				<parentObj parent="mainObj" child="shadowObj6" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<ZTPlacementData icon3Doffset="0 -0.020898 1.243408" icon3Dscale="0.574096" />
+		<BFAIEntityDataShared f_viewBonus="30" b_Adult="1" p_PredatorOffset="0 -2 0" b_PicksUpRubberToy="true" b_PicksUpRattleBall="true" b_BoneUser="true" b_PicksUpBone="true" b_PicksUpBall="true" b_PicksUpFeederBall="true" b_Territorial="true" s_MorphMessage="zoomessages:AnimalPuberty" f_MorphMessagePriority="1" f_MorphMessageDuration="30" b_LargePredator="true" />
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSecondaryAnimComponent animName="Secondary_Angry" loop="true" frequency="0" chance="100" validAnims="Stand_Idle,Walk_Ahead,Stalk_Idle,Sit_Idle,Lie_Idle,GroomPaw_Idle,Eat_BiteA,Lie_LickObject,Lie_SearchLog,Sit_2TeethInspection,Sit_Listen,Stand_Listen,Lie_Listen,Stand_BiteHigh,Stand_BiteMed,Stand_BiteLow,Stand_BitLow,Stand_BitMed,Stand_HeadCockWater,Stand_HitMed,Stand_HitHigh,Stand_LickObject,Stand_PlayPounce,Stand_PlayRoar,Stand_ScratchLogHigh,Stand_ScratchLogLow,Stand_ScratchTree,Stand_SwatWater,Stand_SwipeLow,Stand_SwipeMed,TeethInspection_2Sit,TeethInspection_Idle,Tug_2Stand,Tug_Idle,Stand_2Tug">
+						<validAttribs>
+							<f_needPointsBad minValue=".05" maxValue="100" />
+						</validAttribs>
+					</BFSecondaryAnimComponent>
+					<BFSecondaryAnimComponent animName="Secondary_Happy" loop="true" frequency="0" chance="100" validAnims="Stand_Idle,Walk_Ahead,Stalk_Idle,Sit_Idle,Lie_Idle,GroomPaw_Idle,Eat_BiteA,Lie_LickObject,Lie_SearchLog,Sit_2TeethInspection,Sit_Listen,Stand_Listen,Lie_Listen,Stand_BiteHigh,Stand_BiteMed,Stand_BiteLow,Stand_BitLow,Stand_BitMed,Stand_HeadCockWater,Stand_HitMed,Stand_HitHigh,Stand_LickObject,Stand_PlayPounce,Stand_PlayRoar,Stand_ScratchLogHigh,Stand_ScratchLogLow,Stand_ScratchTree,Stand_SwatWater,Stand_SwipeLow,Stand_SwipeMed,TeethInspection_2Sit,TeethInspection_Idle,Tug_2Stand,Tug_Idle,Stand_2Tug">
+						<validAttribs>
+							<f_needPointsGood minValue=".05" maxValue="100" />
+						</validAttribs>
+					</BFSecondaryAnimComponent>
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent minLODLevel="0" maxLODLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 L Toe0" width="0.65" intensity="0.2" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj2">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent minLODLevel="0" maxLODLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 R Toe0" width="0.65" intensity="0.2" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj3">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent minLODLevel="0" maxLODLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 R Finger0" width="0.65" intensity="0.2" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj4">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent minLODLevel="0" maxLODLevel="0" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 L Finger0" width="0.65" intensity="0.2" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj5">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent minLODLevel="0" maxLODLevel="1" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Neck" width="1.25" length="1.75" intensity="0.35" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="shadowObj6">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent minLODLevel="0" maxLODLevel="1" shadowTexture="world\shadows\blob\round_blob3.tga" baseNode="Bip01 Spine1" width="1.25" length="1.75" intensity="0.4" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="texController" required="1">
+			<instance>
+				<BFAITextureController currState="well" defaultState="well">
+					<weights>
+					   <base weight="90"/>
+					   <variant extension="1" weight="10"/>
+					</weights>
+					<attribList>
+						<health />
+						<hygiene />
+					</attribList>
+					<stateList>
+						<sickanddirty>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="Tiger Body" image="entities\units\animals\TigerBengal\TigerBengal_Adult_Sick_Dirty.dds" />
+							</textureData>
+						</sickanddirty>
+						<sick>
+							<attribData>
+								<health minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="Tiger Body" image="entities\units\animals\TigerBengal\TigerBengal_Adult_Sick.dds" />
+							</textureData>
+						</sick>
+						<dirty>
+							<attribData>
+								<hygiene minRange="70" maxRange="101" />
+							</attribData>
+							<textureData>
+								<mainObj material="Tiger Body" image="entities\units\animals\TigerBengal\TigerBengal_Adult_Dirty.dds" />
+							</textureData>
+						</dirty>
+						<well>
+							<textureData>
+								<mainObj material="Tiger Body" image="entities\units\animals\TigerBengal\tiger_body.dds" />
+							</textureData>
+						</well>
+					</stateList>
+				</BFAITextureController>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFLocomotionMgr />
+			</instance>
+			<binder>
+				<BFNamedBinder binderName="ground" required="1">
+					<instance>
+						<BFLocoAnimate version="1">
+							<stop name="Stand" />
+							<slow name="Walk" />
+							<medium name="Walk" />
+							<fast name="Run" minAnimSpeed="1.3" maxAnimSpeed="1.3" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+				<BFNamedBinder binderName="groundcarry" required="1">
+					<instance>
+						<BFLocoAnimate version="1" stationaryAnim="StandObject_Idle">
+							<stop name="StandObject" />
+							<slow name="WalkObject" />
+							<medium name="WalkObject" />
+							<fast name="RunObject" />
+						</BFLocoAnimate>
+					</instance>
+				</BFNamedBinder>
+			</binder>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester escapeBuffer="0.25" radius=".5" motionClass="swimmer" waterScore="0" landScore="0" maxSlope=".75" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

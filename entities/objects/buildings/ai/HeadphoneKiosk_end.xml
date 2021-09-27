@@ -1,0 +1,80 @@
+<BFTypedBinder binderType="HeadphoneKiosk_end">
+   <types>
+      <entity>
+         <building>
+            <HeadphoneKiosk_end/>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData dockArrowStyle="standard" dockArrowSize="1.5" icon3Doffset="0 0 0.3" icon3Dscale="0.4"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\buildings\HeadphoneKiosk_end\HeadphoneKiosk_end_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:HeadphoneKiosk_end"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="HeadphoneKiosk_end"/>
+         </on>
+      </UIToggleButton>
+      <UIButton name="overviewicon">
+         <UIAspect>
+            <default image="ui/zoomap/icon_attractions.dds"/>
+         </UIAspect>
+      </UIButton>
+      <BFAIEntityDataShared s_ObjectType="Misc" s_Product="EndangeredSpecies" b_CommerceBuilding="true" s_uisort="fa" b_DonationAcceptor="false" s_Zoopedia="zoopedia:zoopedia_headphonekiosk:entry" b_wantLifetimeUsers="true" s_GameLock="headphonelock" b_lockFromCampaigns="true" />
+      <ZTTourData>
+         <reward value="4"/>
+      </ZTTourData>
+      <ZTItemFilter>
+      	<Include_OR b_Headphones_Gift="true"/>
+      </ZTItemFilter>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="2" length="4" intensity="0.25"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/HeadphoneKiosk_end/HeadphoneKiosk_end" switch="0 18 36" minSwitch="0 0 20"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_Kiosk">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult" capacity="1"/>
+               </slots>
+               <queue>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult" capacity="5"/>
+               </queue>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="1000">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="upkeep" cost="100" period="monthly" type="debit" category="upkeep"/>
+               <ZTTransaction name="add_user" cost="1" type="addUser" category="user"/>
+               <ZTTransaction name="Buy_Item" costIndex="1" costChoice="10 15 20" type="debit" category="concessions_gifts" nextTransaction="add_user"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

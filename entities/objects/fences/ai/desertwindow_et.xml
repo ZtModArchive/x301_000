@@ -1,0 +1,75 @@
+<BFTypedBinder binderType="desertwindow_et">
+	<types>
+		<entity>
+			<fence>
+				<desertwindow_et />
+			</fence>
+		</entity>
+	</types>
+	<instance>
+		<ZTFenceEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<UIToggleButton template="fence">
+			<UIAspect>
+				<default image="entities\objects\fences\desertwindow_et\desertwindow_et_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:desertwindow" />
+			<on>
+				<event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="desertwindow_et" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_uisort="mao" s_ProfileLock="desertlock" f_FenceStrength="5" s_Zoopedia="zoopedia:zoopedia_desertwindow:entry" s_Theme="desert" s_Broken="desertwindow_et_broken" b_SeeThrough="true" s_Product="CP1" f_FameReq="60"/>
+   		<ZTTourData>
+	 		<theme_desert value="9"/>
+		</ZTTourData>		
+	</shared>
+	<binder>
+		<BFBinder>
+			<instance>
+				<ZTFence gate="desertgate_et" hasCurves="false" />
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="start_post">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent modelfile="entities\objects\fences\desert_et\desert_et_post" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder required="0" binderName="fence90">
+			<instance>
+				<BFPhysObj drawLast="true">
+					<BFSceneGraphComponent modelfile="entities\objects\fences\desertwindow_et\desertwindow_et_vert" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder required="0" binderName="fence45">
+			<instance>
+				<BFPhysObj drawLast="true">
+					<BFSceneGraphComponent modelfile="entities\objects\fences\desertwindow_et\desertwindow_et_diag" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="end_post">
+			<instance>
+				<BFPhysObj>
+					<BFSceneGraphComponent modelfile="entities\objects\fences\desert_et\desert_et_post" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance f_FenceStrength="5" />
+			</instance>
+		</BFBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="135">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

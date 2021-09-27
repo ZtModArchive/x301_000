@@ -1,0 +1,149 @@
+<UILayout name="Message bar layout">
+   <UIRegion x="0" y="6" w="1024" h="300" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect locid="">
+      <default image="" sound=""/>
+      <normal/>
+   </UIAspect>
+   <UIShowHideAnim time="0.25">
+      <start x="0" y="-200" w="-1" h="-1"/>
+      <end x="0" y="6" w="-1" h="-1"/>
+   </UIShowHideAnim>
+   <children>
+      <UILayout name="">
+         <UIRegion x="288" y="0" w="450" h="300" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect locid="">
+            <default image="" sound="">
+               <BFRect x="0" y="0" w="512" h="512"/>
+            </default>
+            <normal/>
+         </UIAspect>
+         <children>
+            <UIToggleButton name="opener">
+               <UIRegion x="0" y="-7" w="64" h="64"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="messages:open_queue_button"/>
+               <UIAspect>
+                  <default image="ui/maingame/buttons.dds"/>
+                  <standard>
+                     <normal>
+                        <BFRect x="384" y="384" w="64" h="64"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="384" y="448" w="64" h="64"/>
+                     </highlighted>
+                     <activated sound="uiclick">
+                        <BFRect x="448" y="384" w="64" h="64"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="448" y="448" w="64" h="64"/>
+                     </disabled>
+                  </standard>
+                  <alternate>
+                     <normal>
+                        <BFRect x="448" y="384" w="64" h="64"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="448" y="384" w="64" h="64"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="448" y="384" w="64" h="64"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="448" y="448" w="64" h="64"/>
+                     </disabled>
+                  </alternate>
+               </UIAspect>
+               <on>
+                  <event msg="UI_CHILD" data="UIChildData" name="Multi Message">
+                     <child msg="UI_SHOW"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="Single Message">
+                     <child msg="UI_HIDE"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="Single Message">
+                     <child msg="UI_WIND_ANIMATION"/>
+                  </event>
+               </on>
+               <off>
+                  <event msg="UI_CHILD" data="UIChildData" name="Multi Message">
+                     <child msg="UI_HIDE"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="Single Message">
+                     <child msg="UI_SHOW"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="Single Message">
+                     <child msg="UI_WIND_ANIMATION"/>
+                  </event>
+                  <event msg="UI_CHILD" data="UIChildData" name="feedbackMessageList">
+                     <child msg="UI_SET_SCROLL" data="BFPoint" x="0" y="0"/>
+                  </event>
+               </off>
+            </UIToggleButton>
+            <UILayout name="Single Message">
+               <UIRegion x="15" y="3" w="460" h="50"/>
+               <UIState active="normal" visible="normal"/>
+               <UIShowHideAnim time="0.25" initialDir="true">
+                  <start x="15" y="3" w="120" h="50"/>
+                  <end x="15" y="3" w="460" h="50"/>
+               </UIShowHideAnim>
+               <UIAspect>
+                  <default/>
+                  <standard/>
+               </UIAspect>
+               <children>
+                  <UILayout name="background" template="topbars">
+                     <UIRegion x="30" y="0" w="-37" h="50" walign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image=""/>
+                     </UIAspect>
+                  </UILayout>
+                  <UIListBox name="feedbackLastMessage" rows="-1">
+                     <UIRegion x="60" y="7" w="-55" h="50" walign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <children/>
+                  </UIListBox>
+               </children>
+            </UILayout>
+            <UILayout name="Multi Message">
+               <UIRegion x="15" y="3" w="450" h="156"/>
+               <UIState active="normal" visible="hidden"/>
+               <UIAspect>
+                  <default/>
+               </UIAspect>
+               <UIShowHideAnim time="0.15">
+                  <start x="15" y="3" w="450" h="50"/>
+                  <end x="15" y="3" w="450" h="156"/>
+               </UIShowHideAnim>
+               <children>
+                  <UILayout name="background" template="topbars">
+                     <UIRegion x="30" y="0" w="-27" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIState active="normal" visible="normal"/>
+                     <UIAspect>
+                        <default image="">
+                           <BFRect x="0" y="0" w="420" h="150"/>
+                        </default>
+                     </UIAspect>
+                  </UILayout>
+                  <UILayout name="message">
+                     <UIRegion x="0" y="0" w="0" h="-18" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <children>
+                        <UILayout name="message clipper">
+                           <UIRegion x="0" y="0" w="450" h="156" xalign="min" yalign="min" walign="len" halign="len"/>
+                           <children>
+                              <UIListBox name="feedbackMessageList" template="panel" rows="-1" yspacer="3">
+                                 <UIRegion x="60" y="7" w="-45" h="-18" walign="max" halign="max"/>
+                                 <UIState active="normal" visible="normal"/>
+                                 <children/>
+                              </UIListBox>
+                           </children>
+                        </UILayout>
+                     </children>
+                  </UILayout>
+               </children>
+            </UILayout>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

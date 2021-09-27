@@ -1,0 +1,58 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="Tour" CursorTask="false" sensorTag="tour" UniqueID="tour:Tour">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+            <Qualifiers inWater_OR_onLand="true"/>
+         </Subjects>
+         <Targets>
+            <station/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+	  <BFAIEvalData>
+		<BFAIAttributeFloatMap tour="-5"/>
+	  </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoTour"/>
+               <ZTThoughtInfo locID="guestthoughts:GoTour" priority="0" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>      
+         <ZTBehTour/>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFAIAttributeFloatMap tour="-80"/>
+      </BFAICompletionData>      
+   </BFAITaskTemplate>
+   
+   <BFAITaskTemplate Name="DonateTour" CursorTask="false" reserveTag="Use_TourDonationBox" Priority="2" UniqueID="tour:DonateTour">
+      <BFAICreateData>
+         <Subjects>
+            <Guest/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <station/>
+            <Qualifiers inSight="30"/>
+         </Targets>
+         <Objects>
+            <t_DonationTour/>
+         </Objects>
+      </BFAICreateData>
+      <BFAIEvalData>
+         <BFAIAttributeFloatMap hunger="-100" thirst="-100" dessert="-100" rest="-100" social="-100" amusement="-100" gift="-100" bathroom="-100" viewanimals="-100"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoToDonate"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock targetAnim="Stand_Idle"/>
+         <BFBehPlaySet behSet="MakeTourDonation"/>
+      </BFBehExecTask>
+      <BFAICompletionData/>
+   </BFAITaskTemplate>   
+</BFAITaskTemplateList>

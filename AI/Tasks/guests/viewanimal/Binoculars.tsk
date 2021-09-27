@@ -1,0 +1,88 @@
+<BFAITaskTemplateList>
+   <BFAITaskTemplate Name="GuestViewAnimal_BinocsAdult" CursorTask="false" sensorTag="viewanimals" reserveTag="Use_Binocs" UniqueID="binoculars:GuestViewAnimal_BinocsAdult">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Adult/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <binoculars_df/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="0" needPointsBad="0">
+         <BFAIAttributeFloatMap viewanimals="-15"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoToBinoculars"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock targetNode="Dock_Adult" targetAnim="Stand_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:UseBinoculars"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:BinocularsCool"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewAnimals viewMeterStart="200" viewMeterStartMin="150" viewMeterStartMax="250" retarget="false">
+            <emoteSets>
+               <VA_BinocsAdult min="-1000" max="1000"/>
+            </emoteSets>
+         </ZTBehViewAnimals>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="RandomNeeds"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+   <BFAITaskTemplate Name="GuestViewAnimal_BinocsYoung" CursorTask="false" sensorTag="viewanimals" reserveTag="Use_Binocs" UniqueID="binoculars:GuestViewAnimal_BinocsYoung">
+      <BFAICreateData>
+         <Subjects>
+            <Guest_Young/>
+						<Qualifiers inWater_OR_onLand="true"/>            
+         </Subjects>
+         <Targets>
+            <binoculars_df/>
+         </Targets>
+         <Objects/>
+      </BFAICreateData>
+      <BFAIEvalData needPointsGood="0" needPointsBad="0">
+         <BFAIAttributeFloatMap viewanimals="-15"/>
+      </BFAIEvalData>
+      <BFBehExecTask>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoToBinoculars"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock targetNode="Dock_Young" targetAnim="Stand_Idle"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:UseBinoculars"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:BinocularsCool"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehViewAnimals viewMeterStart="200" viewMeterStartMin="150" viewMeterStartMax="250" retarget="false">
+            <emoteSets>
+               <VA_BinocsYoung min="-1000" max="1000"/>
+            </emoteSets>
+         </ZTBehViewAnimals>
+      </BFBehExecTask>
+      <BFAICompletionData>
+         <BFBehExecTask>
+            <BFBehPlaySet behSet="RandomNeeds"/>
+         </BFBehExecTask>
+      </BFAICompletionData>
+   </BFAITaskTemplate>
+</BFAITaskTemplateList>

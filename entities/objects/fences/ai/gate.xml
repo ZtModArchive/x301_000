@@ -1,0 +1,66 @@
+<BFTypedBinder binderType="gate" abstract="true">
+	<types>
+		<entity>
+			<fence>
+				<gate />
+			</fence>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<UIToggleButton template="fence">
+			<UIAspect>
+				<default image="entities\objects\fences\staffgate_df\staffgate_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:staffgate" />
+			<on>
+				<event msg="ZT_SETFENCEPLACEMENTMODE" data="BFString" string="gate" />
+				<event msg="ZT_SETPLACEMENTFENCE" data="BFString" string="staffgate" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_fencegate:entry" b_ReceiveUpdates="true" b_SeeThrough="true" f_FenceStrength="10" />
+		<ZTUserStaffAction>
+			<SetAttribute name="f_timeToClose" value="2.0f" locid="superstaff:gate" />
+		</ZTUserStaffAction>
+		<BFGCollisionData>
+			<typeAttrScores>
+				<Staff attr="b_Open" score="0" />
+			</typeAttrScores>
+		</BFGCollisionData>
+		<ZTPlacementData placeable="false" s_GatePlacementRules="staffgate" />
+	</shared>
+	<suppressed>
+		<BFGEntitySndComponent suppressed="false"/>
+	</suppressed>
+	<binder>
+		<BFBinder>
+			<instance>
+				<ZTFence hasCurves="false" />
+			</instance>
+		</BFBinder>
+		<BFBinder>
+			<instance>
+				<ZTGate openDistance="4" closeDistance="6" pollFreq="0.1" physObj="gate_animation" openAnim="Bip01_open" closeAnim="Bip01_close" openForEntityType="Staff" />
+			</instance>
+		</BFBinder>
+		<BFNamedBinder binderName="gate_animation">
+			<instance>
+				<BFPhysObj>
+					<BFActorComponent />
+					<BFGroundFitComponent heightOffset="0.0" />
+					<BFSkewComponent axis="0" updatePriority="10" />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars seeThrough="false" />
+			</shared>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<BFAIEntityDataInstance f_timeToClose="0.0" b_Open="false" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

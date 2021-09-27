@@ -1,0 +1,42 @@
+<BFTypedBinder binderType="log" abstract="true">
+   <types>
+      <entity>
+         <foliage>
+            <plant>
+               <log/>
+            </plant>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <BFGInfluenceComponent defaultRadius="9.0" defaultGroupFactor="5.0" defaultRadiusDropoff="linear" defaultGroupDropoff="linear">
+         <biome/>
+         <location/>
+      </BFGInfluenceComponent>
+      <ZTPlacementData>
+         <stompData>
+            <delete>
+               <watersurfacefoliage/>
+            </delete>
+            <prevent/>
+            <allow>
+               <bush/>
+               <grass/>
+               <wildflowers/>
+               <fungi/>
+            </allow>
+         </stompData>
+      </ZTPlacementData>
+      <BFGCollisionData isPassable="false"/>
+   </shared>
+   <binder>
+	<BFBinder required="1">
+		<instance>
+			<ZTPhotoAnalysisComponent/>
+		</instance>
+	</BFBinder>
+   </binder>
+</BFTypedBinder>

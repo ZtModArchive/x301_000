@@ -1,0 +1,54 @@
+﻿<BFTypedBinder binderType="PathArch_end">
+	<types>
+		<entity>
+			<scenery>
+				<PathArch>
+					<PathArch_end />
+				</PathArch>
+			</scenery>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1" />
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\scenery\PathArch_end\PathArch_end_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:PathArch_end" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PathArch_end" />
+			</on>
+		</UIToggleButton>
+		<BFAIEntityDataShared s_ProfileLock="endangeredlock" s_Product="EndangeredSpecies" s_uisort="ox" s_Zoopedia="zoopedia:zoopedia_themedarch:entry" s_Theme="endangered" f_FameReq="20" />
+		<ZTPlacementData icon3Doffset="0 -0.045020 0.421560" icon3Dscale="0.242492">
+			<cfootprint width="3" height="1" />
+			<dfootprint width="4" height="1" />
+		</ZTPlacementData>
+		<BFGCollisionData isPassable="true" />
+		<ZTTourData>
+			<theme_endangered value="6" />
+			<arch value="7" />
+			<cool value="3" />
+		</ZTTourData>
+	</shared>
+	<binder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities/objects/scenery/PathArch_end/PathArch_end" switch="0 25 50" />
+					<BFGroundFitComponent heightOffset="0.0" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="300">
+					<ZTTransaction name="build" costType="parent" type="debit" category="construction" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

@@ -1,0 +1,114 @@
+<BFTypedBinder binderType="RattleBall" version="2">
+	<types>
+		<entity>
+			<enrichment>
+				<toy>
+					<RattleBall />
+				</toy>
+			</enrichment>
+		</entity>
+	</types>
+	<instance>
+		<BFGEntity entityVersion="1">
+			<physObjParenting>
+				<parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link" />
+			</physObjParenting>
+		</BFGEntity>
+	</instance>
+	<shared>
+		<UIToggleButton template="adopt">
+			<UIAspect>
+				<default image="entities\objects\enrichment\RattleBall\RattleBall_icon.dds" />
+			</UIAspect>
+			<UIHelpInfo name="" short="" long="" help="" ids="entityname:RattleBall" />
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="RattleBall" />
+			</on>
+		</UIToggleButton>
+		<UIToggleButton template="researchentity">
+			<UIAspect>
+				<default image="entities\objects\enrichment\RattleBall\RattleBall_icon.dds" />
+			</UIAspect>
+			<on>
+				<event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="RattleBall" />
+			</on>
+		</UIToggleButton>
+		<ZTPlacementData moveable="true" waterPlacement="true" tankPlacement="true" randomRotate="false" gridSnap="true" autoFootprint="false" icon3Doffset="0 0 0.92" icon3Dscale="6.986204" minimumHeadroom=".246">
+			<cfootprint width="0" height="0" />
+			<dfootprint width="1" height="1" />
+		</ZTPlacementData>
+		<BFAIEntityDataShared b_NoPerceiveOverride="true" b_Researchable="true" s_uisort="bc" s_Zoopedia="zoopedia:zoopedia_ballwithrattle:entry" f_researchUnlockTime="60" f_researchCost="400" f_FameReq="20" />
+		<BFGCollisionData isPassable="true" />
+		<BFGDetachInfo>
+			<detachActionTable>
+				<dropitem destination="drop" />
+				<killitem destination="kill" />
+				<inventory destination="inventory" />
+				<maketrash destination="kill" />
+			</detachActionTable>
+		</BFGDetachInfo>
+    <ZTUserStaffAction>
+      <Kick locid="superstaff:kick_obj"/>
+    </ZTUserStaffAction>
+  </shared>
+	<binder>
+		<BFNamedBinder binderName="shadowObj">
+			<instance>
+				<BFPhysObj>
+					<BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width=".5" minLength=".5" maxLength=".75" minOffset="0" maxOffset=".125" />
+				</BFPhysObj>
+			</instance>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="mainObj">
+			<instance>
+				<BFPhysObj>
+					<BFSimpleLODComponent isBFR="true" modelfile="entities\objects\enrichment\RattleBall\RattleBall_Phys" switch="0 35 60" minSwitch="0 10" scale=".5" />
+					<BFRealPhysicsComponent shapeRadius="0.055" rollFrictionCoef="0.05" bounceCoef="0.7" maxSplashStrength="0.1" displacableByObjects="false"/>
+					<BFGroundFitComponent heightOffset="0.055" floatOnWater="true" waterOffset="-0.01" />
+					<BFCollisionComponent grid="footprint" />
+					<BFGridCollisionComponent />
+				</BFPhysObj>
+			</instance>
+			<shared>
+				<BFSharedPhysVars>
+					<virtualNodes>
+						<Dock_01 x=".123" y="0" z="0" />
+						<Dock_02 x="0" y=".123" z="0" yaw="90" />
+						<Dock_03 x="0" y="-.123" z="0" yaw="-90" />
+						<Dock_04 x="-.123" y="0" z="0" yaw="180" />
+					</virtualNodes>
+				</BFSharedPhysVars>
+			</shared>
+		</BFNamedBinder>
+		<BFNamedBinder binderName="Play">
+			<instance>
+				<BFGEntityContainer>
+					<slots>
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall_Whap" exitBehSet="ExitBall" targetNode="Dock_01" exclusiveID="Ball1" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall_Whap" exitBehSet="ExitBall" targetNode="Dock_02" exclusiveID="Ball1" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall_Whap" exitBehSet="ExitBall" targetNode="Dock_03" exclusiveID="Ball1" capacity="1" />
+						<BFGEntityContainerSlot enterBehSet="EnterBall" useBehSet="UseBall_Whap" exitBehSet="ExitBall" targetNode="Dock_04" exclusiveID="Ball1" capacity="1" />
+					</slots>
+				</BFGEntityContainer>
+			</instance>
+		</BFNamedBinder>
+		<BFBinder>
+			<instance>
+				<ZTEconomyComponent cost="380">
+					<ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep" />
+					<ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling" />
+				</ZTEconomyComponent>
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFAIEntityDataInstance b_Moving="false" />
+			</instance>
+		</BFBinder>
+		<BFBinder required="1">
+			<instance>
+				<BFGCollisionTester maxSlope=".01" />
+			</instance>
+		</BFBinder>
+	</binder>
+</BFTypedBinder>

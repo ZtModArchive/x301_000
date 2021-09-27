@@ -1,0 +1,104 @@
+<UILayout name="Family Member Entry">
+   <UIRegion x="0" y="0" w="270" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+   <UIState active="normal" visible="normal"/>
+   <UIAspect>
+      <default image="ui/shared/white1x1.dds">
+         <BFColor r="0" g="0" b="0" a="255"/>
+      </default>
+   </UIAspect>
+   <children>
+      <UILayout name="border">
+         <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+         <UIState visible="hidden"/>
+         <children>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="0" h="1" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIAspect>
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="-1" y="0" w="1" h="0" xalign="max" yalign="min" walign="len" halign="max"/>
+               <UIAspect>
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="-1" w="0" h="1" xalign="min" yalign="max" walign="max" halign="len"/>
+               <UIAspect>
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIStatic>
+               <UIRegion x="0" y="0" w="1" h="0" xalign="min" yalign="min" walign="len" halign="max"/>
+               <UIAspect>
+                  <default image="ui/shared/white1x1.dds">
+                     <BFColor r="0" g="255" b="0" a="255"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+         </children>
+      </UILayout>
+      <UIStatic name="icon">
+         <UIRegion x="0" y="0" w="32" h="32" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect alwayshit="never">
+            <default>
+               <BFRect x="0" y="0" w="64" h="64"/>
+            </default>
+         </UIAspect>
+      </UIStatic>
+      <UIText name="name">
+         <UIRegion x="34" y="0" w="200" h="16" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect alwayshit="never">
+            <default>
+               <BFFont>
+                  <BFColor r="255" g="255" b="255" a="255"/>
+               </BFFont>
+            </default>
+         </UIAspect>
+         <text format="entityname:format"/>
+      </UIText>
+      <UIText name="relation">
+         <UIRegion x="34" y="16" w="200" h="16" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIState active="normal" visible="normal"/>
+         <UIAspect alwayshit="never">
+            <default>
+               <BFFont>
+                  <BFColor r="128" g="255" b="128" a="255"/>
+               </BFFont>
+            </default>
+         </UIAspect>
+         <text format="entityname:format"/>
+      </UIText>
+      <UIHoverButton name="action">
+         <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+         <UIAspect alwayshit="always">
+            <default/>
+         </UIAspect>
+         <enter>
+            <event msg="UI_CHILD" data="UIChildData" name="border">
+               <child msg="UI_SHOW"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="icon">
+               <child msg="UI_SET_SRC_RECT" data="BFRect" x="0" y="64" w="64" h="64"/>
+            </event>
+         </enter>
+         <leave>
+            <event msg="UI_CHILD" data="UIChildData" name="border">
+               <child msg="UI_HIDE"/>
+            </event>
+            <event msg="UI_CHILD" data="UIChildData" name="icon">
+               <child msg="UI_SET_SRC_RECT" data="BFRect" x="0" y="0" w="64" h="64"/>
+            </event>
+         </leave>
+      </UIHoverButton>
+   </children>
+</UILayout>

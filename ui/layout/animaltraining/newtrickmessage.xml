@@ -1,0 +1,98 @@
+<UILayout>
+   <UIRegion x="0" y="0" w="1024" h="768" xalign="min" yalign="min" walign="len" halign="len"/>
+   <children>
+      <UILayout name="new trick message layout" template="blank">
+         <UIRegion x="360" y="175" w="300" h="275" xalign="min" yalign="min" walign="len" halign="len"/>
+         <UIAspect>
+            <default image=""/>
+         </UIAspect>
+         <UIState active="normal" visible="hidden"/>
+         <children>
+            <UILayout name="header template" template="header">
+               <UIRegion x="0" y="0" w="0" h="35" xalign="min" yalign="min" walign="max" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default image="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UIText name="new trick layout label">
+               <UIRegion x="5" y="6" w="290" h="25" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect locid="training:new_trick_layout_label">
+                  <default image="" sound="">
+                     <BFFont/>
+                  </default>
+                  <standard>
+                     <normal/>
+                  </standard>
+               </UIAspect>
+               <UIHotKeys/>
+            </UIText>
+            <UIButton name="close panel">
+               <UIRegion x="-42" y="-4" w="45" h="45" xalign="max" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIHelpInfo name="" short="" long="" help="" ids="zoostatus:close"/>
+               <UIAspect string="">
+                  <default image="ui\shared\button_close.dds" sound="">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="255" g="255" b="255" a="255"/>
+                  </default>
+                  <standard>
+                     <normal>
+                        <BFRect x="0" y="0" w="64" h="64"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="0" y="64" w="64" h="64"/>
+                     </highlighted>
+                     <activated sound="">
+                        <BFRect x="64" y="0" w="64" h="64"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="64" y="64" w="64" h="64"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <UIHotKeys/>
+               <activate>
+                  <event msg="UI_CHILD" data="UIChildData" name="new trick message layout">
+                     <child msg="UI_HIDE"/>
+                  </event>
+               </activate>
+            </UIButton>
+            <UIText name="new trick message">
+               <UIRegion x="5" y="40" w="290" h="60" xalign="min" yalign="min" walign="len" halign="len"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect locid="">
+                  <default image="" sound="">
+                     <BFFont align="center"/>
+                  </default>
+                  <standard>
+                     <normal/>
+                  </standard>
+               </UIAspect>
+               <UIHotKeys/>
+               <text format="training:new_trick_format" type="multi"/>
+            </UIText>
+            <UILayout name="panel well template" template="panelwell">
+               <UIRegion x="5" y="105" w="-5" h="-5" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIState active="normal" visible="normal"/>
+               <UIAspect>
+                  <default image="">
+                     <BFRect x="0" y="0" w="-" h="-1"/>
+                  </default>
+               </UIAspect>
+            </UILayout>
+            <UIListBox name="new trick message master listbox" template="listbox" columns="1" rows="-1" yspacer="0">
+               <UIRegion x="2" y="108" w="-7" h="-7" xalign="min" yalign="min" walign="max" halign="max"/>
+               <colors>
+                  <BFColor r="45" g="70" b="115" a="255"/>
+                  <BFColor r="45" g="40" b="100" a="255"/>
+               </colors>
+               <children/>
+            </UIListBox>
+         </children>
+      </UILayout>
+   </children>
+</UILayout>

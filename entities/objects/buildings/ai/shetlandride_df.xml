@@ -1,0 +1,104 @@
+<BFTypedBinder binderType="shetlandride_df">
+   <types>
+      <entity>
+         <building>
+            <shetlandride_df/>
+         </building>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="ShadowNode_01"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 -0.001465 0.777570" icon3Dscale="0.102598" dockArrowStyle="special" dockArrowSize="2.0" minimumHeadroom="6.0"/>
+      <UIButton name="overviewicon">
+         <UIAspect>
+            <default image="ui/zoomap/icon_attractions.dds"/>
+         </UIAspect>
+      </UIButton>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities/objects/buildings/PonyRide/PonyRide_df_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:shetlandride"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="shetlandride_df"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities/objects/buildings/PonyRide/PonyRide_df_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="shetlandride_df"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_ObjectType="Misc" b_Researchable="true" s_uisort="fd" b_CommerceBuilding="true" b_DonationAcceptor="false" s_Zoopedia="zoopedia:zoopedia_shetland_pony_ride:entry" f_researchUnlockTime="100" f_researchCost="800" b_wantLifetimeUsers="true" f_FameReq="60"/>
+   		<ZTTourData>
+            <cool value="5"/>
+		   </ZTTourData>       
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/buildings/shetlandride_df/shetlandride_df" />
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFCollisionComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="9" length="9" offwidth="-3" offlength="-0.5" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Pony">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/units/animals/PonyShetland/PonyShetland_Adult_F.bfm" />
+               <BFDistanceCullComponent firstPersonOnly="true" cullDistance="110"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Use_Ride">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="Dock_Young" capacity="1"/>
+               </slots>
+               <queue>
+                  <BFGEntityContainerSlot targetNode="Dock_Young" capacity="5"/>
+               </queue>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFBehaviorMgr behaviorVersion="1" physObj="Pony">
+               <subBehaviors>
+                  <BFBehAnimate interruptible="true" targetAnim="Stand_Barn" interruptFlag="true" loopFlag="true"/>
+               </subBehaviors>
+            </BFBehaviorMgr>
+         </instance>
+      </BFBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="1400">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+               <ZTTransaction name="upkeep" cost="100" period="monthly" type="debit" category="upkeep"/>
+               <ZTTransaction name="Buy_Item" costIndex="1" costChoice="15 30 50" type="debit" category="concessions_gifts"/>
+               <ZTTransaction name="add_user" cost="1" type="addUser" category="user"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

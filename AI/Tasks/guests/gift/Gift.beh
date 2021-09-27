@@ -1,0 +1,748 @@
+<BehaviorSets>
+   <BuyPhoto>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToPhotobooth"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Queue"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:PhotoBeingTaken"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehSyncSet subjectBehSet="GuestGetPhoto" targetBehSet="BuildingTakePhoto" resetPhase="true"/>
+      </behaviors>
+   </BuyPhoto>
+   <GuestGetPhoto>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GettingPhoto"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="PhotoBooth_Idle"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+         <BFBehAttachObject attachEntity="Photo" subjectNode="Bip01 R Finger0" detachAction="inventory" locoMod="carry"/>
+      </behaviors>
+   </GuestGetPhoto>
+   <BuildingTakePhoto>
+      <subjects>
+         <animalphotobooth_df/>
+         <sharkphotobooth_mm/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate physObj="Vendor" targetAnim="Stand_StaffPhotoBooth"/>
+      </behaviors>
+   </BuildingTakePhoto>
+   <UseGiftShop>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToGiftshop"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoingToBuyGift" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehRandomSet>
+            <randomSets>
+               <UseGiftShopTurnLeft weight="50"/>
+               <UseGiftShopTurnRight weight="50"/>
+            </randomSets>
+         </BFBehRandomSet>
+      </behaviors>
+   </UseGiftShop>
+   <BuyGiftCart>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="ZooHat" subjectNode="Bip01 Head" detachAction="inventory" container="head_inventory"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GetZooHat" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyGiftCart>
+   <DockGiftCart>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToGiftcart"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTThoughtInfo locID="guestthoughts:GoingToBuyGift" priority="1" timeout="60" global="false"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehPlaySet behSet="Queue"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:BuyingGift"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehSyncSet subjectBehSet="GuestBuyGiftCart" targetBehSet="GiftCartSellItem"/>
+      </behaviors>
+   </DockGiftCart>
+   <GuestBuyGiftCart>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_ShopGiveMoney"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+      </behaviors>
+   </GuestBuyGiftCart>
+   <GiftCartSellItem>
+      <subjects>
+         <giftcart_df/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate physObj="Vendor" targetAnim="Stand_ShopReceiveItem"/>
+      </behaviors>
+   </GiftCartSellItem>
+   <UseGiftShopTurnRight>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopRight"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+         <BFBehAttachObject attachEntity="ZooHat" subjectNode="Bip01 Head" detachAction="inventory" container="head_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopRight"/>
+      </behaviors>
+   </UseGiftShopTurnRight>
+   <UseGiftShopTurnLeft>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopLeft"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+         <BFBehAttachObject attachEntity="ZooHat" subjectNode="Bip01 Head" detachAction="inventory" container="head_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopLeft"/>
+      </behaviors>
+   </UseGiftShopTurnLeft>
+   <EnterGiftShopLeft>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToGiftshop"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock subjectNode="Bip01" targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnLeft90"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:BuyingGift"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnLeft90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehHide minTime="4" maxTime="8"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+         <BFBehScript context="behavior" file="scripts/kickoffanim.lua" function="kickoffanim"/>
+      </behaviors>
+   </EnterGiftShopLeft>
+   <ExitGiftShopLeft>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnRight90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnRight90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+      </behaviors>
+   </ExitGiftShopLeft>
+   <EnterGiftShopRight>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToGiftshop"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock subjectNode="Bip01" targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnRight90"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:BuyingGift"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnRight90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehHide minTime="4" maxTime="8"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+         <BFBehScript context="behavior" file="scripts/kickoffanim.lua" function="kickoffanim"/>
+      </behaviors>
+   </EnterGiftShopRight>
+   <ExitGiftShopRight>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnLeft90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnLeft90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+      </behaviors>
+   </ExitGiftShopRight>
+   <EnterGiftShopLeft>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToGiftshop"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock subjectNode="Bip01" targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnRight90"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:BuyingGift"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnRight90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehHide minTime="4" maxTime="8"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+         <BFBehScript context="behavior" file="scripts/kickoffanim.lua" function="kickoffanim"/>
+      </behaviors>
+   </EnterGiftShopLeft>
+   <ExitGiftShopLeft>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnLeft90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnLeft90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+      </behaviors>
+   </ExitGiftShopLeft>
+   <EnterGiftShopRight>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:GoingToGiftshop"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehDock subjectNode="Bip01" targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnRight90"/>
+         <ZTBehFeedback>
+            <ZTFeedbackData>
+               <ZTActionInfo locID="guestactions:BuyingGift"/>
+            </ZTFeedbackData>
+         </ZTBehFeedback>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnRight90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehHide minTime="4" maxTime="8"/>
+         <ZTBehEconomy transactionName="Buy_Item"/>
+         <BFBehScript context="behavior" file="scripts/kickoffanim.lua" function="kickoffanim"/>
+      </behaviors>
+   </EnterGiftShopRight>
+   <ExitGiftShopRight>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnLeft90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Stand_TurnLeft90"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+         <BFBehAnimate targetAnim="Walk_Ahead"/>
+      </behaviors>
+   </ExitGiftShopRight>
+   <BuyBearGrizzlyGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopLeft"/>
+         <BFBehAttachObject attachEntity="BearGrizzly_Gift" subjectNode="Bip01 Spine1" detachAction="inventory" container="fanny_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopLeft"/>
+      </behaviors>
+   </BuyBearGrizzlyGift>
+   <BuyBearPolarGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopRight"/>
+         <BFBehAttachObject attachEntity="BearPolar_Gift" subjectNode="Bip01 Spine1" detachAction="inventory" container="fanny_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopRight"/>
+      </behaviors>
+   </BuyBearPolarGift>
+   <BuyBeaverAmericanGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopLeft"/>
+         <BFBehAttachObject attachEntity="BeaverAmerican_Gift" subjectNode="Bip01 Head" detachAction="inventory" container="head_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopLeft"/>
+      </behaviors>
+   </BuyBeaverAmericanGift>
+   <BuyCamelDromedaryGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/CamelDromedaryGiftAdult.lua" function="CamelDromedaryGiftAdult"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyCamelDromedaryGift>
+   <BuyCamelDromedaryGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/CamelDromedaryGiftYoung.lua" function="CamelDromedaryGiftYoung"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyCamelDromedaryGift>
+   <BuyCheetahGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/CheetahGiftAdult.lua" function="CheetahGiftAdult"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyCheetahGift>
+   <BuyCheetahGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/CheetahGiftYoung.lua" function="CheetahGiftYoung"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyCheetahGift>
+   <BuyChimpanzeeGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopRight"/>
+         <BFBehAttachObject attachEntity="Chimpanzee_Gift" subjectNode="Bip01 Spine3" detachAction="inventory" container="back_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopRight"/>
+      </behaviors>
+   </BuyChimpanzeeGift>
+   <BuyChimpanzeeGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopRight"/>
+         <BFBehAttachObject attachEntity="Chimpanzee_Gift_Adult" subjectNode="Bip01 Spine3" detachAction="inventory" container="back_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopRight"/>
+      </behaviors>
+   </BuyChimpanzeeGift>
+   <BuyCrocodileNileGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="CrocodileNile_Gift" subjectNode="Bip01 Head" detachAction="inventory" container="head_inventory"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyCrocodileNileGift>
+   <BuyElephantAfricanGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopLeft"/>
+         <BFBehAttachObject attachEntity="ElephantAfrican_Gift" subjectNode="Bip01 Head" detachAction="inventory" container="head_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopLeft"/>
+      </behaviors>
+   </BuyElephantAfricanGift>
+   <BuyFlamingoGreaterGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="FlamingoGreater_Gift" subjectNode="Bip01 Spine3" detachAction="inventory" container="back_inventory"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyFlamingoGreaterGift>
+   <BuyFlamingoGreaterGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="FlamingoGreater_Gift_Adult" subjectNode="Bip01 Spine3" detachAction="inventory" container="back_inventory"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyFlamingoGreaterGift>
+   <BuyGazelleThomsonsGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="GazelleThomsons_Gift" subjectNode="Bip01 R Finger0" detachAction="inventory" locoMod="carry"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyGazelleThomsonsGift>
+   <BuyGemsbokGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="Gemsbok_Gift" subjectNode="Bip01 R Finger0" detachAction="inventory" locoMod="carry"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyGemsbokGift>
+   <BuyGiraffeGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="Giraffe_Gift" subjectNode="Bip01 L Finger0" detachAction="inventory" container="lefthand_inventory"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyGiraffeGift>
+   <BuyGorillaMountainGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopLeft"/>
+         <BFBehAttachObject attachEntity="GorillaMountain_Gift" subjectNode="Bip01 Spine3" detachAction="inventory" container="back_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopLeft"/>
+      </behaviors>
+   </BuyGorillaMountainGift>
+   <BuyGorillaMountainGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopLeft"/>
+         <BFBehAttachObject attachEntity="GorillaMountain_Gift_Adult" subjectNode="Bip01 Spine3" detachAction="inventory" container="back_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopLeft"/>
+      </behaviors>
+   </BuyGorillaMountainGift>
+   <BuyHippopotamusGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/HippopotamusGiftAdult.lua" function="HippopotamusGiftAdult"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyHippopotamusGift>
+   <BuyHippopotamusGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/HippopotamusGiftYoung.lua" function="HippopotamusGiftYoung"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyHippopotamusGift>
+   <BuyIbexGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="Ibex_Gift" subjectNode="Bip01 R Finger0" detachAction="inventory" locoMod="carry"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyIbexGift>
+   <BuyJaguarGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/JaguarGiftAdult.lua" function="JaguarGiftAdult"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyJaguarGift>
+   <BuyJaguarGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/JaguarGiftYoung.lua" function="JaguarGiftYoung"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyJaguarGift>
+   <BuyKangarooRedGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="KangarooRed_Gift" subjectNode="Bip01 Spine1" detachAction="inventory" container="fanny_inventory"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyKangarooRedGift>
+   <BuyLemurRingtailedGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="LemurRingtailed_Gift" subjectNode="Bip01 R Finger0" detachAction="inventory" locoMod="carry"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyLemurRingtailedGift>
+   <BuyLeopardSnowGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopRight"/>
+         <BFBehScript context="behavior" file="scripts/LeopardSnowGiftAdult.lua" function="LeopardSnowGiftAdult"/>
+         <BFBehPlaySet behSet="ExitGiftShopRight"/>
+      </behaviors>
+   </BuyLeopardSnowGift>
+   <BuyLeopardSnowGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopRight"/>
+         <BFBehScript context="behavior" file="scripts/LeopardSnowGiftYoung.lua" function="LeopardSnowGiftYoung"/>
+         <BFBehPlaySet behSet="ExitGiftShopRight"/>
+      </behaviors>
+   </BuyLeopardSnowGift>
+   <BuyLionGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="Lion_Gift" subjectNode="Bip01 L Finger0" detachAction="inventory" container="lefthand_inventory"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyLionGift>
+   <BuyMooseGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="Moose_Gift" subjectNode="Bip01 Head" detachAction="inventory" container="head_inventory"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyMooseGift>
+   <BuyOkapiGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopRight"/>
+         <BFBehAttachObject attachEntity="Okapi_Gift" subjectNode="Bip01 Spine1" detachAction="inventory" container="fanny_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopRight"/>
+      </behaviors>
+   </BuyOkapiGift>
+   <BuyOstrichGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/OstrichGiftAdult.lua" function="OstrichGiftAdult"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyOstrichGift>
+   <BuyOstrichGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/OstrichGiftYoung.lua" function="OstrichGiftYoung"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyOstrichGift>
+   <BuyPandaGiantGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopLeft"/>
+         <BFBehAttachObject attachEntity="PandaGiant_Gift" subjectNode="Bip01 Spine3" detachAction="inventory" container="back_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopLeft"/>
+      </behaviors>
+   </BuyPandaGiantGift>
+   <BuyPandaGiantGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopLeft"/>
+         <BFBehAttachObject attachEntity="PandaGiant_Gift_Adult" subjectNode="Bip01 Spine3" detachAction="inventory" container="back_inventory"/>
+         <BFBehPlaySet behSet="ExitGiftShopLeft"/>
+      </behaviors>
+   </BuyPandaGiantGift>
+   <BuyPandaRedGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="EnterGiftShopRight"/>
+         <BFBehAttachObject attachEntity="PandaRed_Gift" subjectNode="Bip01 R Finger0" detachAction="inventory" locoMod="carry"/>
+         <BFBehPlaySet behSet="ExitGiftShopRight"/>
+      </behaviors>
+   </BuyPandaRedGift>
+   <BuyPenguinEmperorGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="PenguinEmperor_Gift" subjectNode="Bip01 R Finger0" detachAction="inventory" locoMod="carry"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyPenguinEmperorGift>
+   <BuyPeafowlCommonGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="PeafowlCommon_Gift" subjectNode="Bip01 Spine3" detachAction="inventory" container="back_inventory"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyPeafowlCommonGift>
+   <BuyPeafowlCommonGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="PeafowlCommon_Gift_Adult" subjectNode="Bip01 Spine3" detachAction="inventory" container="back_inventory"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyPeafowlCommonGift>
+   <BuyRhinocerosBlackGift>
+      <subjects>
+         <Guest/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehAttachObject attachEntity="RhinocerosBlack_Gift" subjectNode="Bip01 Head" detachAction="inventory" container="head_inventory"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyRhinocerosBlackGift>
+   <BuyTigerBengalGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/TigerBengalGiftAdult.lua" function="TigerBengalGiftAdult"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyTigerBengalGift>
+   <BuyTigerBengalGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/TigerBengalGiftYoung.lua" function="TigerBengalGiftYoung"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyTigerBengalGift>
+   <BuyZebraCommonGift>
+      <subjects>
+         <Guest_Adult/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/ZebraCommonGiftAdult.lua" function="ZebraCommonGiftAdult"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyZebraCommonGift>
+   <BuyZebraCommonGift>
+      <subjects>
+         <Guest_Young/>
+      </subjects>
+      <behaviors>
+         <BFBehPlaySet behSet="DockGiftCart"/>
+         <BFBehScript context="behavior" file="scripts/ZebraCommonGiftYoung.lua" function="ZebraCommonGiftYoung"/>
+         <BFBehAnimate targetAnim="Stand_Turn180"/>
+      </behaviors>
+   </BuyZebraCommonGift>
+</BehaviorSets>

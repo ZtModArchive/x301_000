@@ -1,0 +1,137 @@
+<BFTypedBinder binderType="DatePalm_Desert">
+   <types>
+      <entity>
+         <foliage>
+            <tree>
+               <DatePalm_Desert/>
+            </tree>
+         </foliage>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\foliage\DatePalm\DatePalm_Desert_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:DatePalm_Desert"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="DatePalm_Desert"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton>
+         <UIAspect>
+            <default image="entities\objects\foliage\DatePalm\DatePalm_Desert_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="DatePalm_Desert"/>
+         </on>
+      </UIToggleButton>
+      <BFGBiomeData location="desert_northafrica">
+         <desert/>
+      </BFGBiomeData>
+      <BFAIEntityDataShared s_Zoopedia="zoopedia:zoopedia_datepalm:entry" f_FameReq="20" b_ThinTree="true"/>
+      <ZTPlacementData icon3Doffset="0 0 0.197605" icon3Dscale="0.131243" autoFootprint="false" minimumHeadroom="10.0">
+         <cfootprint width="1" height="1"/>
+         <dfootprint width="1" height="1"/>
+      </ZTPlacementData>
+   		<ZTTourData>
+	 			<biome_desert value="3"/>
+		</ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFStaticBlobShadowComponent shadowTexture="world\shadows\blob\square_grad_blob.tga" baseNode="footprint" width="5" minLength="4" maxLength="6" minOffset="0" maxOffset="0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities\objects\foliage\DatePalm\DatePalm_Desert" scale=".70" switch="0 12 24 70"/>
+               <BFTravAnimPathComponent actorfile="entities\objects\foliage\DatePalm\DatePalm_Desert_TAP.bfm"/>
+               <BFMultiGroundFitComponent heightOffset="0.0" forceTopLevel="true"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="ClimbOntoTree1" useBehSet="InTree" exitBehSet="ClimbOffTree1" targetNode="Bip01_DockNode01_BaseA2Branch1AEnd" capacity="1" exclusiveID="Tree1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP_Koala_Groom" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="ClimbOntoTree1" useBehSet="InTree_Groom" exitBehSet="ClimbOffTree1" targetNode="Bip01_DockNode01_BaseA2Branch1AEnd" capacity="1" exclusiveID="Tree1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP_Koala_Sleep" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="ClimbOntoTree1" useBehSet="InTree_Sleep" exitBehSet="ClimbOffTree1" targetNode="Bip01_DockNode01_BaseA2Branch1AEnd" capacity="1" exclusiveID="Tree1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP_Koala_Stimulation" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="ClimbOntoTree1" useBehSet="InTree_Bellow" exitBehSet="ClimbOffTree1" targetNode="Bip01_DockNode01_BaseA2Branch1AEnd" capacity="1" exclusiveID="Tree1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP_Koala_Social" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="ClimbOntoTree1" useBehSet="InTree_Click" exitBehSet="ClimbOffTree1" targetNode="Bip01_DockNode01_BaseA2Branch1AEnd" capacity="1" exclusiveID="Tree1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP_Koala_Sick" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="ClimbOntoTree1" useBehSet="InTree_Sneeze" exitBehSet="ClimbOffTree1" targetNode="Bip01_DockNode01_BaseA2Branch1AEnd" capacity="1" exclusiveID="Tree1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP_Koala_Nurse1" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="ClimbOntoTree1" useBehSet="InTree_Nurse" exitBehSet="ClimbOffTree1" targetNode="Bip01_DockNode01_BaseA2Branch1AEnd" capacity="1" exclusiveID="Tree1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="40">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

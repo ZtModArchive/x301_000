@@ -1,0 +1,82 @@
+<BFTypedBinder binderType="PoleRope" abstract="true">
+   <types>
+      <entity>
+         <enrichment>
+            <stationary_enrichment>
+               <PoleRope/>
+            </stationary_enrichment>
+         </enrichment>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+            <parentObj parent="mainObj" child="Rope" rottype="use" postype="use" attachnode="Link_Rope"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\enrichment\PoleRope\PoleRope_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:PoleRope"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PoleRope"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\enrichment\PoleRope\PoleRope_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="PoleRope"/>
+         </on>
+      </UIToggleButton>      
+      <BFAIEntityDataShared b_Researchable="true" s_uisort="he" s_Zoopedia="zoopedia:zoopedia_polenrope:entry" f_researchUnlockTime="100" f_researchCost="800" f_FameReq="60"/>
+      <ZTPlacementData randomRotate="false" gridSnap="true" autoFootprint="true" terrainFlatten="true" icon3Doffset="0 0 0.115015" icon3Dscale="0.386323" minimumHeadroom="5.0" protectedPlacement="false"/>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="2.5" intensity="1"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/enrichment/PoleRope/PoleRope" switch="0 18 36" minSwitch="0 18 36"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Rope">
+         <instance>
+            <BFPhysObj>
+               <BFActorComponent actorfile="entities/objects/enrichment/PoleRope/Rope.bfm"/>
+               <BFFakePhysicsComponent idleAnim="Stand_Idle" moveAnim="Stand_Swing" escapeAnim="Stand_Idle" slideRate="2.0" maxEscapeTries="5"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Play">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterPoleRope" useBehSet="UsePoleRope_Whap" exitBehSet="ExitPoleRope" targetNode="Node_Attach" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="440">
+               <ZTTransaction name="build" costType="parent" type="debit" category="animal_upkeep"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>

@@ -1,0 +1,217 @@
+<UIWindow templateName="panel_thin">
+   <UIRegion x="18" y="68" w="400" h="118" xalign="min" yalign="min" walign="len" halign="len"/>
+   <decorations>
+      <UISlider name="vscroll" min="0" max="100" inc="15" value="0" span="100">
+         <UIRegion x="-11" y="0" w="0" h="0" xalign="max" yalign="min" walign="max" halign="max"/>
+         <UIAspect alwayshit="true"/>
+         <UIHotKeys>
+            <down code="38" msg="UI_SCROLL" data="BFPoint" y="-1"/>
+            <down code="40" msg="UI_SCROLL" data="BFPoint" y="+1"/>
+         </UIHotKeys>
+         <children>
+            <UIStatic name="background">
+               <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/template/backs/slider_well.dds">
+                     <BFRect x="0" y="4" w="16" h="8"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIPushButton name="slideup">
+               <UIRegion x="1" w="-1" h="21" xalign="min" walign="max"/>
+               <UIAspect>
+                  <default image="ui/shared/button_slide_up.dds"/>
+                  <standard>
+                     <normal>
+                        <BFRect x="6" y="6" w="19" h="19"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="6" y="38" w="19" h="19"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="38" y="6" w="19" h="19"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="38" y="38" w="19" h="19"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <activate>
+                  <event msg="UI_SCROLL" data="BFPoint" y="-1"/>
+               </activate>
+            </UIPushButton>
+            <UIPushButton name="slidedown">
+               <UIRegion x="1" y="-22" w="-1" h="0" xalign="min" yalign="max" walign="max" halign="max"/>
+               <UIAspect>
+                  <default image="ui/shared/button_slide_down.dds"/>
+                  <standard>
+                     <normal>
+                        <BFRect x="6" y="6" w="19" h="19"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="6" y="38" w="19" h="19"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="38" y="6" w="19" h="19"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="38" y="38" w="19" h="19"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <activate>
+                  <event msg="UI_SCROLL" data="BFPoint" y="+1"/>
+               </activate>
+            </UIPushButton>
+            <UIDrag name="thumb">
+               <UIRegion h="10" w="100" walign="% min"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="0" g="0" b="0" a="0"/>
+                  </default>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_MOUSE_DRAG" axis="y"/>
+               </drag>
+               <children>
+                  <UIStatic>
+                     <UIRegion x="2" y="0" w="-2" h="4" xalign="min" yalign="min" walign="max" halign="min"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/template/backs/slider_thumb.dds">
+                           <BFRect x="0" y="0" w="16" h="4"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic>
+                     <UIRegion x="2" y="4" w="-2" h="-4" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/template/backs/slider_thumb.dds">
+                           <BFRect x="0" y="4" w="16" h="8"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic>
+                     <UIRegion x="2" y="-4" w="-2" h="0" xalign="min" yalign="max" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/template/backs/slider_thumb.dds">
+                           <BFRect x="0" y="12" w="16" h="4"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+               </children>
+            </UIDrag>
+         </children>
+         <thumb name="thumb" axis="y">
+            <UIRegion y="21" h="-21" w="100" halign="max" walign="% min"/>
+         </thumb>
+      </UISlider>
+      <UISlider name="hscroll" min="0" max="100" inc="15" value="0" span="100">
+         <UIRegion x="0" y="-11" w="0" h="0" xalign="min" yalign="max" walign="max" halign="max"/>
+         <UIAspect alwayshit="true"/>
+         <UIHotKeys>
+            <down code="37" msg="UI_SCROLL" data="BFPoint" x="-1"/>
+            <down code="39" msg="UI_SCROLL" data="BFPoint" x="+1"/>
+         </UIHotKeys>
+         <children>
+            <UIStatic name="background">
+               <UIRegion x="0" y="0" w="0" h="0" xalign="min" yalign="min" walign="max" halign="max"/>
+               <UIAspect alwayshit="never">
+                  <default image="ui/template/backs/slider_well.dds">
+                     <BFRect x="4" y="0" w="8" h="16"/>
+                  </default>
+               </UIAspect>
+            </UIStatic>
+            <UIPushButton name="slideleft">
+               <UIRegion y="1" w="21" h="-1" halign="max"/>
+               <UIAspect>
+                  <default image="ui/shared/button_slide_left.dds"/>
+                  <standard>
+                     <normal>
+                        <BFRect x="6" y="6" w="19" h="19"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="6" y="38" w="19" h="19"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="38" y="6" w="19" h="19"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="38" y="38" w="19" h="19"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <activate>
+                  <event msg="UI_SCROLL" data="BFPoint" x="-1"/>
+               </activate>
+            </UIPushButton>
+            <UIPushButton name="slideright">
+               <UIRegion x="-22" y="1" w="0" h="-1" xalign="max" yalign="min" walign="max" halign="max"/>
+               <UIAspect>
+                  <default image="ui/shared/button_slide_right.dds"/>
+                  <standard>
+                     <normal>
+                        <BFRect x="6" y="6" w="19" h="19"/>
+                     </normal>
+                     <highlighted>
+                        <BFRect x="6" y="38" w="19" h="19"/>
+                     </highlighted>
+                     <activated>
+                        <BFRect x="38" y="6" w="19" h="19"/>
+                     </activated>
+                     <disabled>
+                        <BFRect x="38" y="38" w="19" h="19"/>
+                     </disabled>
+                  </standard>
+               </UIAspect>
+               <activate>
+                  <event msg="UI_SCROLL" data="BFPoint" x="+1"/>
+               </activate>
+            </UIPushButton>
+            <UIDrag name="thumb">
+               <UIRegion w="10" h="100" halign="% min"/>
+               <UIAspect alwayshit="true">
+                  <default image="ui/shared/white1x1.dds">
+                     <BFRect x="0" y="0" w="-1" h="-1"/>
+                     <BFColor r="0" g="0" b="0" a="0"/>
+                  </default>
+               </UIAspect>
+               <drag>
+                  <UIDragCommand msg="UI_MOUSE_DRAG" axis="x"/>
+               </drag>
+               <children>
+                  <UIStatic>
+                     <UIRegion x="0" y="2" w="4" h="-2" xalign="min" yalign="min" walign="min" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/template/backs/slider_thumb.dds">
+                           <BFRect x="0" y="0" w="4" h="16"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic>
+                     <UIRegion x="4" y="2" w="-4" h="-2" xalign="min" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/template/backs/slider_thumb.dds">
+                           <BFRect x="4" y="0" w="8" h="16"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+                  <UIStatic>
+                     <UIRegion x="-4" y="2" w="0" h="-2" xalign="max" yalign="min" walign="max" halign="max"/>
+                     <UIAspect alwayshit="never">
+                        <default image="ui/template/backs/slider_thumb.dds">
+                           <BFRect x="12" y="0" w="4" h="16"/>
+                        </default>
+                     </UIAspect>
+                  </UIStatic>
+               </children>
+            </UIDrag>
+         </children>
+         <thumb name="thumb" axis="x">
+            <UIRegion x="21" w="-21" h="100" walign="max" halign="% min"/>
+         </thumb>
+      </UISlider>
+   </decorations>
+   <hscroll name="hscroll"/>
+   <vscroll name="vscroll"/>
+</UIWindow>

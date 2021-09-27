@@ -1,0 +1,26 @@
+<BFTypedBinder binderType="Terrain_Water" abstract="true">
+   <types>
+      <entity>
+         <food>
+            <TerrainFood>
+               <Terrain_Water/>
+            </TerrainFood>
+         </food>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image=""/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Terrain_Water"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Terrain_Water"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared s_FoodType="Water"/>
+   </shared>
+</BFTypedBinder>

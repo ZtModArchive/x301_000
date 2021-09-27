@@ -1,0 +1,35 @@
+<BFTypedBinder binderType="Trash">
+   <types>
+      <entity>
+         <item>
+            <Trash/>
+         </item>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1"/>
+   </instance>
+   <shared>
+      <BFGCollisionData isPassable="true"/>
+      <ZTPlacementData deletable="false"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="UI/infopan/icon_Trash.dds"/>
+         </UIAspect>
+         <UIHelpInfo ids="entityname:TrashGround"/>
+      </UIToggleButton>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent isBFR="true" modelfile="entities/objects/Items/Trash/Trash" scale="1.0" switch="0 36"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+         <shared>
+            <BFSharedPhysVars minDrawSetting="1"/>
+         </shared>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

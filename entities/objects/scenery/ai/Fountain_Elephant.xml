@@ -1,0 +1,93 @@
+<BFTypedBinder binderType="Fountain_Elephant">
+   <types>
+      <entity>
+         <scenery>
+            <Fountain>
+               <Fountain_Elephant/>
+            </Fountain>
+         </scenery>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <ZTPlacementData icon3Doffset="0 0 0.710518" icon3Dscale="0.163893" minimumHeadroom="8.0"/>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\scenery\Fountain_Elephant\Fountain_Elephant_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Fountain_Elephant"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Fountain_Elephant"/>
+         </on>
+      </UIToggleButton>
+      <UIToggleButton template="researchentity">
+         <UIAspect>
+            <default image="entities\objects\scenery\Fountain_Elephant\Fountain_Elephant_icon.dds"/>
+         </UIAspect>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Fountain_Elephant"/>
+         </on>
+      </UIToggleButton>
+      <BFAIEntityDataShared b_Researchable="true" s_Theme="default" f_FameReq="20" s_uisort="p" s_Zoopedia="zoopedia:zoopedia_fountains:entry" f_researchUnlockTime="60" f_researchCost="400"/>
+   		<ZTTourData>
+	 				<fountain value="3"/>
+		</ZTTourData>
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\square_blob2.tga" baseNode="footprint" width="10" length="15" offwidth="1" offlength="1" intensity="0.3"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSimpleLODComponent modelfile="entities/objects/scenery/Fountain_Elephant/Fountain_Elephant.nif"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+               <BFHasParticleComponent/>
+               <BFForceUpdateWhenVisibleComponent/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="400">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="LookAtFountain">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_01" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_02" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_03" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_04" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_05" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_06" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_07" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_08" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_09" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_10" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_11" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_12" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_13" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_14" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_15" capacity="1"/>
+                  <BFGEntityContainerSlot targetNode="Dock_Adult_16" capacity="1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+   </binder>
+</BFTypedBinder>

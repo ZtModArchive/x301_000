@@ -1,0 +1,140 @@
+<BFTypedBinder binderType="Rock_Tundra_Medium_A">
+   <types>
+      <entity>
+         <rock>
+            <Rock_Tundra_Medium_A/>
+         </rock>
+      </entity>
+   </types>
+   <instance>
+      <BFGEntity entityVersion="1">
+         <physObjParenting>
+            <parentObj parent="mainObj" child="shadowObj" rottype="use" postype="ignore" attachnode="link"/>
+         </physObjParenting>
+      </BFGEntity>
+   </instance>
+   <shared>
+      <UIToggleButton template="adopt">
+         <UIAspect>
+            <default image="entities\objects\rocks\tundra\Rock_Tundra_Medium_icon.dds"/>
+         </UIAspect>
+         <UIHelpInfo name="" short="" long="" help="" ids="entityname:Rock_Tundra_Medium_A"/>
+         <on>
+            <event msg="ZT_SETPLACEMENTOBJECT" data="BFString" string="Rock_Tundra_Medium_A"/>
+         </on>
+      </UIToggleButton>
+      <ZTPlacementData icon3Doffset="0 0 0.646742" icon3Dscale="0.214011" terrainFlatten="true" minimumHeadroom="4.0">
+         <!--check rock.xml for other placement data-->
+      </ZTPlacementData>
+      <BFAIEntityDataShared f_FameReq="60" b_MediumRock="true" b_ScentMarkable="true" s_Zoopedia="zoopedia:zoopedia_tundrarocks:entry"/>
+      <BFGBiomeData location="tundra_worldwide">
+         <tundra/>
+      </BFGBiomeData>
+      <BFGInfluenceComponent defaultRadius="15.0" defaultGroupFactor="30.0" defaultRadiusDropoff="linear" defaultGroupDropoff="linear">
+         <biome/>
+         <location/>
+      </BFGInfluenceComponent>
+   		<ZTTourData>
+	 				<biome_tundra value="2"/>
+			</ZTTourData>  
+   </shared>
+   <binder>
+      <BFNamedBinder binderName="shadowObj">
+         <instance>
+            <BFPhysObj>
+               <BFMovingBlobShadowComponent shadowTexture="world\shadows\blob\round_blob.tga" baseNode="footprint" width="8" minLength="8" maxLength="14" minOffset="0" maxOffset="2"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="mainObj">
+         <instance>
+            <BFPhysObj>
+               <BFSceneGraphComponent modelfile="entities/objects/rocks/tundra/Rock_Tundra_Medium_A.nif" scale=".7"/>
+               <BFTravAnimPathComponent actorfile="entities/objects/rocks/tundra/Rock_Tundra_Medium_A_TAP.bfm"/>
+               <BFGroundFitComponent heightOffset="0.0"/>
+            </BFPhysObj>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder required="1">
+         <instance>
+            <BFAIEntityDataInstance b_ScentEmitter="false"/>
+         </instance>
+      </BFBinder>
+      <BFNamedBinder binderName="MarkScent" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterRockMarkScent1" useBehSet="ScentMark" exitBehSet="ExitRockMarkScent1" targetNode="Dock_Mark_Adult" exclusiveID="Rock_Tundra_Medium_2"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="Sniff" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterRockSniff1" useBehSet="SniffRock" exitBehSet="ExitRockSniff1" targetNode="Dock_Mark_Adult" exclusiveID="Rock_Tundra_Medium_2"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock1" useBehSet="UseRock" exitBehSet="ExitRock1" targetNode="Rock_EnterA" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock2" useBehSet="UseRock" exitBehSet="ExitRock2" targetNode="Rock_EnterB" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock3" useBehSet="UseRock" exitBehSet="ExitRock3" targetNode="Rock_EnterC" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock4" useBehSet="UseRock" exitBehSet="ExitRock4" targetNode="Rock_EnterD" exclusiveID="Rock_Tundra_Medium_2"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock5" useBehSet="UseRock" exitBehSet="ExitRock5" targetNode="Rock_EnterE" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock6" useBehSet="UseRock" exitBehSet="ExitRock6" targetNode="Rock_EnterF" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock7" useBehSet="UseRock" exitBehSet="ExitRock7" targetNode="Rock_EnterG" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock8" useBehSet="UseRock" exitBehSet="ExitRock8" targetNode="Rock_EnterH" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock9" useBehSet="UseRock" exitBehSet="ExitRock9" targetNode="Rock_EnterI" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock10" useBehSet="UseRock" exitBehSet="ExitRock10" targetNode="Rock_EnterJ" exclusiveID="Rock_Tundra_Medium_1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP_BearPolar_Adult" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock1" useBehSet="UseRock" exitBehSet="ExitRock1" targetNode="Rock_EnterA" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock2" useBehSet="UseRock" exitBehSet="ExitRock2" targetNode="Rock_EnterB" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock3" useBehSet="UseRock" exitBehSet="ExitRock3" targetNode="Rock_EnterC" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock5" useBehSet="UseRock" exitBehSet="ExitRock5" targetNode="Rock_EnterE" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock6" useBehSet="UseRock" exitBehSet="ExitRock6" targetNode="Rock_EnterF" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock7" useBehSet="UseRock" exitBehSet="ExitRock7" targetNode="Rock_EnterG" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock8" useBehSet="UseRock" exitBehSet="ExitRock8" targetNode="Rock_EnterH" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock9" useBehSet="UseRock" exitBehSet="ExitRock9" targetNode="Rock_EnterI" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock10" useBehSet="UseRock" exitBehSet="ExitRock10" targetNode="Rock_EnterJ" exclusiveID="Rock_Tundra_Medium_1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFNamedBinder binderName="TAP_Komodo" repopulateMethod="byName">
+         <instance>
+            <BFGEntityContainer>
+               <slots>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock3" useBehSet="UseRock" exitBehSet="ExitRock3" targetNode="Rock_EnterC" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock5" useBehSet="UseRock" exitBehSet="ExitRock5" targetNode="Rock_EnterE" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock6" useBehSet="UseRock" exitBehSet="ExitRock6" targetNode="Rock_EnterF" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock7" useBehSet="UseRock" exitBehSet="ExitRock7" targetNode="Rock_EnterG" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock8" useBehSet="UseRock" exitBehSet="ExitRock8" targetNode="Rock_EnterH" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock9" useBehSet="UseRock" exitBehSet="ExitRock9" targetNode="Rock_EnterI" exclusiveID="Rock_Tundra_Medium_1"/>
+                  <BFGEntityContainerSlot enterBehSet="EnterRock10" useBehSet="UseRock" exitBehSet="ExitRock10" targetNode="Rock_EnterJ" exclusiveID="Rock_Tundra_Medium_1"/>
+               </slots>
+            </BFGEntityContainer>
+         </instance>
+      </BFNamedBinder>
+      <BFBinder>
+         <instance>
+            <ZTEconomyComponent cost="40">
+               <ZTTransaction name="build" costType="parent" type="debit" category="construction"/>
+               <ZTTransaction name="destroy" cost="80" costType="%parent" type="credit" category="recycling"/>
+            </ZTEconomyComponent>
+         </instance>
+      </BFBinder>
+   </binder>
+</BFTypedBinder>
